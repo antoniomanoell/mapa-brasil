@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
 - Data: 2026-10-20
-- Versão do pipeline: `9c0ea26-dirty`
+- Versão do pipeline: `3f89ca0`
 - Escopo: completo
 - Resultado: OK
 
