@@ -1,0 +1,25 @@
+# Valores divulgados oficialmente, para conferir a saída do pipeline (PROJECT.md, seção 8, item 5).
+# Cada referência traz a URL de onde o valor foi tirado. `medida: contagem` compara com o
+# numerador (`n`) em vez da taxa (ver DECISIONS.md).
+referencias:
+  # --- homicidios: Atlas da Violência 2026 (IPEA/FBSP), Tabela 2.2, p. 17 ---
+  - {indicador: homicidios, subindicador: principal, segmento: sim, geo: BR, ano: 2024, valor: 42590, medida: contagem, tolerancia: 0, url: "https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc"}
+  - {indicador: homicidios, subindicador: principal, segmento: sim, geo: BR, ano: 2014, valor: 60474, medida: contagem, tolerancia: 0, url: "https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc"}
+  - {indicador: homicidios, subindicador: principal, segmento: sim, geo: "28", ano: 2024, valor: 526, medida: contagem, tolerancia: 0, url: "https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc"}
+  - {indicador: homicidios, subindicador: principal, segmento: sim, geo: "16", ano: 2023, valor: 516, medida: contagem, tolerancia: 0, url: "https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc"}
+  - {indicador: homicidios, subindicador: principal, segmento: sim, geo: "35", ano: 2014, valor: 6185, medida: contagem, tolerancia: 0, url: "https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc"}
+  - {indicador: homicidios, subindicador: principal, segmento: sim, geo: "14", ano: 2018, valor: 414, medida: contagem, tolerancia: 0, url: "https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc"}
+
+  # --- idhm, segmento PNADC: PNUD, notas de 26/05/2026 sobre o Radar IDHM 2012–2024 ---
+  - {indicador: idhm, subindicador: geral, segmento: pnadc, geo: BR, ano: 2024, valor: 0.805, tolerancia: 0.0005, url: "https://www.undp.org/pt/brazil/press-releases/brasil-alcanca-pela-primeira-vez-patamar-de-muito-alto-desenvolvimento-humano-aponta-pnud"}
+  - {indicador: idhm, subindicador: geral, segmento: pnadc, geo: BR, ano: 2012, valor: 0.744, tolerancia: 0.0005, url: "https://www.undp.org/pt/brazil/news/educacao-longevidade-e-retomada-da-renda-impulsionam-avanco-do-idhm-brasileiro"}
+  - {indicador: idhm, subindicador: educacao, segmento: pnadc, geo: BR, ano: 2012, valor: 0.679, tolerancia: 0.0005, url: "https://www.undp.org/pt/brazil/news/educacao-longevidade-e-retomada-da-renda-impulsionam-avanco-do-idhm-brasileiro"}
+  - {indicador: idhm, subindicador: educacao, segmento: pnadc, geo: BR, ano: 2024, valor: 0.798, tolerancia: 0.0005, url: "https://www.undp.org/pt/brazil/news/educacao-longevidade-e-retomada-da-renda-impulsionam-avanco-do-idhm-brasileiro"}
+  - {indicador: idhm, subindicador: longevidade, segmento: pnadc, geo: BR, ano: 2024, valor: 0.860, tolerancia: 0.0005, url: "https://www.undp.org/pt/brazil/news/educacao-longevidade-e-retomada-da-renda-impulsionam-avanco-do-idhm-brasileiro"}
+  - {indicador: idhm, subindicador: renda, segmento: pnadc, geo: BR, ano: 2012, valor: 0.732, tolerancia: 0.0005, url: "https://www.undp.org/pt/brazil/news/educacao-longevidade-e-retomada-da-renda-impulsionam-avanco-do-idhm-brasileiro"}
+  - {indicador: idhm, subindicador: renda, segmento: pnadc, geo: BR, ano: 2024, valor: 0.760, tolerancia: 0.0005, url: "https://www.undp.org/pt/brazil/news/educacao-longevidade-e-retomada-da-renda-impulsionam-avanco-do-idhm-brasileiro"}
+
+  # --- renda_pc: IBGE, informativo "Rendimento de todas as fontes 2025" (PNAD Contínua), p. 13, a preços médios de 2025 ---
+  - {indicador: renda_pc, subindicador: principal, segmento: pnadc, geo: BR, ano: 2025, valor: 2264, tolerancia: 0.5, url: "https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf"}
+  - {indicador: renda_pc, subindicador: principal, segmento: pnadc, geo: BR, ano: 2024, valor: 2118, tolerancia: 0.5, url: "https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf"}
+  - {indicador: renda_pc, subindicador: principal, segmento: pnadc, geo: BR, ano: 2019, valor: 1904, tolerancia: 0.5, url: "https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf"}

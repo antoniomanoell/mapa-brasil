@@ -5,6 +5,7 @@ description = "Pipeline de dados do Indicadores BR"
 requires-python = ">=3.12"
 dependencies = [
     "httpx>=0.28.1",
+    "openpyxl>=3.1.5",
     "polars>=2.0.0",
     "pydantic>=2.14.1",
     "pyyaml>=6.0.3",

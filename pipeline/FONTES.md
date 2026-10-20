@@ -33,6 +33,8 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 - O formulário diz: "Dados de 2025 - Preliminares - data de extração 28/07/2026". **Último ano consolidado: 2024.**
 - Conferência: o total de 2024 pela consulta acima (42.590) é igual ao número de homicídios do
   Atlas da Violência 2026 (IPEA/FBSP, 26/05/2026). Isso confirma a definição X85–Y09 + Y35–Y36 por residência.
+- O Atlas da Violência 2026 traz, na Tabela 2.2 (p. 17), as contagens por UF de 2014 a 2024, e as
+  usamos na conferência: https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc
 - As **taxas** do Atlas usam outra série de população: com a revisão 2024 dá AP 45,2 contra 45,7 no
   Atlas, e BR 20,0 contra 20,1. SP, SC, DF e MG coincidem na 1ª casa decimal.
 
@@ -48,6 +50,12 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
   - 27 UFs, de 2012 a 2024, sem lacunas. A aba `Total B` tem conteúdo idêntico (motivo não documentado).
   - Os metadados (`.../adh_radar_metadados_2012_2024.xlsx`) dizem: visita 1 da PNADC em 2012–2019 e 2023;
     **visita 5 em 2020 e 2021**.
+- Valores do Brasil publicados pelo PNUD e usados na conferência: 2012 = 0,744 e 2024 = 0,805 (geral);
+  Educação 0,679 → 0,798; Longevidade 2024 = 0,860; Renda 0,732 → 0,760.
+  Fontes: https://www.undp.org/pt/brazil/news/educacao-longevidade-e-retomada-da-renda-impulsionam-avanco-do-idhm-brasileiro
+  e https://www.undp.org/pt/brazil/press-releases/brasil-alcanca-pela-primeira-vez-patamar-de-muito-alto-desenvolvimento-humano-aponta-pnud
+- **Pendente:** falta conferência independente do segmento Censo (2000, 2010). Os PDFs de terceiros
+  encontrados não abriram, e não há referência verificada.
 - Publicação: "Radar IDHM: evolução do IDHM e de seus componentes — 2012 a 2024", PNUD, 26/05/2026,
   `https://www.undp.org/pt/brazil/publications/radar-idhm-evolucao-do-idhm-e-de-seus-componentes-periodo-de-2012-2024`
 
@@ -58,6 +66,12 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
   - Variável 10816 (valor, R$) e 10817 (CV, %). Classificação 1019, categoria 49243 = Total.
   - Níveis N1, N2 e N3 (UF); anos 2012–2025.
 - Tabela 7531: o mesmo a preços médios **do ano** (nominal), caso o deflacionamento seja feito pelo projeto.
+- Informativo "Rendimento de todas as fontes 2025" (IBGE), na mesma série da 7533:
+  `https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf`
+  - Deflator: **IPCA** (p. 1). Brasil a preços de 2025: 2019 = 1.904, 2024 = 2.118, 2025 = 2.264 (p. 13).
+  - Visitas: **5ª visita em 2020–2022**; 1ª nos demais anos (notas das pp. 5, 7 e 10).
+- **Atenção:** o IBGE divulga outro número, a "renda domiciliar per capita" para o FPE (R$ 2.316 em
+  2025, nominal, release de 27/02/2026). É outro produto. Não confundir com a 7533.
 
 **IBGE — PNAD anual 2001–2015 (SIDRA, pesquisa `PD`)**
 - **Não há** tabela de rendimento domiciliar *per capita* médio por UF. As tabelas existentes trazem

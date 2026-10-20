@@ -1,8 +1,26 @@
-# Arquivos baixados à mão quando não há API (PROJECT.md, seção 6.2).
-# Cada entrada: caminho relativo a raw_manual/, URL de origem, data de download e sha256.
+# Arquivos de fonte sem API (PROJECT.md, seção 6.2). Os arquivos em si não vão para o git: o
+# par URL + sha256 garante a reprodutibilidade.
 #
-# - arquivo: atlas_idhm/exemplo.xlsx
-#   url: https://...
-#   baixado_em: AAAA-MM-DD
-#   sha256: <hash>
-arquivos: []
+# Campos: arquivo (relativo a raw_manual/), url, baixado_em, sha256, descricao (opcional),
+# automatico (true = URL de download direto; o pipeline baixa sozinho se faltar).
+arquivos:
+  - arquivo: ibge_projecoes/projecoes_2024_tab4_indicadores.xlsx
+    url: https://ftp.ibge.gov.br/Projecao_da_Populacao/Projecao_da_Populacao_2024/projecoes_2024_tab4_indicadores.xlsx
+    baixado_em: 2026-10-20
+    sha256: 0169644992d15a122bc14e42b07d40a3e01fe27303ed2d87cf54fa1f64f00fbc
+    descricao: IBGE, Projeções da População, Revisão 2024 — indicadores implícitos (Last-Modified 2024-08-22)
+    automatico: true
+
+  - arquivo: atlas_idhm/censo_total_1991_2010.xlsx
+    url: https://www.atlasbrasil.org.br/cockpit/storage/uploads/dados/censo_total_1991_2010.xlsx
+    baixado_em: 2026-10-20
+    sha256: a7046af2c47fe5a07ae474495f2941c6135a009de38bf40a4a90876498bb6602
+    descricao: Atlas Brasil (PNUD/IPEA/FJP), base censitária 1991/2000/2010 (Last-Modified 2026-06-18)
+    automatico: true
+
+  - arquivo: atlas_idhm/adh_radar_base_2012_2024.xlsx
+    url: https://www.atlasbrasil.org.br/cockpit/storage/uploads/dados/adh_radar_base_2012_2024.xlsx
+    baixado_em: 2026-10-20
+    sha256: 0e92237b49410e56d430bad4ea0d50f8544342540b26825b62e3ce105ef71d08
+    descricao: Atlas Brasil, Radar IDHM (PNAD Contínua) 2012–2024 (Last-Modified 2026-06-18)
+    automatico: true

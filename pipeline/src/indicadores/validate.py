@@ -6,6 +6,7 @@ Erros fazem o build falhar; alertas vão para o REPORT.md para revisão humana.
 from dataclasses import dataclass, field
 from datetime import date
 from pathlib import Path
+from typing import Literal
 
 import yaml
 
@@ -41,6 +42,8 @@ class Referencia:
     valor: float
     url: str
     tolerancia: float = TOLERANCIA_PADRAO
+    # "valor" compara com `Ponto.v`; "contagem", com o numerador `Ponto.n`.
+    medida: Literal["valor", "contagem"] = "valor"
 
 
 @dataclass
@@ -154,7 +157,9 @@ def _variacao(ind: Indicador, regras: Regras, r: Resultado) -> None:
                 if p is None or p.v is None:
                     anterior = None
                     continue
-                if anterior is not None and anterior[1] != 0:
+                # Só compara pontos próximos (anual ou bienal, como o IDEB). Censos decenais ficam
+                # de fora: uma década de mudança não é "variação ano a ano".
+                if anterior is not None and anterior[1] != 0 and ano - anterior[0] <= 2:
                     var = (p.v - anterior[1]) / abs(anterior[1])
                     if abs(var) > regras.limiar_variacao:
                         r.alertas.append(
@@ -178,20 +183,21 @@ def _conferencia(ind: Indicador, refs: list[Referencia], r: Resultado) -> None:
 
     segs = {(s.subindicador, s.id): s for s in ind.segmentos}
     for ref in refs:
-        onde = f"{ref.subindicador}/{ref.segmento}/{ref.geo}/{ref.ano}"
+        onde = f"{ref.subindicador}/{ref.segmento}/{ref.geo}/{ref.ano} ({ref.medida})"
         seg = segs.get((ref.subindicador, ref.segmento))
         p = seg.valores.get(ref.geo, {}).get(str(ref.ano)) if seg else None
-        if p is None or p.v is None:
+        calculado = (p.n if ref.medida == "contagem" else p.v) if p else None
+        if calculado is None:
             r.erros.append(f"conferência {onde}: sem valor calculado para comparar")
             continue
-        dif = abs(p.v - ref.valor)
+        dif = abs(calculado - ref.valor)
         if dif > ref.tolerancia:
             r.erros.append(
-                f"conferência {onde}: calculado {p.v} ≠ publicado {ref.valor} "
+                f"conferência {onde}: calculado {calculado} ≠ publicado {ref.valor} "
                 f"(dif. {dif:.4g} > {ref.tolerancia})"
             )
         else:
-            r.conferencias.append(f"{onde}: {p.v} ≈ {ref.valor} ✓ ({ref.url})")
+            r.conferencias.append(f"{onde}: {calculado} ≈ {ref.valor} ✓ ({ref.url})")
 
 
 def _ultimo_ano_br(ind: Indicador) -> tuple[str, str, int] | None:

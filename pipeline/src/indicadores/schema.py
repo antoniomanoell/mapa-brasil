@@ -28,6 +28,8 @@ class Ponto(Modelo):
     """Valor de uma geografia num ano. `v=None` exige `lacuna` com o motivo."""
 
     v: float | None
+    # Numerador em contagem absoluta, quando o projeto calcula a taxa (ex.: nº de homicídios).
+    n: float | None = None
     cv: float | None = None
     ic: tuple[float, float] | None = None
     flags: list[Flag] = Field(default_factory=list)

@@ -1,5 +1,5 @@
 from indicadores.schema import Flag, Ponto
-from indicadores.validate import Referencia, validar
+from indicadores.validate import Referencia, Regras, validar
 from tests.conftest import HOJE, indicador, refs_validas, segmento
 
 
@@ -90,3 +90,28 @@ def test_conferencia_divergente(regras):
     errada = Referencia(**{**r0.__dict__, "valor": r0.valor + 1})
     res = validar(ind, regras, [errada, *refs[1:]], HOJE)
     assert any("≠ publicado" in e for e in res.erros)
+
+
+def test_conferencia_por_contagem(regras):
+    seg = segmento("a", [2001, 2002, 2003])
+    valores = {
+        g: {a: p.model_copy(update={"n": 100.0}) for a, p in s.items()}
+        for g, s in seg.valores.items()
+    }
+    ind = indicador([seg.model_copy(update={"valores": valores})])
+    refs = [
+        Referencia(**{**r.__dict__, "valor": 100.0, "medida": "contagem"})
+        for r in refs_validas(ind)
+    ]
+    assert validar(ind, regras, refs, HOJE).ok
+    errada = Referencia(**{**refs[0].__dict__, "valor": 101.0, "tolerancia": 0})
+    res = validar(ind, regras, [errada, *refs[1:]], HOJE)
+    assert any("(contagem)" in e and "≠ publicado" in e for e in res.erros)
+
+
+def test_variacao_ignora_intervalo_decenal(regras):
+    seg = segmento("a", [2000, 2010])
+    seg = _trocar_ponto(seg, "14", 2010, Ponto(v=90.0))
+    regras_largas = Regras(faixa=(0, 100), limiar_variacao=0.5, metodologias={"a": (1991, 2010)})
+    res = validar(indicador([seg]), regras_largas, [], HOJE)
+    assert not res.alertas
