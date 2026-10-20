@@ -25,6 +25,16 @@ class Execucao:
         return all(r.ok for _, r in self.resultados.values())
 
 
+# O que determina a saída do build. O REPORT.md e os dados publicados não entram.
+ENTRADAS_DO_BUILD = [
+    "pipeline/src",
+    "pipeline/pyproject.toml",
+    "pipeline/uv.lock",
+    "pipeline/raw_manual/MANIFEST.yaml",
+    "pipeline/tests/fixtures",
+]
+
+
 def versao_pipeline() -> str:
     try:
         sha = subprocess.run(
@@ -35,7 +45,7 @@ def versao_pipeline() -> str:
             check=True,
         ).stdout.strip()
         sujo = subprocess.run(
-            ["git", "status", "--porcelain", "--", "pipeline"],
+            ["git", "status", "--porcelain", "--", *ENTRADAS_DO_BUILD],
             cwd=RAIZ,
             capture_output=True,
             text=True,
