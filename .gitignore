@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Pipeline: respostas brutas de APIs (não versionar)
+pipeline/cache/
+
+# Node / web
+node_modules/
+web/dist/
+web/test-results/
+web/playwright-report/
+
+# Editores / SO
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,8 @@
+# Arquivos baixados à mão quando não há API (PROJECT.md, seção 6.2).
+# Cada entrada: caminho relativo a raw_manual/, URL de origem, data de download e sha256.
+#
+# - arquivo: atlas_idhm/exemplo.xlsx
+#   url: https://...
+#   baixado_em: AAAA-MM-DD
+#   sha256: <hash>
+arquivos: []

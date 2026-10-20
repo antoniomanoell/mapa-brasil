@@ -1,0 +1,36 @@
+# Indicadores BR
+
+Mapa interativo de indicadores socioeconômicos do Brasil por UF, de 2000 até o dado mais recente, usando só fontes oficiais.
+
+A especificação completa está em [PROJECT.md](PROJECT.md). As decisões metodológicas ficam em [DECISIONS.md](DECISIONS.md).
+
+## Estrutura
+
+- `pipeline/`: pipeline Python que busca, transforma e valida os dados.
+- `data/public/`: saída do pipeline (JSON), versionada. É o que o site consome.
+- `web/`: site estático (Vite + TypeScript).
+
+## Pipeline
+
+Requer [uv](https://docs.astral.sh/uv/).
+
+```bash
+cd pipeline
+uv sync
+uv run indicadores build            # reconstrói tudo
+uv run indicadores build --only idhm
+uv run pytest
+uv run ruff check . && uv run ruff format --check .
+```
+
+## Web
+
+Requer Node 24.
+
+```bash
+cd web
+npm install
+npm run dev
+npm test
+npm run lint && npm run format:check && npm run typecheck
+```
