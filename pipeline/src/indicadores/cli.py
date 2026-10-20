@@ -2,20 +2,24 @@
 
 import argparse
 import sys
+from datetime import date
 
-# Preenchido na Fase 1, à medida que cada indicador ganha seu módulo.
-INDICADORES: dict[str, object] = {}
+from .build import executar
+from .indicators import DEFINICOES
+from .paths import REPORT
 
 
-def build(only: str | None) -> int:
-    if only is not None and only not in INDICADORES:
-        disponiveis = ", ".join(sorted(INDICADORES)) or "nenhum"
+def build(only: str | None, hoje: date | None = None) -> int:
+    if only is not None and only not in DEFINICOES:
+        disponiveis = ", ".join(sorted(DEFINICOES)) or "nenhum"
         print(f"Indicador desconhecido: {only!r}. Disponíveis: {disponiveis}.", file=sys.stderr)
         return 2
-    if not INDICADORES:
-        print("Nenhum indicador implementado ainda.")
-        return 0
-    return 0
+    exe = executar(DEFINICOES, only, hoje or date.today())
+    for id_, (_, res) in exe.resultados.items():
+        status = "ok" if res.ok else f"FALHOU ({len(res.erros)} erros)"
+        print(f"{id_}: {status}, {len(res.alertas)} alertas")
+    print(f"Relatório: {REPORT}")
+    return 0 if exe.ok else 1
 
 
 def main(argv: list[str] | None = None) -> int:
