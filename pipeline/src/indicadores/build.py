@@ -6,7 +6,7 @@ from datetime import date
 from pathlib import Path
 
 from .indicators.base import DefinicaoIndicador
-from .paths import PUBLIC, PUBLIC_INDICADORES, RAIZ, REFERENCIAS, REPORT
+from .paths import PUBLIC, PUBLIC_INDICADORES, RAIZ, REFERENCIAS, REPORT, escrever
 from .report import escrever_report
 from .schema import Catalogo, Indicador, ItemCatalogo
 from .sources import ibge_malhas
@@ -49,7 +49,7 @@ def versao_pipeline() -> str:
 def escrever_json(ind: Indicador, destino_dir: Path = PUBLIC_INDICADORES) -> Path:
     destino_dir.mkdir(parents=True, exist_ok=True)
     destino = destino_dir / f"{ind.id}.json"
-    destino.write_text(ind.model_dump_json(exclude_defaults=True) + "\n", encoding="utf-8")
+    escrever(destino, ind.model_dump_json(exclude_defaults=True) + "\n")
     return destino
 
 
@@ -81,7 +81,7 @@ def escrever_catalogo(hoje: date, versao: str, public: Path = PUBLIC) -> Path:
     ]
     cat = Catalogo(gerado_em=hoje, versao_pipeline=versao, indicadores=itens)
     destino = public / "catalog.json"
-    destino.write_text(cat.model_dump_json(indent=2) + "\n", encoding="utf-8")
+    escrever(destino, cat.model_dump_json(indent=2) + "\n")
     return destino
 
 

@@ -4,7 +4,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-from ..paths import PUBLIC_GEO
+from ..paths import PUBLIC_GEO, escrever
 from ..ufs import CODIGOS_UF
 from .http import baixar_json
 
@@ -33,5 +33,5 @@ def construir(destino_dir: Path = PUBLIC_GEO) -> Path:
     conferir(topo)
     destino_dir.mkdir(parents=True, exist_ok=True)
     destino = destino_dir / "uf.topojson"
-    destino.write_text(json.dumps(topo, separators=(",", ":")), encoding="utf-8")
+    escrever(destino, json.dumps(topo, separators=(",", ":")))
     return destino

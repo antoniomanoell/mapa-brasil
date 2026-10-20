@@ -4,6 +4,7 @@ from collections import Counter
 from pathlib import Path
 from typing import TYPE_CHECKING
 
+from .paths import escrever
 from .schema import Indicador, Segmento
 from .validate import Resultado
 
@@ -85,4 +86,4 @@ def escrever_report(exe: "Execucao", destino: Path) -> None:
         linhas += ["Nenhum indicador implementado ainda.", ""]
     for id_, (ind, res) in exe.resultados.items():
         linhas += _secao(id_, ind, res)
-    destino.write_text("\n".join(linhas), encoding="utf-8")
+    escrever(destino, "\n".join(linhas))
