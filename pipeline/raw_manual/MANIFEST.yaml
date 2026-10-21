@@ -137,3 +137,12 @@ arquivos:
     sha256: e2084f0fca8173fae284a764bb1d6750193a0af7ea22749058454f7bc94b07b1
     descricao: IBGE, Síntese de Indicadores Sociais 2025, tabelas de distribuição de renda (Last-Modified 2025-12-03)
     automatico: true
+
+  # Contas Regionais 2023 (série de referência 2010), tabelas especiais 2002–2023: PIB corrente (tab01)
+  # e série encadeada do volume do PIB (tab03).
+  - arquivo: ibge_contas_regionais/Especiais_2002_2023_xls.zip
+    url: https://ftp.ibge.gov.br/Contas_Regionais/2023/xls/Especiais_2002_2023_xls.zip
+    baixado_em: 2026-10-21
+    sha256: 75281f8f40113cf947aa1ccd22892f50b76d937a918c4bfd43aa0ef4fa85d97b
+    descricao: IBGE, Contas Regionais do Brasil 2023, tabelas especiais (Last-Modified 2025-11-17)
+    automatico: true

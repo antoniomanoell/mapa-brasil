@@ -167,3 +167,14 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 - O SIDRA tem os indicadores ODS 1.1.1 (5817) e 1.2.1 (5877), mas com **outras linhas**; não usar.
 - A SIS 2025 não incorporou as linhas do Banco Mundial de junho de 2025; a próxima edição deve
   incorporar, e a série inteira muda.
+
+## `pib_pc`
+
+**IBGE — Contas Regionais do Brasil 2023 (referência 2010)** — verificado em 2026-10-21
+- `Especiais_2002_2023_xls.zip`: **tab01** (PIB a preços correntes, R$ milhões) e **tab03** (série
+  encadeada do volume do PIB, 2002 = 100), Brasil, regiões e UFs, 2002–2023.
+- O SIDRA só tem o PIB corrente por UF (tabela 5938, PIB dos Municípios); não tem o volume.
+- Notícia 45142: PIB 2023 SP = R$ 3.444.814 milhões, DF = R$ 365.669 milhões; crescimento real
+  acumulado 2002–2023 BR 58,2%, RR 151,6%, MA 102,8%, SP 52,5%, DF 76,3% (reproduzidos exatamente).
+- Per capita: Contas Nacionais (SIDRA 6784, var. 9812) Brasil 2023 = R$ 51.693,92, com a população
+  das Projeções. A notícia das Contas Regionais usa a população recenseada (Brasil R$ 53.886,67).

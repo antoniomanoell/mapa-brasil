@@ -122,3 +122,17 @@ Formato de cada entrada:
   refeito com a nova edição**, não emendado.
 - **Fonte:** https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2025/Tabelas/xls/2_Distribuicao_Renda_xls.zip;
   notícia IBGE 45344 (03/12/2025).
+
+## 2026-10-21 — pib_pc: PIB real pelo volume encadeado, população única
+- **Decisão:** PIB real a preços do último ano das Contas Regionais (hoje 2023) = PIB corrente desse ano
+  × série encadeada do volume (tab03) do ano ÷ a do último ano. Sem IPCA. Série de referência 2010,
+  2002–2023, sem emenda com as anteriores. O denominador é a população única da seção 4.2.
+- **Motivo:** é o método da seção 4.1. Com essa população, o per capita do Brasil em 2023 (R$ 51.693,89)
+  coincide com o das Contas Nacionais (SIDRA 6784: R$ 51.693,92). A divulgação das Contas Regionais
+  usa a população recenseada e publica per capita de 3% a 8% maiores (Brasil R$ 53.886,67; RR 8,4%
+  maior). Decidido pelo mantenedor: manter a população única, com nota.
+- **Conferência:** PIB total de 2023 (SP, DF, em R$ milhões), per capita do Brasil nas Contas Nacionais
+  e, de forma indireta, o crescimento real acumulado 2002–2023 divulgado pelo IBGE (BR 58,2%; RR
+  151,6%; MA 102,8%; SP 52,5%), que confere o encadeamento do volume.
+- **Fonte:** https://ftp.ibge.gov.br/Contas_Regionais/2023/xls/Especiais_2002_2023_xls.zip; notícia IBGE
+  45142; https://sidra.ibge.gov.br/tabela/6784

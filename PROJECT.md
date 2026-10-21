@@ -68,7 +68,7 @@ Legenda:
 | 5 | `gini` | Índice de Gini da renda domiciliar per capita | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 · B: PNADC 2012+ | índice 0–1 | pior |
 | 6 | `desocupacao` | Taxa de desocupação | IBGE – PNADC | A: PNADC 2012+ — taxa anual oficial (SIDRA 4562; não é a média dos trimestres) ✔ | % | pior |
 | 7 | `informalidade` | Taxa de informalidade | IBGE – PNADC | A: PNADC 2016+ (SIDRA 4708) ✔ | % | pior |
-| 8 | `pib_pc` | PIB per capita real | IBGE – Contas Regionais | A: série de referência vigente [confirmar ano inicial, provável 2002] | R$ do ano-base | melhor |
+| 8 | `pib_pc` | PIB per capita real | IBGE – Contas Regionais | A: Contas Regionais, referência 2010 — 2002–2023 ✔ | R$ do ano-base | melhor |
 | 9 | `esperanca_vida` | Esperança de vida ao nascer | IBGE – Projeções da População (revisão mais recente) | A: 2000 → último ano com Tábua de Mortalidade publicada (hoje 2024) ✔ | anos | melhor |
 | 10 | `mort_infantil` | Taxa de mortalidade infantil (óbitos < 1 ano por mil nascidos vivos) | IBGE – Projeções (principal); DATASUS SIM/SINASC (referência) | A: 2000 → último ano com Tábua de Mortalidade publicada (hoje 2024) ✔ | por mil NV | pior |
 | 11 | `homicidios` | Taxa de homicídios por 100 mil hab. | DATASUS – SIM (óbitos por residência) + população IBGE | A: 2000 → último ano consolidado do SIM | por 100 mil | pior |

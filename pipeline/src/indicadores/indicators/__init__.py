@@ -6,6 +6,7 @@ from .esgoto import Esgoto
 from .gini import Gini
 from .homicidios import Homicidios
 from .idhm import Idhm
+from .pib_pc import PibPc
 from .pnadc_anual import desocupacao, informalidade
 from .pobreza import extrema_pobreza, pobreza
 from .projecoes import esperanca_vida, mort_infantil
@@ -17,6 +18,7 @@ DEFINICOES: dict[str, DefinicaoIndicador] = {
     for d in (
         Idhm(),
         RendaPc(),
+        PibPc(),
         Gini(),
         pobreza(),
         extrema_pobreza(),
