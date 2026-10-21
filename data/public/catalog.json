@@ -1,6 +1,6 @@
 {
   "gerado_em": "2026-10-21",
-  "versao_pipeline": "166f5b3",
+  "versao_pipeline": "c01f6a1",
   "indicadores": [
     {
       "id": "idhm",
@@ -43,6 +43,21 @@
       "ano_inicial": 2001,
       "ano_final": 2025,
       "arquivo": "indicators/renda_pc.json"
+    },
+    {
+      "id": "pib_pc",
+      "nome": "PIB per capita",
+      "tema": "Renda",
+      "unidade": "R$",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "PIB per capita"
+        }
+      ],
+      "ano_inicial": 2002,
+      "ano_final": 2023,
+      "arquivo": "indicators/pib_pc.json"
     },
     {
       "id": "gini",

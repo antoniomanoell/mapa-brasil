@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
 - Data: 2026-10-21
-- Versão do pipeline: `166f5b3`
+- Versão do pipeline: `c01f6a1`
 - Escopo: completo
 - Resultado: OK
 
@@ -131,6 +131,34 @@
 - principal/pnad/43/2006 (auxiliar sis2016_tab6_6): 1228.31 ≈ 1228 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/21/2011 (auxiliar sis2016_tab6_6): 624.46 ≈ 624 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/14/2013 (auxiliar sis2016_tab6_6): 1121.44 ≈ 1121 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+
+## `pib_pc` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | Contas Regionais, ref. 2010 (2002–2023) | 2002–2023 | — | — |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (5)
+
+- principal/cr2010/12: 2022→2023 variou +14.2% (26261.97 → 29993.0)
+- principal/cr2010/17: 2009→2010 variou +15.6% (24999.25 → 28902.16)
+- principal/cr2010/32: 2009→2010 variou +14.0% (48279.19 → 55043.39)
+- principal/cr2010/50: 2022→2023 variou +12.5% (56947.94 → 64072.81)
+- principal/cr2010/51: 2003→2004 variou +12.9% (35887.94 → 40503.6)
+
+**Conferência com números publicados** (7)
+
+- principal/cr2010/35/2023 (contagem): 3444814.0 ≈ 3444814 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45142-pib-cresce-em-todos-os-27-estados-do-pais-em-2023)
+- principal/cr2010/53/2023 (contagem): 365669.1 ≈ 365669 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45142-pib-cresce-em-todos-os-27-estados-do-pais-em-2023)
+- principal/cr2010/BR/2023 (auxiliar cr_volume_acumulado): 58.2 ≈ 58.2 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45142-pib-cresce-em-todos-os-27-estados-do-pais-em-2023)
+- principal/cr2010/14/2023 (auxiliar cr_volume_acumulado): 151.63 ≈ 151.6 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45142-pib-cresce-em-todos-os-27-estados-do-pais-em-2023)
+- principal/cr2010/21/2023 (auxiliar cr_volume_acumulado): 102.78 ≈ 102.8 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45142-pib-cresce-em-todos-os-27-estados-do-pais-em-2023)
+- principal/cr2010/35/2023 (auxiliar cr_volume_acumulado): 52.55 ≈ 52.5 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45142-pib-cresce-em-todos-os-27-estados-do-pais-em-2023)
+- principal/cr2010/BR/2023 (valor): 51693.89 ≈ 51693.92 ✓ (https://sidra.ibge.gov.br/tabela/6784)
 
 ## `gini` — OK
 
