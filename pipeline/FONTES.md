@@ -154,3 +154,16 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 - PNAD 2001–2015: SIDRA **1956**, var. 96 (domicílios particulares permanentes, mil), categorias
   99663 (rede coletora) + 9490 (fossa séptica ligada à rede coletora) ÷ 99662 (tinham banheiro).
 - O denominador do IBGE são os domicílios com banheiro, sanitário ou buraco para dejeções.
+
+## `pobreza` e `extrema_pobreza`
+
+**IBGE — Síntese de Indicadores Sociais 2025** — verificado em 2026-10-21
+- `2_Distribuicao_Renda_xls.zip`, **Tabela 2.23** ("Pobr_valor_Geo"): uma aba por ano (2012–2024) e
+  outra com os CVs. Colunas "Proporção de pessoas com rendimento domiciliar per capita menor que
+  US$ 2,15 / 3,65 / 6,85 PPC 2017 (%)". Linhas para Brasil, regiões, UFs e capitais.
+- Visitas (rodapé de cada aba): 1ª visita, exceto 2020–2022 (5ª visita).
+- Valores divulgados: Brasil 2024 = 23,1% (pobreza) e 3,5% (extrema); 2023 = 27,3% e 4,4%; 2012 =
+  34,7% e 6,6% (notícia 45344; apresentação da SIS 2025, p. 43).
+- O SIDRA tem os indicadores ODS 1.1.1 (5817) e 1.2.1 (5877), mas com **outras linhas**; não usar.
+- A SIS 2025 não incorporou as linhas do Banco Mundial de junho de 2025; a próxima edição deve
+  incorporar, e a série inteira muda.

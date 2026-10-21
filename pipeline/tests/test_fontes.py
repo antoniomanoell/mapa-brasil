@@ -56,3 +56,42 @@ def test_sidra_le_brasil_ufs_e_simbolos(monkeypatch):
     dados, _ = ibge_sidra.consultar(7533, [10816], (2024, 2025))
     assert dados[10816][BR] == {2024: 2118.0, 2025: 2264.0}
     assert dados[10816]["28"] == {2024: 1494.0, 2025: None}
+
+
+class _AbaFalsa:
+    """Imita xlrd.sheet.Sheet: só o que ibge_sis usa."""
+
+    def __init__(self, nome, linhas):
+        self.name = nome
+        self._l = linhas
+        self.nrows = len(linhas)
+
+    def row_values(self, r):
+        return self._l[r]
+
+    def cell_value(self, r, c):
+        return self._l[r][c] if c < len(self._l[r]) else ""
+
+
+def test_sis_pega_a_uf_e_nao_a_capital_homonima():
+    from indicadores.sources import ibge_sis
+
+    cab = [
+        "UF",
+        "Total",
+        "Linha",
+        "Proporção de pessoas com rendimento menor que US$ 2,15 PPC 2017",
+    ]
+    aba = _AbaFalsa(
+        "2024",
+        [
+            cab,
+            ["Brasil", 1.0, 2.0, 3.5],
+            ["Rio de Janeiro", 1.0, 2.0, 1.8],  # UF
+            ["Rio de Janeiro", 1.0, 2.0, 9.9],  # capital, vem depois
+            ["Fonte: IBGE, ... acumulado de quintas visitas.", "", "", ""],
+        ],
+    )
+    valores, fonte = ibge_sis._ler_aba(aba)
+    assert valores["US$ 2,15 PPC 2017"] == {"BR": 3.5, "33": 1.8}
+    assert "quintas" in fonte

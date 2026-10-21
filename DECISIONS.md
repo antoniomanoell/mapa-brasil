@@ -110,3 +110,15 @@ Formato de cada entrada:
   categorias pede segmentos separados (princípio 2). O denominador do IBGE mantém o número conferível.
   Decidido pelo mantenedor.
 - **Fonte:** https://sidra.ibge.gov.br/tabela/6735; https://sidra.ibge.gov.br/tabela/7192
+
+## 2026-10-21 — pobreza e extrema_pobreza: linhas de US$ 6,85 e US$ 2,15 (PPC 2017), SIS 2025
+- **Decisão:** usar a série da Síntese de Indicadores Sociais 2025 (Tabela 2.23, PNAD Contínua
+  2012–2024), com as linhas de US$ 6,85 e US$ 2,15 PPC 2017, como pede o PROJECT.md. Todos os anos vêm
+  da mesma edição. As tabelas ODS do SIDRA (5817, 5877) ficam de fora: usam outras linhas e dão outros
+  números (Brasil 2024: 4,7% contra 3,5% da SIS).
+- **Motivo:** a dúvida levantada no início (se a SIS já usava as linhas novas do Banco Mundial, PPC
+  2021) se resolveu na fonte: a SIS 2025 ainda usa PPC 2017. O IBGE informa que as linhas novas
+  entram na próxima edição. **Quando ela sair, a série inteira muda e este indicador deve ser
+  refeito com a nova edição**, não emendado.
+- **Fonte:** https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2025/Tabelas/xls/2_Distribuicao_Renda_xls.zip;
+  notícia IBGE 45344 (03/12/2025).
