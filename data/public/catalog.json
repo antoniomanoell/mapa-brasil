@@ -1,6 +1,6 @@
 {
   "gerado_em": "2026-10-21",
-  "versao_pipeline": "1122a52",
+  "versao_pipeline": "3d1334e",
   "indicadores": [
     {
       "id": "idhm",
@@ -45,6 +45,21 @@
       "arquivo": "indicators/renda_pc.json"
     },
     {
+      "id": "gini",
+      "nome": "Índice de Gini da renda domiciliar per capita",
+      "tema": "Renda",
+      "unidade": "índice",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Índice de Gini"
+        }
+      ],
+      "ano_inicial": 2001,
+      "ano_final": 2025,
+      "arquivo": "indicators/gini.json"
+    },
+    {
       "id": "desocupacao",
       "nome": "Taxa de desocupação",
       "tema": "Trabalho",
@@ -75,6 +90,21 @@
       "arquivo": "indicators/informalidade.json"
     },
     {
+      "id": "analfabetismo",
+      "nome": "Taxa de analfabetismo (15 anos ou mais)",
+      "tema": "Educação",
+      "unidade": "%",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Taxa de analfabetismo"
+        }
+      ],
+      "ano_inicial": 2001,
+      "ano_final": 2025,
+      "arquivo": "indicators/analfabetismo.json"
+    },
+    {
       "id": "esperanca_vida",
       "nome": "Esperança de vida ao nascer",
       "tema": "Saúde",
@@ -103,6 +133,21 @@
       "ano_inicial": 2000,
       "ano_final": 2024,
       "arquivo": "indicators/mort_infantil.json"
+    },
+    {
+      "id": "esgoto",
+      "nome": "Domicílios com esgotamento sanitário adequado",
+      "tema": "Saneamento",
+      "unidade": "%",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Esgotamento adequado"
+        }
+      ],
+      "ano_inicial": 2001,
+      "ano_final": 2025,
+      "arquivo": "indicators/esgoto.json"
     },
     {
       "id": "homicidios",

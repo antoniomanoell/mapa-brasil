@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
 - Data: 2026-10-21
-- Versão do pipeline: `1122a52`
+- Versão do pipeline: `3d1334e`
 - Escopo: completo
 - Resultado: OK
 
@@ -132,6 +132,78 @@
 - principal/pnad/21/2011 (auxiliar sis2016_tab6_6): 624.46 ≈ 624 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/14/2013 (auxiliar sis2016_tab6_6): 1121.44 ≈ 1121 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 
+## `gini` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | PNAD (2001–2015) | 2001–2009, 2011–2015 | 2010 | cobertura_urbana: 18 |
+| principal | PNAD Contínua (2012–) | 2012–2025 | — | — |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (47)
+
+- principal/pnad/11: 2004→2005 variou +10.3% (0.515 → 0.568)
+- principal/pnad/12: 2007→2008 variou -8.2% (0.61 → 0.56)
+- principal/pnad/12: 2008→2009 variou +9.5% (0.56 → 0.613)
+- principal/pnad/12: 2009→2011 variou -11.1% (0.613 → 0.545)
+- principal/pnad/14: 2003→2004 variou +11.0% (0.525 → 0.583)
+- principal/pnad/14: 2006→2007 variou -8.7% (0.565 → 0.516)
+- principal/pnad/16: 2001→2002 variou +14.6% (0.481 → 0.551)
+- principal/pnad/16: 2002→2003 variou +8.5% (0.551 → 0.598)
+- principal/pnad/16: 2003→2004 variou -9.4% (0.598 → 0.542)
+- principal/pnad/16: 2005→2006 variou -9.3% (0.527 → 0.478)
+- principal/pnad/16: 2007→2008 variou -10.8% (0.509 → 0.454)
+- principal/pnad/16: 2008→2009 variou +14.3% (0.454 → 0.519)
+- principal/pnad/16: 2013→2014 variou -10.0% (0.522 → 0.47)
+- principal/pnad/21: 2004→2005 variou -14.8% (0.609 → 0.519)
+- principal/pnad/21: 2005→2006 variou +14.8% (0.519 → 0.596)
+- principal/pnad/22: 2009→2011 variou -8.5% (0.554 → 0.507)
+- principal/pnad/24: 2013→2014 variou -8.2% (0.538 → 0.494)
+- principal/pnad/25: 2009→2011 variou -8.8% (0.588 → 0.536)
+- principal/pnad/27: 2005→2006 variou +10.6% (0.564 → 0.624)
+- principal/pnad/27: 2009→2011 variou -8.3% (0.569 → 0.522)
+- principal/pnad/28: 2013→2014 variou -13.1% (0.556 → 0.483)
+- principal/pnad/51: 2011→2012 variou +9.0% (0.476 → 0.519)
+- principal/pnad/51: 2013→2014 variou -8.8% (0.501 → 0.457)
+- principal/pnad/52: 2005→2006 variou -8.3% (0.552 → 0.506)
+- principal/pnadc/11: 2017→2018 variou +11.2% (0.447 → 0.497)
+- principal/pnadc/12: 2019→2020 variou -8.0% (0.56 → 0.515)
+- principal/pnadc/14: 2020→2021 variou +10.6% (0.54 → 0.597)
+- principal/pnadc/14: 2021→2022 variou -8.2% (0.597 → 0.548)
+- principal/pnadc/15: 2017→2018 variou +10.9% (0.506 → 0.561)
+- principal/pnadc/15: 2019→2020 variou -9.3% (0.528 → 0.479)
+- principal/pnadc/15: 2020→2021 variou +10.2% (0.479 → 0.528)
+- principal/pnadc/17: 2019→2020 variou -8.5% (0.531 → 0.486)
+- principal/pnadc/21: 2019→2020 variou -9.2% (0.531 → 0.482)
+- principal/pnadc/21: 2020→2021 variou +9.8% (0.482 → 0.529)
+- principal/pnadc/22: 2019→2020 variou -11.9% (0.538 → 0.474)
+- principal/pnadc/22: 2020→2021 variou +8.6% (0.474 → 0.515)
+- principal/pnadc/22: 2023→2024 variou -10.2% (0.549 → 0.493)
+- principal/pnadc/24: 2020→2021 variou +14.6% (0.513 → 0.588)
+- principal/pnadc/24: 2021→2022 variou -11.1% (0.588 → 0.523)
+- principal/pnadc/25: 2019→2020 variou -8.5% (0.563 → 0.515)
+- principal/pnadc/25: 2020→2021 variou +9.1% (0.515 → 0.562)
+- principal/pnadc/25: 2023→2024 variou -11.6% (0.561 → 0.496)
+- principal/pnadc/26: 2020→2021 variou +8.2% (0.536 → 0.58)
+- principal/pnadc/26: 2021→2022 variou -11.4% (0.58 → 0.514)
+- principal/pnadc/28: 2019→2020 variou -10.0% (0.58 → 0.522)
+- principal/pnadc/28: 2020→2021 variou +8.4% (0.522 → 0.566)
+- principal/pnadc/29: 2016→2017 variou +9.1% (0.537 → 0.586)
+
+**Conferência com números publicados** (8)
+
+- principal/pnadc/BR/2025 (valor): 0.511 ≈ 0.511 ✓ (https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf)
+- principal/pnadc/BR/2024 (valor): 0.504 ≈ 0.504 ✓ (https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf)
+- principal/pnadc/BR/2019 (valor): 0.543 ≈ 0.543 ✓ (https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf)
+- principal/pnad/BR/2015 (auxiliar sis2016_tab6_3): 0.491 ≈ 0.491 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/35/2015 (auxiliar sis2016_tab6_3): 0.46 ≈ 0.46 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/42/2015 (auxiliar sis2016_tab6_3): 0.419 ≈ 0.419 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/25/2015 (auxiliar sis2016_tab6_3): 0.51 ≈ 0.51 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/27/2015 (auxiliar sis2016_tab6_3): 0.438 ≈ 0.438 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+
 ## `desocupacao` — OK
 
 | Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
@@ -208,6 +280,121 @@
 - principal/pnadc/21/2025 (valor): 58.7 ≈ 58.7 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
 - principal/pnadc/42/2025 (valor): 26.3 ≈ 26.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
 - principal/pnadc/53/2025 (valor): 27.3 ≈ 27.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+
+## `analfabetismo` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | PNAD (2001–2015) | 2001–2009, 2011–2015 | 2010 | cobertura_urbana: 18 |
+| principal | PNAD Contínua (2016–) | 2016–2025 | — | — |
+
+**Lacunas pontuais**
+
+- principal/pnadc/11/2020: valor não publicado pelo IBGE
+- principal/pnadc/11/2021: valor não publicado pelo IBGE
+- principal/pnadc/12/2020: valor não publicado pelo IBGE
+- principal/pnadc/12/2021: valor não publicado pelo IBGE
+- principal/pnadc/13/2020: valor não publicado pelo IBGE
+- principal/pnadc/13/2021: valor não publicado pelo IBGE
+- principal/pnadc/14/2020: valor não publicado pelo IBGE
+- principal/pnadc/14/2021: valor não publicado pelo IBGE
+- principal/pnadc/15/2020: valor não publicado pelo IBGE
+- principal/pnadc/15/2021: valor não publicado pelo IBGE
+- principal/pnadc/16/2020: valor não publicado pelo IBGE
+- principal/pnadc/16/2021: valor não publicado pelo IBGE
+- principal/pnadc/17/2020: valor não publicado pelo IBGE
+- principal/pnadc/17/2021: valor não publicado pelo IBGE
+- principal/pnadc/21/2020: valor não publicado pelo IBGE
+- principal/pnadc/21/2021: valor não publicado pelo IBGE
+- principal/pnadc/22/2020: valor não publicado pelo IBGE
+- principal/pnadc/22/2021: valor não publicado pelo IBGE
+- principal/pnadc/23/2020: valor não publicado pelo IBGE
+- principal/pnadc/23/2021: valor não publicado pelo IBGE
+- principal/pnadc/24/2020: valor não publicado pelo IBGE
+- principal/pnadc/24/2021: valor não publicado pelo IBGE
+- principal/pnadc/25/2020: valor não publicado pelo IBGE
+- principal/pnadc/25/2021: valor não publicado pelo IBGE
+- principal/pnadc/26/2020: valor não publicado pelo IBGE
+- principal/pnadc/26/2021: valor não publicado pelo IBGE
+- principal/pnadc/27/2020: valor não publicado pelo IBGE
+- principal/pnadc/27/2021: valor não publicado pelo IBGE
+- principal/pnadc/28/2020: valor não publicado pelo IBGE
+- principal/pnadc/28/2021: valor não publicado pelo IBGE
+- principal/pnadc/29/2020: valor não publicado pelo IBGE
+- principal/pnadc/29/2021: valor não publicado pelo IBGE
+- principal/pnadc/31/2020: valor não publicado pelo IBGE
+- principal/pnadc/31/2021: valor não publicado pelo IBGE
+- principal/pnadc/32/2020: valor não publicado pelo IBGE
+- principal/pnadc/32/2021: valor não publicado pelo IBGE
+- principal/pnadc/33/2020: valor não publicado pelo IBGE
+- principal/pnadc/33/2021: valor não publicado pelo IBGE
+- principal/pnadc/35/2020: valor não publicado pelo IBGE
+- principal/pnadc/35/2021: valor não publicado pelo IBGE
+- principal/pnadc/41/2020: valor não publicado pelo IBGE
+- principal/pnadc/41/2021: valor não publicado pelo IBGE
+- principal/pnadc/42/2020: valor não publicado pelo IBGE
+- principal/pnadc/42/2021: valor não publicado pelo IBGE
+- principal/pnadc/43/2020: valor não publicado pelo IBGE
+- principal/pnadc/43/2021: valor não publicado pelo IBGE
+- principal/pnadc/50/2020: valor não publicado pelo IBGE
+- principal/pnadc/50/2021: valor não publicado pelo IBGE
+- principal/pnadc/51/2020: valor não publicado pelo IBGE
+- principal/pnadc/51/2021: valor não publicado pelo IBGE
+- principal/pnadc/52/2020: valor não publicado pelo IBGE
+- principal/pnadc/52/2021: valor não publicado pelo IBGE
+- principal/pnadc/53/2020: valor não publicado pelo IBGE
+- principal/pnadc/53/2021: valor não publicado pelo IBGE
+- principal/pnadc/BR/2020: valor não publicado pelo IBGE
+- principal/pnadc/BR/2021: valor não publicado pelo IBGE
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (36)
+
+- principal/pnad/11: 2003→2004 variou +21.8% (8.68 → 10.57)
+- principal/pnad/12: 2001→2002 variou -21.5% (17.05 → 13.38)
+- principal/pnad/12: 2002→2003 variou +27.2% (13.38 → 17.02)
+- principal/pnad/13: 2003→2004 variou +36.0% (6.62 → 9.0)
+- principal/pnad/13: 2004→2005 variou -25.4% (9.0 → 6.71)
+- principal/pnad/14: 2002→2003 variou -21.7% (12.36 → 9.68)
+- principal/pnad/14: 2005→2006 variou -28.1% (12.18 → 8.76)
+- principal/pnad/14: 2006→2007 variou +22.8% (8.76 → 10.76)
+- principal/pnad/14: 2008→2009 variou -21.7% (9.8 → 7.67)
+- principal/pnad/14: 2009→2011 variou +26.1% (7.67 → 9.67)
+- principal/pnad/14: 2011→2012 variou -23.1% (9.67 → 7.44)
+- principal/pnad/14: 2012→2013 variou +32.9% (7.44 → 9.89)
+- principal/pnad/14: 2013→2014 variou -24.6% (9.89 → 7.46)
+- principal/pnad/15: 2003→2004 variou +38.3% (10.49 → 14.51)
+- principal/pnad/16: 2002→2003 variou +50.2% (5.98 → 8.98)
+- principal/pnad/16: 2005→2006 variou -31.4% (7.51 → 5.15)
+- principal/pnad/16: 2006→2007 variou +37.1% (5.15 → 7.06)
+- principal/pnad/16: 2007→2008 variou -39.1% (7.06 → 4.3)
+- principal/pnad/16: 2008→2009 variou -23.5% (4.3 → 3.29)
+- principal/pnad/16: 2009→2011 variou +126.4% (3.29 → 7.45)
+- principal/pnad/16: 2013→2014 variou -27.0% (6.15 → 4.49)
+- principal/pnad/16: 2014→2015 variou +26.9% (4.49 → 5.7)
+- principal/pnad/25: 2009→2011 variou -20.2% (21.6 → 17.23)
+- principal/pnad/32: 2009→2011 variou -25.0% (8.53 → 6.4)
+- principal/pnad/35: 2009→2011 variou -22.7% (4.75 → 3.67)
+- principal/pnad/42: 2009→2011 variou -21.4% (4.95 → 3.89)
+- principal/pnad/43: 2014→2015 variou -21.5% (4.47 → 3.51)
+- principal/pnad/50: 2009→2011 variou -26.1% (8.65 → 6.39)
+- principal/pnad/51: 2009→2011 variou -26.3% (10.08 → 7.43)
+- principal/pnad/52: 2014→2015 variou -21.1% (7.72 → 6.09)
+- principal/pnad/53: 2002→2003 variou -21.9% (5.65 → 4.41)
+- principal/pnad/53: 2005→2006 variou -21.6% (4.68 → 3.67)
+- principal/pnad/53: 2008→2009 variou -63.1% (3.93 → 1.45)
+- principal/pnad/53: 2009→2011 variou +123.4% (1.45 → 3.24)
+- principal/pnadc/42: 2024→2025 variou -21.1% (1.9 → 1.5)
+- principal/pnadc/53: 2017→2018 variou +26.1% (2.3 → 2.9)
+
+**Conferência com números publicados** (3)
+
+- principal/pnadc/BR/2025 (valor): 4.9 ≈ 4.9 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/47221-analfabetismo-fica-abaixo-de-5-em-2025-mas-8-4-milhoes-ainda-nao-sabem-ler-e-escrever)
+- principal/pnadc/BR/2024 (valor): 5.3 ≈ 5.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/43699-indicadores-educacionais-avancam-em-2024-mas-atraso-escolar-aumenta)
+- principal/pnad/BR/2015 (valor): 7.95 ≈ 8.0 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip)
 
 ## `esperanca_vida` — OK
 
@@ -368,6 +555,213 @@
 - principal/projecoes2024/BR/2021 (valor): 12.17 ≈ 12.2 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
 - principal/projecoes2024/BR/2010 (valor): 14.99 ≈ 15.0 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
 - principal/projecoes2024/BR/2000 (valor): 28.13 ≈ 28.1 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+
+## `esgoto` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | PNAD (2001–2015) | 2001–2009, 2011–2015 | 2010 | cobertura_urbana: 18 |
+| principal | PNAD Contínua (2016–2018) | 2016–2018 | — | baixa_precisao: 8 |
+| principal | PNAD Contínua (2019–) | 2019–2025 | — | — |
+
+**Lacunas pontuais**
+
+- principal/pnadc2019/11/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/11/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/12/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/12/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/13/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/13/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/14/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/14/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/15/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/15/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/16/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/16/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/17/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/17/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/21/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/21/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/22/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/22/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/23/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/23/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/24/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/24/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/25/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/25/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/26/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/26/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/27/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/27/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/28/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/28/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/29/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/29/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/31/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/31/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/32/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/32/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/33/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/33/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/35/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/35/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/41/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/41/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/42/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/42/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/43/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/43/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/50/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/50/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/51/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/51/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/52/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/52/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/53/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/53/2021: valor não publicado pelo IBGE
+- principal/pnadc2019/BR/2020: valor não publicado pelo IBGE
+- principal/pnadc2019/BR/2021: valor não publicado pelo IBGE
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (125)
+
+- principal/pnad/11: 2002→2003 variou +114.6% (1.98 → 4.25)
+- principal/pnad/11: 2003→2004 variou -42.1% (4.25 → 2.46)
+- principal/pnad/11: 2004→2005 variou -22.8% (2.46 → 1.9)
+- principal/pnad/11: 2005→2006 variou +23.2% (1.9 → 2.34)
+- principal/pnad/11: 2006→2007 variou +55.6% (2.34 → 3.64)
+- principal/pnad/11: 2007→2008 variou -23.9% (3.64 → 2.77)
+- principal/pnad/11: 2008→2009 variou +119.1% (2.77 → 6.07)
+- principal/pnad/11: 2011→2012 variou +71.0% (4.87 → 8.33)
+- principal/pnad/11: 2012→2013 variou +65.4% (8.33 → 13.78)
+- principal/pnad/11: 2013→2014 variou +21.6% (13.78 → 16.75)
+- principal/pnad/12: 2001→2002 variou +33.1% (21.95 → 29.21)
+- principal/pnad/12: 2002→2003 variou -22.0% (29.21 → 22.77)
+- principal/pnad/12: 2005→2006 variou +33.2% (20.83 → 27.74)
+- principal/pnad/12: 2006→2007 variou -26.9% (27.74 → 20.28)
+- principal/pnad/12: 2007→2008 variou +48.5% (20.28 → 30.12)
+- principal/pnad/12: 2008→2009 variou +26.6% (30.12 → 38.12)
+- principal/pnad/12: 2009→2011 variou -20.3% (38.12 → 30.39)
+- principal/pnad/12: 2014→2015 variou +33.2% (35.75 → 47.62)
+- principal/pnad/13: 2001→2002 variou -65.0% (7.91 → 2.77)
+- principal/pnad/13: 2002→2003 variou +45.5% (2.77 → 4.03)
+- principal/pnad/13: 2004→2005 variou -50.1% (4.51 → 2.25)
+- principal/pnad/13: 2005→2006 variou +69.3% (2.25 → 3.81)
+- principal/pnad/13: 2006→2007 variou +556.2% (3.81 → 25.0)
+- principal/pnad/13: 2009→2011 variou +83.9% (20.48 → 37.66)
+- principal/pnad/14: 2001→2002 variou +37.0% (9.52 → 13.04)
+- principal/pnad/14: 2002→2003 variou -21.1% (13.04 → 10.29)
+- principal/pnad/14: 2003→2004 variou -57.2% (10.29 → 4.4)
+- principal/pnad/14: 2004→2005 variou +134.3% (4.4 → 10.31)
+- principal/pnad/14: 2005→2006 variou +37.1% (10.31 → 14.14)
+- principal/pnad/14: 2006→2007 variou -21.4% (14.14 → 11.11)
+- principal/pnad/14: 2009→2011 variou +154.2% (13.01 → 33.07)
+- principal/pnad/14: 2011→2012 variou -25.0% (33.07 → 24.8)
+- principal/pnad/14: 2014→2015 variou +59.2% (26.32 → 41.89)
+- principal/pnad/15: 2001→2002 variou -44.6% (6.35 → 3.52)
+- principal/pnad/15: 2002→2003 variou -29.3% (3.52 → 2.49)
+- principal/pnad/15: 2003→2004 variou +32.5% (2.49 → 3.3)
+- principal/pnad/15: 2004→2005 variou +27.0% (3.3 → 4.19)
+- principal/pnad/15: 2006→2007 variou +48.2% (3.71 → 5.5)
+- principal/pnad/15: 2007→2008 variou -24.7% (5.5 → 4.14)
+- principal/pnad/15: 2008→2009 variou +180.4% (4.14 → 11.61)
+- principal/pnad/15: 2009→2011 variou +66.2% (11.61 → 19.3)
+- principal/pnad/15: 2011→2012 variou -27.2% (19.3 → 14.05)
+- principal/pnad/16: 2001→2002 variou +32.1% (0.78 → 1.03)
+- principal/pnad/16: 2002→2003 variou +439.8% (1.03 → 5.56)
+- principal/pnad/16: 2003→2004 variou -21.8% (5.56 → 4.35)
+- principal/pnad/16: 2004→2005 variou -82.8% (4.35 → 0.75)
+- principal/pnad/16: 2005→2006 variou +88.0% (0.75 → 1.41)
+- principal/pnad/16: 2006→2007 variou +47.5% (1.41 → 2.08)
+- principal/pnad/16: 2007→2008 variou +68.7% (2.08 → 3.51)
+- principal/pnad/16: 2008→2009 variou -45.9% (3.51 → 1.9)
+- principal/pnad/16: 2009→2011 variou +287.4% (1.9 → 7.36)
+- principal/pnad/16: 2012→2013 variou -57.0% (7.53 → 3.24)
+- principal/pnad/16: 2013→2014 variou +274.1% (3.24 → 12.12)
+- principal/pnad/16: 2014→2015 variou -62.5% (12.12 → 4.55)
+- principal/pnad/17: 2002→2003 variou +109.1% (3.2 → 6.69)
+- principal/pnad/17: 2003→2004 variou -30.3% (6.69 → 4.66)
+- principal/pnad/17: 2004→2005 variou +37.3% (4.66 → 6.4)
+- principal/pnad/17: 2005→2006 variou +73.6% (6.4 → 11.11)
+- principal/pnad/17: 2006→2007 variou +25.8% (11.11 → 13.98)
+- principal/pnad/17: 2007→2008 variou +27.8% (13.98 → 17.87)
+- principal/pnad/17: 2013→2014 variou +43.5% (18.96 → 27.21)
+- principal/pnad/17: 2014→2015 variou +26.9% (27.21 → 34.53)
+- principal/pnad/21: 2002→2003 variou +22.7% (13.4 → 16.44)
+- principal/pnad/21: 2004→2005 variou -21.2% (16.9 → 13.32)
+- principal/pnad/21: 2005→2006 variou +23.1% (13.32 → 16.4)
+- principal/pnad/21: 2009→2011 variou +55.2% (15.88 → 24.65)
+- principal/pnad/21: 2012→2013 variou -28.6% (22.82 → 16.3)
+- principal/pnad/21: 2014→2015 variou +50.7% (14.94 → 22.51)
+- principal/pnad/22: 2002→2003 variou -59.1% (4.3 → 1.76)
+- principal/pnad/22: 2003→2004 variou +272.7% (1.76 → 6.56)
+- principal/pnad/22: 2006→2007 variou +29.9% (5.42 → 7.04)
+- principal/pnad/22: 2007→2008 variou -46.3% (7.04 → 3.78)
+- principal/pnad/22: 2008→2009 variou +111.6% (3.78 → 8.0)
+- principal/pnad/22: 2011→2012 variou -43.0% (6.93 → 3.95)
+- principal/pnad/22: 2013→2014 variou +84.0% (4.06 → 7.47)
+- principal/pnad/22: 2014→2015 variou +27.7% (7.47 → 9.54)
+- principal/pnad/23: 2001→2002 variou +23.8% (20.78 → 25.73)
+- principal/pnad/24: 2001→2002 variou -52.0% (13.75 → 6.6)
+- principal/pnad/24: 2002→2003 variou +123.2% (6.6 → 14.73)
+- principal/pnad/24: 2011→2012 variou +20.6% (20.44 → 24.65)
+- principal/pnad/25: 2009→2011 variou +33.1% (42.49 → 56.54)
+- principal/pnad/26: 2009→2011 variou +36.0% (43.06 → 58.56)
+- principal/pnad/27: 2002→2003 variou -43.1% (8.65 → 4.92)
+- principal/pnad/27: 2003→2004 variou +38.6% (4.92 → 6.82)
+- principal/pnad/27: 2004→2005 variou +35.2% (6.82 → 9.22)
+- principal/pnad/27: 2007→2008 variou +68.2% (8.71 → 14.65)
+- principal/pnad/27: 2009→2011 variou +98.8% (16.2 → 32.21)
+- principal/pnad/27: 2012→2013 variou -31.8% (34.38 → 23.45)
+- principal/pnad/27: 2013→2014 variou +25.9% (23.45 → 29.52)
+- principal/pnad/27: 2014→2015 variou +25.7% (29.52 → 37.12)
+- principal/pnad/28: 2002→2003 variou +20.8% (34.0 → 41.07)
+- principal/pnad/28: 2003→2004 variou +29.2% (41.07 → 53.06)
+- principal/pnad/28: 2004→2005 variou -33.0% (53.06 → 35.53)
+- principal/pnad/28: 2008→2009 variou +55.9% (35.05 → 54.65)
+- principal/pnad/32: 2001→2002 variou +21.3% (46.7 → 56.63)
+- principal/pnad/33: 2008→2009 variou +22.1% (69.46 → 84.81)
+- principal/pnad/42: 2002→2003 variou +72.4% (10.08 → 17.38)
+- principal/pnad/42: 2005→2006 variou -28.0% (16.08 → 11.57)
+- principal/pnad/42: 2006→2007 variou +90.7% (11.57 → 22.06)
+- principal/pnad/42: 2007→2008 variou +28.6% (22.06 → 28.37)
+- principal/pnad/42: 2008→2009 variou +100.7% (28.37 → 56.93)
+- principal/pnad/43: 2001→2002 variou +27.8% (11.74 → 15.0)
+- principal/pnad/43: 2005→2006 variou +23.9% (12.07 → 14.95)
+- principal/pnad/43: 2006→2007 variou +38.6% (14.95 → 20.72)
+- principal/pnad/43: 2007→2008 variou -22.6% (20.72 → 16.03)
+- principal/pnad/43: 2008→2009 variou +240.9% (16.03 → 54.64)
+- principal/pnad/50: 2004→2005 variou +22.5% (8.74 → 10.71)
+- principal/pnad/50: 2005→2006 variou +24.1% (10.71 → 13.29)
+- principal/pnad/50: 2006→2007 variou +21.5% (13.29 → 16.15)
+- principal/pnad/50: 2009→2011 variou +59.2% (19.37 → 30.84)
+- principal/pnad/50: 2011→2012 variou +31.4% (30.84 → 40.53)
+- principal/pnad/50: 2014→2015 variou +31.3% (31.71 → 41.62)
+- principal/pnad/51: 2002→2003 variou +49.0% (9.42 → 14.04)
+- principal/pnad/51: 2006→2007 variou -23.8% (13.51 → 10.29)
+- principal/pnad/51: 2007→2008 variou +84.6% (10.29 → 19.0)
+- principal/pnad/51: 2009→2011 variou +50.6% (15.69 → 23.63)
+- principal/pnadc2016/14: 2017→2018 variou +47.5% (27.8 → 41.0)
+- principal/pnadc2016/15: 2017→2018 variou +23.1% (12.1 → 14.9)
+- principal/pnadc2016/16: 2017→2018 variou +21.8% (11.0 → 13.4)
+- principal/pnadc2016/22: 2017→2018 variou -20.8% (9.6 → 7.6)
+- principal/pnadc2019/11: 2022→2023 variou +22.6% (23.4 → 28.7)
+- principal/pnadc2019/11: 2023→2024 variou -36.9% (28.7 → 18.1)
+- principal/pnadc2019/16: 2022→2023 variou +23.8% (21.0 → 26.0)
+- principal/pnadc2019/16: 2023→2024 variou -31.5% (26.0 → 17.8)
+- principal/pnadc2019/22: 2024→2025 variou +43.0% (13.5 → 19.3)
+
+**Conferência com números publicados** (5)
+
+- principal/pnadc2019/BR/2025 (valor): 71.4 ≈ 71.4 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/46449-domicilios-alugados-cresceram-mais-de-50-desde-2016)
+- principal/pnadc2019/BR/2024 (valor): 70.4 ≈ 70.4 ✓ (https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/15ec1d59965a24b0bb2817eaf9b6f490.pdf)
+- principal/pnadc2019/BR/2019 (valor): 68.1 ≈ 68.1 ✓ (https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/15ec1d59965a24b0bb2817eaf9b6f490.pdf)
+- principal/pnadc2019/35/2024 (valor): 94.1 ≈ 94.1 ✓ (https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/15ec1d59965a24b0bb2817eaf9b6f490.pdf)
+- principal/pnadc2019/22/2024 (valor): 13.5 ≈ 13.5 ✓ (https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/15ec1d59965a24b0bb2817eaf9b6f490.pdf)
 
 ## `homicidios` — OK
 
