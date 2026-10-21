@@ -17,6 +17,10 @@ from .ufs import BR, GEOS_OBRIGATORIAS
 TOLERANCIA_PADRAO = 0.01
 LIMIAR_CV_PADRAO = 15.0
 
+# Séries de conferência que o indicador calcula mas não publica (ex.: o mesmo cálculo no conceito
+# de uma tabela oficial diferente), chaveadas por (auxiliar, subindicador, segmento, geo, ano).
+Auxiliares = dict[tuple[str, str, str, str, int], float]
+
 
 @dataclass(frozen=True)
 class Regras:
@@ -42,8 +46,10 @@ class Referencia:
     valor: float
     url: str
     tolerancia: float = TOLERANCIA_PADRAO
-    # "valor" compara com `Ponto.v`; "contagem", com o numerador `Ponto.n`.
-    medida: Literal["valor", "contagem"] = "valor"
+    # "valor" compara com `Ponto.v`; "contagem", com o numerador `Ponto.n`; "auxiliar", com a
+    # série de conferência `auxiliar` que o indicador calculou (conferência indireta).
+    medida: Literal["valor", "contagem", "auxiliar"] = "valor"
+    auxiliar: str | None = None
 
 
 @dataclass
@@ -68,7 +74,13 @@ def carregar_referencias(caminho: Path) -> list[Referencia]:
     return [Referencia(**r) for r in dados.get("referencias") or []]
 
 
-def validar(ind: Indicador, regras: Regras, referencias: list[Referencia], hoje: date) -> Resultado:
+def validar(
+    ind: Indicador,
+    regras: Regras,
+    referencias: list[Referencia],
+    hoje: date,
+    auxiliares: Auxiliares | None = None,
+) -> Resultado:
     r = Resultado()
     _cobertura(ind, r)
     _pontos(ind, regras, r)
@@ -76,7 +88,7 @@ def validar(ind: Indicador, regras: Regras, referencias: list[Referencia], hoje:
     _sem_emenda(ind, regras, r)
     _escalas(ind, r)
     _variacao(ind, regras, r)
-    _conferencia(ind, [ref for ref in referencias if ref.indicador == ind.id], r)
+    _conferencia(ind, [ref for ref in referencias if ref.indicador == ind.id], auxiliares or {}, r)
     return r
 
 
@@ -169,12 +181,17 @@ def _variacao(ind: Indicador, regras: Regras, r: Resultado) -> None:
                 anterior = (ano, p.v)
 
 
-def _conferencia(ind: Indicador, refs: list[Referencia], r: Resultado) -> None:
+def _conferencia(
+    ind: Indicador, refs: list[Referencia], auxiliares: Auxiliares, r: Resultado
+) -> None:
     if len(refs) < 3:
         r.erros.append(f"conferência: {len(refs)} valores de referência (mínimo 3)")
     ultimo_br = _ultimo_ano_br(ind)
     if ultimo_br is not None and not any(
-        ref.geo == BR and (ref.subindicador, ref.segmento, ref.ano) == ultimo_br for ref in refs
+        ref.geo == BR
+        and ref.medida != "auxiliar"
+        and (ref.subindicador, ref.segmento, ref.ano) == ultimo_br
+        for ref in refs
     ):
         r.erros.append(
             f"conferência: falta referência do Brasil no ano mais recente "
@@ -183,10 +200,15 @@ def _conferencia(ind: Indicador, refs: list[Referencia], r: Resultado) -> None:
 
     segs = {(s.subindicador, s.id): s for s in ind.segmentos}
     for ref in refs:
-        onde = f"{ref.subindicador}/{ref.segmento}/{ref.geo}/{ref.ano} ({ref.medida})"
-        seg = segs.get((ref.subindicador, ref.segmento))
-        p = seg.valores.get(ref.geo, {}).get(str(ref.ano)) if seg else None
-        calculado = (p.n if ref.medida == "contagem" else p.v) if p else None
+        medida = f"auxiliar {ref.auxiliar}" if ref.medida == "auxiliar" else ref.medida
+        onde = f"{ref.subindicador}/{ref.segmento}/{ref.geo}/{ref.ano} ({medida})"
+        if ref.medida == "auxiliar":
+            chave = (ref.auxiliar or "", ref.subindicador, ref.segmento, ref.geo, ref.ano)
+            calculado = auxiliares.get(chave)
+        else:
+            seg = segs.get((ref.subindicador, ref.segmento))
+            p = seg.valores.get(ref.geo, {}).get(str(ref.ano)) if seg else None
+            calculado = (p.n if ref.medida == "contagem" else p.v) if p else None
         if calculado is None:
             r.erros.append(f"conferência {onde}: sem valor calculado para comparar")
             continue

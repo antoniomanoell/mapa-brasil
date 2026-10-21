@@ -50,3 +50,31 @@ Formato de cada entrada:
   foram calculados com a visita 5 da PNADC (nos demais anos, visita 1).
 - **Motivo:** o PNUD/FJP publica 2012–2024 como uma série única. Decidido pelo mantenedor.
 - **Fonte:** adh_radar_metadados_2012_2024.xlsx (Atlas Brasil).
+
+## 2026-10-21 — renda_pc: segmento PNAD 2001–2015 por microdados, no conceito da PNADC
+- **Decisão:** o segmento `pnad` é calculado dos microdados da PNAD anual (2001–2009, 2011–2015), no
+  conceito da tabela SIDRA 7533: renda domiciliar (V4614) ÷ moradores sem pensionistas, empregados
+  domésticos e seus parentes (V0401 = 1 a 5). A média é **por pessoa** (peso V4729) e **inclui** quem
+  mora em domicílio sem rendimento. Universo: domicílios particulares (V0201 = 1 ou 3) com rendimento
+  declarado. Para 2001–2012 usamos os pesos **reponderados pela Projeção da População de 2013**, a mesma
+  base das PNADs 2013–2015. O CV é estimado por linearização de Taylor com estratos (V4617) e UPAs
+  (V4618), sem contribuição de estratos com uma só UPA.
+- **Motivo:** a única tabela oficial por UF da PNAD antiga (SIS 2016, Tabela 6.6) usa outro conceito:
+  média por domicílio, sem os domicílios sem rendimento. Isso dá ~20% a mais (Brasil 2015: 1.270 contra
+  1.057 por pessoa). O conceito da 7533 deixa a sobreposição 2012–2015 comparável. Decidido pelo
+  mantenedor (opção A).
+- **Conferência (indireta):** o mesmo código calcula também o conceito da SIS. As 308 células da
+  Tabela 6.6 (Brasil e UFs, 2004–2015) ficam a até R$ 1,28 do publicado, 307 delas a até R$ 1. Os CVs
+  também batem (2015: Brasil 0,99 contra 1,0; RR 10,77 contra 10,8). Dez células vão para
+  `referencias.yaml` com `medida: auxiliar` e tolerância de R$ 1, porque a SIS publica valores inteiros.
+- **Fonte:** https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/
+  (nota técnica em `reponderacao_2001_2012/nota_tecnica.pdf`); SIS 2016, Tabela 6.6.
+
+## 2026-10-21 — renda_pc: deflator do segmento PNAD
+- **Decisão:** valor nominal de setembro do ano (mês de referência da PNAD) × IPCA médio do ano-base ÷
+  IPCA de setembro do ano. O ano-base é o último ano da tabela 7533, o mesmo do segmento PNADC. Os
+  números-índice vêm da SIDRA 1737, variável 2266. Na conferência com a SIS usamos o INPC
+  (SIDRA 1736, variável 2289), de setembro do ano a setembro de 2015, como faz a própria SIS.
+- **Motivo:** é o mesmo índice e a mesma base de preços do segmento PNADC (o IBGE deflaciona a 7533
+  pelo IPCA). Decidido pelo mantenedor.
+- **Fonte:** https://sidra.ibge.gov.br/tabela/1737

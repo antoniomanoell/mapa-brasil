@@ -115,3 +115,36 @@ def test_variacao_ignora_intervalo_decenal(regras):
     regras_largas = Regras(faixa=(0, 100), limiar_variacao=0.5, metodologias={"a": (1991, 2010)})
     res = validar(indicador([seg]), regras_largas, [], HOJE)
     assert not res.alertas
+
+
+def _ref_auxiliar(ind, valor):
+    return Referencia(
+        indicador=ind.id,
+        subindicador="principal",
+        segmento="a",
+        geo="BR",
+        ano=2002,
+        valor=valor,
+        url="https://exemplo.gov.br",
+        tolerancia=1.0,
+        medida="auxiliar",
+        auxiliar="outro_conceito",
+    )
+
+
+def test_conferencia_auxiliar(regras):
+    ind = indicador([segmento("a", [2001, 2002, 2003])])
+    aux = {("outro_conceito", "principal", "a", "BR", 2002): 50.4}
+    refs = [*refs_validas(ind), _ref_auxiliar(ind, 50.0)]
+    res = validar(ind, regras, refs, HOJE, aux)
+    assert res.ok, res.erros
+    assert any("auxiliar outro_conceito" in c for c in res.conferencias)
+
+    res = validar(ind, regras, [*refs_validas(ind), _ref_auxiliar(ind, 52.0)], HOJE, aux)
+    assert any("auxiliar outro_conceito" in e and "≠" in e for e in res.erros)
+
+
+def test_conferencia_auxiliar_sem_serie_calculada(regras):
+    ind = indicador([segmento("a", [2001, 2002, 2003])])
+    res = validar(ind, regras, [*refs_validas(ind), _ref_auxiliar(ind, 50.0)], HOJE)
+    assert any("sem valor calculado" in e for e in res.erros)

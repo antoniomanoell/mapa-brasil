@@ -6,7 +6,11 @@ from ..validate import Regras
 
 
 class DefinicaoIndicador(Protocol):
-    """Contrato de cada módulo em indicators/: busca → transforma → emite."""
+    """Contrato de cada módulo em indicators/: busca → transforma → emite.
+
+    Opcionalmente, `construir` preenche um atributo `auxiliares` (validate.Auxiliares) com séries
+    de conferência indireta, que o validador compara com referências `medida: auxiliar`.
+    """
 
     id: str
     regras: Regras

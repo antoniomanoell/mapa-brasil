@@ -24,3 +24,108 @@ arquivos:
     sha256: 0e92237b49410e56d430bad4ea0d50f8544342540b26825b62e3ce105ef71d08
     descricao: Atlas Brasil, Radar IDHM (PNAD Contínua) 2012–2024 (Last-Modified 2026-06-18)
     automatico: true
+
+  # PNAD anual 2001–2015, microdados (renda_pc, segmento pnad). 2001–2012: pesos reponderados
+  # com a Projeção da População de 2013 (nota_tecnica.pdf em reponderacao_2001_2012/).
+  - arquivo: ibge_pnad/PNAD_reponderado_2001.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2001.zip
+    baixado_em: 2026-10-21
+    sha256: 10562934ef11f9881371c17512e5b4853fa6f68788ceae70d417a1f477a15826
+    descricao: IBGE, PNAD 2001, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2002.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2002.zip
+    baixado_em: 2026-10-21
+    sha256: 7c990b42a5ef01ce7461d090faa2a0a593b8109764630214f57e6edb8ab47073
+    descricao: IBGE, PNAD 2002, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2003_20150814.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2003_20150814.zip
+    baixado_em: 2026-10-21
+    sha256: f332a8eecb5837e4ccbfbc34347a0544dddbe6f877f87f8d7785194a5173458f
+    descricao: IBGE, PNAD 2003, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2004.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2004.zip
+    baixado_em: 2026-10-21
+    sha256: b72b4ef15f0585e336d642a8f4c79fc5339d7b7d0485c8bbf48ac4489990e2f6
+    descricao: IBGE, PNAD 2004, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2017-12-14)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2005.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2005.zip
+    baixado_em: 2026-10-21
+    sha256: ebf2ef88f67448b9bb79c1c6fd23da7506139fbb62359fc5534635b4ee052442
+    descricao: IBGE, PNAD 2005, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2018-07-04)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2006.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2006.zip
+    baixado_em: 2026-10-21
+    sha256: a063a5d3d76dde3cf63644cc442282a242753b19959f56487a4eb9bad3da17fd
+    descricao: IBGE, PNAD 2006, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2007_20150814.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2007_20150814.zip
+    baixado_em: 2026-10-21
+    sha256: 6e35588a7bd46aae191f3eeea0bc8bcf9decc99b03738f9597a890cae1e11184
+    descricao: IBGE, PNAD 2007, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2008.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2008.zip
+    baixado_em: 2026-10-21
+    sha256: 95b105944c5327c56f40f60c621de0be32573e0fdb8df3e87628383bbcbbd4e1
+    descricao: IBGE, PNAD 2008, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2009_20171228.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2009_20171228.zip
+    baixado_em: 2026-10-21
+    sha256: 7fc120d31e50a06fb6c90d15355928e34d7ee5e01458df2ce003b65484b9fca9
+    descricao: IBGE, PNAD 2009, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2017-12-28)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2011_20150814.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2011_20150814.zip
+    baixado_em: 2026-10-21
+    sha256: d5ac2e9fd438dc9cebc8137fb8a500254fff37e4cabb858aa4be4f611594307b
+    descricao: IBGE, PNAD 2011, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/PNAD_reponderado_2012_20150814.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/reponderacao_2001_2012/PNAD_reponderado_2012_20150814.zip
+    baixado_em: 2026-10-21
+    sha256: 0c6f0eb5b17a291fc62d47d1daa6a377cccaabc0970d34aa4a1a4f531b33c89b
+    descricao: IBGE, PNAD 2012, microdados (DOM e PES) reponderados pela Projeção 2013, com dicionário e input SAS (Last-Modified 2016-08-17)
+    automatico: true
+  - arquivo: ibge_pnad/pnad2013_Dados_20170807.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/2013/Dados_20170807.zip
+    baixado_em: 2026-10-21
+    sha256: df47aed5c4bde3ed017a95270ee292b4482d807adc4cfb6887ffa33f20dbd116
+    descricao: IBGE, PNAD 2013, microdados (DOM e PES) (Last-Modified 2017-08-07)
+    automatico: true
+  - arquivo: ibge_pnad/pnad2013_Dicionarios_e_input_20170807.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/2013/Dicionarios_e_input_20170807.zip
+    baixado_em: 2026-10-21
+    sha256: 2cf5e58f408460038d59a0c35cfe9ce91c941c9b4707099d3167069ad4fc5e0f
+    descricao: IBGE, PNAD 2013, dicionários e input SAS (Last-Modified 2017-08-07)
+    automatico: true
+  - arquivo: ibge_pnad/pnad2014_Dados_20170323.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/2014/Dados_20170323.zip
+    baixado_em: 2026-10-21
+    sha256: f7b97aef17806717c0744b2ded20bc6fe14e9ec32ab4d30675220ffa4c5c9477
+    descricao: IBGE, PNAD 2014, microdados (DOM e PES) (Last-Modified 2017-03-23)
+    automatico: true
+  - arquivo: ibge_pnad/pnad2014_Dicionarios_e_input_20170323.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/2014/Dicionarios_e_input_20170323.zip
+    baixado_em: 2026-10-21
+    sha256: dc085a2339029dd3f2977e7cd5dd70a7c02bdb1d2dea727269eea533ef6fcb20
+    descricao: IBGE, PNAD 2014, dicionários e input SAS (Last-Modified 2017-03-23)
+    automatico: true
+  - arquivo: ibge_pnad/pnad2015_Dados_20170517.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/2015/Dados_20170517.zip
+    baixado_em: 2026-10-21
+    sha256: 10498a90ab7d45d5367b2a40447afb5c8c64becd97c6c9f2fd0ee8fb9b142743
+    descricao: IBGE, PNAD 2015, microdados (DOM e PES) (Last-Modified 2017-05-17)
+    automatico: true
+  - arquivo: ibge_pnad/pnad2015_Dicionarios_e_input_20170517.zip
+    url: https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/2015/Dicionarios_e_input_20170517.zip
+    baixado_em: 2026-10-21
+    sha256: 88105f26694b2165e7413cab6163fce1e052b35e4924abce8d7bbcc2640c6e6f
+    descricao: IBGE, PNAD 2015, dicionários e input SAS (Last-Modified 2017-05-17)
+    automatico: true
