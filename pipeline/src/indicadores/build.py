@@ -110,7 +110,7 @@ def executar(definicoes: dict[str, DefinicaoIndicador], only: str | None, hoje: 
         except Exception as e:
             exe.resultados[id_] = (None, Resultado(erros=[f"falha ao construir: {e}"]))
             continue
-        res = validar(ind, defn.regras, referencias, hoje)
+        res = validar(ind, defn.regras, referencias, hoje, getattr(defn, "auxiliares", None))
         exe.resultados[id_] = (ind, res)
         # Só publica o que passou na validação.
         if res.ok:
