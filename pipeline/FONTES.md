@@ -116,3 +116,12 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 - Nascidos vivos: SINASC, `http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sinasc/cnv/nvuf.def`,
   `Incremento=Nascim_p/resid.mãe`, arquivos `nvufAA.dbf`. O SINASC declara 2025 como preliminar.
 - Brasil 2024: 30.020 óbitos ÷ 2.389.325 nascidos vivos = 12,56 por mil (estimativa IBGE: 12,3).
+
+## `desocupacao` e `informalidade`
+
+**IBGE — PNAD Contínua anual, mercado de trabalho (SIDRA)** — verificado em 2026-10-21
+- Tabela **4562**: taxa de desocupação anual (var. 4099) e CV (var. 4103), 2012–2025, N1/N3.
+- Tabela **4708**: taxa de informalidade anual (var. 12466) e CV (var. 12467), 2016–2025, N1/N3.
+- A taxa anual não é a média dos trimestres (tabela 4099 trimestral): Brasil 2024 = 6,6% anual
+  contra 6,85% na média dos 4 trimestres. O IBGE divulga a anual.
+- Referências: https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao

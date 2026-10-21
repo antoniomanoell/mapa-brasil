@@ -89,3 +89,12 @@ Formato de cada entrada:
   por trás, e não tem publicação oficial para conferir. Mais conservador com o princípio 4 do
   PROJECT.md do que "cortar no último ano transcorrido". Decidido pelo mantenedor.
 - **Fonte:** https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024
+
+## 2026-10-21 — desocupacao e informalidade: taxa anual oficial do IBGE
+- **Decisão:** usar as tabelas anuais da PNAD Contínua no SIDRA — 4562 (desocupação, 2012+) e 4708
+  (informalidade, 2016+), com o CV publicado. Não recalcular a média dos trimestres.
+- **Motivo:** a seção 4 mandava confirmar se o IBGE publica dado anual oficial; publica, e é o número
+  que divulga como "taxa anual" (Brasil 2025: 5,6%; 2024: 6,6%). Ele difere da média simples das taxas
+  trimestrais (2024: 6,85%), então recalcular criaria um número que o IBGE não publica.
+- **Fonte:** https://sidra.ibge.gov.br/tabela/4562; https://sidra.ibge.gov.br/tabela/4708; release
+  IBGE de 20/02/2026 (taxas anuais por UF).

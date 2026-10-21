@@ -56,20 +56,21 @@ O objetivo do produto é mostrar fatos e dados ao maior número possível de pes
 Legenda:
 
 - **[confirmar]** = o Claude Code deve verificar na fonte e registrar o valor real no catálogo. **Não assumir** o valor escrito aqui.
+- **✔** = verificado na fonte; detalhes em `pipeline/FONTES.md` e decisões em `DECISIONS.md`.
 - "Segmento" = trecho da série com metodologia homogênea.
 
 | # | id | Indicador | Fonte(s) | Segmentos esperados | Unidade | Maior é |
 |---|---|---|---|---|---|---|
-| 1 | `idhm` | IDHM (geral + Longevidade, Educação, Renda) | PNUD/IPEA/FJP | A: Censo — 2000, 2010 · B: PNADC — 2012–2024 [confirmar fim] | índice 0–1 | melhor |
+| 1 | `idhm` | IDHM (geral + Longevidade, Educação, Renda) | PNUD/IPEA/FJP | A: Censo — 2000, 2010 · B: PNADC (Radar IDHM) — 2012–2024 ✔ | índice 0–1 | melhor |
 | 2 | `renda_pc` | Renda domiciliar per capita média, real | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 · B: PNADC 2012+ | R$ do ano-base | melhor |
 | 3 | `pobreza` | % da população abaixo da linha de pobreza (US$ 6,85 PPC/dia) | IBGE – Síntese de Indicadores Sociais | A: PNADC 2012+ | % | pior |
 | 4 | `extrema_pobreza` | % da população abaixo da linha de extrema pobreza (US$ 2,15 PPC/dia) | IBGE – SIS | A: PNADC 2012+ | % | pior |
 | 5 | `gini` | Índice de Gini da renda domiciliar per capita | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 · B: PNADC 2012+ | índice 0–1 | pior |
-| 6 | `desocupacao` | Taxa de desocupação | IBGE – PNADC | A: PNADC 2012+ (média anual dos trimestres ou dado anual oficial [confirmar qual o IBGE publica]) | % | pior |
-| 7 | `informalidade` | Taxa de informalidade | IBGE – PNADC | A: PNADC [confirmar início, provável 2016] | % | pior |
+| 6 | `desocupacao` | Taxa de desocupação | IBGE – PNADC | A: PNADC 2012+ — taxa anual oficial (SIDRA 4562; não é a média dos trimestres) ✔ | % | pior |
+| 7 | `informalidade` | Taxa de informalidade | IBGE – PNADC | A: PNADC 2016+ (SIDRA 4708) ✔ | % | pior |
 | 8 | `pib_pc` | PIB per capita real | IBGE – Contas Regionais | A: série de referência vigente [confirmar ano inicial, provável 2002] | R$ do ano-base | melhor |
-| 9 | `esperanca_vida` | Esperança de vida ao nascer | IBGE – Projeções da População (revisão mais recente) | A: 2000 → último ano transcorrido | anos | melhor |
-| 10 | `mort_infantil` | Taxa de mortalidade infantil (óbitos < 1 ano por mil nascidos vivos) | IBGE – Projeções (principal); DATASUS SIM/SINASC (referência) | A: 2000 → último ano transcorrido | por mil NV | pior |
+| 9 | `esperanca_vida` | Esperança de vida ao nascer | IBGE – Projeções da População (revisão mais recente) | A: 2000 → último ano com Tábua de Mortalidade publicada (hoje 2024) ✔ | anos | melhor |
+| 10 | `mort_infantil` | Taxa de mortalidade infantil (óbitos < 1 ano por mil nascidos vivos) | IBGE – Projeções (principal); DATASUS SIM/SINASC (referência) | A: 2000 → último ano com Tábua de Mortalidade publicada (hoje 2024) ✔ | por mil NV | pior |
 | 11 | `homicidios` | Taxa de homicídios por 100 mil hab. | DATASUS – SIM (óbitos por residência) + população IBGE | A: 2000 → último ano consolidado do SIM | por 100 mil | pior |
 | 12 | `analfabetismo` | Taxa de analfabetismo, 15 anos ou mais | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 · B: PNADC [confirmar início, provável 2016] | % | pior |
 | 13 | `ideb` | IDEB — anos iniciais, anos finais, ensino médio (rede pública) | INEP | A: 2005+, bienal | índice 0–10 | melhor |
@@ -81,7 +82,7 @@ Legenda:
 
 **Geral — anos de Censo na PNAD antiga.** A PNAD anual **não foi a campo em 2000 nem em 2010** (anos de Censo). Esses anos ficam como lacuna nos segmentos PNAD. Não preencher com dado do Censo, que é outra fonte.
 
-**Geral — PNAD 2001–2003 na região Norte.** Até 2003 a PNAD **não cobria a área rural** de RO, AC, AM, RR, PA e AP (cobertura total a partir de 2004). Para esses 6 estados, os valores de 2001–2003 do segmento PNAD recebem marca "cobertura apenas urbana — não comparável", visível no gráfico, no tooltip e na tabela. [confirmar a lista exata de UFs na documentação da PNAD]
+**Geral — PNAD 2001–2003 na região Norte.** Até 2003 a PNAD **não cobria a área rural** de RO, AC, AM, RR, PA e AP (cobertura total a partir de 2004). Para esses 6 estados, os valores de 2001–2003 do segmento PNAD recebem marca "cobertura apenas urbana — não comparável", visível no gráfico, no tooltip e na tabela. ✔ (confirmada na tabela SIDRA 573: "exceto a área rural de Rondônia, Acre, Amazonas, Roraima, Pará e Amapá")
 
 **`idhm`**
 - O segmento A vem dos dados censitários do Atlas Brasil. O segmento B vem do Radar IDHM (PNADC).
@@ -111,7 +112,7 @@ Legenda:
 - A taxa direta do DATASUS (óbitos SIM < 1 ano ÷ nascidos vivos SINASC × 1000) fica como série de referência no painel, com nota: no início dos anos 2000 o sub-registro, maior no Norte e no Nordeste, faz a taxa direta **subestimar** a mortalidade justamente nos estados mais pobres.
 
 **`homicidios`**
-- Definição alinhada ao Atlas da Violência (IPEA): óbitos por agressão (CID-10 X85–Y09) + intervenção legal (Y35–Y36), por UF de residência [confirmar a definição atual usada pelo IPEA e registrar].
+- Definição alinhada ao Atlas da Violência (IPEA): óbitos por agressão (CID-10 X85–Y09) + intervenção legal (Y35–Y36), por UF de residência ✔ (confirmada no Atlas da Violência 2026, notas das tabelas; ver DECISIONS.md).
 - Usar apenas anos com o SIM consolidado (não usar dados preliminares).
 
 **`ideb`**
