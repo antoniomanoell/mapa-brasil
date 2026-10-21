@@ -83,12 +83,14 @@ def item_catalogo(ind: Indicador) -> ItemCatalogo:
     )
 
 
-def escrever_catalogo(hoje: date, versao: str, public: Path = PUBLIC) -> Path:
-    """Remonta o catálogo a partir de todos os indicadores publicados em disco."""
+def escrever_catalogo(hoje: date, versao: str, ordem: list[str], public: Path = PUBLIC) -> Path:
+    """Remonta o catálogo a partir de todos os indicadores publicados em disco, na `ordem` dada."""
     itens = [
         item_catalogo(Indicador.model_validate_json(p.read_text(encoding="utf-8")))
-        for p in sorted((public / "indicators").glob("*.json"))
+        for p in (public / "indicators").glob("*.json")
     ]
+    posicao = {id_: i for i, id_ in enumerate(ordem)}
+    itens.sort(key=lambda it: (posicao.get(it.id, len(ordem)), it.id))
     cat = Catalogo(gerado_em=hoje, versao_pipeline=versao, indicadores=itens)
     destino = public / "catalog.json"
     escrever(destino, cat.model_dump_json(indent=2) + "\n")
@@ -116,6 +118,6 @@ def executar(definicoes: dict[str, DefinicaoIndicador], only: str | None, hoje: 
         if res.ok:
             escrever_json(ind)
 
-    escrever_catalogo(hoje, versao)
+    escrever_catalogo(hoje, versao, list(definicoes))
     escrever_report(exe, REPORT)
     return exe

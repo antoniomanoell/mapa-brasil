@@ -39,6 +39,7 @@ class Homicidios:
                 taxa = n / pop[geo][ano] * 100_000
                 valores.setdefault(geo, {})[str(ano)] = Ponto(v=round(taxa, 2), n=n)
 
+        anos_prelim = ", ".join(str(a) for a in sorted(preliminares))
         seg = Segmento(
             id="sim",
             subindicador="principal",
@@ -51,7 +52,7 @@ class Homicidios:
             ),
             extraido_em=min(extracoes),
             notas=(
-                f"Só anos com o SIM consolidado: o DATASUS declara {sorted(preliminares)} como "
+                f"Só anos com o SIM consolidado: o DATASUS declara {anos_prelim} como "
                 "preliminares. O total Brasil inclui óbitos com UF de residência ignorada ou no "
                 "exterior. A taxa usa a população das Projeções do IBGE (Revisão 2024), a mesma "
                 "série de todo o site; por isso pode diferir levemente da publicada pelo Atlas da "
