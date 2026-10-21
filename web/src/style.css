@@ -184,12 +184,13 @@ body {
 }
 .slider-linha {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 10px;
+  gap: 4px 10px;
 }
 .slider input[type='range'] {
   flex: 1;
-  min-width: 0;
+  min-width: 120px;
   accent-color: var(--acento);
   height: 32px;
 }
@@ -203,10 +204,13 @@ body {
   cursor: pointer;
   flex: none;
 }
+/* O rótulo ("2014 · PNAD Contínua (2012–)") fica numa linha própria acima do slider, senão
+   espreme o slider até sumir em telas estreitas. */
 .slider-rotulo {
+  order: -1;
+  flex-basis: 100%;
   font-weight: 600;
   font-variant-numeric: tabular-nums;
-  min-width: 9ch;
   font-size: 0.9375rem;
 }
 .segmentos {

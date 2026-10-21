@@ -78,3 +78,13 @@ test('URL restaura a tela e parâmetros inválidos caem no padrão', async ({ pa
   await expect(page.locator('#mapa-area')).toBeVisible();
   await expect(page.locator('#painel')).toBeHidden();
 });
+
+test('nada passa da largura da tela', async ({ page }) => {
+  await abrir(page, '?i=idhm&uf=MA');
+  const excesso = await page.evaluate(
+    () => document.documentElement.scrollWidth - document.documentElement.clientWidth,
+  );
+  expect(excesso).toBeLessThanOrEqual(0);
+  const slider = await page.locator('#slider input[type=range]').boundingBox();
+  expect(slider?.width ?? 0).toBeGreaterThan(100);
+});
