@@ -79,3 +79,24 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
   de pessoas com rendimento (299). Nenhuma corresponde ao conceito do indicador.
 - A tabela 573 confirma a cobertura da PNAD até 2003: "exceto a área rural de Rondônia, Acre, Amazonas,
   Roraima, Pará e Amapá".
+
+**IBGE — PNAD anual, microdados (FTP)** — verificado em 2026-10-21
+- `https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/`
+- 2001–2009, 2011 e 2012: `reponderacao_2001_2012/PNAD_reponderado_<ano>[_AAAAMMDD].zip`, com pesos
+  recalibrados pela Projeção da População de 2013 (`nota_tecnica.pdf` na mesma pasta). Cada zip traz
+  DOM/PES, dicionário e input SAS. A pasta `reponderacao_2001_2009/` usa a projeção de 2008 e está superada.
+- 2013–2015: `<ano>/Dados_AAAAMMDD.zip` + `<ano>/Dicionarios_e_input_AAAAMMDD.zip`.
+- As posições das variáveis mudam a cada ano; o pipeline as lê do input SAS. 2001–2003 não trazem o
+  per capita pronto (V4621/V4742), então ele é calculado; de 2004 em diante o cálculo confere com o V4621.
+- Espécie do domicílio (V0201), igual em todos os anos: 1 particular permanente, 3 particular
+  improvisado, 5 coletivo.
+- A nota técnica confirma a lista de UFs sem área rural até 2003: RO, AC, AM, RR, PA e AP.
+
+**IBGE — Síntese de Indicadores Sociais 2016, Tabela 6.6** (conferência do segmento PNAD)
+- `https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip`
+- Rendimento domiciliar per capita médio e mediano, com CV, por UF, 2004–2009 e 2011–2015, a preços de
+  setembro de 2015 (INPC). Conceito: média por arranjo domiciliar, **sem** os sem rendimento — difere da
+  7533 (ver DECISIONS.md).
+
+**Deflatores (SIDRA)**: IPCA = tabela 1737, variável 2266; INPC = tabela 1736, variável 2289
+(números-índice mensais, dez/1993 = 100).
