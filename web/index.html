@@ -8,9 +8,54 @@
       name="description"
       content="Indicadores socioeconômicos do Brasil por estado, de 2000 até hoje, com fontes oficiais."
     />
+    <meta property="og:title" content="Indicadores BR" />
+    <meta
+      property="og:description"
+      content="Indicadores socioeconômicos do Brasil por estado, com fontes oficiais."
+    />
   </head>
   <body>
-    <main id="app"></main>
+    <a class="pular" href="#ranking-acesso">Pular para o ranking acessível</a>
+    <header class="topo">
+      <h1>Indicadores BR</h1>
+      <p class="subtitulo">Dados oficiais por estado, de 2000 até hoje</p>
+      <div id="controles" class="controles"></div>
+    </header>
+
+    <main class="conteudo">
+      <section class="viz" aria-label="Visualização">
+        <div class="visao" role="group" aria-label="Forma de ver">
+          <button type="button" data-visao="mapa" aria-pressed="true">Mapa</button>
+          <button type="button" data-visao="ranking" id="ranking-acesso" aria-pressed="false">
+            Ranking
+          </button>
+        </div>
+        <div id="mapa-area">
+          <div
+            id="mapa"
+            class="mapa"
+            role="region"
+            aria-label="Mapa do Brasil por estado. Para navegar pelo teclado, use o seletor de estado ou o ranking."
+          ></div>
+          <div id="legenda" class="legenda"></div>
+        </div>
+        <div id="ranking" class="ranking-area" hidden></div>
+        <div id="slider" class="slider"></div>
+        <div id="rodape-viz" class="rodape-viz"></div>
+      </section>
+      <aside id="painel" class="painel" aria-label="Série do estado" hidden></aside>
+    </main>
+
+    <footer class="rodape">
+      <p>
+        Todos os números vêm de fontes oficiais, com quebras de metodologia indicadas. O site não
+        comenta nem atribui causas.
+      </p>
+    </footer>
+
+    <div id="erro" class="erro" role="alert" hidden>
+      Não foi possível carregar os dados. Verifique a conexão e recarregue a página.
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
