@@ -98,3 +98,15 @@ Formato de cada entrada:
   trimestrais (2024: 6,85%), então recalcular criaria um número que o IBGE não publica.
 - **Fonte:** https://sidra.ibge.gov.br/tabela/4562; https://sidra.ibge.gov.br/tabela/4708; release
   IBGE de 20/02/2026 (taxas anuais por UF).
+
+## 2026-10-21 — esgoto: definição, quebra de 2019 e denominador
+- **Decisão:** "adequado" = rede geral ou pluvial, ou fossa (séptica) ligada à rede. Na PNADC são dois
+  segmentos: 2016–2018 (SIDRA 6735, categoria "Rede geral, rede pluvial ou fossa ligada à rede") e
+  2019+ (SIDRA 7192, "Rede geral ou rede pluvial" + "Fossa séptica ligada à rede"), porque o IBGE mudou
+  a classificação em 2019. O percentual é o do IBGE, sobre os domicílios **com** banheiro, sanitário ou
+  buraco para dejeções; a nota do indicador diz que domicílios sem nenhum deles ficam fora da conta.
+- **Motivo:** é a definição do PROJECT.md e a única calculável com as tabelas publicadas para 2016–2018
+  (antes de 2019 a "fossa não ligada à rede" mistura fossa séptica e rudimentar). A mudança de
+  categorias pede segmentos separados (princípio 2). O denominador do IBGE mantém o número conferível.
+  Decidido pelo mantenedor.
+- **Fonte:** https://sidra.ibge.gov.br/tabela/6735; https://sidra.ibge.gov.br/tabela/7192

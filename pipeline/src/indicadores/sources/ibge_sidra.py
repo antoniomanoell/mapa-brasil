@@ -22,22 +22,30 @@ def periodo(tabela: int) -> tuple[int, int]:
     return int(per["inicio"]), int(per["fim"])
 
 
-def consultar(
+Serie = dict[str, dict[int, float | None]]  # geo → ano → valor
+
+
+def consultar_categorias(
     tabela: int,
     variaveis: list[int],
     anos: tuple[int, int],
     classificacao: str | None = None,
-) -> tuple[dict[int, dict[str, dict[int, float | None]]], date]:
-    """Valores por variável → geo ("BR" ou UF) → ano, para Brasil e todas as UFs."""
+) -> tuple[dict[int, dict[tuple[str, ...], Serie]], date]:
+    """Valores por variável → categorias → geo ("BR" ou UF) → ano, para Brasil e todas as UFs.
+
+    As categorias vêm como tupla de ids, uma por classificação, na ordem em que o SIDRA as devolve.
+    """
     vars_ = "|".join(str(v) for v in variaveis)
     params = {"localidades": "N1[all]|N3[all]"}
     if classificacao:
         params["classificacao"] = classificacao
     resp = requisitar(f"{API}/{tabela}/periodos/{anos[0]}-{anos[1]}/variaveis/{vars_}", params)
-    saida: dict[int, dict[str, dict[int, float | None]]] = {}
+    saida: dict[int, dict[tuple[str, ...], Serie]] = {}
     for var in json.loads(resp.conteudo):
-        por_geo = saida.setdefault(int(var["id"]), {})
+        por_cat = saida.setdefault(int(var["id"]), {})
         for res in var["resultados"]:
+            cats = tuple(next(iter(c["categoria"])) for c in res.get("classificacoes", []))
+            por_geo = por_cat.setdefault(cats, {})
             for s in res["series"]:
                 loc = s["localidade"]
                 geo = BR if loc["nivel"]["id"] == "N1" else str(loc["id"])
@@ -47,3 +55,22 @@ def consultar(
                     int(a): (None if v in SEM_VALOR else float(v)) for a, v in s["serie"].items()
                 }
     return saida, resp.obtido_em
+
+
+def consultar(
+    tabela: int,
+    variaveis: list[int],
+    anos: tuple[int, int],
+    classificacao: str | None = None,
+) -> tuple[dict[int, Serie], date]:
+    """Variável → geo → ano, para consultas com uma única combinação de categorias."""
+    dados, obtido_em = consultar_categorias(tabela, variaveis, anos, classificacao)
+    saida: dict[int, Serie] = {}
+    for var, por_cat in dados.items():
+        if len(por_cat) > 1:
+            raise ValueError(
+                f"SIDRA {tabela}: {len(por_cat)} combinações de categorias; "
+                "use consultar_categorias"
+            )
+        saida[var] = next(iter(por_cat.values()), {})
+    return saida, obtido_em

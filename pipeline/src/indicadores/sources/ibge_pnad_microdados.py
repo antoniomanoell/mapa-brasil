@@ -1,4 +1,4 @@
-"""IBGE — microdados da PNAD anual 2001–2015 (FTP), para a renda domiciliar per capita.
+"""IBGE — microdados da PNAD anual 2001–2015 (FTP): renda domiciliar per capita e seu Gini.
 
 O SIDRA não publica a renda domiciliar per capita média por UF para a PNAD anual (ver FONTES.md),
 então ela é calculada dos microdados (PROJECT.md, 6.1, regra 3). Conceito (DECISIONS.md):
@@ -15,12 +15,17 @@ Também calcula, só para conferência, o conceito da Síntese de Indicadores So
 6.6): média por domicílio (peso V4611), sem os domicílios sem rendimento. O CV é estimado por
 linearização de Taylor com os estratos (V4617) e as UPAs (V4618) do plano amostral.
 
+O Gini (segmento PNAD de `gini`) usa a mesma renda per capita por pessoa. Para conferência, calcula
+também o Gini da SIS 2016 (Tabela 6.3): rendimento mensal de todas as fontes (V4720) das pessoas de
+15 anos ou mais com rendimento, ponderado por V4729.
+
 As posições das variáveis mudam a cada ano; são lidas do input SAS que o IBGE publica junto.
 """
 
 import json
 import re
 import zipfile
+from collections.abc import Callable
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -73,17 +78,24 @@ VARIAVEIS = {
         "V4617": ["V4617", "STRAT"],
         "V4618": ["V4618", "PSU"],
     },
-    "PES": {"V0102": ["V0102"], "V0103": ["V0103"], "V0401": ["V0401"], "V4729": ["V4729"]},
+    "PES": {
+        "V0102": ["V0102"],
+        "V0103": ["V0103"],
+        "V0401": ["V0401"],
+        "V4729": ["V4729"],
+        "V8005": ["V8005"],
+    },
 }
-# Opcional: rendimento per capita pronto (a partir de 2004), usado para conferir o cálculo.
-VERIFICACAO = {"DOM": {"V4621": ["V4621"]}}
+# Opcionais: rendimento per capita pronto (a partir de 2004), usado para conferir o cálculo, e
+# rendimento de todas as fontes (ausente do layout de 2001), usado só na conferência do Gini da SIS.
+VERIFICACAO = {"DOM": {"V4621": ["V4621"]}, "PES": {"V4720": ["V4720"]}}
 
 SEM_DECLARACAO = 999_999_999_999
 ESPECIE_PARTICULAR = ("1", "3")  # particular permanente e particular improvisado
 CONDICAO_MORADOR = ("1", "2", "3", "4", "5")  # exclui 6, 7 e 8 (pensionista, empregados domésticos)
 
 # Mudar quando o cálculo mudar, para invalidar o cache.
-VERSAO_CALCULO = "1"
+VERSAO_CALCULO = "2"
 _INPUT = re.compile(r"@0*(\d+)\s+(\w+)\s+\$?\s*(\d+)\.")
 
 
@@ -101,6 +113,10 @@ class RendaAno:
     por_pessoa: dict[str, Estimativa]
     # Conceito da SIS 2016, Tabela 6.6: média por domicílio, sem os domicílios sem rendimento.
     por_domicilio_sis: dict[str, Estimativa]
+    # Gini da renda per capita por pessoa (mesmo universo de `por_pessoa`).
+    gini: dict[str, float]
+    # Conceito da SIS 2016, Tabela 6.3 (só conferência): vazio se o ano não tem V4720.
+    gini_individual_sis: dict[str, float]
 
 
 def ler_layout(texto_input: str) -> dict[str, tuple[int, int]]:
@@ -157,8 +173,10 @@ def ler_ano(ano: int) -> tuple[pl.DataFrame, pl.DataFrame]:
     return saida[0], saida[1]
 
 
-def calcular(dom: pl.DataFrame, pes: pl.DataFrame) -> tuple[dict, dict]:
-    """(por_pessoa, por_domicilio_sis): geo → Estimativa, a partir dos microdados de um ano."""
+def _montar(
+    dom: pl.DataFrame, pes: pl.DataFrame
+) -> tuple[pl.DataFrame, pl.DataFrame, pl.DataFrame]:
+    """(domicilios com rpc, pessoas com rpc, upas) — o universo do conceito por pessoa."""
     num = pl.col
     dom = dom.with_columns(
         num("V0102").str.slice(0, 2).alias("uf"),
@@ -188,10 +206,51 @@ def calcular(dom: pl.DataFrame, pes: pl.DataFrame) -> tuple[dict, dict]:
     )
     # Todas as UPAs da amostra, com seu estrato: UPAs sem nenhum caso do domínio entram com zero.
     upas = dom.select("V4617", "upa").unique()
+    return domicilios, pessoas, upas
+
+
+def calcular(dom: pl.DataFrame, pes: pl.DataFrame) -> tuple[dict, dict]:
+    """(por_pessoa, por_domicilio_sis): geo → Estimativa, a partir dos microdados de um ano."""
+    num = pl.col
+    domicilios, pessoas, upas = _montar(dom, pes)
     por_pessoa = _estimar(pessoas, "rpc", "peso", upas)
     sis = domicilios.filter(num("rpc") > 0)
     por_domicilio = _estimar(sis, "rpc", "peso_dom", upas)
     return por_pessoa, por_domicilio
+
+
+def calcular_gini(dom: pl.DataFrame, pes: pl.DataFrame) -> tuple[dict, dict]:
+    """(gini por pessoa, gini individual da SIS): geo → índice."""
+    _, pessoas, _ = _montar(dom, pes)
+    gini = _por_geo(pessoas, lambda d: gini_ponderado(d["rpc"], d["peso"]))
+    if "V4720" not in pes.columns:
+        return gini, {}
+    renda = pl.col("V4720").cast(pl.Float64, strict=False)
+    individuos = pes.with_columns(
+        pl.col("V0102").str.slice(0, 2).alias("uf"),
+        renda.alias("y"),
+        pl.col("V4729").cast(pl.Float64, strict=False).alias("peso"),
+        pl.col("V8005").cast(pl.Int64, strict=False).alias("idade"),
+    ).filter((pl.col("idade") >= 15) & (pl.col("y") > 0) & (pl.col("y") != SEM_DECLARACAO))
+    sis = _por_geo(individuos, lambda d: gini_ponderado(d["y"], d["peso"]))
+    return gini, sis
+
+
+def _por_geo(casos: pl.DataFrame, f: Callable[[pl.DataFrame], float]) -> dict[str, float]:
+    return {
+        geo: float(f(casos if geo == BR else casos.filter(pl.col("uf") == geo)))
+        for geo in [BR, *sorted(CODIGOS_UF)]
+    }
+
+
+def gini_ponderado(y: pl.Series, w: pl.Series) -> float:
+    """Gini com pesos amostrais: 1 − Σ (Pᵢ − Pᵢ₋₁)(Lᵢ + Lᵢ₋₁), com os casos em ordem de renda."""
+    d = pl.DataFrame({"y": y, "w": w}).sort("y")
+    pw = d["w"] / d["w"].sum()
+    renda = d["y"] * d["w"]
+    lc = renda.cum_sum() / renda.sum()
+    lc_ant = lc.shift(1, fill_value=0.0)
+    return float(1 - (pw * (lc + lc_ant)).sum())
 
 
 def _conferir_per_capita(domicilios: pl.DataFrame) -> None:
@@ -264,8 +323,16 @@ def renda_ano(ano: int) -> RendaAno:
         guardado = json.loads(cache.read_text(encoding="utf-8"))
         if guardado["chave"] == chave:
             return _de_json(guardado)
-    por_pessoa, sis = calcular(*ler_ano(ano))
-    resultado = RendaAno(ano=ano, por_pessoa=por_pessoa, por_domicilio_sis=sis)
+    dom, pes = ler_ano(ano)
+    por_pessoa, sis = calcular(dom, pes)
+    gini, gini_sis = calcular_gini(dom, pes)
+    resultado = RendaAno(
+        ano=ano,
+        por_pessoa=por_pessoa,
+        por_domicilio_sis=sis,
+        gini=gini,
+        gini_individual_sis=gini_sis,
+    )
     cache.parent.mkdir(parents=True, exist_ok=True)
     cache.write_text(json.dumps({"chave": chave, **asdict(resultado)}), encoding="utf-8")
     return resultado
@@ -276,4 +343,6 @@ def _de_json(d: dict) -> RendaAno:
         ano=d["ano"],
         por_pessoa={g: Estimativa(**e) for g, e in d["por_pessoa"].items()},
         por_domicilio_sis={g: Estimativa(**e) for g, e in d["por_domicilio_sis"].items()},
+        gini=d["gini"],
+        gini_individual_sis=d["gini_individual_sis"],
     )

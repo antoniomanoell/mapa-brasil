@@ -72,9 +72,9 @@ Legenda:
 | 9 | `esperanca_vida` | Esperança de vida ao nascer | IBGE – Projeções da População (revisão mais recente) | A: 2000 → último ano com Tábua de Mortalidade publicada (hoje 2024) ✔ | anos | melhor |
 | 10 | `mort_infantil` | Taxa de mortalidade infantil (óbitos < 1 ano por mil nascidos vivos) | IBGE – Projeções (principal); DATASUS SIM/SINASC (referência) | A: 2000 → último ano com Tábua de Mortalidade publicada (hoje 2024) ✔ | por mil NV | pior |
 | 11 | `homicidios` | Taxa de homicídios por 100 mil hab. | DATASUS – SIM (óbitos por residência) + população IBGE | A: 2000 → último ano consolidado do SIM | por 100 mil | pior |
-| 12 | `analfabetismo` | Taxa de analfabetismo, 15 anos ou mais | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 · B: PNADC [confirmar início, provável 2016] | % | pior |
+| 12 | `analfabetismo` | Taxa de analfabetismo, 15 anos ou mais | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 (SIDRA 271) · B: PNADC 2016+ (SIDRA 7113) ✔ | % | pior |
 | 13 | `ideb` | IDEB — anos iniciais, anos finais, ensino médio (rede pública) | INEP | A: 2005+, bienal | índice 0–10 | melhor |
-| 14* | `esgoto` | % de domicílios com esgotamento sanitário adequado (rede geral ou fossa séptica ligada à rede [confirmar definição oficial]) | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 · B: PNADC [confirmar, provável 2016+] | % | melhor |
+| 14* | `esgoto` | % de domicílios com esgotamento sanitário adequado (rede geral ou pluvial, ou fossa séptica ligada à rede — o indicador que o próprio IBGE divulga ✔) | IBGE (PNAD; PNADC) | A: PNAD 2001–2015 (SIDRA 1956) · B: PNADC 2016–2018 (SIDRA 6735) · C: PNADC 2019+ (SIDRA 7192; categorias mudaram) ✔ | % | melhor |
 
 \* São 13 temas. Pobreza e extrema pobreza contam como um tema com dois indicadores irmãos, e o IDEB é um indicador com 3 etapas (subseletor no painel). Todos entram no MVP.
 

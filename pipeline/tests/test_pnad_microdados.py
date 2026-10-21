@@ -107,3 +107,15 @@ def test_cv_por_linearizacao():
     # z = (y - 25)/4 → (-3.75, -1.25 | 1.25, 3.75); cada estrato: 2/1 · (2·1.25²) = 6.25.
     assert est.media == pytest.approx(25)
     assert est.cv == pytest.approx((2 * 6.25) ** 0.5 / 25 * 100)
+
+
+def test_gini_ponderado():
+    import polars as pl
+
+    g = pnad.gini_ponderado
+    assert g(pl.Series([5.0, 5.0, 5.0]), pl.Series([1.0, 2.0, 3.0])) == pytest.approx(0.0)
+    assert g(pl.Series([0.0, 0.0, 0.0, 1.0]), pl.Series([1.0] * 4)) == pytest.approx(0.75)
+    # Peso 2 equivale a repetir o caso.
+    assert g(pl.Series([1.0, 3.0]), pl.Series([2.0, 1.0])) == pytest.approx(
+        g(pl.Series([1.0, 1.0, 3.0]), pl.Series([1.0, 1.0, 1.0]))
+    )

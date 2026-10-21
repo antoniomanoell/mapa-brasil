@@ -1,6 +1,9 @@
 """Um módulo por indicador: busca → transforma → valida → emite."""
 
+from .analfabetismo import Analfabetismo
 from .base import DefinicaoIndicador
+from .esgoto import Esgoto
+from .gini import Gini
 from .homicidios import Homicidios
 from .idhm import Idhm
 from .pnadc_anual import desocupacao, informalidade
@@ -13,10 +16,13 @@ DEFINICOES: dict[str, DefinicaoIndicador] = {
     for d in (
         Idhm(),
         RendaPc(),
+        Gini(),
         desocupacao(),
         informalidade(),
+        Analfabetismo(),
         esperanca_vida(),
         mort_infantil(),
+        Esgoto(),
         Homicidios(),
     )
 }

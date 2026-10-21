@@ -125,3 +125,32 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 - A taxa anual não é a média dos trimestres (tabela 4099 trimestral): Brasil 2024 = 6,6% anual
   contra 6,85% na média dos 4 trimestres. O IBGE divulga a anual.
 - Referências: https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao
+
+## `gini`
+
+- PNADC: SIDRA **7435** (var. 10681 índice, 10682 CV), 2012–2025. Brasil 2019 = 0,543; 2024 = 0,504;
+  2025 = 0,511 (informativo Rendimento de todas as fontes 2025, pp. 1 e 14).
+- PNAD 2001–2015: microdados (mesmo módulo da `renda_pc`), Gini ponderado da renda per capita por
+  pessoa. O SIDRA não publica esse Gini por UF para a PNAD antiga; a SIS 2016 só publica o Gini do
+  rendimento individual (Tabela 6.3, pessoas de 15+ com rendimento, V4720), que o mesmo código
+  reproduz exatamente em 2015 (BR 0,491; SP 0,460; SC 0,419; PB 0,510; AL 0,438; RO 0,452; RJ 0,503).
+
+## `analfabetismo`
+
+- PNADC: SIDRA **7113** (var. 10267 taxa, 10268 CV), sexo Total (6794), "15 anos ou mais" (2795),
+  2016–2025. Brasil 2024 = 5,3%; 2025 = 4,9% (notícias IBGE 43699 e 47221).
+- PNAD 2001–2015: SIDRA **271** (pessoas de 5+ por alfabetização e grupo de idade). Taxa = não
+  alfabetizadas ÷ (alfabetizadas + não) nos grupos 15–19, 20–24, 25–29, 30–39, 40–49, 50–59 e 60+
+  (idade ignorada fora). Brasil 2015 = 7,95%, contra 8,0% na SIS 2016, Tabela 4.15.
+
+## `esgoto`
+
+- O IBGE divulga o indicador "domicílios com acesso à rede geral ou fossa séptica ligada à rede geral
+  de esgoto" (informativo Características gerais dos domicílios 2024, pp. 35–36): Brasil 2019 = 68,1;
+  2023 = 69,7; 2024 = 70,4; 2025 = 71,4 (notícia 46449). Por UF em 2024: SP 94,1 … PI 13,5.
+- PNADC 2019+: SIDRA **7192**, var. 9988 (%), situação Total, categorias 47930 + 47931.
+- PNADC 2016–2018: SIDRA **6735**, var. 9988/9989, categoria 46290 (rede geral, pluvial ou fossa
+  ligada à rede). Categorias diferentes das de 2019+, por isso outro segmento.
+- PNAD 2001–2015: SIDRA **1956**, var. 96 (domicílios particulares permanentes, mil), categorias
+  99663 (rede coletora) + 9490 (fossa séptica ligada à rede coletora) ÷ 99662 (tinham banheiro).
+- O denominador do IBGE são os domicílios com banheiro, sanitário ou buraco para dejeções.
