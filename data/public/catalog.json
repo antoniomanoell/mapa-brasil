@@ -1,6 +1,6 @@
 {
   "gerado_em": "2026-10-21",
-  "versao_pipeline": "2fa1f52",
+  "versao_pipeline": "1122a52",
   "indicadores": [
     {
       "id": "idhm",
@@ -43,6 +43,36 @@
       "ano_inicial": 2001,
       "ano_final": 2025,
       "arquivo": "indicators/renda_pc.json"
+    },
+    {
+      "id": "desocupacao",
+      "nome": "Taxa de desocupação",
+      "tema": "Trabalho",
+      "unidade": "%",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Taxa de desocupação"
+        }
+      ],
+      "ano_inicial": 2012,
+      "ano_final": 2025,
+      "arquivo": "indicators/desocupacao.json"
+    },
+    {
+      "id": "informalidade",
+      "nome": "Taxa de informalidade",
+      "tema": "Trabalho",
+      "unidade": "%",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Taxa de informalidade"
+        }
+      ],
+      "ano_inicial": 2016,
+      "ano_final": 2025,
+      "arquivo": "indicators/informalidade.json"
     },
     {
       "id": "esperanca_vida",

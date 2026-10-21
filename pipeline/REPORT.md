@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
 - Data: 2026-10-21
-- Versão do pipeline: `2fa1f52`
+- Versão do pipeline: `1122a52`
 - Escopo: completo
 - Resultado: OK
 
@@ -131,6 +131,83 @@
 - principal/pnad/43/2006 (auxiliar sis2016_tab6_6): 1228.31 ≈ 1228 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/21/2011 (auxiliar sis2016_tab6_6): 624.46 ≈ 624 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/14/2013 (auxiliar sis2016_tab6_6): 1121.44 ≈ 1121 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+
+## `desocupacao` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | PNAD Contínua (2012–) | 2012–2025 | — | baixa_precisao: 2 |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (35)
+
+- principal/pnadc/11: 2014→2015 variou +46.2% (3.9 → 5.7)
+- principal/pnadc/11: 2015→2016 variou +42.1% (5.7 → 8.1)
+- principal/pnadc/11: 2021→2022 variou -55.3% (9.4 → 4.2)
+- principal/pnadc/12: 2016→2017 variou +36.5% (10.4 → 14.2)
+- principal/pnadc/12: 2022→2023 variou -39.3% (12.2 → 7.4)
+- principal/pnadc/13: 2015→2016 variou +48.9% (9.4 → 14.0)
+- principal/pnadc/14: 2021→2022 variou -64.7% (13.9 → 4.9)
+- principal/pnadc/16: 2015→2016 variou +46.8% (10.9 → 16.0)
+- principal/pnadc/17: 2014→2015 variou +47.0% (6.6 → 9.7)
+- principal/pnadc/17: 2021→2022 variou -45.8% (14.2 → 7.7)
+- principal/pnadc/21: 2021→2022 variou -35.4% (17.8 → 11.5)
+- principal/pnadc/22: 2014→2015 variou +36.7% (6.0 → 8.2)
+- principal/pnadc/23: 2015→2016 variou +35.2% (8.8 → 11.9)
+- principal/pnadc/25: 2019→2020 variou +41.3% (12.6 → 17.8)
+- principal/pnadc/26: 2015→2016 variou +46.6% (10.3 → 15.1)
+- principal/pnadc/27: 2019→2020 variou +35.4% (14.4 → 19.5)
+- principal/pnadc/27: 2021→2022 variou -36.2% (18.8 → 12.0)
+- principal/pnadc/28: 2021→2022 variou -36.2% (20.7 → 13.2)
+- principal/pnadc/29: 2015→2016 variou +43.4% (11.3 → 16.2)
+- principal/pnadc/31: 2021→2022 variou -36.9% (12.2 → 7.7)
+- principal/pnadc/32: 2015→2016 variou +37.8% (9.0 → 12.4)
+- principal/pnadc/33: 2015→2016 variou +43.0% (8.6 → 12.3)
+- principal/pnadc/35: 2014→2015 variou +36.5% (7.4 → 10.1)
+- principal/pnadc/35: 2021→2022 variou -36.8% (14.4 → 9.1)
+- principal/pnadc/41: 2014→2015 variou +53.8% (3.9 → 6.0)
+- principal/pnadc/41: 2015→2016 variou +36.7% (6.0 → 8.2)
+- principal/pnadc/42: 2014→2015 variou +46.7% (3.0 → 4.4)
+- principal/pnadc/42: 2015→2016 variou +47.7% (4.4 → 6.5)
+- principal/pnadc/50: 2014→2015 variou +61.0% (4.1 → 6.6)
+- principal/pnadc/50: 2016→2017 variou +37.1% (7.0 → 9.6)
+- principal/pnadc/50: 2021→2022 variou -47.4% (9.5 → 5.0)
+- principal/pnadc/51: 2014→2015 variou +47.6% (4.2 → 6.2)
+- principal/pnadc/51: 2015→2016 variou +54.8% (6.2 → 9.6)
+- principal/pnadc/51: 2021→2022 variou -57.4% (9.4 → 4.0)
+- principal/pnadc/52: 2015→2016 variou +42.7% (7.5 → 10.7)
+
+**Conferência com números publicados** (5)
+
+- principal/pnadc/BR/2025 (valor): 5.6 ≈ 5.6 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+- principal/pnadc/BR/2024 (valor): 6.6 ≈ 6.6 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+- principal/pnadc/22/2025 (valor): 9.3 ≈ 9.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+- principal/pnadc/51/2025 (valor): 2.2 ≈ 2.2 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+- principal/pnadc/16/2025 (valor): 7.9 ≈ 7.9 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+
+## `informalidade` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | PNAD Contínua (2016–) | 2016–2025 | — | — |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (0)
+
+- nenhum
+
+**Conferência com números publicados** (4)
+
+- principal/pnadc/BR/2025 (valor): 38.1 ≈ 38.1 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+- principal/pnadc/21/2025 (valor): 58.7 ≈ 58.7 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+- principal/pnadc/42/2025 (valor): 26.3 ≈ 26.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
+- principal/pnadc/53/2025 (valor): 27.3 ≈ 27.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao)
 
 ## `esperanca_vida` — OK
 
