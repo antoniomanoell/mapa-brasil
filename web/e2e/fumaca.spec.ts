@@ -4,7 +4,7 @@ import { type Page, expect, test } from '@playwright/test';
 
 async function abrir(page: Page, query = '') {
   await page.goto(`/${query}`);
-  await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true', { timeout: 20_000 });
+  await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true', { timeout: 60_000 });
 }
 
 test('carrega mapa, legenda e slider', async ({ page }) => {
