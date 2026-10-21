@@ -15,6 +15,7 @@ export interface Ponto {
 export interface Segmento {
   id: string;
   subindicador: string;
+  papel?: 'principal' | 'referencia';
   rotulo: string;
   fonte: string;
   fonte_url: string;

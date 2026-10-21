@@ -6,7 +6,11 @@ from ..escala import escala_quantil
 from ..population import FONTE as FONTE_POP
 from ..population import populacao
 from ..schema import Indicador, Ponto, Segmento, Subindicador
-from ..sources import datasus_sim
+from ..sources.datasus_tabnet import (
+    SIM,
+    SIM_GRUPO_AGRESSOES,
+    SIM_GRUPO_INTERVENCOES_LEGAIS,
+)
 from ..validate import Regras, ultimo_ano_transcorrido
 
 ANO_INICIAL = 2000
@@ -24,16 +28,16 @@ class Homicidios:
     )
 
     def construir(self, versao_pipeline: str, hoje: date) -> Indicador:
-        preliminares = datasus_sim.anos_preliminares()
+        preliminares = SIM.anos_preliminares()
         ultimo = min(ultimo_ano_transcorrido(hoje), min(preliminares) - 1)
         anos = list(range(ANO_INICIAL, ultimo + 1))
         pop = populacao(ultimo)
-        grupos = [datasus_sim.GRUPO_AGRESSOES, datasus_sim.GRUPO_INTERVENCOES_LEGAIS]
+        filtros = {"SGrupo_CID-10": [SIM_GRUPO_AGRESSOES, SIM_GRUPO_INTERVENCOES_LEGAIS]}
 
         valores: dict[str, dict[str, Ponto]] = {}
         extracoes: list[date] = []
         for ano in anos:
-            obitos, obtido_em = datasus_sim.obitos_por_uf(ano, grupos)
+            obitos, obtido_em = SIM.por_uf(ano, filtros)
             extracoes.append(obtido_em)
             for geo, n in obitos.items():
                 taxa = n / pop[geo][ano] * 100_000
@@ -45,7 +49,7 @@ class Homicidios:
             subindicador="principal",
             rotulo=f"SIM/DATASUS ({anos[0]}–{anos[-1]})",
             fonte=f"Ministério da Saúde – SIM (DATASUS); população: {FONTE_POP}",
-            fonte_url=datasus_sim.URL_FORMULARIO,
+            fonte_url=SIM.url_formulario,
             tabela=(
                 "TabNet obt10uf.def — óbitos p/ residência, grupos CID-10 Agressões (X85–Y09) "
                 "e Intervenções legais e operações de guerra (Y35–Y36)"

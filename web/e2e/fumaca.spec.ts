@@ -88,3 +88,12 @@ test('nada passa da largura da tela', async ({ page }) => {
   const slider = await page.locator('#slider input[type=range]').boundingBox();
   expect(slider?.width ?? 0).toBeGreaterThan(100);
 });
+
+test('mortalidade infantil: estimativa no mapa, taxa direta só no painel', async ({ page }) => {
+  await abrir(page, '?i=mort_infantil&uf=AM');
+  await expect(page.locator('.slider-rotulo')).toContainText('Estimativa IBGE');
+  const painel = page.locator('#painel');
+  await expect(painel.locator('.painel-legenda')).toContainText('Taxa direta DATASUS (referência)');
+  await expect(painel.locator('.painel-sub')).toContainText('valores estimados');
+  await page.screenshot({ path: `test-results/mort-infantil-${test.info().project.name}.png` });
+});

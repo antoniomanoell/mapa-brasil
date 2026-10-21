@@ -124,6 +124,7 @@ def _pontos(ind: Indicador, regras: Regras, r: Resultado) -> None:
                     )
                 if (
                     ind.tipo_valor == "estimativa"
+                    and seg.papel == "principal"
                     and p.v is not None
                     and Flag.ESTIMATIVA not in p.flags
                 ):
@@ -213,7 +214,8 @@ def _conferencia(
             r.erros.append(f"conferência {onde}: sem valor calculado para comparar")
             continue
         dif = abs(calculado - ref.valor)
-        if dif > ref.tolerancia:
+        # Folga de ponto flutuante: 12,25 publicado como 12,3 dá dif. 0,05 "exata".
+        if dif > ref.tolerancia + 1e-9:
             r.erros.append(
                 f"conferência {onde}: calculado {calculado} ≠ publicado {ref.valor} "
                 f"(dif. {dif:.4g} > {ref.tolerancia})"
@@ -227,7 +229,7 @@ def _ultimo_ano_br(ind: Indicador) -> tuple[str, str, int] | None:
     principal = ind.subindicadores[0].id
     melhor: tuple[str, str, int] | None = None
     for seg in ind.segmentos:
-        if seg.subindicador != principal:
+        if seg.subindicador != principal or seg.papel != "principal":
             continue
         for ano in seg.anos:
             p = seg.valores.get(BR, {}).get(str(ano))

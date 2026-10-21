@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { classe, intervaloAnos, segmentoVigente, segmentosNoAno } from '../src/series';
+import { classe, intervaloAnos, segmentoVigente, segmentosDe, segmentosNoAno } from '../src/series';
 import { formatarValor } from '../src/format';
 import { IND } from './fixtures';
 
@@ -37,5 +37,28 @@ describe('formatarValor', () => {
     expect(formatarValor({ ...IND, unidade: 'por 100 mil hab.', casas_decimais: 1 }, 20.03)).toBe(
       '20,0 por 100 mil hab.',
     );
+  });
+});
+
+describe('série de referência', () => {
+  const comRef = {
+    ...IND,
+    segmentos: [
+      ...IND.segmentos,
+      {
+        ...(IND.segmentos[1] as (typeof IND.segmentos)[number]),
+        id: 'ref',
+        papel: 'referencia' as const,
+      },
+    ],
+  };
+
+  it('fica fora do mapa, do slider e do segmento vigente', () => {
+    expect(segmentosNoAno(comRef, 'geral', 2020).map((s) => s.id)).toEqual(['pnadc']);
+    expect(segmentoVigente(comRef, 'geral', 2020, 'ref')?.id).toBe('pnadc');
+  });
+
+  it('aparece quando pedida (painel)', () => {
+    expect(segmentosDe(comRef, 'geral', true).map((s) => s.id)).toContain('ref');
   });
 });

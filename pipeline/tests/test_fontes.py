@@ -5,7 +5,7 @@ from datetime import date
 
 import pytest
 
-from indicadores.sources import datasus_sim, ibge_sidra
+from indicadores.sources import datasus_tabnet, ibge_sidra
 from indicadores.sources.http import Resposta
 from indicadores.ufs import BR, CODIGOS_UF
 
@@ -18,7 +18,7 @@ def _prn(linhas: list[str]) -> str:
 def test_tabnet_le_ufs_total_e_zero():
     linhas = [f'"{c} UF {c}";{"-" if c == "14" else "3"}' for c in sorted(CODIGOS_UF)]
     linhas.append('"Ignorado/exterior";2')
-    saida = datasus_sim._ler_prn(_prn(linhas), 2024)
+    saida = datasus_tabnet.ler_prn(_prn(linhas), "teste")
     assert saida[BR] == 99
     assert saida["14"] == 0
     assert saida["35"] == 3
@@ -28,7 +28,7 @@ def test_tabnet_le_ufs_total_e_zero():
 def test_tabnet_falta_uf():
     linhas = [f'"{c} UF";1' for c in sorted(CODIGOS_UF) if c != "53"]
     with pytest.raises(ValueError, match="53"):
-        datasus_sim._ler_prn(_prn(linhas), 2024)
+        datasus_tabnet.ler_prn(_prn(linhas), "teste")
 
 
 def test_sidra_le_brasil_ufs_e_simbolos(monkeypatch):

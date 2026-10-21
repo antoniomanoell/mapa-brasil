@@ -38,3 +38,9 @@ def test_roundtrip_json():
     ind = indicador([segmento("a", [2001, 2002, 2003])])
     texto = ind.model_dump_json(exclude_defaults=True)
     assert type(ind).model_validate_json(texto) == ind
+
+
+def test_papel_padrao_e_referencia():
+    seg = segmento("a", [2001])
+    assert seg.papel == "principal"
+    assert seg.model_copy(update={"papel": "referencia"}).papel == "referencia"

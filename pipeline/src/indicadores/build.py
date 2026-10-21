@@ -67,6 +67,7 @@ def item_catalogo(ind: Indicador) -> ItemCatalogo:
     anos = [
         int(a)
         for seg in ind.segmentos
+        if seg.papel == "principal"
         for serie in seg.valores.values()
         for a, p in serie.items()
         if p.v is not None

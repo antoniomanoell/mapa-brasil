@@ -100,3 +100,19 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 
 **Deflatores (SIDRA)**: IPCA = tabela 1737, variável 2266; INPC = tabela 1736, variável 2289
 (números-índice mensais, dez/1993 = 100).
+
+## `esperanca_vida` e `mort_infantil`
+
+**IBGE — Projeções da População, Revisão 2024** (mesma planilha da população) — verificado em 2026-10-21
+- Colunas `e0_T` (esperança de vida ao nascer) e `TMI_T` (mortalidade infantil, por mil nascidos vivos).
+- Até 2024 coincidem com as **Tábuas Completas de Mortalidade 2024** (IBGE, 28/11/2025), inclusive na
+  queda de 2020–2021. Brasil: e0 2000 = 71,1; 2010 = 74,4; 2021 = 72,8; 2024 = 76,6. TMI 2000 = 28,1;
+  2010 = 15,0; 2021 = 12,2; 2024 = 12,3.
+  Fonte: https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024
+- Valores de 2025 em diante são projeção e ficam de fora até sair a Tábua do ano (DECISIONS.md).
+
+**DATASUS — taxa direta de mortalidade infantil (série de referência)** — verificado em 2026-10-21
+- Óbitos de menores de 1 ano: SIM, `obt10uf.def`, filtro `SFaixa_Etária = 1` ("Menor 1 ano"), por residência.
+- Nascidos vivos: SINASC, `http://tabnet.datasus.gov.br/cgi/deftohtm.exe?sinasc/cnv/nvuf.def`,
+  `Incremento=Nascim_p/resid.mãe`, arquivos `nvufAA.dbf`. O SINASC declara 2025 como preliminar.
+- Brasil 2024: 30.020 óbitos ÷ 2.389.325 nascidos vivos = 12,56 por mil (estimativa IBGE: 12,3).

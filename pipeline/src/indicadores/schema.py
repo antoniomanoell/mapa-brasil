@@ -47,6 +47,9 @@ class Segmento(Modelo):
 
     id: Id
     subindicador: Id
+    # "referencia": série de apoio mostrada só no painel da UF (ex.: taxa direta do DATASUS para a
+    # mortalidade infantil); não entra no mapa, no ranking, na escala nem no slider.
+    papel: Literal["principal", "referencia"] = "principal"
     rotulo: str
     fonte: str
     fonte_url: str

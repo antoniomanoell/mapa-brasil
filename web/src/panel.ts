@@ -8,7 +8,9 @@ import type { Indicador } from './types';
 import { BR, ufPorSigla } from './ufs';
 
 // Cores dos segmentos da UF: escuras, distintas entre si e do cinza do Brasil; sem vermelho/verde.
-const CORES_SEGMENTO = ['#08519c', '#6a3d9a', '#b15928'];
+const CORES_SEGMENTO = ['#08519c', '#6a3d9a'];
+// Série de referência (ex.: taxa direta do DATASUS): tracejada, só para a UF.
+const COR_REFERENCIA = '#b15928';
 
 interface Linha {
   ano: number;
@@ -18,6 +20,7 @@ interface Linha {
   cor: string;
   marcado: boolean;
   detalhe: string;
+  referencia: boolean;
 }
 
 export class Painel {
@@ -63,19 +66,25 @@ export class Painel {
     const vigente = segmentoVigente(ind, sub, ano, pedido);
     const pUf = ponto(vigente, uf.codigo, ano);
     const pBr = ponto(vigente, BR, ano);
-    const segs = segmentosDe(ind, sub);
+    const segs = segmentosDe(ind, sub, true);
     const linhas: Linha[] = [];
-    segs.forEach((seg, i) => {
-      const cor = CORES_SEGMENTO[i % CORES_SEGMENTO.length] as string;
+    let iPrincipal = 0;
+    segs.forEach((seg) => {
+      const referencia = seg.papel === 'referencia';
+      const cor = referencia
+        ? COR_REFERENCIA
+        : (CORES_SEGMENTO[iPrincipal++ % CORES_SEGMENTO.length] as string);
+      const series: [string, string, string][] = [[uf.codigo, `${uf.sigla} · ${seg.rotulo}`, cor]];
+      if (!referencia) series.push([BR, `Brasil · ${seg.rotulo}`, COR_BRASIL]);
       const [ini, fim] = [seg.anos[0] as number, seg.anos.at(-1) as number];
       for (let a = ini; a <= fim; a++) {
         // Ano fora de `anos` vira null: o Plot quebra a linha ali (lacuna é lacuna).
-        for (const [geo, serie, c] of [
-          [uf.codigo, `${uf.sigla} · ${seg.rotulo}`, cor],
-          [BR, `Brasil · ${seg.rotulo}`, COR_BRASIL],
-        ] as const) {
+        for (const [geo, serie, c] of series) {
           const p = seg.anos.includes(a) ? ponto(seg, geo, a) : undefined;
-          const flags = p?.flags ?? [];
+          // Num indicador todo estimado, "estimativa" vai no cabeçalho, não em cada ponto.
+          const flags = (p?.flags ?? []).filter(
+            (f) => !(ind.tipo_valor === 'estimativa' && f === 'estimativa'),
+          );
           linhas.push({
             ano: a,
             v: p?.v ?? null,
@@ -84,13 +93,16 @@ export class Painel {
             cor: c,
             marcado: flags.length > 0,
             detalhe: flags.map((f) => ROTULO_FLAG[f]).join('; '),
+            referencia,
           });
         }
       }
     });
 
     this.#corpo.innerHTML = `
-      <p class="painel-sub">${esc(nomeSub)} · ${esc(ind.unidade_detalhe)}</p>
+      <p class="painel-sub">${esc(nomeSub)} · ${esc(ind.unidade_detalhe)}${
+        ind.tipo_valor === 'estimativa' ? ' · <strong>valores estimados, não medidos</strong>' : ''
+      }</p>
       <dl class="painel-valores">
         <div><dt>${esc(uf.sigla)} em ${ano}</dt><dd>${esc(formatarValor(ind, pUf?.v))}</dd></div>
         <div><dt>Brasil em ${ano}</dt><dd>${esc(formatarValor(ind, pBr?.v))}</dd></div>
@@ -102,9 +114,12 @@ export class Painel {
       <div class="painel-notas"></div>`;
 
     const legenda = this.#corpo.querySelector('.painel-legenda') as HTMLElement;
-    const series = [...new Map(linhas.map((l) => [l.serie, l.cor])).entries()];
+    const series = [...new Map(linhas.map((l) => [l.serie, l])).entries()];
     legenda.innerHTML = series
-      .map(([s, c]) => `<li><span class="traco" style="background:${c}"></span>${esc(s)}</li>`)
+      .map(
+        ([s, l]) =>
+          `<li><span class="traco${l.referencia ? ' tracejado' : ''}" style="--cor:${l.cor}"></span>${esc(s)}</li>`,
+      )
       .join('');
     if (linhas.some((l) => l.marcado)) {
       legenda.innerHTML += `<li><span class="ponto-vazado"></span>ponto vazado = valor com ressalva (passe o mouse)</li>`;
@@ -147,7 +162,21 @@ export class Painel {
             fontSize: 14,
             dy: 2,
           }),
-          Plot.lineY(linhas, { x: 'ano', y: 'v', z: 'serie', stroke: 'cor', strokeWidth: 2 }),
+          Plot.lineY(
+            linhas.filter((l) => !l.referencia),
+            { x: 'ano', y: 'v', z: 'serie', stroke: 'cor', strokeWidth: 2 },
+          ),
+          Plot.lineY(
+            linhas.filter((l) => l.referencia),
+            {
+              x: 'ano',
+              y: 'v',
+              z: 'serie',
+              stroke: 'cor',
+              strokeWidth: 1.5,
+              strokeDasharray: '5,3',
+            },
+          ),
           Plot.dot(comValor, {
             x: 'ano',
             y: 'v',

@@ -2,8 +2,12 @@
 
 import type { Indicador, Ponto, Segmento } from './types';
 
-export function segmentosDe(ind: Indicador, sub: string): Segmento[] {
-  return ind.segmentos.filter((s) => s.subindicador === sub);
+/** Segmentos do subindicador. Séries de referência (papel "referencia") só entram se pedidas:
+ * elas aparecem no painel da UF, nunca no mapa, no ranking ou no slider. */
+export function segmentosDe(ind: Indicador, sub: string, comReferencia = false): Segmento[] {
+  return ind.segmentos.filter(
+    (s) => s.subindicador === sub && (comReferencia || (s.papel ?? 'principal') === 'principal'),
+  );
 }
 
 /** Intervalo do slider: do primeiro ao último ano com dado em algum segmento (a partir de 2000). */

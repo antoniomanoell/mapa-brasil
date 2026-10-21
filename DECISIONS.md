@@ -78,3 +78,14 @@ Formato de cada entrada:
 - **Motivo:** é o mesmo índice e a mesma base de preços do segmento PNADC (o IBGE deflaciona a 7533
   pelo IPCA). Decidido pelo mantenedor.
 - **Fonte:** https://sidra.ibge.gov.br/tabela/1737
+
+## 2026-10-21 — esperanca_vida e mort_infantil: até o último ano com Tábua publicada
+- **Decisão:** as duas séries vêm das Projeções da População (Revisão 2024, `e0_T` e `TMI_T`) e vão
+  até **2024**, o último ano com Tábua Completa de Mortalidade publicada pelo IBGE. Um ano novo só
+  entra quando sair a Tábua dele (a de 2025 sai em novembro de 2026). Os valores são rotulados como
+  estimativa do IBGE.
+- **Motivo:** até 2024 a série das Projeções coincide com as Tábuas publicadas, inclusive na queda de
+  2020–2021 (e0 2021 = 72,8). O valor de 2025 da planilha é projeção feita em 2024, sem dado observado
+  por trás, e não tem publicação oficial para conferir. Mais conservador com o princípio 4 do
+  PROJECT.md do que "cortar no último ano transcorrido". Decidido pelo mantenedor.
+- **Fonte:** https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024
