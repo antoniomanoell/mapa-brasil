@@ -1,22 +1,7 @@
 {
-  "gerado_em": "2026-10-20",
-  "versao_pipeline": "3f89ca0",
+  "gerado_em": "2026-10-21",
+  "versao_pipeline": "eaaaf82",
   "indicadores": [
-    {
-      "id": "homicidios",
-      "nome": "Taxa de homicídios",
-      "tema": "Segurança",
-      "unidade": "por 100 mil hab.",
-      "subindicadores": [
-        {
-          "id": "principal",
-          "nome": "Taxa de homicídios"
-        }
-      ],
-      "ano_inicial": 2000,
-      "ano_final": 2024,
-      "arquivo": "indicators/homicidios.json"
-    },
     {
       "id": "idhm",
       "nome": "Índice de Desenvolvimento Humano Municipal (IDHM)",
@@ -58,6 +43,21 @@
       "ano_inicial": 2012,
       "ano_final": 2025,
       "arquivo": "indicators/renda_pc.json"
+    },
+    {
+      "id": "homicidios",
+      "nome": "Taxa de homicídios",
+      "tema": "Segurança",
+      "unidade": "por 100 mil hab.",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Taxa de homicídios"
+        }
+      ],
+      "ano_inicial": 2000,
+      "ano_final": 2024,
+      "arquivo": "indicators/homicidios.json"
     }
   ]
 }
