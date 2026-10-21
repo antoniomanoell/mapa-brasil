@@ -1,6 +1,6 @@
 {
   "gerado_em": "2026-10-21",
-  "versao_pipeline": "7f3aad4",
+  "versao_pipeline": "2fa1f52",
   "indicadores": [
     {
       "id": "idhm",
@@ -43,6 +43,36 @@
       "ano_inicial": 2001,
       "ano_final": 2025,
       "arquivo": "indicators/renda_pc.json"
+    },
+    {
+      "id": "esperanca_vida",
+      "nome": "Esperança de vida ao nascer",
+      "tema": "Saúde",
+      "unidade": "anos",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Esperança de vida ao nascer"
+        }
+      ],
+      "ano_inicial": 2000,
+      "ano_final": 2024,
+      "arquivo": "indicators/esperanca_vida.json"
+    },
+    {
+      "id": "mort_infantil",
+      "nome": "Taxa de mortalidade infantil",
+      "tema": "Saúde",
+      "unidade": "por mil nascidos vivos",
+      "subindicadores": [
+        {
+          "id": "principal",
+          "nome": "Taxa de mortalidade infantil"
+        }
+      ],
+      "ano_inicial": 2000,
+      "ano_final": 2024,
+      "arquivo": "indicators/mort_infantil.json"
     },
     {
       "id": "homicidios",

@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
 - Data: 2026-10-21
-- Versão do pipeline: `7f3aad4`
+- Versão do pipeline: `2fa1f52`
 - Escopo: completo
 - Resultado: OK
 
@@ -131,6 +131,166 @@
 - principal/pnad/43/2006 (auxiliar sis2016_tab6_6): 1228.31 ≈ 1228 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/21/2011 (auxiliar sis2016_tab6_6): 624.46 ≈ 624 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/14/2013 (auxiliar sis2016_tab6_6): 1121.44 ≈ 1121 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+
+## `esperanca_vida` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | Estimativa IBGE (2000–2024) | 2000–2024 | — | estimativa: 700 |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (36)
+
+- principal/projecoes2024/11: 2019→2020 variou -3.2% (76.57 → 74.15)
+- principal/projecoes2024/11: 2020→2021 variou -4.9% (74.15 → 70.54)
+- principal/projecoes2024/11: 2021→2022 variou +6.2% (70.54 → 74.94)
+- principal/projecoes2024/12: 2021→2022 variou +5.6% (71.23 → 75.2)
+- principal/projecoes2024/13: 2019→2020 variou -4.7% (75.34 → 71.81)
+- principal/projecoes2024/13: 2021→2022 variou +7.3% (69.72 → 74.82)
+- principal/projecoes2024/14: 2019→2020 variou -3.6% (74.12 → 71.42)
+- principal/projecoes2024/14: 2020→2021 variou -3.3% (71.42 → 69.07)
+- principal/projecoes2024/14: 2021→2022 variou +6.2% (69.07 → 73.32)
+- principal/projecoes2024/15: 2019→2020 variou -3.2% (75.69 → 73.3)
+- principal/projecoes2024/16: 2019→2020 variou -4.4% (73.95 → 70.69)
+- principal/projecoes2024/16: 2021→2022 variou +4.5% (70.45 → 73.64)
+- principal/projecoes2024/17: 2020→2021 variou -3.6% (75.24 → 72.52)
+- principal/projecoes2024/17: 2021→2022 variou +4.0% (72.52 → 75.4)
+- principal/projecoes2024/23: 2019→2020 variou -3.4% (76.78 → 74.19)
+- principal/projecoes2024/23: 2021→2022 variou +3.2% (73.54 → 75.88)
+- principal/projecoes2024/31: 2020→2021 variou -3.5% (76.67 → 73.98)
+- principal/projecoes2024/31: 2021→2022 variou +3.4% (73.98 → 76.51)
+- principal/projecoes2024/32: 2021→2022 variou +3.5% (73.75 → 76.31)
+- principal/projecoes2024/33: 2021→2022 variou +4.5% (71.49 → 74.74)
+- principal/projecoes2024/35: 2020→2021 variou -3.5% (75.55 → 72.9)
+- principal/projecoes2024/35: 2021→2022 variou +4.2% (72.9 → 75.93)
+- principal/projecoes2024/41: 2020→2021 variou -5.2% (75.82 → 71.91)
+- principal/projecoes2024/41: 2021→2022 variou +4.8% (71.91 → 75.38)
+- principal/projecoes2024/42: 2020→2021 variou -3.5% (77.23 → 74.52)
+- principal/projecoes2024/42: 2021→2022 variou +3.2% (74.52 → 76.92)
+- principal/projecoes2024/43: 2020→2021 variou -3.9% (76.27 → 73.29)
+- principal/projecoes2024/50: 2020→2021 variou -4.6% (74.78 → 71.34)
+- principal/projecoes2024/50: 2021→2022 variou +4.5% (71.34 → 74.53)
+- principal/projecoes2024/51: 2019→2020 variou -3.3% (75.91 → 73.43)
+- principal/projecoes2024/51: 2020→2021 variou -3.4% (73.43 → 70.96)
+- principal/projecoes2024/51: 2021→2022 variou +5.6% (70.96 → 74.91)
+- principal/projecoes2024/52: 2020→2021 variou -3.7% (74.46 → 71.68)
+- principal/projecoes2024/52: 2021→2022 variou +5.3% (71.68 → 75.45)
+- principal/projecoes2024/53: 2021→2022 variou +5.1% (74.95 → 78.78)
+- principal/projecoes2024/BR: 2021→2022 variou +3.7% (72.78 → 75.45)
+
+**Conferência com números publicados** (4)
+
+- principal/projecoes2024/BR/2024 (valor): 76.61 ≈ 76.6 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+- principal/projecoes2024/BR/2021 (valor): 72.78 ≈ 72.8 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+- principal/projecoes2024/BR/2010 (valor): 74.36 ≈ 74.4 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+- principal/projecoes2024/BR/2000 (valor): 71.1 ≈ 71.1 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+
+## `mort_infantil` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | Estimativa IBGE (2000–2024) | 2000–2024 | — | estimativa: 700 |
+| principal | Taxa direta DATASUS (referência) | 2000–2024 | — | — |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (83)
+
+- principal/projecoes2024/11: 2010→2011 variou -23.6% (19.39 → 14.82)
+- principal/projecoes2024/12: 2000→2001 variou -26.8% (36.89 → 27.02)
+- principal/projecoes2024/12: 2002→2003 variou -15.1% (27.47 → 23.33)
+- principal/projecoes2024/12: 2005→2006 variou -19.9% (27.5 → 22.03)
+- principal/projecoes2024/12: 2006→2007 variou +15.8% (22.03 → 25.51)
+- principal/projecoes2024/12: 2007→2008 variou -16.3% (25.51 → 21.36)
+- principal/projecoes2024/12: 2015→2016 variou -19.1% (17.54 → 14.19)
+- principal/projecoes2024/12: 2017→2018 variou +17.3% (14.84 → 17.4)
+- principal/projecoes2024/12: 2020→2021 variou +30.6% (14.89 → 19.44)
+- principal/projecoes2024/12: 2021→2022 variou -15.4% (19.44 → 16.45)
+- principal/projecoes2024/13: 2006→2007 variou -15.1% (25.04 → 21.26)
+- principal/projecoes2024/14: 2001→2002 variou -27.9% (21.19 → 15.28)
+- principal/projecoes2024/14: 2002→2003 variou +38.7% (15.28 → 21.19)
+- principal/projecoes2024/14: 2006→2007 variou -16.7% (22.15 → 18.45)
+- principal/projecoes2024/14: 2008→2009 variou -16.8% (20.3 → 16.89)
+- principal/projecoes2024/14: 2009→2010 variou -19.6% (16.89 → 13.58)
+- principal/projecoes2024/14: 2011→2012 variou +27.7% (14.07 → 17.97)
+- principal/projecoes2024/14: 2017→2018 variou +30.8% (17.13 → 22.4)
+- principal/projecoes2024/14: 2018→2019 variou -20.5% (22.4 → 17.8)
+- principal/projecoes2024/14: 2022→2023 variou +16.3% (19.17 → 22.29)
+- principal/projecoes2024/16: 2014→2015 variou -18.1% (19.92 → 16.32)
+- principal/projecoes2024/16: 2015→2016 variou +15.1% (16.32 → 18.78)
+- principal/projecoes2024/16: 2018→2019 variou -15.8% (20.67 → 17.4)
+- principal/projecoes2024/17: 2020→2021 variou +17.7% (10.75 → 12.65)
+- principal/projecoes2024/21: 2005→2006 variou -20.6% (33.42 → 26.55)
+- principal/projecoes2024/23: 2004→2005 variou -16.2% (28.75 → 24.1)
+- principal/projecoes2024/24: 2002→2003 variou -16.6% (37.93 → 31.63)
+- principal/projecoes2024/24: 2005→2006 variou -21.2% (26.6 → 20.96)
+- principal/projecoes2024/25: 2000→2001 variou -19.9% (47.59 → 38.13)
+- principal/projecoes2024/25: 2003→2004 variou -16.7% (35.12 → 29.25)
+- principal/projecoes2024/25: 2008→2009 variou -16.7% (21.12 → 17.6)
+- principal/projecoes2024/25: 2014→2015 variou -15.8% (14.61 → 12.3)
+- principal/projecoes2024/26: 2003→2004 variou -19.8% (32.8 → 26.32)
+- principal/projecoes2024/27: 2003→2004 variou -22.0% (37.14 → 28.97)
+- principal/projecoes2024/27: 2005→2006 variou -16.9% (30.07 → 24.98)
+- principal/projecoes2024/27: 2020→2021 variou +15.3% (11.88 → 13.7)
+- principal/projecoes2024/28: 2006→2007 variou -20.1% (26.01 → 20.77)
+- principal/projecoes2024/28: 2008→2009 variou -16.0% (21.03 → 17.67)
+- principal/projecoes2024/32: 2008→2009 variou -17.5% (14.12 → 11.65)
+- principal/projecoes2024/32: 2020→2021 variou +15.9% (9.93 → 11.51)
+- principal/projecoes2024/41: 2000→2001 variou -16.7% (20.11 → 16.75)
+- principal/projecoes2024/42: 2016→2017 variou +19.0% (8.65 → 10.29)
+- principal/projecoes2024/50: 2001→2002 variou -15.9% (23.42 → 19.69)
+- principal/projecoes2024/50: 2009→2010 variou -17.5% (18.22 → 15.03)
+- principal/projecoes2024/51: 2005→2006 variou -20.8% (24.79 → 19.63)
+- principal/projecoes2024/51: 2009→2010 variou -16.2% (18.54 → 15.53)
+- principal/projecoes2024/53: 2018→2019 variou -21.3% (10.43 → 8.21)
+- principal/projecoes2024/53: 2019→2020 variou +22.9% (8.21 → 10.09)
+- principal/datasus_direta/11: 2007→2008 variou -16.1% (19.39 → 16.27)
+- principal/datasus_direta/11: 2010→2011 variou -28.2% (18.54 → 13.31)
+- principal/datasus_direta/12: 2000→2001 variou -22.9% (31.26 → 24.1)
+- principal/datasus_direta/12: 2007→2008 variou -19.1% (22.12 → 17.89)
+- principal/datasus_direta/12: 2010→2011 variou -17.4% (17.4 → 14.37)
+- principal/datasus_direta/12: 2017→2018 variou +21.1% (13.63 → 16.5)
+- principal/datasus_direta/14: 2001→2002 variou -23.4% (16.98 → 13.01)
+- principal/datasus_direta/14: 2002→2003 variou +21.8% (13.01 → 15.85)
+- principal/datasus_direta/14: 2003→2004 variou +21.1% (15.85 → 19.2)
+- principal/datasus_direta/14: 2005→2006 variou +17.2% (18.05 → 21.16)
+- principal/datasus_direta/14: 2006→2007 variou -19.1% (21.16 → 17.12)
+- principal/datasus_direta/14: 2009→2010 variou -29.3% (18.3 → 12.94)
+- principal/datasus_direta/14: 2011→2012 variou +30.3% (12.67 → 16.51)
+- principal/datasus_direta/14: 2012→2013 variou +17.1% (16.51 → 19.33)
+- principal/datasus_direta/14: 2014→2015 variou -17.3% (20.23 → 16.74)
+- principal/datasus_direta/14: 2022→2023 variou +27.1% (18.79 → 23.88)
+- principal/datasus_direta/14: 2023→2024 variou -20.0% (23.88 → 19.11)
+- principal/datasus_direta/16: 2022→2023 variou +15.8% (18.07 → 20.93)
+- principal/datasus_direta/17: 2020→2021 variou +18.5% (10.62 → 12.59)
+- principal/datasus_direta/23: 2000→2001 variou -19.8% (26.51 → 21.26)
+- principal/datasus_direta/23: 2004→2005 variou -18.4% (22.45 → 18.32)
+- principal/datasus_direta/23: 2009→2010 variou -15.4% (15.52 → 13.13)
+- principal/datasus_direta/24: 2002→2003 variou -17.5% (21.16 → 17.45)
+- principal/datasus_direta/25: 2000→2001 variou -34.0% (32.18 → 21.23)
+- principal/datasus_direta/25: 2021→2022 variou +16.5% (12.63 → 14.72)
+- principal/datasus_direta/28: 2021→2022 variou +25.6% (14.04 → 17.63)
+- principal/datasus_direta/28: 2023→2024 variou -24.4% (18.48 → 13.98)
+- principal/datasus_direta/32: 2008→2009 variou -17.3% (14.5 → 11.99)
+- principal/datasus_direta/32: 2020→2021 variou +15.2% (9.76 → 11.24)
+- principal/datasus_direta/43: 2019→2020 variou -18.6% (10.62 → 8.64)
+- principal/datasus_direta/50: 2001→2002 variou -15.3% (24.01 → 20.33)
+- principal/datasus_direta/50: 2010→2011 variou -16.0% (15.72 → 13.21)
+- principal/datasus_direta/50: 2016→2017 variou -18.1% (12.91 → 10.57)
+- principal/datasus_direta/50: 2021→2022 variou +15.5% (10.69 → 12.35)
+- principal/datasus_direta/53: 2018→2019 variou -16.8% (10.25 → 8.53)
+
+**Conferência com números publicados** (4)
+
+- principal/projecoes2024/BR/2024 (valor): 12.25 ≈ 12.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+- principal/projecoes2024/BR/2021 (valor): 12.17 ≈ 12.2 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+- principal/projecoes2024/BR/2010 (valor): 14.99 ≈ 15.0 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
+- principal/projecoes2024/BR/2000 (valor): 28.13 ≈ 28.1 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45275-expectativa-de-vida-chega-a-76-6-anos-em-2024)
 
 ## `homicidios` — OK
 
