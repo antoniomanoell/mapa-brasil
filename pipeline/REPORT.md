@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
 - Data: 2026-10-21
-- Versão do pipeline: `3d1334e`
+- Versão do pipeline: `166f5b3`
 - Escopo: completo
 - Resultado: OK
 
@@ -203,6 +203,112 @@
 - principal/pnad/42/2015 (auxiliar sis2016_tab6_3): 0.419 ≈ 0.419 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/25/2015 (auxiliar sis2016_tab6_3): 0.51 ≈ 0.51 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 - principal/pnad/27/2015 (auxiliar sis2016_tab6_3): 0.438 ≈ 0.438 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+
+## `pobreza` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | SIS 2025 – PNAD Contínua (2012–2024) | 2012–2024 | — | — |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (9)
+
+- principal/sis_pnadc/11: 2020→2021 variou +36.5% (28.81 → 39.32)
+- principal/sis_pnadc/16: 2022→2023 variou -31.7% (47.49 → 32.45)
+- principal/sis_pnadc/28: 2020→2021 variou +26.6% (44.21 → 55.99)
+- principal/sis_pnadc/31: 2020→2021 variou +28.7% (24.46 → 31.49)
+- principal/sis_pnadc/31: 2022→2023 variou -27.5% (27.07 → 19.63)
+- principal/sis_pnadc/32: 2020→2021 variou +29.9% (26.41 → 34.31)
+- principal/sis_pnadc/42: 2023→2024 variou -30.5% (11.45 → 7.96)
+- principal/sis_pnadc/50: 2021→2022 variou -28.7% (29.83 → 21.27)
+- principal/sis_pnadc/52: 2021→2022 variou -27.6% (31.7 → 22.95)
+
+**Conferência com números publicados** (3)
+
+- principal/sis_pnadc/BR/2024 (valor): 23.11 ≈ 23.1 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45344-8-6-milhoes-de-pessoas-sairam-da-pobreza-entre-2023-e-2024)
+- principal/sis_pnadc/BR/2023 (valor): 27.3 ≈ 27.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45344-8-6-milhoes-de-pessoas-sairam-da-pobreza-entre-2023-e-2024)
+- principal/sis_pnadc/BR/2012 (valor): 34.73 ≈ 34.7 ✓ (https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/71016b2eb0a5feb8f7685271b1233db7.pdf)
+
+## `extrema_pobreza` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| principal | SIS 2025 – PNAD Contínua (2012–2024) | 2012–2024 | — | baixa_precisao: 48 |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (59)
+
+- principal/sis_pnadc/11: 2020→2021 variou +55.0% (5.27 → 8.17)
+- principal/sis_pnadc/11: 2021→2022 variou -47.6% (8.17 → 4.28)
+- principal/sis_pnadc/11: 2023→2024 variou -61.5% (4.31 → 1.66)
+- principal/sis_pnadc/12: 2015→2016 variou +36.1% (11.87 → 16.15)
+- principal/sis_pnadc/12: 2019→2020 variou -41.2% (18.11 → 10.64)
+- principal/sis_pnadc/12: 2020→2021 variou +67.4% (10.64 → 17.81)
+- principal/sis_pnadc/12: 2023→2024 variou -43.2% (13.36 → 7.59)
+- principal/sis_pnadc/13: 2021→2022 variou -35.6% (16.28 → 10.49)
+- principal/sis_pnadc/13: 2022→2023 variou -36.9% (10.49 → 6.62)
+- principal/sis_pnadc/15: 2019→2020 variou -39.7% (13.88 → 8.37)
+- principal/sis_pnadc/15: 2020→2021 variou +84.6% (8.37 → 15.45)
+- principal/sis_pnadc/15: 2021→2022 variou -50.8% (15.45 → 7.6)
+- principal/sis_pnadc/16: 2014→2015 variou +59.4% (7.12 → 11.35)
+- principal/sis_pnadc/16: 2022→2023 variou -55.0% (7.8 → 3.51)
+- principal/sis_pnadc/17: 2017→2018 variou +39.7% (5.79 → 8.09)
+- principal/sis_pnadc/21: 2020→2021 variou +49.8% (15.03 → 22.52)
+- principal/sis_pnadc/22: 2019→2020 variou -37.5% (15.89 → 9.93)
+- principal/sis_pnadc/22: 2020→2021 variou +61.6% (9.93 → 16.05)
+- principal/sis_pnadc/22: 2023→2024 variou -50.4% (8.03 → 3.98)
+- principal/sis_pnadc/23: 2020→2021 variou +63.1% (9.96 → 16.24)
+- principal/sis_pnadc/24: 2019→2020 variou -47.6% (12.18 → 6.38)
+- principal/sis_pnadc/24: 2020→2021 variou +137.1% (6.38 → 15.13)
+- principal/sis_pnadc/24: 2021→2022 variou -37.1% (15.13 → 9.51)
+- principal/sis_pnadc/25: 2020→2021 variou +70.3% (9.78 → 16.66)
+- principal/sis_pnadc/25: 2023→2024 variou -35.2% (7.33 → 4.75)
+- principal/sis_pnadc/26: 2020→2021 variou +56.3% (12.52 → 19.57)
+- principal/sis_pnadc/26: 2021→2022 variou -39.9% (19.57 → 11.76)
+- principal/sis_pnadc/28: 2015→2016 variou +37.9% (9.03 → 12.45)
+- principal/sis_pnadc/28: 2019→2020 variou -40.0% (14.16 → 8.5)
+- principal/sis_pnadc/28: 2020→2021 variou +76.2% (8.5 → 14.98)
+- principal/sis_pnadc/28: 2021→2022 variou -40.4% (14.98 → 8.93)
+- principal/sis_pnadc/28: 2023→2024 variou -44.8% (8.12 → 4.48)
+- principal/sis_pnadc/29: 2020→2021 variou +65.5% (10.39 → 17.2)
+- principal/sis_pnadc/29: 2023→2024 variou -35.8% (8.89 → 5.71)
+- principal/sis_pnadc/31: 2015→2016 variou +53.8% (3.14 → 4.83)
+- principal/sis_pnadc/31: 2020→2021 variou +55.4% (3.41 → 5.3)
+- principal/sis_pnadc/31: 2021→2022 variou -40.0% (5.3 → 3.18)
+- principal/sis_pnadc/32: 2020→2021 variou +61.9% (4.46 → 7.22)
+- principal/sis_pnadc/32: 2021→2022 variou -43.2% (7.22 → 4.1)
+- principal/sis_pnadc/32: 2023→2024 variou -35.2% (2.67 → 1.73)
+- principal/sis_pnadc/33: 2021→2022 variou -40.2% (7.58 → 4.53)
+- principal/sis_pnadc/35: 2021→2022 variou -35.7% (4.45 → 2.86)
+- principal/sis_pnadc/41: 2019→2020 variou +37.4% (2.86 → 3.93)
+- principal/sis_pnadc/42: 2015→2016 variou +71.3% (1.08 → 1.85)
+- principal/sis_pnadc/43: 2022→2023 variou -48.4% (2.48 → 1.28)
+- principal/sis_pnadc/50: 2013→2014 variou -39.7% (2.32 → 1.4)
+- principal/sis_pnadc/50: 2014→2015 variou +67.1% (1.4 → 2.34)
+- principal/sis_pnadc/50: 2016→2017 variou +75.4% (1.91 → 3.35)
+- principal/sis_pnadc/50: 2020→2021 variou +49.4% (2.65 → 3.96)
+- principal/sis_pnadc/51: 2022→2023 variou -36.4% (4.07 → 2.59)
+- principal/sis_pnadc/51: 2023→2024 variou -36.7% (2.59 → 1.64)
+- principal/sis_pnadc/52: 2015→2016 variou +77.1% (2.1 → 3.72)
+- principal/sis_pnadc/52: 2022→2023 variou -51.3% (2.71 → 1.32)
+- principal/sis_pnadc/53: 2016→2017 variou +92.7% (1.93 → 3.72)
+- principal/sis_pnadc/53: 2018→2019 variou -46.3% (3.37 → 1.81)
+- principal/sis_pnadc/53: 2019→2020 variou +59.7% (1.81 → 2.89)
+- principal/sis_pnadc/53: 2020→2021 variou +50.9% (2.89 → 4.36)
+- principal/sis_pnadc/53: 2021→2022 variou -59.9% (4.36 → 1.75)
+- principal/sis_pnadc/BR: 2020→2021 variou +49.1% (6.05 → 9.02)
+
+**Conferência com números publicados** (3)
+
+- principal/sis_pnadc/BR/2024 (valor): 3.47 ≈ 3.5 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45344-8-6-milhoes-de-pessoas-sairam-da-pobreza-entre-2023-e-2024)
+- principal/sis_pnadc/BR/2023 (valor): 4.4 ≈ 4.4 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45344-8-6-milhoes-de-pessoas-sairam-da-pobreza-entre-2023-e-2024)
+- principal/sis_pnadc/BR/2012 (valor): 6.59 ≈ 6.6 ✓ (https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/71016b2eb0a5feb8f7685271b1233db7.pdf)
 
 ## `desocupacao` — OK
 
