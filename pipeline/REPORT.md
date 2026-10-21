@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
-- Data: 2026-10-20
-- Versão do pipeline: `3f89ca0`
+- Data: 2026-10-21
+- Versão do pipeline: `4856c47`
 - Escopo: completo
 - Resultado: OK
 
@@ -56,14 +56,39 @@
 
 | Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
 |---|---|---|---|---|
+| principal | PNAD (2001–2015) | 2001–2009, 2011–2015 | 2010 | baixa_precisao: 2, cobertura_urbana: 18 |
 | principal | PNAD Contínua (2012–) | 2012–2025 | — | — |
 
 **Erros** (0)
 
 - nenhum
 
-**Alertas (variação suspeita — revisar)** (26)
+**Alertas (variação suspeita — revisar)** (50)
 
+- principal/pnad/12: 2002→2003 variou -15.8% (1236.89 → 1041.75)
+- principal/pnad/12: 2003→2004 variou -17.7% (1041.75 → 857.59)
+- principal/pnad/12: 2005→2006 variou +19.9% (864.84 → 1037.23)
+- principal/pnad/12: 2008→2009 variou +27.0% (1073.16 → 1363.15)
+- principal/pnad/13: 2014→2015 variou -16.6% (1362.05 → 1135.4)
+- principal/pnad/14: 2003→2004 variou -27.4% (933.55 → 677.33)
+- principal/pnad/14: 2004→2005 variou +15.4% (677.33 → 781.42)
+- principal/pnad/14: 2005→2006 variou +36.1% (781.42 → 1063.59)
+- principal/pnad/14: 2007→2008 variou +22.1% (947.5 → 1156.99)
+- principal/pnad/14: 2009→2011 variou +27.7% (1192.78 → 1523.39)
+- principal/pnad/15: 2002→2003 variou -15.1% (889.29 → 754.84)
+- principal/pnad/16: 2001→2002 variou -16.2% (1088.48 → 912.37)
+- principal/pnad/16: 2003→2004 variou -16.0% (970.36 → 815.11)
+- principal/pnad/16: 2004→2005 variou +23.5% (815.11 → 1006.52)
+- principal/pnad/16: 2011→2012 variou +19.7% (1111.9 → 1330.41)
+- principal/pnad/16: 2014→2015 variou -15.2% (1483.12 → 1257.54)
+- principal/pnad/21: 2005→2006 variou +34.0% (539.35 → 722.79)
+- principal/pnad/22: 2005→2006 variou +17.2% (681.92 → 799.48)
+- principal/pnad/22: 2011→2012 variou +25.0% (931.13 → 1164.08)
+- principal/pnad/24: 2004→2005 variou +18.0% (772.17 → 911.47)
+- principal/pnad/27: 2005→2006 variou +30.3% (599.11 → 780.41)
+- principal/pnad/50: 2006→2007 variou +15.9% (1398.82 → 1621.03)
+- principal/pnad/50: 2009→2011 variou +17.2% (1619.14 → 1897.34)
+- principal/pnad/51: 2007→2008 variou +27.9% (1267.55 → 1621.32)
 - principal/pnadc/11: 2020→2021 variou -15.6% (1479.0 → 1249.0)
 - principal/pnadc/11: 2021→2022 variou +21.5% (1249.0 → 1517.0)
 - principal/pnadc/13: 2022→2023 variou +17.4% (1088.0 → 1277.0)
@@ -91,11 +116,21 @@
 - principal/pnadc/52: 2022→2023 variou +20.3% (1782.0 → 2143.0)
 - principal/pnadc/53: 2024→2025 variou +27.7% (3447.0 → 4401.0)
 
-**Conferência com números publicados** (3)
+**Conferência com números publicados** (13)
 
 - principal/pnadc/BR/2025 (valor): 2264.0 ≈ 2264 ✓ (https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf)
 - principal/pnadc/BR/2024 (valor): 2118.0 ≈ 2118 ✓ (https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf)
 - principal/pnadc/BR/2019 (valor): 1904.0 ≈ 1904 ✓ (https://biblioteca.ibge.gov.br/visualizacao/livros/liv102275_informativo.pdf)
+- principal/pnad/BR/2015 (auxiliar sis2016_tab6_6): 1270.23 ≈ 1270 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/BR/2004 (auxiliar sis2016_tab6_6): 909.94 ≈ 910 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/BR/2009 (auxiliar sis2016_tab6_6): 1139.25 ≈ 1139 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/11/2015 (auxiliar sis2016_tab6_6): 1061.37 ≈ 1061 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/26/2008 (auxiliar sis2016_tab6_6): 718.63 ≈ 718 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/35/2012 (auxiliar sis2016_tab6_6): 1689.31 ≈ 1689 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/53/2004 (auxiliar sis2016_tab6_6): 1789.07 ≈ 1789 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/43/2006 (auxiliar sis2016_tab6_6): 1228.31 ≈ 1228 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/21/2011 (auxiliar sis2016_tab6_6): 624.46 ≈ 624 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
+- principal/pnad/14/2013 (auxiliar sis2016_tab6_6): 1121.44 ≈ 1121 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/6_padrao_vida_distribuicao_renda_xls.zip)
 
 ## `homicidios` — OK
 

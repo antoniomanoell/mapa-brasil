@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-10-20",
-  "versao_pipeline": "3f89ca0",
+  "gerado_em": "2026-10-21",
+  "versao_pipeline": "4856c47",
   "indicadores": [
     {
       "id": "homicidios",
@@ -55,7 +55,7 @@
           "nome": "Renda domiciliar per capita"
         }
       ],
-      "ano_inicial": 2012,
+      "ano_inicial": 2001,
       "ano_final": 2025,
       "arquivo": "indicators/renda_pc.json"
     }
