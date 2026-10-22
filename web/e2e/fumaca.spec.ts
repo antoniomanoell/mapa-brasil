@@ -155,6 +155,8 @@ test('seção "Quem é responsável" com base legal, só onde há texto', async 
   await expect(page.locator('.competencias')).toContainText('Lei nº 8.080/1990');
   await page.goto('/indicador.html?i=homicidios');
   await expect(page.locator('.competencias')).toContainText('CF art. 144');
+  await page.goto('/indicador.html?i=esgoto');
+  await expect(page.locator('.competencias')).toContainText('Lei nº 11.445/2007');
   await page.goto('/indicador.html?i=pib_pc');
   await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
   await expect(page.locator('.competencias')).toHaveCount(0);
