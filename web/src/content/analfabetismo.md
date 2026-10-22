@@ -1,5 +1,3 @@
-<!-- REVISAR -->
-
 ## O que mede
 
 A porcentagem das pessoas de 15 anos ou mais que **não sabem ler e escrever** um bilhete simples, segundo a própria declaração na pesquisa.
@@ -17,10 +15,10 @@ IBGE:
 
 ## Mudanças de metodologia
 
-As duas pesquisas são diferentes e as séries **não são emendadas** (quebra em 2016). Não há dado em 2010 (ano de Censo).
+As duas pesquisas são diferentes e as séries **não são emendadas** (quebra em 2016). Não há dado em 2010: em anos de Censo, o IBGE não fazia a PNAD.
 
 ## Limitações
 
 - É uma informação declarada, não um teste de leitura.
 - Não mede o analfabetismo funcional (quem lê, mas com dificuldade de entender).
-- Até 2003 a PNAD não cobria a área rural de seis estados do Norte (valores marcados).
+- Até 2003 a PNAD não cobria a área rural de seis estados do Norte: Rondônia, Acre, Amazonas, Roraima, Pará e Amapá. Nesses estados, esses anos aparecem com aviso no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).
