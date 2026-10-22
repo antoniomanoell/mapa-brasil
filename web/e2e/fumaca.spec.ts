@@ -124,7 +124,29 @@ test('metodologia, sobre e link a partir do mapa', async ({ page }) => {
   await page.goto('/sobre.html');
   await expect(page.locator('h1')).toHaveText('Sobre');
   await abrir(page, '?i=gini');
+  // "Sobre este indicador" abre uma gaveta na própria página, sem trocar de URL.
+  await page.locator('#abrir-sobre').click();
+  const gaveta = page.locator('#sobre-indicador');
+  await expect(gaveta).toBeVisible();
+  await expect(gaveta.locator('h2').first()).toContainText('Gini');
+  await expect(gaveta).toContainText('O que mede');
+  await expect(gaveta).toContainText('Ficha técnica');
+  await expect(page).not.toHaveURL(/indicador\.html/);
+  await page.keyboard.press('Escape');
+  await expect(gaveta).toBeHidden();
+  // O link do rodapé também abre a gaveta.
   await page.locator('#rodape-viz a', { hasText: 'Sobre este indicador' }).click();
-  await expect(page).toHaveURL(/indicador\.html\?i=gini/);
-  await expect(page.locator('h1')).toContainText('Gini');
+  await expect(gaveta).toBeVisible();
+});
+
+test('mapa e slider cabem na tela, e a roda do mouse rola a página', async ({ page }) => {
+  await abrir(page, '?i=idhm');
+  const altura = page.viewportSize()?.height ?? 0;
+  const slider = await page.locator('#slider').boundingBox();
+  expect((slider?.y ?? 0) + (slider?.height ?? 0)).toBeLessThanOrEqual(altura);
+  const mapa = await page.locator('#mapa').boundingBox();
+  expect(mapa?.height ?? 0).toBeGreaterThan(200);
+  await page.mouse.move((mapa?.x ?? 0) + 100, (mapa?.y ?? 0) + 100);
+  await page.mouse.wheel(0, 300);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
 });

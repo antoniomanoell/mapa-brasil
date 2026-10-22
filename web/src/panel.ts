@@ -118,7 +118,7 @@ export class Painel {
       )}"></div>
       <ul class="painel-legenda"></ul>
       <div class="painel-notas"></div>
-      <p class="painel-sobre"><a href="indicador.html?i=${esc(ind.id)}">Sobre este indicador</a></p>`;
+      <p class="painel-sobre"><a href="indicador.html?i=${esc(ind.id)}" data-abrir-sobre>Sobre este indicador</a></p>`;
 
     const legenda = this.#corpo.querySelector('.painel-legenda') as HTMLElement;
     const series = [...new Map(linhas.map((l) => [l.serie, l])).entries()];

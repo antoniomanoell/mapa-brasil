@@ -1,6 +1,12 @@
 // Mapa coroplético das UFs: MapLibre sem mapa-base, só os polígonos (PROJECT.md, 5.1).
 
-import { LngLatBounds, Map as MapaGL, type MapLayerMouseEvent, setWorkerUrl } from 'maplibre-gl';
+import {
+  LngLatBounds,
+  Map as MapaGL,
+  type MapLayerMouseEvent,
+  NavigationControl,
+  setWorkerUrl,
+} from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 // O MapLibre procura o worker como arquivo vizinho do próprio módulo, o que o bundler não vê.
 // Importá-lo como worker faz o Vite empacotá-lo (com as dependências) e dá a URL final.
@@ -55,7 +61,18 @@ export class Mapa {
       renderWorldCopies: false,
       maxZoom: 7,
       minZoom: 2,
+      // A roda do mouse e o arrasto com um dedo rolam a página; o zoom pede Ctrl/⌘ + roda, dois
+      // dedos ou os botões + e −.
+      cooperativeGestures: true,
+      locale: {
+        'CooperativeGesturesHandler.WindowsHelpText': 'Use Ctrl + roda do mouse para dar zoom',
+        'CooperativeGesturesHandler.MacHelpText': 'Use ⌘ + roda do mouse para dar zoom',
+        'CooperativeGesturesHandler.MobileHelpText': 'Use dois dedos para mover o mapa',
+        'NavigationControl.ZoomIn': 'Aproximar',
+        'NavigationControl.ZoomOut': 'Afastar',
+      },
     });
+    this.mapa.addControl(new NavigationControl({ showCompass: false }), 'top-right');
     this.mapa.touchZoomRotate.disableRotation();
     this.mapa.keyboard.disableRotation();
 

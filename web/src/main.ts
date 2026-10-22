@@ -1,12 +1,14 @@
 import './style.css';
 import { criarControles } from './controls';
 import { carregarCatalogo, carregarIndicador, carregarMalha } from './data';
+import { formatarData } from './ficha';
 import { esc } from './format';
 import { renderLegenda } from './legend';
 import { Mapa } from './map';
 import { Painel } from './panel';
 import { segmentoVigente } from './series';
 import { Slider } from './slider';
+import { SobreIndicador } from './sobre';
 import {
   type Estado,
   type EstadoBruto,
@@ -48,6 +50,15 @@ async function iniciar(): Promise<void> {
     (segmento) => aplicar({ segmento }),
   );
   const painel = new Painel($('#painel'), () => aplicar({ uf: undefined }));
+  const sobre = new SobreIndicador($('#sobre-indicador'));
+  // Links "Sobre este indicador" (barra, rodapé, painel) abrem a gaveta; sem JS, ou com Ctrl/
+  // botão do meio, seguem para a página própria.
+  document.addEventListener('click', (ev) => {
+    const alvo = (ev.target as HTMLElement).closest<HTMLElement>('[data-abrir-sobre]');
+    if (!alvo || ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button !== 0) return;
+    ev.preventDefault();
+    void sobre.abrir(ind, alvo);
+  });
   const controles = criarControles(
     $('#controles'),
     async (id) => {
@@ -72,6 +83,8 @@ async function iniciar(): Promise<void> {
     const seg = segmentoVigente(ind, e.sub, e.ano, e.segmento);
 
     controles.atualizar(cat, ind, e.sub, e.uf);
+    $('#abrir-sobre').setAttribute('href', `indicador.html?i=${encodeURIComponent(ind.id)}`);
+    if (sobre.aberta && anterior?.indicador !== e.indicador) void sobre.abrir(ind);
     slider.atualizar(ind, e.sub, e.ano, e.segmento);
     renderLegenda($('#legenda'), ind, e.sub);
     void mapa.atualizar({ ind, sub: e.sub, ano: e.ano, seg, uf: e.uf });
@@ -96,7 +109,7 @@ async function iniciar(): Promise<void> {
           · ${esc(seg.tabela)} · extraído em ${esc(formatarData(seg.extraido_em))}</p>
          <p>${esc(ind.unidade_detalhe)}.${seg.notas ? ` ${esc(seg.notas)}` : ''}</p>`
       : `<p>Não há dado deste indicador em ${e.ano}.</p>`;
-    rodape.innerHTML += `<p><a href="indicador.html?i=${esc(ind.id)}">Sobre este indicador: o que mede, como ler e limitações</a></p>`;
+    rodape.innerHTML += `<p><a href="indicador.html?i=${esc(ind.id)}" data-abrir-sobre>Sobre este indicador: o que mede, como ler e limitações</a></p>`;
   }
 
   store.definir(normalizar(bruto, ind));
@@ -105,11 +118,6 @@ async function iniciar(): Promise<void> {
   (window as unknown as Record<string, unknown>)['__centroUF'] = (sigla: string) =>
     mapa.centroEmPixels(sigla);
   document.body.dataset['pronto'] = 'true';
-}
-
-function formatarData(iso: string): string {
-  const [a, m, d] = iso.split('-');
-  return `${d}/${m}/${a}`;
 }
 
 function atualizarMeta(e: Estado, ind: Indicador): void {

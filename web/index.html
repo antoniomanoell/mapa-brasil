@@ -21,55 +21,72 @@
   </head>
   <body>
     <a class="pular" href="#ranking-acesso">Pular para o ranking acessível</a>
-    <header class="topo">
-      <div class="topo-linha">
-        <h1>Indicadores BR</h1>
-        <nav aria-label="Seções">
-          <a href="metodologia.html">Metodologia</a> <a href="sobre.html">Sobre</a>
-        </nav>
-      </div>
-      <p class="subtitulo">Dados oficiais por estado, de 2000 até hoje</p>
-      <div id="controles" class="controles">
-        <label class="campo"
-          >Indicador
-          <select id="sel-indicador"></select
-        ></label>
-        <label class="campo" id="campo-sub"
-          >Recorte
-          <select id="sel-sub"></select
-        ></label>
-        <label class="campo"
-          >Estado
-          <select id="sel-uf">
-            <option value="">— nenhum —</option>
-          </select></label
-        >
-      </div>
-    </header>
+    <!-- Palco: cabeçalho, mapa e slider cabem sempre na altura da tela. -->
+    <div class="palco">
+      <header class="topo">
+        <div class="topo-linha">
+          <h1>Indicadores BR</h1>
+          <nav aria-label="Seções">
+            <a href="metodologia.html">Metodologia</a> <a href="sobre.html">Sobre</a>
+          </nav>
+        </div>
+        <p class="subtitulo">Dados oficiais por estado, de 2000 até hoje</p>
+        <div id="controles" class="controles">
+          <label class="campo"
+            >Indicador
+            <select id="sel-indicador"></select
+          ></label>
+          <label class="campo" id="campo-sub"
+            >Recorte
+            <select id="sel-sub"></select
+          ></label>
+          <label class="campo"
+            >Estado
+            <select id="sel-uf">
+              <option value="">— nenhum —</option>
+            </select></label
+          >
+        </div>
+      </header>
 
-    <main class="conteudo">
-      <section class="viz" aria-label="Visualização">
-        <div class="visao" role="group" aria-label="Forma de ver">
-          <button type="button" data-visao="mapa" aria-pressed="true">Mapa</button>
-          <button type="button" data-visao="ranking" id="ranking-acesso" aria-pressed="false">
-            Ranking
-          </button>
-        </div>
-        <div id="mapa-area">
-          <div
-            id="mapa"
-            class="mapa"
-            role="region"
-            aria-label="Mapa do Brasil por estado. Para navegar pelo teclado, use o seletor de estado ou o ranking."
-          ></div>
-          <div id="legenda" class="legenda"></div>
-        </div>
-        <div id="ranking" class="ranking-area" hidden></div>
-        <div id="slider" class="slider"></div>
-        <div id="rodape-viz" class="rodape-viz"></div>
-      </section>
-      <aside id="painel" class="painel" aria-label="Série do estado" hidden></aside>
-    </main>
+      <main class="conteudo">
+        <section class="viz" aria-label="Visualização">
+          <div class="barra-viz">
+            <div class="visao" role="group" aria-label="Forma de ver">
+              <button type="button" data-visao="mapa" aria-pressed="true">Mapa</button>
+              <button type="button" data-visao="ranking" id="ranking-acesso" aria-pressed="false">
+                Ranking
+              </button>
+            </div>
+            <a class="botao-sobre" id="abrir-sobre" href="indicador.html" data-abrir-sobre
+              >ⓘ Sobre este indicador</a
+            >
+          </div>
+          <div id="mapa-area">
+            <div
+              id="mapa"
+              class="mapa"
+              role="region"
+              aria-label="Mapa do Brasil por estado. Para navegar pelo teclado, use o seletor de estado ou o ranking."
+            ></div>
+            <div id="legenda" class="legenda"></div>
+          </div>
+          <div id="ranking" class="ranking-area" hidden></div>
+          <div id="slider" class="slider"></div>
+        </section>
+        <aside id="painel" class="painel" aria-label="Série do estado" hidden></aside>
+        <aside
+          id="sobre-indicador"
+          class="painel gaveta-sobre"
+          aria-labelledby="sobre-titulo"
+          hidden
+        ></aside>
+      </main>
+    </div>
+
+    <section class="abaixo" aria-label="Fonte dos dados">
+      <div id="rodape-viz" class="rodape-viz"></div>
+    </section>
 
     <footer class="rodape">
       <p>

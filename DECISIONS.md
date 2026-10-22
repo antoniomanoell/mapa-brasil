@@ -194,3 +194,13 @@ Formato de cada entrada:
   `referencias.yaml` (`medida: auxiliar`, tolerância de 1 mil).
 - **Fonte:** https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/;
   https://sidra.ibge.gov.br/tabela/1956
+
+## 2026-10-22 — Página do mapa: tudo numa tela, gestos cooperativos e "Sobre" em gaveta
+- **Decisão:** cabeçalho, mapa (ou ranking), legenda e slider ocupam exatamente a altura da tela; o
+  mapa fica com o espaço que sobra, e fonte e rodapé ficam abaixo. O mapa usa os gestos cooperativos
+  do MapLibre: a roda do mouse e o arrasto com um dedo rolam a página; o zoom pede Ctrl/⌘ + roda,
+  dois dedos ou os botões + e −. "Sobre este indicador" abre uma gaveta na própria página (botão ao
+  lado de Mapa/Ranking, link do rodapé e do painel do estado); a página `indicador.html` continua
+  existindo para links diretos.
+- **Motivo:** pedido do mantenedor: o slider ficava abaixo da dobra, a rolagem da página mexia no
+  zoom e as informações do indicador abriam em outra página.
