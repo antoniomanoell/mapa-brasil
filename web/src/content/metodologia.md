@@ -49,7 +49,9 @@ Dentro de cada indicador, os valores em reais estão em reais de um mesmo ano, p
 
 ## População
 
-Todas as taxas calculadas pelo site (homicídios por 100 mil habitantes, PIB per capita) usam a mesma série de população: as Projeções da População do IBGE (Revisão 2024), que são consistentes de 2000 em diante.
+Todas as taxas calculadas pelo site (homicídios por 100 mil habitantes, PIB per capita) usam a mesma série de população: as Projeções da População do IBGE (Revisão 2024), uma série única e consistente de 2000 em diante, sem os saltos que aparecem quando se juntam estimativas feitas em épocas diferentes.
+
+Por isso, essas duas taxas podem diferir um pouco das divulgadas por outras fontes que usam outra população: o Atlas da Violência, nos homicídios, e a divulgação das Contas Regionais, no PIB per capita (que usa a população recenseada).
 
 ## Margem de erro
 
