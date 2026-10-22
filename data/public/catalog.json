@@ -1,6 +1,6 @@
 {
-  "gerado_em": "2026-10-21",
-  "versao_pipeline": "c01f6a1",
+  "gerado_em": "2026-10-22",
+  "versao_pipeline": "ce2ce68",
   "indicadores": [
     {
       "id": "idhm",
@@ -148,6 +148,29 @@
       "ano_inicial": 2001,
       "ano_final": 2025,
       "arquivo": "indicators/analfabetismo.json"
+    },
+    {
+      "id": "ideb",
+      "nome": "Ideb",
+      "tema": "Educação",
+      "unidade": "índice",
+      "subindicadores": [
+        {
+          "id": "anos_iniciais",
+          "nome": "Anos iniciais do ensino fundamental (rede pública)"
+        },
+        {
+          "id": "anos_finais",
+          "nome": "Anos finais do ensino fundamental (rede pública)"
+        },
+        {
+          "id": "medio",
+          "nome": "Ensino médio (rede estadual)"
+        }
+      ],
+      "ano_inicial": 2005,
+      "ano_final": 2025,
+      "arquivo": "indicators/ideb.json"
     },
     {
       "id": "esperanca_vida",

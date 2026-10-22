@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
-- Data: 2026-10-21
-- Versão do pipeline: `c01f6a1`
+- Data: 2026-10-22
+- Versão do pipeline: `ce2ce68`
 - Escopo: completo
 - Resultado: OK
 
@@ -529,6 +529,87 @@
 - principal/pnadc/BR/2025 (valor): 4.9 ≈ 4.9 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/47221-analfabetismo-fica-abaixo-de-5-em-2025-mas-8-4-milhoes-ainda-nao-sabem-ler-e-escrever)
 - principal/pnadc/BR/2024 (valor): 5.3 ≈ 5.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/43699-indicadores-educacionais-avancam-em-2024-mas-atraso-escolar-aumenta)
 - principal/pnad/BR/2015 (valor): 7.95 ≈ 8.0 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip)
+
+## `ideb` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| anos_iniciais | INEP (2005–2025, bienal) | 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019, 2021, 2023, 2025 | 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024 | — |
+| anos_finais | INEP (2005–2025, bienal) | 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019, 2021, 2023, 2025 | 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024 | — |
+| medio | INEP (2005–2025, bienal) | 2005, 2007, 2009, 2011, 2013, 2015, 2017, 2019, 2021, 2023, 2025 | 2006, 2008, 2010, 2012, 2014, 2016, 2018, 2020, 2022, 2024 | — |
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (55)
+
+- anos_iniciais/inep/13: 2005→2007 variou +17.2% (2.9 → 3.4)
+- anos_iniciais/inep/15: 2007→2009 variou +20.0% (3.0 → 3.6)
+- anos_iniciais/inep/16: 2007→2009 variou +15.2% (3.3 → 3.8)
+- anos_iniciais/inep/17: 2005→2007 variou +17.6% (3.4 → 4.0)
+- anos_iniciais/inep/21: 2005→2007 variou +29.6% (2.7 → 3.5)
+- anos_iniciais/inep/21: 2013→2015 variou +15.8% (3.8 → 4.4)
+- anos_iniciais/inep/22: 2005→2007 variou +26.9% (2.6 → 3.3)
+- anos_iniciais/inep/22: 2007→2009 variou +15.2% (3.3 → 3.8)
+- anos_iniciais/inep/23: 2005→2007 variou +25.0% (2.8 → 3.5)
+- anos_iniciais/inep/23: 2007→2009 variou +17.1% (3.5 → 4.1)
+- anos_iniciais/inep/24: 2005→2007 variou +28.0% (2.5 → 3.2)
+- anos_iniciais/inep/25: 2005→2007 variou +22.2% (2.7 → 3.3)
+- anos_iniciais/inep/26: 2005→2007 variou +17.9% (2.8 → 3.3)
+- anos_iniciais/inep/27: 2005→2007 variou +29.2% (2.4 → 3.1)
+- anos_iniciais/inep/27: 2013→2015 variou +16.2% (3.7 → 4.3)
+- anos_iniciais/inep/29: 2005→2007 variou +28.0% (2.5 → 3.2)
+- anos_iniciais/inep/31: 2007→2009 variou +19.6% (4.6 → 5.5)
+- anos_iniciais/inep/50: 2005→2007 variou +20.6% (3.4 → 4.1)
+- anos_iniciais/inep/51: 2005→2007 variou +22.9% (3.5 → 4.3)
+- anos_finais/inep/11: 2015→2017 variou +17.1% (4.1 → 4.8)
+- anos_finais/inep/13: 2005→2007 variou +23.1% (2.6 → 3.2)
+- anos_finais/inep/23: 2005→2007 variou +17.9% (2.8 → 3.3)
+- anos_finais/inep/25: 2019→2021 variou +15.4% (3.9 → 4.5)
+- anos_finais/inep/26: 2007→2009 variou +15.4% (2.6 → 3.0)
+- anos_finais/inep/27: 2015→2017 variou +21.9% (3.2 → 3.9)
+- anos_finais/inep/27: 2017→2019 variou +15.4% (3.9 → 4.5)
+- anos_finais/inep/28: 2019→2021 variou +22.2% (3.6 → 4.4)
+- anos_finais/inep/41: 2005→2007 variou +21.2% (3.3 → 4.0)
+- anos_finais/inep/50: 2005→2007 variou +19.4% (3.1 → 3.7)
+- anos_finais/inep/51: 2005→2007 variou +23.3% (3.0 → 3.7)
+- anos_finais/inep/52: 2011→2013 variou +15.4% (3.9 → 4.5)
+- medio/inep/11: 2007→2009 variou +19.4% (3.1 → 3.7)
+- medio/inep/11: 2015→2017 variou +15.2% (3.3 → 3.8)
+- medio/inep/13: 2005→2007 variou +21.7% (2.3 → 2.8)
+- medio/inep/13: 2013→2015 variou +16.7% (3.0 → 3.5)
+- medio/inep/15: 2007→2009 variou +30.4% (2.3 → 3.0)
+- medio/inep/15: 2021→2023 variou +43.3% (3.0 → 4.3)
+- medio/inep/16: 2021→2023 variou +16.1% (3.1 → 3.6)
+- medio/inep/21: 2005→2007 variou +16.7% (2.4 → 2.8)
+- medio/inep/24: 2023→2025 variou +21.9% (3.2 → 3.9)
+- medio/inep/25: 2017→2019 variou +16.1% (3.1 → 3.6)
+- medio/inep/26: 2011→2013 variou +16.1% (3.1 → 3.6)
+- medio/inep/27: 2015→2017 variou +17.9% (2.8 → 3.3)
+- medio/inep/28: 2015→2017 variou +19.2% (2.6 → 3.1)
+- medio/inep/28: 2019→2021 variou +18.2% (3.3 → 3.9)
+- medio/inep/29: 2017→2019 variou +18.5% (2.7 → 3.2)
+- medio/inep/33: 2021→2023 variou -15.4% (3.9 → 3.3)
+- medio/inep/41: 2017→2019 variou +18.9% (3.7 → 4.4)
+- medio/inep/43: 2017→2019 variou +17.6% (3.4 → 4.0)
+- medio/inep/43: 2023→2025 variou +20.5% (3.9 → 4.7)
+- medio/inep/50: 2005→2007 variou +21.4% (2.8 → 3.4)
+- medio/inep/51: 2005→2007 variou +15.4% (2.6 → 3.0)
+- medio/inep/51: 2021→2023 variou +16.7% (3.6 → 4.2)
+- medio/inep/52: 2009→2011 variou +16.1% (3.1 → 3.6)
+- medio/inep/53: 2017→2019 variou +17.6% (3.4 → 4.0)
+
+**Conferência com números publicados** (8)
+
+- anos_iniciais/inep/BR/2025 (valor): 6.1 ≈ 6.1 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica)
+- anos_iniciais/inep/BR/2023 (valor): 5.7 ≈ 5.7 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica)
+- anos_finais/inep/BR/2025 (valor): 5.0 ≈ 5.0 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica)
+- anos_finais/inep/BR/2023 (valor): 4.7 ≈ 4.7 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica)
+- anos_iniciais/inep/22/2025 (valor): 6.1 ≈ 6.1 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica-no-piaui)
+- anos_finais/inep/22/2025 (valor): 5.2 ≈ 5.2 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica-no-piaui)
+- medio/inep/22/2025 (valor): 4.9 ≈ 4.9 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica-no-piaui)
+- medio/inep/22/2023 (valor): 4.3 ≈ 4.3 ✓ (https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica-no-piaui)
 
 ## `esperanca_vida` — OK
 
