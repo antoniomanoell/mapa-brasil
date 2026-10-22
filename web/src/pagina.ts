@@ -1,7 +1,7 @@
 // Páginas de conteúdo: "Sobre o indicador" (?i=<id>), Metodologia e Sobre.
 
 import './style.css';
-import { AVISO_RASCUNHO, carregarTexto } from './conteudo';
+import { AVISO_RASCUNHO, carregarCompetencias, carregarTexto, secaoCompetencias } from './conteudo';
 import { carregarCatalogo, carregarIndicador } from './data';
 import { esc } from './format';
 import { fichaTecnica } from './ficha';
@@ -19,7 +19,11 @@ async function paginaIndicador(alvo: HTMLElement): Promise<void> {
         .join('')}</ul>`;
     return;
   }
-  const [ind, texto] = await Promise.all([carregarIndicador(cat, id), carregarTexto(id)]);
+  const [ind, texto, competencias] = await Promise.all([
+    carregarIndicador(cat, id),
+    carregarTexto(id),
+    carregarCompetencias(id),
+  ]);
   document.title = `Sobre o indicador: ${ind.nome} — Indicadores BR`;
   document
     .querySelector('meta[name="description"]')
@@ -29,6 +33,7 @@ async function paginaIndicador(alvo: HTMLElement): Promise<void> {
     <h1>${esc(ind.nome)}</h1>
     ${texto?.rascunho ? AVISO_RASCUNHO : ''}
     ${texto?.html ?? '<p>Texto em preparação.</p>'}
+    ${secaoCompetencias(competencias)}
     ${fichaTecnica(ind)}`;
 }
 

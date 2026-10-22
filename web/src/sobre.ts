@@ -1,6 +1,6 @@
 // Gaveta "Sobre este indicador" na própria página do mapa: texto revisado e ficha técnica.
 
-import { AVISO_RASCUNHO, carregarTexto } from './conteudo';
+import { AVISO_RASCUNHO, carregarCompetencias, carregarTexto, secaoCompetencias } from './conteudo';
 import { fichaTecnica } from './ficha';
 import { esc } from './format';
 import type { Indicador } from './types';
@@ -51,11 +51,15 @@ export class SobreIndicador {
       this.#el.hidden = false;
       this.#titulo.focus();
     }
-    const texto = await carregarTexto(ind.id);
+    const [texto, competencias] = await Promise.all([
+      carregarTexto(ind.id),
+      carregarCompetencias(ind.id),
+    ]);
     if (pedido !== this.#pedido) return; // trocou de indicador no meio do carregamento
     this.#corpo.innerHTML = `
       ${texto?.rascunho ? AVISO_RASCUNHO : ''}
       ${texto?.html ?? '<p>Texto em preparação.</p>'}
+      ${secaoCompetencias(competencias)}
       ${fichaTecnica(ind)}
       <p class="ficha-link"><a href="indicador.html?i=${esc(ind.id)}">Abrir em página própria</a></p>`;
     this.#el.scrollTop = 0;

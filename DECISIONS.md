@@ -204,3 +204,17 @@ Formato de cada entrada:
   existindo para links diretos.
 - **Motivo:** pedido do mantenedor: o slider ficava abaixo da dobra, a rolagem da página mexia no
   zoom e as informações do indicador abriam em outra página.
+
+## 2026-10-22 — Seção "Quem é responsável": competências legais por esfera e por Poder
+- **Decisão:** cada indicador ganha uma seção que descreve as atribuições que a Constituição e as leis
+  dão à União, aos estados e DF e aos municípios, o que é compartilhado entre eles (CF arts. 23 e 24) e
+  o papel de cada Poder (Executivo executa; Legislativo legisla e aprova os orçamentos, com os
+  Tribunais de Contas como órgãos auxiliares; Judiciário só no papel institucional, sem citar decisões
+  específicas). Cada afirmação cita o artigo, com link para o texto oficial e data de conferência.
+  Ministério Público e Defensoria ficam de fora (não são Poderes). Os textos são por área (educação,
+  saúde, segurança, saneamento, renda/trabalho/assistência, economia; o IDHM remete às áreas que o
+  compõem) e passam pela revisão do mantenedor, como os demais.
+- **Fica de fora:** listar o que cada governo ou período fez. Pôr políticas ao lado da série sugere
+  causa sem evidência (defasagem, fatores simultâneos, viés de seleção) e quebra a neutralidade.
+- **Motivo:** ideia do mantenedor; descrever competências é factual e verificável, e o princípio 6 do
+  PROJECT.md foi ajustado para deixar o limite explícito. Decidido pelo mantenedor.

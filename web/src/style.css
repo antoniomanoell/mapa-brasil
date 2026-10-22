@@ -615,6 +615,16 @@ body {
 .texto-gaveta a {
   color: var(--acento);
 }
+.competencias {
+  border-top: 1px solid var(--borda);
+  margin-top: 1.5em;
+}
+.aviso-competencias {
+  font-size: 0.875rem;
+  color: var(--texto-2);
+  border-left: 3px solid var(--borda);
+  padding-left: 10px;
+}
 .ficha-link {
   font-size: 0.875rem;
 }

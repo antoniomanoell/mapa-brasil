@@ -8,7 +8,7 @@ O Indicadores BR é um site público e gratuito que mostra, num mapa do Brasil p
 - **Mudanças de metodologia à vista.** Séries de pesquisas diferentes não são emendadas.
 - **Lacunas são lacunas.** Ano sem dado fica vazio.
 - **Nada de projeções.** Só anos que já terminaram e dados consolidados.
-- **Neutralidade.** O site não comenta os números, não atribui causas e não marca períodos de governos. Os textos explicam o que cada indicador mede e quais são suas limitações.
+- **Neutralidade.** O site não comenta os números, não atribui causas e não marca períodos de governos. Os textos explicam o que cada indicador mede e quais são suas limitações. A seção "Quem é responsável" de cada indicador descreve o que a lei atribui à União, aos estados, aos municípios e a cada Poder, sem avaliar governos.
 - **Incerteza à vista.** Valores com margem de erro alta aparecem com aviso de "baixa precisão".
 
 ## Código e dados

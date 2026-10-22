@@ -23,7 +23,7 @@ O objetivo do produto é mostrar fatos e dados ao maior número possível de pes
 3. **Lacunas são lacunas.** Ano sem dado fica vazio, com cinza e hachura no mapa e quebra na linha do gráfico. Proibido interpolar, imputar ou repetir o último valor.
 4. **Nada de projeções futuras.** Fontes que trazem projeção (ex.: projeções de população do IBGE) são cortadas no último ano já transcorrido. Valores modelados (não medidos diretamente) são rotulados como "estimativa".
 5. **Valores monetários sempre reais (deflacionados)**, com ano-base explícito na interface.
-6. **Neutralidade editorial.** O site não comenta, não atribui causas e não marca períodos de governos. Os textos explicam o que o indicador mede e suas limitações, não o que "significa politicamente".
+6. **Neutralidade editorial.** O site não comenta, não atribui causas e não marca períodos de governos. Os textos explicam o que o indicador mede e suas limitações, não o que "significa politicamente". A seção "Quem é responsável" descreve as competências que a lei atribui a cada esfera e a cada Poder, com o artigo citado; não avalia governos nem relaciona as competências às variações do indicador (DECISIONS.md, 2026-10-22).
 7. **Incerteza à vista.** Indicadores de pesquisa amostral (PNAD/PNADC) trazem coeficiente de variação ou intervalo de confiança quando o IBGE publicar. Estimativas com CV alto (comum em UFs pequenas, como RR e AP) recebem marca visual de baixa precisão.
 
 ## 3. Escopo do MVP

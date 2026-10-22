@@ -139,6 +139,22 @@ test('metodologia, sobre e link a partir do mapa', async ({ page }) => {
   await expect(gaveta).toBeVisible();
 });
 
+test('seção "Quem é responsável" com base legal, só onde há texto', async ({ page }) => {
+  await abrir(page, '?i=ideb');
+  await page.locator('#abrir-sobre').click();
+  const secao = page.locator('#sobre-indicador .competencias');
+  await expect(secao.locator('h2')).toHaveText('Quem é responsável');
+  await expect(secao).toContainText('não avalia governos');
+  await expect(secao).toContainText('CF art. 211');
+  await expect(secao).toContainText('Por Poder');
+  await expect(secao).not.toContainText('Fontes da seção');
+  await page.goto('/indicador.html?i=analfabetismo');
+  await expect(page.locator('.competencias')).toContainText('CF art. 208, I');
+  await page.goto('/indicador.html?i=homicidios');
+  await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
+  await expect(page.locator('.competencias')).toHaveCount(0);
+});
+
 test('valor do Brasil no ano e série do Brasil no painel', async ({ page }) => {
   await abrir(page, '?i=idhm&a=2024');
   const botao = page.locator('#valor-br');
