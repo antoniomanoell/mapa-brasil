@@ -1,5 +1,3 @@
-<!-- REVISAR -->
-
 ## O que mede
 
 O Índice de Gini mede a **desigualdade** da renda por pessoa. Vai de 0 a 1:
@@ -22,9 +20,9 @@ IBGE, com a mesma renda domiciliar per capita do indicador de renda:
 
 ## Mudanças de metodologia
 
-As duas pesquisas são diferentes e as séries **não são emendadas**: de 2012 a 2015 os dois valores aparecem. Não há dado em 2010 (ano de Censo).
+As duas pesquisas são diferentes e as séries **não são emendadas**: de 2012 a 2015 os dois valores aparecem. Não há dado em 2010: em anos de Censo, o IBGE não fazia a PNAD.
 
 ## Limitações
 
-- Pesquisas domiciliares captam mal as rendas mais altas; o Gini real tende a ser maior do que o medido.
-- Até 2003 a PNAD não cobria a área rural de seis estados do Norte (valores marcados).
+- Pesquisas domiciliares captam mal as rendas mais altas; estudos que combinam a pesquisa com dados do Imposto de Renda encontram desigualdade maior que a medida aqui.
+- Até 2003 a PNAD não cobria a área rural de seis estados do Norte: Rondônia, Acre, Amazonas, Roraima, Pará e Amapá. Nesses estados, esses anos aparecem com aviso no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).
