@@ -834,12 +834,62 @@ button.cartao:hover {
     max-width: 1200px;
     margin: 0 auto;
   }
+  /* O mapa fica com a altura que sobra; por isso, no computador, cabeçalho, legenda e linha do
+     tempo ficam numa linha cada. Título e seletores dividem a mesma linha. */
   .topo {
     max-width: 1200px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'titulo controles nav'
+      'sub controles nav';
+    align-items: center;
+    column-gap: 32px;
+    padding-bottom: 10px;
+  }
+  .topo-linha {
+    display: contents;
+  }
+  .topo h1 {
+    grid-area: titulo;
+    align-self: end;
+  }
+  .subtitulo {
+    grid-area: sub;
+    align-self: start;
+    margin: 0;
+  }
+  .topo nav {
+    grid-area: nav;
+  }
+  .controles {
+    grid-area: controles;
   }
   .controles .campo {
     flex: 0 1 300px;
+  }
+  .legenda {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2px 16px;
+    min-height: 1.6em;
+  }
+  .legenda-titulo {
+    margin: 0;
+  }
+  .slider {
+    min-height: 58px;
+  }
+  .slider-linha {
+    flex-wrap: nowrap;
+    gap: 12px;
+  }
+  .slider-rotulo {
+    flex: none;
+    flex-basis: auto;
+    min-width: 16ch;
   }
   .painel.gaveta-sobre {
     width: 480px;
@@ -903,6 +953,14 @@ button.cartao:hover {
     border-left: 1px solid var(--borda);
     box-shadow: -4px 0 16px rgb(0 0 0 / 12%);
     padding-top: 12px;
+  }
+}
+
+/* Telas largas: mais espaço para o painel do mapa, onde a legenda cabe numa linha. */
+@media (min-width: 1400px) {
+  .conteudo,
+  .topo {
+    max-width: 1320px;
   }
 }
 
