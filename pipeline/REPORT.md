@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
 - Data: 2026-10-22
-- Versão do pipeline: `ce2ce68`
+- Versão do pipeline: `7064d9f`
 - Escopo: completo
 - Resultado: OK
 
@@ -419,7 +419,7 @@
 
 | Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
 |---|---|---|---|---|
-| principal | PNAD (2001–2015) | 2001–2009, 2011–2015 | 2010 | cobertura_urbana: 18 |
+| principal | PNAD (2001–2015) | 2001–2009, 2011–2015 | 2010 | baixa_precisao: 11, cobertura_urbana: 18 |
 | principal | PNAD Contínua (2016–) | 2016–2025 | — | — |
 
 **Lacunas pontuais**
@@ -485,50 +485,49 @@
 
 - nenhum
 
-**Alertas (variação suspeita — revisar)** (36)
+**Alertas (variação suspeita — revisar)** (32)
 
-- principal/pnad/11: 2003→2004 variou +21.8% (8.68 → 10.57)
-- principal/pnad/12: 2001→2002 variou -21.5% (17.05 → 13.38)
-- principal/pnad/12: 2002→2003 variou +27.2% (13.38 → 17.02)
-- principal/pnad/13: 2003→2004 variou +36.0% (6.62 → 9.0)
-- principal/pnad/13: 2004→2005 variou -25.4% (9.0 → 6.71)
-- principal/pnad/14: 2002→2003 variou -21.7% (12.36 → 9.68)
-- principal/pnad/14: 2005→2006 variou -28.1% (12.18 → 8.76)
-- principal/pnad/14: 2006→2007 variou +22.8% (8.76 → 10.76)
-- principal/pnad/14: 2008→2009 variou -21.7% (9.8 → 7.67)
-- principal/pnad/14: 2009→2011 variou +26.1% (7.67 → 9.67)
-- principal/pnad/14: 2011→2012 variou -23.1% (9.67 → 7.44)
-- principal/pnad/14: 2012→2013 variou +32.9% (7.44 → 9.89)
-- principal/pnad/14: 2013→2014 variou -24.6% (9.89 → 7.46)
-- principal/pnad/15: 2003→2004 variou +38.3% (10.49 → 14.51)
-- principal/pnad/16: 2002→2003 variou +50.2% (5.98 → 8.98)
-- principal/pnad/16: 2005→2006 variou -31.4% (7.51 → 5.15)
-- principal/pnad/16: 2006→2007 variou +37.1% (5.15 → 7.06)
-- principal/pnad/16: 2007→2008 variou -39.1% (7.06 → 4.3)
-- principal/pnad/16: 2008→2009 variou -23.5% (4.3 → 3.29)
-- principal/pnad/16: 2009→2011 variou +126.4% (3.29 → 7.45)
-- principal/pnad/16: 2013→2014 variou -27.0% (6.15 → 4.49)
-- principal/pnad/16: 2014→2015 variou +26.9% (4.49 → 5.7)
-- principal/pnad/25: 2009→2011 variou -20.2% (21.6 → 17.23)
-- principal/pnad/32: 2009→2011 variou -25.0% (8.53 → 6.4)
+- principal/pnad/11: 2003→2004 variou +22.6% (8.58 → 10.52)
+- principal/pnad/12: 2001→2002 variou -22.4% (16.73 → 12.98)
+- principal/pnad/12: 2002→2003 variou +29.9% (12.98 → 16.86)
+- principal/pnad/13: 2003→2004 variou +36.0% (6.61 → 8.99)
+- principal/pnad/13: 2004→2005 variou -25.6% (8.99 → 6.69)
+- principal/pnad/14: 2002→2003 variou -20.3% (12.13 → 9.67)
+- principal/pnad/14: 2005→2006 variou -29.4% (12.48 → 8.81)
+- principal/pnad/14: 2006→2007 variou +24.9% (8.81 → 11.0)
+- principal/pnad/14: 2009→2011 variou +24.0% (7.76 → 9.62)
+- principal/pnad/14: 2011→2012 variou -23.2% (9.62 → 7.39)
+- principal/pnad/14: 2012→2013 variou +32.7% (7.39 → 9.81)
+- principal/pnad/14: 2013→2014 variou -23.9% (9.81 → 7.47)
+- principal/pnad/15: 2003→2004 variou +38.3% (10.5 → 14.52)
+- principal/pnad/16: 2002→2003 variou +49.0% (6.21 → 9.25)
+- principal/pnad/16: 2005→2006 variou -28.1% (7.43 → 5.34)
+- principal/pnad/16: 2006→2007 variou +34.3% (5.34 → 7.17)
+- principal/pnad/16: 2007→2008 variou -34.9% (7.17 → 4.67)
+- principal/pnad/16: 2008→2009 variou -30.2% (4.67 → 3.26)
+- principal/pnad/16: 2009→2011 variou +133.1% (3.26 → 7.6)
+- principal/pnad/16: 2013→2014 variou -29.3% (5.97 → 4.22)
+- principal/pnad/16: 2014→2015 variou +39.6% (4.22 → 5.89)
+- principal/pnad/25: 2009→2011 variou -20.3% (21.62 → 17.23)
+- principal/pnad/32: 2009→2011 variou -25.2% (8.53 → 6.38)
 - principal/pnad/35: 2009→2011 variou -22.7% (4.75 → 3.67)
-- principal/pnad/42: 2009→2011 variou -21.4% (4.95 → 3.89)
-- principal/pnad/43: 2014→2015 variou -21.5% (4.47 → 3.51)
-- principal/pnad/50: 2009→2011 variou -26.1% (8.65 → 6.39)
-- principal/pnad/51: 2009→2011 variou -26.3% (10.08 → 7.43)
-- principal/pnad/52: 2014→2015 variou -21.1% (7.72 → 6.09)
-- principal/pnad/53: 2002→2003 variou -21.9% (5.65 → 4.41)
-- principal/pnad/53: 2005→2006 variou -21.6% (4.68 → 3.67)
-- principal/pnad/53: 2008→2009 variou -63.1% (3.93 → 1.45)
-- principal/pnad/53: 2009→2011 variou +123.4% (1.45 → 3.24)
+- principal/pnad/42: 2009→2011 variou -21.0% (4.91 → 3.88)
+- principal/pnad/43: 2014→2015 variou -21.0% (4.47 → 3.53)
+- principal/pnad/50: 2009→2011 variou -26.8% (8.7 → 6.37)
+- principal/pnad/51: 2009→2011 variou -27.2% (10.15 → 7.39)
+- principal/pnad/52: 2014→2015 variou -20.7% (7.68 → 6.09)
+- principal/pnad/53: 2002→2003 variou -21.0% (5.67 → 4.48)
 - principal/pnadc/42: 2024→2025 variou -21.1% (1.9 → 1.5)
 - principal/pnadc/53: 2017→2018 variou +26.1% (2.3 → 2.9)
 
-**Conferência com números publicados** (3)
+**Conferência com números publicados** (6)
 
 - principal/pnadc/BR/2025 (valor): 4.9 ≈ 4.9 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/47221-analfabetismo-fica-abaixo-de-5-em-2025-mas-8-4-milhoes-ainda-nao-sabem-ler-e-escrever)
 - principal/pnadc/BR/2024 (valor): 5.3 ≈ 5.3 ✓ (https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/43699-indicadores-educacionais-avancam-em-2024-mas-atraso-escolar-aumenta)
 - principal/pnad/BR/2015 (valor): 7.95 ≈ 8.0 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip)
+- principal/pnad/BR/2004 (valor): 11.45 ≈ 11.5 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip)
+- principal/pnad/BR/2009 (valor): 9.7 ≈ 9.7 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip)
+- principal/pnad/BR/2011 (valor): 8.58 ≈ 8.6 ✓ (https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip)
 
 ## `ideb` — OK
 
