@@ -45,7 +45,7 @@ Não há projeções para o futuro. Valores que são estimativas de um modelo (c
 
 ## Valores em dinheiro
 
-Valores em reais estão sempre em reais de um mesmo ano, indicado abaixo do mapa e no painel do estado, para que anos diferentes possam ser comparados.
+Dentro de cada indicador, os valores em reais estão em reais de um mesmo ano, para que anos diferentes possam ser comparados; o ano aparece abaixo do mapa e no painel do estado. Cada indicador segue o método da sua fonte: a renda é corrigida pelo IPCA e mostrada por mês; o PIB é corrigido pelos índices de preços das Contas Regionais e mostrado por ano. Por isso, os valores de renda e de PIB não devem ser comparados diretamente.
 
 ## População
 
