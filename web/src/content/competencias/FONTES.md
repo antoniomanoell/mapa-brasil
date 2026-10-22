@@ -42,3 +42,26 @@ Lei nº 9.394/1996, LDB (https://www.planalto.gov.br/ccivil_03/leis/l9394.htm):
 
 Lei nº 14.113/2020, Fundeb (https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2020/lei/l14113.htm):
 - art. 1º.
+
+## Saúde (`saude.md`: mortalidade infantil, esperança de vida) — conferido em 2026-10-22
+
+Constituição Federal:
+- art. 23, II (competência comum: cuidar da saúde);
+- art. 24, XII (competência concorrente: proteção e defesa da saúde);
+- art. 30, VII (municípios: atendimento à saúde, com cooperação da União e do estado);
+- art. 196 (direito de todos e dever do Estado; políticas sociais e econômicas);
+- art. 198, I e III, §§ 1º e 2º, I (SUS: direção única em cada esfera, participação da comunidade,
+  financiamento, mínimo da União de 15% da receita corrente líquida; redação da EC 86/2015).
+
+Lei nº 8.080/1990 (https://www.planalto.gov.br/ccivil_03/leis/l8080.htm):
+- art. 9º (direção do SUS em cada esfera);
+- art. 16, III, VI, XIII, XV e XVII (direção nacional; redação da Lei nº 14.572/2023);
+- art. 17, I, III, IV, IX e XIV (direção estadual; XIV: indicadores de morbidade e mortalidade);
+- art. 18, I e IV (direção municipal; redação da Lei nº 14.572/2023);
+- art. 19 (DF).
+
+Lei nº 8.142/1990 (https://www.planalto.gov.br/ccivil_03/leis/l8142.htm): art. 1º (Conselhos e
+Conferências de Saúde).
+
+Lei Complementar nº 141/2012 (https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp141.htm): arts. 6º
+(estados e DF, 12%) e 7º (municípios e DF, 15%), redação da LC 227/2026.

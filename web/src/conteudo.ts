@@ -38,6 +38,8 @@ const FONTES = '### Fontes';
 export const AREA_COMPETENCIAS: Record<string, string> = {
   ideb: 'educacao',
   analfabetismo: 'educacao',
+  mort_infantil: 'saude',
+  esperanca_vida: 'saude',
 };
 
 export const AVISO_COMPETENCIAS =
