@@ -105,18 +105,21 @@ Constituição Federal:
 - art. 23, IX (competência comum: melhoria das condições de saneamento básico);
 - art. 25, § 3º (regiões metropolitanas, aglomerações urbanas e microrregiões por lei complementar
   estadual);
-- art. 30, V (municípios: serviços públicos de interesse local);
+- art. 30, I (municípios legislam sobre interesse local) e V (serviços públicos de interesse local);
 - art. 200, IV (SUS participa da política e das ações de saneamento básico).
 
 Lei nº 11.445/2007 (https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/lei/l11445.htm):
 - art. 3º, I, *b* (definição de esgotamento sanitário);
-- art. 8º, I e II, §§ 1º e 5º (titularidade: municípios e DF no interesse local; estado com os
+- art. 8º, I e II, §§ 1º, 4º e 5º (titularidade: municípios e DF no interesse local; estado com os
   municípios no interesse comum; gestão associada; definição do regulador);
 - art. 9º, I e II (titular formula a política e elabora os planos);
-- art. 10 (prestação por entidade de fora da administração do titular depende de contrato);
+- art. 10 (prestação por entidade de fora da administração do titular depende de contrato de
+  concessão com licitação prévia; vedados contrato de programa, convênio e instrumentos precários;
+  redação da Lei nº 14.026/2020; a página repete a redação de 2007 antes da vigente);
 - art. 11-B, *caput* e §§ 5º e 9º (metas de 99% de água e 90% de coleta e tratamento de esgoto até
   31/12/2033; verificação pela agência reguladora; dilação até 1º/1/2040);
-- art. 52 (União elabora o Plano Nacional de Saneamento Básico).
+- art. 52 (União elabora o Plano Nacional de Saneamento Básico);
+- art. 53 (Sinisa).
 
 Lei nº 9.984/2000 (https://www.planalto.gov.br/ccivil_03/leis/l9984.htm): art. 4º-A (ANA edita normas
 de referência para a regulação).
