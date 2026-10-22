@@ -1,5 +1,3 @@
-<!-- REVISAR -->
-
 ## O que mede
 
 O Índice de Desenvolvimento da Educação Básica (Ideb), do INEP, junta duas coisas numa nota de 0 a 10:
@@ -15,13 +13,13 @@ Quanto maior, melhor. Uma nota pode subir porque os alunos aprenderam mais ou po
 
 ## De onde vem
 
-INEP, resultados do Ideb. Anos iniciais e finais: **rede pública**. Ensino médio: **rede estadual**, porque o INEP não publica a rede pública do ensino médio por estado (e é a rede estadual que o INEP divulga como rede pública dos estados nessa etapa).
+INEP, resultados do Ideb. Anos iniciais e finais: **rede pública**. Ensino médio: **rede estadual**. No ensino médio, a rede estadual concentra a grande maioria das matrículas públicas, e o INEP não publica a rede pública por estado nessa etapa.
 
 ## Mudanças de metodologia
 
-O Ideb é calculado a **cada dois anos** (anos ímpares, desde 2005). Não há valor nos anos pares: no gráfico, a linha tracejada só liga os pontos. Para 2021, ano de pandemia, o INEP remete à nota informativa do Ideb 2021 sobre as condições do cálculo.
+O Ideb é calculado a **cada dois anos** (anos ímpares, desde 2005). Não há valor nos anos pares: no gráfico, a linha tracejada só liga os pontos. Em 2021, durante a pandemia, muitas redes flexibilizaram a aprovação e menos alunos fizeram o Saeb. O INEP recomenda cautela ao comparar esse ano com os demais.
 
 ## Limitações
 
 - O Ideb não mede tudo o que a escola ensina.
-- Escolas com participação baixa na prova ficam sem Ideb.
+- Só entram escolas públicas: a rede privada não aparece no mapa.
