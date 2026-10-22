@@ -13,10 +13,13 @@ export function criarControles(
   aoSub: (sub: string) => void,
   aoUf: (sigla: string | undefined) => void,
 ): Controles {
-  el.innerHTML = `
+  // O index.html já traz esta marcação (evita deslocar a página ao carregar); recria só se faltar.
+  if (!el.querySelector('#sel-indicador')) {
+    el.innerHTML = `
     <label class="campo">Indicador <select id="sel-indicador"></select></label>
-    <label class="campo" id="campo-sub" hidden>Recorte <select id="sel-sub"></select></label>
+    <label class="campo" id="campo-sub">Recorte <select id="sel-sub"></select></label>
     <label class="campo">Estado <select id="sel-uf"><option value="">— nenhum —</option></select></label>`;
+  }
   const selInd = el.querySelector('#sel-indicador') as HTMLSelectElement;
   const selSub = el.querySelector('#sel-sub') as HTMLSelectElement;
   const campoSub = el.querySelector('#campo-sub') as HTMLElement;

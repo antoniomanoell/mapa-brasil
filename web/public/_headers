@@ -1,0 +1,16 @@
+# Cloudflare Pages: cabeçalhos por caminho.
+# Assets do Vite têm hash no nome: podem ficar em cache para sempre.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Dados publicados pelo pipeline mudam a cada atualização: cache curto.
+/catalog.json
+  Cache-Control: public, max-age=3600
+/indicators/*
+  Cache-Control: public, max-age=3600
+/geo/*
+  Cache-Control: public, max-age=86400
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

@@ -107,3 +107,26 @@ test('ideb: três etapas e pontos bienais ligados por tracejado', async ({ page 
   await expect(painel.locator('.painel-valores')).toContainText('4,9');
   await page.screenshot({ path: `test-results/ideb-${test.info().project.name}.png` });
 });
+
+test('página "Sobre o indicador" traz texto, aviso de rascunho e ficha técnica', async ({
+  page,
+}) => {
+  await page.goto('/indicador.html?i=homicidios');
+  await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
+  await expect(page.locator('h1')).toHaveText('Taxa de homicídios');
+  await expect(page.locator('.aviso-rascunho')).toBeVisible();
+  await expect(page.locator('#conteudo')).toContainText('O que mede');
+  await expect(page.locator('#conteudo')).toContainText('Ficha técnica');
+  await expect(page).toHaveTitle(/Sobre o indicador: Taxa de homicídios/);
+});
+
+test('metodologia, sobre e link a partir do mapa', async ({ page }) => {
+  await page.goto('/metodologia.html');
+  await expect(page.locator('h1')).toHaveText('Metodologia');
+  await page.goto('/sobre.html');
+  await expect(page.locator('h1')).toHaveText('Sobre');
+  await abrir(page, '?i=gini');
+  await page.locator('#rodape-viz a', { hasText: 'Sobre este indicador' }).click();
+  await expect(page).toHaveURL(/indicador\.html\?i=gini/);
+  await expect(page.locator('h1')).toContainText('Gini');
+});

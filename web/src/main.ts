@@ -96,6 +96,7 @@ async function iniciar(): Promise<void> {
           · ${esc(seg.tabela)} · extraído em ${esc(formatarData(seg.extraido_em))}</p>
          <p>${esc(ind.unidade_detalhe)}.${seg.notas ? ` ${esc(seg.notas)}` : ''}</p>`
       : `<p>Não há dado deste indicador em ${e.ano}.</p>`;
+    rodape.innerHTML += `<p><a href="indicador.html?i=${esc(ind.id)}">Sobre este indicador: o que mede, como ler e limitações</a></p>`;
   }
 
   store.definir(normalizar(bruto, ind));

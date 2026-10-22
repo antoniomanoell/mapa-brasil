@@ -2,7 +2,7 @@
 
 Mapa interativo de indicadores socioeconômicos do Brasil por UF, de 2000 até o dado mais recente, usando só fontes oficiais.
 
-A especificação completa está em [PROJECT.md](PROJECT.md). As decisões metodológicas ficam em [DECISIONS.md](DECISIONS.md).
+A especificação completa está em [PROJECT.md](PROJECT.md). As decisões metodológicas ficam em [DECISIONS.md](DECISIONS.md), as fontes verificadas em [pipeline/FONTES.md](pipeline/FONTES.md) e a publicação está descrita em [DEPLOY.md](DEPLOY.md).
 
 ## Estrutura
 
@@ -33,4 +33,7 @@ npm install
 npm run dev
 npm test
 npm run lint && npm run format:check && npm run typecheck
+npx playwright test                 # testes de fumaça (desktop e celular)
 ```
+
+Textos do site: `web/src/content/` (Markdown; `<!-- REVISAR -->` marca rascunho).

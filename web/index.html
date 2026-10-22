@@ -8,18 +8,43 @@
       name="description"
       content="Indicadores socioeconômicos do Brasil por estado, de 2000 até hoje, com fontes oficiais."
     />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Indicadores BR" />
     <meta property="og:title" content="Indicadores BR" />
     <meta
       property="og:description"
-      content="Indicadores socioeconômicos do Brasil por estado, com fontes oficiais."
+      content="Indicadores socioeconômicos do Brasil por estado, de 2000 até hoje, com fontes oficiais."
     />
+    <meta property="og:image" content="%VITE_SITE_URL%/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
   <body>
     <a class="pular" href="#ranking-acesso">Pular para o ranking acessível</a>
     <header class="topo">
-      <h1>Indicadores BR</h1>
+      <div class="topo-linha">
+        <h1>Indicadores BR</h1>
+        <nav aria-label="Seções">
+          <a href="metodologia.html">Metodologia</a> <a href="sobre.html">Sobre</a>
+        </nav>
+      </div>
       <p class="subtitulo">Dados oficiais por estado, de 2000 até hoje</p>
-      <div id="controles" class="controles"></div>
+      <div id="controles" class="controles">
+        <label class="campo"
+          >Indicador
+          <select id="sel-indicador"></select
+        ></label>
+        <label class="campo" id="campo-sub"
+          >Recorte
+          <select id="sel-sub"></select
+        ></label>
+        <label class="campo"
+          >Estado
+          <select id="sel-uf">
+            <option value="">— nenhum —</option>
+          </select></label
+        >
+      </div>
     </header>
 
     <main class="conteudo">
