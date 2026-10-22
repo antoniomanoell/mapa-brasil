@@ -1,12 +1,10 @@
-<!-- REVISAR -->
-
 ## O que mede
 
 Quantas crianças morrem antes de completar 1 ano de idade para cada mil que nascem vivas.
 
 ## Como ler
 
-Quanto menor, melhor. É um dos indicadores mais usados para avaliar condições de saúde e de vida.
+Quanto menor, melhor. É um dos indicadores mais usados para avaliar condições de saúde e de vida. Se as duas linhas do gráfico do estado se aproximam com o tempo, é sinal de que o registro de óbitos melhorou.
 
 ## De onde vem
 
@@ -16,9 +14,9 @@ No gráfico do estado aparece também, tracejada, a **taxa direta do DATASUS**: 
 
 ## Mudanças de metodologia
 
-A série vai até o último ano com Tábua de Mortalidade publicada.
+A série vai até o último ano com Tábua de Mortalidade publicada; anos mais recentes entram quando a Tábua do ano sair. Quando o IBGE revisa as Projeções, a série inteira pode mudar.
 
 ## Limitações
 
 - No início dos anos 2000, muitos óbitos de bebês não eram registrados, sobretudo no Norte e no Nordeste. Por isso a taxa direta do DATASUS fica **abaixo** da realidade justamente nos estados mais pobres, e o indicador principal é a estimativa do IBGE.
-- Em estados pequenos, poucos óbitos a mais ou a menos mudam bastante a taxa.
+- Na taxa direta do DATASUS, em estados pequenos, poucos óbitos a mais ou a menos mudam bastante o resultado de um ano para o outro.
