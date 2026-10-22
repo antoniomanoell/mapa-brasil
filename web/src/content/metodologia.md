@@ -29,7 +29,9 @@ Variações muito grandes de um ano para outro (o limite depende do indicador, d
 
 ## Mudanças de metodologia: séries separadas
 
-Quando uma pesquisa muda (por exemplo, quando a PNAD anual deu lugar à PNAD Contínua), os números de antes e de depois **não são emendados**. Eles aparecem como séries separadas: no gráfico, cada uma tem sua própria linha e a quebra é marcada; no mapa, o rótulo do ano diz de qual série é o valor. Quando duas séries cobrem o mesmo ano, as duas aparecem e você pode escolher qual ver no mapa.
+Quando uma pesquisa muda (por exemplo, quando a PNAD anual deu lugar à PNAD Contínua), os números de antes e de depois **não são emendados**. Emendar exigiria ajustar uma série para encaixar na outra, o que cria números que nenhum órgão oficial publicou.
+
+As séries aparecem separadas: no gráfico, cada uma tem sua própria linha, e a quebra é marcada com uma linha vertical e uma nota (ⓘ) abaixo do gráfico; no mapa, o rótulo ao lado do seletor de ano diz de qual série é o valor. Quando duas séries cobrem o mesmo ano, as duas aparecem no gráfico, e ao lado do seletor de ano você escolhe qual ver no mapa.
 
 ## Lacunas
 
