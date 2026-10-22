@@ -4,7 +4,7 @@ A renda média mensal por pessoa, somando tudo o que os moradores de cada casa r
 
 ## Como ler
 
-Os valores estão em **reais de um mesmo ano**, já descontada a inflação; o ano aparece abaixo do mapa e no painel do estado. Assim, dá para comparar anos diferentes.
+Os valores estão em **reais de um mesmo ano**, já descontada a inflação; o ano aparece na legenda do mapa e no painel do estado. Assim, dá para comparar anos diferentes.
 
 É uma **média**: alguns poucos com renda muito alta puxam o valor para cima. Para ver como a renda se distribui, use também o Índice de Gini.
 

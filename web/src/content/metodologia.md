@@ -45,7 +45,7 @@ Não há projeções para o futuro. Valores que são estimativas de um modelo (c
 
 ## Valores em dinheiro
 
-Dentro de cada indicador, os valores em reais estão em reais de um mesmo ano, para que anos diferentes possam ser comparados; o ano aparece abaixo do mapa e no painel do estado. Cada indicador segue o método da sua fonte: a renda é corrigida pelo IPCA e mostrada por mês; o PIB é corrigido pelos índices de preços das Contas Regionais e mostrado por ano. Por isso, os valores de renda e de PIB não devem ser comparados diretamente.
+Dentro de cada indicador, os valores em reais estão em reais de um mesmo ano, para que anos diferentes possam ser comparados; o ano aparece na legenda do mapa e no painel do estado. Cada indicador segue o método da sua fonte: a renda é corrigida pelo IPCA e mostrada por mês; o PIB é corrigido pelos índices de preços das Contas Regionais e mostrado por ano. Por isso, os valores de renda e de PIB não devem ser comparados diretamente.
 
 ## População
 
@@ -61,7 +61,9 @@ Nem toda fonte publica a margem de erro. Quando não publica (por exemplo, nas s
 
 ## Cores do mapa
 
-A escala de cores de cada indicador é calculada uma vez, sobre todos os anos juntos, e não muda quando você mexe no ano. Assim, a mudança de cor reflete mudança real. As cores mostram só a intensidade ("mais escuro = maior"), sem dizer se o valor é bom ou ruim.
+A escala de cores de cada indicador é calculada uma vez, sobre todos os anos juntos, e não muda quando você mexe no ano. Assim, a mudança de cor reflete mudança real. As cores dividem os valores em 5 faixas, cada uma com um quinto de todos os valores dos estados em todos os anos; os limites aparecem na legenda.
+
+Num indicador que melhorou muito, os primeiros anos podem aparecer quase todos claros e os últimos quase todos escuros. Isso é a mudança ao longo do tempo, não um defeito do mapa. As cores mostram só a intensidade ("mais escuro = maior"), sem dizer se o valor é bom ou ruim. Em indicadores em que maior é pior (como homicídios ou mortalidade infantil), mais escuro significa pior.
 
 ## Mapa e ranking
 

@@ -4,7 +4,7 @@ O Produto Interno Bruto (PIB) é o valor de tudo o que se produz numa economia e
 
 ## Como ler
 
-Os valores estão a preços de um mesmo ano; o ano aparece abaixo do mapa e no painel do estado. A inflação foi descontada com os índices de preços da própria produção, calculados pelo IBGE nas Contas Regionais, e não com o IPCA. Assim, a variação de um ano para outro mostra quanto a produção por habitante cresceu ou caiu.
+Os valores estão a preços de um mesmo ano; o ano aparece na legenda do mapa e no painel do estado. A inflação foi descontada com os índices de preços da própria produção, calculados pelo IBGE nas Contas Regionais, e não com o IPCA. Assim, a variação de um ano para outro mostra quanto a produção por habitante cresceu ou caiu.
 
 O PIB mede **produção**, não a renda das famílias: um estado com muita mineração ou petróleo pode ter PIB per capita alto sem que a renda da população seja alta. Para a renda das pessoas, veja a renda domiciliar per capita.
 
