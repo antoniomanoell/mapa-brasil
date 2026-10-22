@@ -17,4 +17,4 @@ A PNAD anual antiga usava outro conceito de desocupação, e por isso não há s
 ## Limitações
 
 - A taxa não mostra quem trabalha menos horas do que gostaria nem quem desistiu de procurar. Para isso, o IBGE publica a taxa de subutilização da força de trabalho, que não está neste site.
-- Em estados pequenos a margem de erro é maior: diferenças de poucos décimos entre estados podem não ser reais.
+- Em estados pequenos a margem de erro é maior: diferenças de poucos décimos entre estados podem não ser reais. Valores com margem de erro alta aparecem com aviso de "baixa precisão" no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).

@@ -55,7 +55,9 @@ Por isso, essas duas taxas podem diferir um pouco das divulgadas por outras font
 
 ## Margem de erro
 
-Indicadores que vêm de pesquisas por amostra (PNAD e PNAD Contínua) têm margem de erro. Quando a margem de erro é grande (coeficiente de variação acima de 15%), o valor aparece com aviso de "baixa precisão" no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado). Isso é comum em estados pequenos.
+Indicadores que vêm de pesquisas por amostra (PNAD e PNAD Contínua) têm margem de erro. Quando a margem de erro é grande (coeficiente de variação acima de 15%), o valor aparece com aviso de "baixa precisão" no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado). Isso acontece sobretudo em estados pequenos e em indicadores de proporções baixas, como a extrema pobreza.
+
+Nem toda fonte publica a margem de erro. Quando não publica (por exemplo, nas séries da PNAD anual de analfabetismo, esgoto e Gini, e no IDHM), o site não tem como marcar valores imprecisos; neles, diferenças pequenas entre estados devem ser lidas com cautela.
 
 ## Cores do mapa
 
