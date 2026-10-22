@@ -112,7 +112,8 @@ test('página "Sobre o indicador" traz texto revisado e ficha técnica', async (
   await page.goto('/indicador.html?i=homicidios');
   await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
   await expect(page.locator('h1')).toHaveText('Taxa de homicídios');
-  await expect(page.locator('.aviso-rascunho')).toHaveCount(0);
+  // Só o texto principal; a seção "Quem é responsável" tem a própria marca de revisão.
+  await expect(page.locator('#conteudo > .aviso-rascunho')).toHaveCount(0);
   await expect(page.locator('#conteudo')).toContainText('O que mede');
   await expect(page.locator('#conteudo')).toContainText('Ficha técnica');
   await expect(page).toHaveTitle(/Sobre o indicador: Taxa de homicídios/);
