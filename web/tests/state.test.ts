@@ -12,6 +12,7 @@ describe('URL', () => {
       segmento: 'pnad',
       uf: 'SE',
       visao: 'ranking',
+      sobre: false,
     });
     expect(escreverUrl(e, IND)).toBe('?i=teste&s=geral&a=2014&g=pnad&uf=SE&v=ranking');
   });
@@ -25,7 +26,15 @@ describe('URL', () => {
       segmento: undefined,
       uf: undefined,
       visao: 'mapa',
+      sobre: false,
     });
+  });
+
+  it('guarda a gaveta "Sobre" aberta na URL (sobre=1)', () => {
+    const e = normalizar(lerUrl('?a=2014&sobre=1'), IND);
+    expect(e.sobre).toBe(true);
+    expect(escreverUrl(e, IND)).toContain('sobre=1');
+    expect(escreverUrl({ ...e, sobre: false }, IND)).not.toContain('sobre');
   });
 
   it('aceita o Brasil (uf=BR) como local escolhido', () => {

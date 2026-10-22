@@ -12,7 +12,7 @@ export class SobreIndicador {
   #origem: HTMLElement | null = null;
   #pedido = 0;
 
-  constructor(el: HTMLElement) {
+  constructor(el: HTMLElement, aoFechar: () => void) {
     this.#el = el;
     el.innerHTML = `
       <div class="painel-cabeca">
@@ -22,16 +22,14 @@ export class SobreIndicador {
       <div class="texto-gaveta"></div>`;
     this.#titulo = el.querySelector('.painel-titulo') as HTMLElement;
     this.#corpo = el.querySelector('.texto-gaveta') as HTMLElement;
-    (el.querySelector('.fechar') as HTMLButtonElement).addEventListener('click', () =>
-      this.fechar(),
-    );
+    (el.querySelector('.fechar') as HTMLButtonElement).addEventListener('click', aoFechar);
     // Na fase de captura, para o Esc fechar só esta gaveta, e não também o painel do estado.
     document.addEventListener(
       'keydown',
       (e) => {
         if (e.key === 'Escape' && !el.hidden) {
           e.stopImmediatePropagation();
-          this.fechar();
+          aoFechar();
         }
       },
       true,

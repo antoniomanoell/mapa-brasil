@@ -163,10 +163,14 @@ test('seção "Quem é responsável" com base legal, só onde há texto', async 
   await expect(page.locator('.competencias')).toContainText('CF art. 170');
   // O IDHM remete às áreas das suas dimensões.
   await page.goto('/indicador.html?i=idhm');
-  await expect(page.locator('.competencias a', { hasText: 'Esperança de vida' })).toHaveAttribute(
-    'href',
-    'indicador.html?i=esperanca_vida',
-  );
+  await page.locator('.competencias a', { hasText: 'Esperança de vida' }).click();
+  // O link leva ao mapa do indicador com a gaveta "Sobre" já aberta.
+  await expect(page).toHaveURL(/i=esperanca_vida.*sobre=1/);
+  await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
+  await expect(page.locator('#sobre-indicador')).toBeVisible();
+  await expect(page.locator('#sobre-indicador .competencias')).toContainText('Lei nº 8.080/1990');
+  await page.keyboard.press('Escape');
+  await expect(page).not.toHaveURL(/sobre=1/);
 });
 
 test('valor do Brasil no ano e série do Brasil no painel', async ({ page }) => {

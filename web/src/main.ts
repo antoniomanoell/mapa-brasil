@@ -31,6 +31,7 @@ const paraBruto = (e: Estado): EstadoBruto => ({
   g: e.segmento,
   uf: e.uf,
   v: e.visao,
+  sobre: e.sobre ? '1' : undefined,
 });
 
 async function iniciar(): Promise<void> {
@@ -50,14 +51,17 @@ async function iniciar(): Promise<void> {
     (segmento) => aplicar({ segmento }),
   );
   const painel = new Painel($('#painel'), () => aplicar({ uf: undefined }));
-  const sobre = new SobreIndicador($('#sobre-indicador'));
+  // A gaveta "Sobre" faz parte do estado (sobre=1 na URL): abre por link e fecha pelo ✕ ou Esc.
+  const sobre = new SobreIndicador($('#sobre-indicador'), () => aplicar({ sobre: false }));
+  let origemSobre: HTMLElement | null = null;
   // Links "Sobre este indicador" (barra, rodapé, painel) abrem a gaveta; sem JS, ou com Ctrl/
   // botão do meio, seguem para a página própria.
   document.addEventListener('click', (ev) => {
     const alvo = (ev.target as HTMLElement).closest<HTMLElement>('[data-abrir-sobre]');
     if (!alvo || ev.ctrlKey || ev.metaKey || ev.shiftKey || ev.button !== 0) return;
     ev.preventDefault();
-    void sobre.abrir(ind, alvo);
+    origemSobre = alvo;
+    aplicar({ sobre: true });
   });
   const controles = criarControles(
     $('#controles'),
@@ -66,7 +70,12 @@ async function iniciar(): Promise<void> {
       ind = await carregarIndicador(cat, id);
       // Mantém ano, UF e visão; subindicador e segmento voltam ao padrão do novo indicador.
       const e = store.estado;
-      store.definir(normalizar({ i: id, a: String(e.ano), uf: e.uf, v: e.visao }, ind));
+      store.definir(
+        normalizar(
+          { i: id, a: String(e.ano), uf: e.uf, v: e.visao, sobre: e.sobre ? '1' : undefined },
+          ind,
+        ),
+      );
     },
     (sub) => aplicar({ sub, segmento: undefined }),
     (uf) => aplicar({ uf }),
@@ -90,7 +99,12 @@ async function iniciar(): Promise<void> {
     valorBr.innerHTML = `Brasil em ${e.ano}: <strong>${esc(formatarValor(ind, ponto(seg, BR, e.ano)?.v))}</strong>`;
     valorBr.setAttribute('aria-pressed', String(e.uf === BR));
     $('#abrir-sobre').setAttribute('href', `indicador.html?i=${encodeURIComponent(ind.id)}`);
-    if (sobre.aberta && anterior?.indicador !== e.indicador) void sobre.abrir(ind);
+    if (e.sobre && (!sobre.aberta || anterior?.indicador !== e.indicador)) {
+      void sobre.abrir(ind, origemSobre);
+      origemSobre = null;
+    } else if (!e.sobre) {
+      sobre.fechar();
+    }
     slider.atualizar(ind, e.sub, e.ano, e.segmento);
     renderLegenda($('#legenda'), ind, e.sub);
     void mapa.atualizar({ ind, sub: e.sub, ano: e.ano, seg, uf: e.uf });
