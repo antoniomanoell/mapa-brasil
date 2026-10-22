@@ -188,3 +188,8 @@ Constituição Federal (a segunda ocorrência do art. 43 na página é do ADCT):
 Lei Complementar nº 179/2021 (https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm): art. 1º
 (objetivo fundamental: estabilidade de preços) e art. 2º (metas pelo Conselho Monetário Nacional;
 condução pelo Banco Central).
+
+## IDHM (`idhm.md`) — 2026-10-22
+
+Sem base legal própria: o texto resume, sem novas afirmações, o que está nas áreas de saúde, educação e
+renda (ver acima) e remete aos indicadores correspondentes.

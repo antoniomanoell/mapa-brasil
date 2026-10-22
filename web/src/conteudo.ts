@@ -34,7 +34,7 @@ const competencias = import.meta.glob<string>('./content/competencias/[a-z]*.md'
 
 const FONTES = '### Fontes';
 
-/** Área de competências de cada indicador; indicador sem área ainda não mostra a seção. */
+/** Área de competências de cada indicador (o IDHM remete às áreas das suas três dimensões). */
 export const AREA_COMPETENCIAS: Record<string, string> = {
   ideb: 'educacao',
   analfabetismo: 'educacao',
@@ -49,6 +49,7 @@ export const AREA_COMPETENCIAS: Record<string, string> = {
   desocupacao: 'renda',
   informalidade: 'renda',
   pib_pc: 'economia',
+  idhm: 'idhm',
 };
 
 export const AVISO_COMPETENCIAS =

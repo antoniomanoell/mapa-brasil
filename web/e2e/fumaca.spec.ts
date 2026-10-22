@@ -161,10 +161,12 @@ test('seção "Quem é responsável" com base legal, só onde há texto', async 
   await expect(page.locator('.competencias')).toContainText('LOAS');
   await page.goto('/indicador.html?i=pib_pc');
   await expect(page.locator('.competencias')).toContainText('CF art. 170');
-  // O IDHM ainda não tem texto próprio de competências.
+  // O IDHM remete às áreas das suas dimensões.
   await page.goto('/indicador.html?i=idhm');
-  await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
-  await expect(page.locator('.competencias')).toHaveCount(0);
+  await expect(page.locator('.competencias a', { hasText: 'Esperança de vida' })).toHaveAttribute(
+    'href',
+    'indicador.html?i=esperanca_vida',
+  );
 });
 
 test('valor do Brasil no ano e série do Brasil no painel', async ({ page }) => {
