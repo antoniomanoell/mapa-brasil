@@ -21,9 +21,11 @@ Antes de ir para o site, cada indicador passa por checagens automáticas:
 - todos os estados e o Brasil presentes em todos os anos (ou a ausência explicada);
 - valores dentro de faixas plausíveis;
 - nenhum ano que ainda não terminou e nenhum dado preliminar;
-- pelo menos três valores comparados com números divulgados oficialmente, incluindo o Brasil no ano mais recente.
+- pelo menos três valores comparados com números divulgados oficialmente, que precisam coincidir, com diferença só de arredondamento, incluindo o Brasil no ano mais recente.
 
-Variações muito grandes de um ano para outro geram alertas, revisados por uma pessoa.
+Se alguma checagem falha, o indicador não é atualizado no site até o problema ser resolvido.
+
+Variações muito grandes de um ano para outro (o limite depende do indicador, de 8% a 35%) geram alertas, revisados por uma pessoa.
 
 ## Mudanças de metodologia: séries separadas
 
