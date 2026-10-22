@@ -124,6 +124,9 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 - Tabela **4708**: taxa de informalidade anual (var. 12466) e CV (var. 12467), 2016–2025, N1/N3.
 - A taxa anual não é a média dos trimestres (tabela 4099 trimestral): Brasil 2024 = 6,6% anual
   contra 6,85% na média dos 4 trimestres. O IBGE divulga a anual.
+- Informalidade começa em 2016: a condição de CNPJ (empregador e conta própria) só tem médias anuais
+  a partir de 2016 ("PNAD Contínua — retrospectiva 2012–2022", p. 15, 2012–2015 sem dado):
+  https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_continua/Principais_destaques_PNAD_continua/2012_2022/PNAD_continua_retrospectiva_2012_2022.pdf
 - Referências: https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/45920-pnad-continua-taxas-anuais-de-desocupacao-sao-as-menores-da-serie-em-20-unidades-da-federacao
 
 ## `gini`
