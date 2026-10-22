@@ -139,6 +139,7 @@ Constituição Federal:
 - art. 21, XXIV (União: inspeção do trabalho);
 - art. 22, I (direito do trabalho) e XXIII (seguridade social);
 - art. 23, X (competência comum: combater as causas da pobreza);
+- art. 40 (regimes próprios de previdência dos servidores; redação da EC 103/2019);
 - art. 194, *caput* e VII (seguridade social; gestão quadripartite);
 - art. 201, *caput* e § 2º (Regime Geral; benefício não inferior ao salário mínimo);
 - art. 203, V e VI (BPC; redução da vulnerabilidade de famílias em pobreza e extrema pobreza);
@@ -147,7 +148,8 @@ Constituição Federal:
 - art. 239 (PIS-Pasep financia o seguro-desemprego).
 
 Lei nº 8.742/1993, LOAS (https://www.planalto.gov.br/ccivil_03/leis/l8742.htm): arts. 12 (União),
-13 (estados), 14 (DF), 15 (municípios) e 20 (BPC).
+13 (estados), 14 (DF), 15 (municípios), 16 (Conselhos de Assistência Social, paritários), 20 (BPC) e
+22 (benefícios eventuais).
 
 Lei nº 14.601/2023, Bolsa Família (https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14601.htm):
 art. 1º, § 1º (etapa da renda básica do art. 6º, parágrafo único, da CF) e art. 12 (execução
