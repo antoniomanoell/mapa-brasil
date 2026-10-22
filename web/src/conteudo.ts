@@ -48,6 +48,7 @@ export const AREA_COMPETENCIAS: Record<string, string> = {
   extrema_pobreza: 'renda',
   desocupacao: 'renda',
   informalidade: 'renda',
+  pib_pc: 'economia',
 };
 
 export const AVISO_COMPETENCIAS =

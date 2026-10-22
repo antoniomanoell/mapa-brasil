@@ -160,6 +160,9 @@ test('seção "Quem é responsável" com base legal, só onde há texto', async 
   await page.goto('/indicador.html?i=informalidade');
   await expect(page.locator('.competencias')).toContainText('LOAS');
   await page.goto('/indicador.html?i=pib_pc');
+  await expect(page.locator('.competencias')).toContainText('CF art. 170');
+  // O IDHM ainda não tem texto próprio de competências.
+  await page.goto('/indicador.html?i=idhm');
   await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
   await expect(page.locator('.competencias')).toHaveCount(0);
 });

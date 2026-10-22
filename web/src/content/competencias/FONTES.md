@@ -158,3 +158,26 @@ descentralizada, adesão voluntária dos estados, do DF e dos municípios).
 Lei nº 7.998/1990 (https://www.planalto.gov.br/ccivil_03/leis/l7998.htm): art. 2º (finalidade do
 seguro-desemprego) e art. 10 (FAT). As outras ocorrências de "Art. 2" na página são os arts. 2º-A e
 2º-C, não redações repetidas.
+
+## Economia (`economia.md`: PIB per capita) — conferido em 2026-10-22
+
+Constituição Federal (a segunda ocorrência do art. 43 na página é do ADCT):
+- art. 21, VII, VIII e IX (moeda; reservas cambiais e fiscalização financeira; planos de
+  desenvolvimento);
+- art. 22, VI e VII (sistema monetário; política de crédito, câmbio e seguros);
+- art. 24, I (direito tributário, financeiro e econômico: competência concorrente);
+- art. 43 (ação regional da União; incentivos regionais);
+- art. 151, I (incentivos fiscais para o equilíbrio entre regiões);
+- arts. 153, III; 155, II; 156, I e III (impostos de renda, ICMS, IPTU e ISS);
+- art. 156-A (imposto sobre bens e serviços, competência compartilhada; EC 132/2023);
+- art. 159, I, *c* (3% para financiamento do setor produtivo do Norte, Nordeste e Centro-Oeste);
+- art. 164 (moeda emitida exclusivamente pelo banco central);
+- art. 165, § 7º (orçamentos reduzem desigualdades inter-regionais);
+- art. 170, *caput*, VII e VIII (ordem econômica; desigualdades; pleno emprego);
+- art. 173 (exploração direta de atividade econômica pelo Estado);
+- art. 174 (Estado como agente normativo e regulador);
+- art. 179 (microempresas e empresas de pequeno porte).
+
+Lei Complementar nº 179/2021 (https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm): art. 1º
+(objetivo fundamental: estabilidade de preços) e art. 2º (metas pelo Conselho Monetário Nacional;
+condução pelo Banco Central).
