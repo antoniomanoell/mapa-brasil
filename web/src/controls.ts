@@ -21,9 +21,9 @@ export function criarControles(
   // O index.html já traz esta marcação (evita deslocar a página ao carregar); recria só se faltar.
   if (!el.querySelector('#sel-indicador')) {
     el.innerHTML = `
-    <label class="campo">Indicador <select id="sel-indicador"></select></label>
-    <label class="campo" id="campo-sub">Recorte <select id="sel-sub"></select></label>
-    <label class="campo">Estado <select id="sel-uf"><option value="">— nenhum —</option></select></label>`;
+    <label class="campo"><span class="campo-rotulo">Indicador</span> <select id="sel-indicador"></select></label>
+    <label class="campo" id="campo-sub"><span class="campo-rotulo">Recorte</span> <select id="sel-sub"></select></label>
+    <label class="campo"><span class="campo-rotulo">Estado</span> <select id="sel-uf"><option value="">Escolher estado…</option></select></label>`;
   }
   const selInd = el.querySelector('#sel-indicador') as HTMLSelectElement;
   const selSub = el.querySelector('#sel-sub') as HTMLSelectElement;

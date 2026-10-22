@@ -93,11 +93,11 @@ body {
   font: inherit;
   font-size: 1rem;
   color: var(--texto);
-  padding: 8px;
+  padding: 6px 8px;
   border: 1px solid var(--borda);
   border-radius: 6px;
   background: var(--fundo);
-  min-height: 44px;
+  min-height: 38px;
 }
 
 .conteudo {
@@ -138,7 +138,7 @@ body {
   background: var(--fundo);
   border: 1px solid var(--borda);
   border-radius: 12px;
-  padding: 10px 12px;
+  padding: 8px 12px;
 }
 .bloco-cabeca {
   flex: none;
@@ -195,15 +195,15 @@ body {
   gap: 6px;
   margin-bottom: 8px;
   /* Altura exata dos cartões: a grade entra via JS sem deslocar o mapa (CLS). */
-  min-height: 149px;
+  min-height: 141px;
 }
 .cartao {
   min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1px;
-  padding: 5px 10px;
+  padding: 4px 10px;
+  line-height: 1.3;
   border: 1px solid var(--borda);
   border-radius: 10px;
   background: var(--fundo);
@@ -255,14 +255,14 @@ button.cartao:hover {
   border: 1px solid var(--borda);
   border-radius: 8px;
   overflow: hidden;
-  min-height: 40px;
+  min-height: 34px;
 }
 .recortes button {
   flex: none;
   white-space: nowrap;
   font: inherit;
   font-size: 0.875rem;
-  padding: 6px 12px;
+  padding: 4px 12px;
   border: 0;
   border-right: 1px solid var(--borda);
   background: var(--fundo);
@@ -295,8 +295,8 @@ button.cartao:hover {
 }
 .visao button {
   font: inherit;
-  padding: 8px 16px;
-  min-height: 40px;
+  padding: 4px 16px;
+  min-height: 36px;
   border: 0;
   background: var(--fundo);
   color: var(--texto);
@@ -391,9 +391,9 @@ button.cartao:hover {
 .slider {
   flex: none;
   margin-top: 8px;
-  padding-block: 6px;
+  padding-block: 4px;
   /* Altura do painel já com o conteúdo, que entra via JS. */
-  min-height: 86px;
+  min-height: 73px;
 }
 .slider-linha {
   display: flex;
@@ -405,12 +405,12 @@ button.cartao:hover {
   flex: 1;
   min-width: 120px;
   accent-color: var(--acento);
-  height: 32px;
+  height: 24px;
 }
 .play {
   font: inherit;
-  width: 44px;
-  height: 44px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   border: 1px solid var(--borda);
   background: var(--fundo);
@@ -479,7 +479,7 @@ button.cartao:hover {
   padding: 4px;
 }
 .ranking td {
-  padding: 2px 4px;
+  padding: 1px 4px;
   border-bottom: 1px solid var(--fundo-2);
 }
 .ranking tr.selecionada {
@@ -514,11 +514,13 @@ button.cartao:hover {
   font: inherit;
   background: none;
   border: 0;
-  padding: 6px 0;
+  padding: 3px 0;
   color: var(--acento);
   text-decoration: underline;
   cursor: pointer;
   text-align: left;
+  /* Nome numa linha só: "Mato Grosso do Sul" quebrado dobra a altura da linha. A barra encolhe. */
+  white-space: nowrap;
 }
 .barra-trilho {
   position: relative;
@@ -822,9 +824,18 @@ button.cartao:hover {
   .controles .campo:first-child {
     flex-basis: 100%;
   }
+  /* Os rótulos dos seletores ficam só para leitores de tela: o valor de cada um já diz o que é
+     ("Escolher estado…"). O texto fica em 16px, senão o iPhone dá zoom ao tocar no campo. */
+  .campo-rotulo {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
   .campo select {
-    min-height: 40px;
-    padding: 6px 8px;
+    margin-top: 0;
   }
 }
 
@@ -866,8 +877,20 @@ button.cartao:hover {
   .controles {
     grid-area: controles;
   }
+  /* Rótulo à esquerda do seletor, não acima. */
   .controles .campo {
-    flex: 0 1 300px;
+    flex: 0 1 340px;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+  }
+  .campo-rotulo {
+    flex: none;
+  }
+  .campo select {
+    margin-top: 0;
+    min-height: 36px;
+    font-size: 0.9375rem;
   }
   .legenda {
     display: flex;
@@ -880,7 +903,7 @@ button.cartao:hover {
     margin: 0;
   }
   .slider {
-    min-height: 58px;
+    min-height: 48px;
   }
   .slider-linha {
     flex-wrap: nowrap;
@@ -908,22 +931,30 @@ button.cartao:hover {
   }
   .resumo {
     grid-area: resumo;
-    min-height: 86px;
+    min-height: 59px;
     gap: 12px;
     margin-bottom: 12px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+  /* Cartão em duas linhas: rótulo em cima; valor e detalhe lado a lado. */
   .cartao {
-    padding: 8px 14px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: baseline;
+    column-gap: 10px;
+    padding: 6px 14px;
+  }
+  .cartao-rotulo {
+    grid-column: 1 / -1;
   }
   .cartao-valor {
-    font-size: 1.375rem;
+    font-size: 1.25rem;
   }
   /* Os recortes entram via JS: a barra reserva a altura deles, e o "Sobre" vem antes, para não ser
      empurrado quando chegam. */
   .barra-viz {
     grid-area: barra;
-    min-height: 40px;
+    min-height: 37px;
   }
   .barra-viz .botao-sobre {
     order: -1;
