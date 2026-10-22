@@ -166,17 +166,24 @@ Constituição Federal (a segunda ocorrência do art. 43 na página é do ADCT):
   desenvolvimento);
 - art. 22, VI e VII (sistema monetário; política de crédito, câmbio e seguros);
 - art. 24, I (direito tributário, financeiro e econômico: competência concorrente);
+- art. 30, II (municípios suplementam a legislação);
 - art. 43 (ação regional da União; incentivos regionais);
 - art. 151, I (incentivos fiscais para o equilíbrio entre regiões);
 - arts. 153, III; 155, II; 156, I e III (impostos de renda, ICMS, IPTU e ISS);
 - art. 156-A (imposto sobre bens e serviços, competência compartilhada; EC 132/2023);
-- art. 159, I, *c* (3% para financiamento do setor produtivo do Norte, Nordeste e Centro-Oeste);
+- art. 159, I, *a* e *b* (50% do imposto de renda, do IPI e do imposto seletivo: 21,5% ao FPE e
+  22,5% ao FPM);
+- art. 159, I, *c* (3% da arrecadação do imposto de renda, do IPI e do imposto seletivo do art. 153,
+  VIII, para financiamento do setor produtivo do Norte, Nordeste e Centro-Oeste; redação da EC
+  132/2023);
 - art. 164 (moeda emitida exclusivamente pelo banco central);
 - art. 165, § 7º (orçamentos reduzem desigualdades inter-regionais);
 - art. 170, *caput*, VII e VIII (ordem econômica; desigualdades; pleno emprego);
 - art. 173 (exploração direta de atividade econômica pelo Estado);
 - art. 174 (Estado como agente normativo e regulador);
-- art. 179 (microempresas e empresas de pequeno porte).
+- art. 179 (microempresas e empresas de pequeno porte);
+- ADCT, arts. 127 a 129 (transição da reforma tributária: imposto do art. 156-A cobrado a partir de
+  2027; alíquotas do ICMS e do ISS reduzidas de 2029 a 2032; ICMS e ISS extintos a partir de 2033).
 
 Lei Complementar nº 179/2021 (https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp179.htm): art. 1º
 (objetivo fundamental: estabilidade de preços) e art. 2º (metas pelo Conselho Monetário Nacional;
