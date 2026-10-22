@@ -2,11 +2,11 @@ import './style.css';
 import { criarControles } from './controls';
 import { carregarCatalogo, carregarIndicador, carregarMalha } from './data';
 import { formatarData } from './ficha';
-import { esc } from './format';
+import { esc, formatarValor } from './format';
 import { renderLegenda } from './legend';
 import { Mapa } from './map';
 import { Painel } from './panel';
-import { segmentoVigente } from './series';
+import { ponto, segmentoVigente } from './series';
 import { Slider } from './slider';
 import { SobreIndicador } from './sobre';
 import {
@@ -20,7 +20,7 @@ import {
 } from './state';
 import { renderRanking } from './table';
 import type { Catalogo, Indicador } from './types';
-import { ufPorSigla } from './ufs';
+import { BR, localPorSigla } from './ufs';
 
 const $ = <T extends HTMLElement>(sel: string) => document.querySelector(sel) as T;
 
@@ -71,6 +71,9 @@ async function iniciar(): Promise<void> {
     (sub) => aplicar({ sub, segmento: undefined }),
     (uf) => aplicar({ uf }),
   );
+  $('#valor-br').addEventListener('click', () =>
+    aplicar({ uf: store.estado.uf === BR ? undefined : BR }),
+  );
   for (const b of document.querySelectorAll<HTMLButtonElement>('.visao button')) {
     b.addEventListener('click', () => aplicar({ visao: b.dataset['visao'] as Estado['visao'] }));
   }
@@ -83,6 +86,9 @@ async function iniciar(): Promise<void> {
     const seg = segmentoVigente(ind, e.sub, e.ano, e.segmento);
 
     controles.atualizar(cat, ind, e.sub, e.uf);
+    const valorBr = $('#valor-br');
+    valorBr.innerHTML = `Brasil em ${e.ano}: <strong>${esc(formatarValor(ind, ponto(seg, BR, e.ano)?.v))}</strong>`;
+    valorBr.setAttribute('aria-pressed', String(e.uf === BR));
     $('#abrir-sobre').setAttribute('href', `indicador.html?i=${encodeURIComponent(ind.id)}`);
     if (sobre.aberta && anterior?.indicador !== e.indicador) void sobre.abrir(ind);
     slider.atualizar(ind, e.sub, e.ano, e.segmento);
@@ -122,7 +128,7 @@ async function iniciar(): Promise<void> {
 
 function atualizarMeta(e: Estado, ind: Indicador): void {
   const nomeSub = ind.subindicadores.find((s) => s.id === e.sub)?.nome ?? ind.nome;
-  const uf = e.uf ? ufPorSigla(e.uf)?.nome : undefined;
+  const uf = e.uf ? localPorSigla(e.uf)?.nome : undefined;
   document.title = `${nomeSub} · ${e.ano}${uf ? ` · ${uf}` : ''} — Indicadores BR`;
   const desc = `${nomeSub} ${uf ? `em ${uf}` : 'por estado'} em ${e.ano}, com dados oficiais. ${ind.unidade_detalhe}.`;
   document.querySelector('meta[name="description"]')?.setAttribute('content', desc);

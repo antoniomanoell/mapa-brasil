@@ -139,6 +139,20 @@ test('metodologia, sobre e link a partir do mapa', async ({ page }) => {
   await expect(gaveta).toBeVisible();
 });
 
+test('valor do Brasil no ano e série do Brasil no painel', async ({ page }) => {
+  await abrir(page, '?i=idhm&a=2024');
+  const botao = page.locator('#valor-br');
+  await expect(botao).toContainText('Brasil em 2024');
+  await expect(botao).toContainText('0,805');
+  await botao.click();
+  await expect(page).toHaveURL(/uf=BR/);
+  const painel = page.locator('#painel');
+  await expect(painel.locator('.painel-titulo')).toHaveText('Brasil');
+  await expect(painel.locator('.painel-valores')).toContainText('Brasil em 2024');
+  await expect(painel.locator('.grafico svg')).toBeVisible();
+  await expect(page.locator('#sel-uf')).toHaveValue('BR');
+});
+
 test('mapa e slider cabem na tela, e a roda do mouse rola a página', async ({ page }) => {
   await abrir(page, '?i=idhm');
   const altura = page.viewportSize()?.height ?? 0;

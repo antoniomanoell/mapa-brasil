@@ -28,6 +28,12 @@ describe('URL', () => {
     });
   });
 
+  it('aceita o Brasil (uf=BR) como local escolhido', () => {
+    const e = normalizar(lerUrl('?a=2014&uf=br'), IND);
+    expect(e.uf).toBe('BR');
+    expect(escreverUrl(e, IND)).toContain('uf=BR');
+  });
+
   it('segmento que não vale no ano é descartado', () => {
     expect(normalizar(lerUrl('?a=2020&g=pnad'), IND).segmento).toBeUndefined();
   });

@@ -3,7 +3,7 @@
 
 import { intervaloAnos, segmentosNoAno } from './series';
 import type { Catalogo, Indicador } from './types';
-import { ufPorSigla } from './ufs';
+import { localPorSigla } from './ufs';
 
 export type Visao = 'mapa' | 'ranking';
 
@@ -12,7 +12,7 @@ export interface Estado {
   sub: string;
   ano: number;
   segmento?: string;
-  uf?: string; // sigla
+  uf?: string; // sigla da UF, ou "BR" para o Brasil
   visao: Visao;
 }
 
@@ -50,7 +50,7 @@ export function normalizar(bruto: EstadoBruto, ind: Indicador): Estado {
   const ano = Number.isInteger(anoPedido) && anoPedido >= ini && anoPedido <= fim ? anoPedido : fim;
   const segs = segmentosNoAno(ind, sub, ano).map((s) => s.id);
   const segmento = bruto.g && segs.includes(bruto.g) ? bruto.g : undefined;
-  const uf = bruto.uf ? ufPorSigla(bruto.uf)?.sigla : undefined;
+  const uf = bruto.uf ? localPorSigla(bruto.uf)?.sigla : undefined;
   const visao: Visao = bruto.v === 'ranking' ? 'ranking' : 'mapa';
   return { indicador: ind.id, sub, ano, segmento, uf, visao };
 }

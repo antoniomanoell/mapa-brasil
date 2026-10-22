@@ -135,6 +135,22 @@ body {
   gap: 4px 20px;
   margin-bottom: 6px;
 }
+.valor-br {
+  font: inherit;
+  font-size: 0.9375rem;
+  min-height: 40px;
+  padding: 6px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--fundo);
+  color: var(--texto);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.valor-br[aria-pressed='true'] {
+  border-color: var(--acento);
+  background: #deebf7;
+}
 .botao-sobre {
   font-size: 0.9375rem;
   font-weight: 600;

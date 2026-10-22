@@ -24,6 +24,7 @@ export function criarControles(
   const selSub = el.querySelector('#sel-sub') as HTMLSelectElement;
   const campoSub = el.querySelector('#campo-sub') as HTMLElement;
   const selUf = el.querySelector('#sel-uf') as HTMLSelectElement;
+  selUf.add(new Option('Brasil', 'BR'));
   for (const uf of [...UFS].sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))) {
     selUf.add(new Option(uf.nome, uf.sigla));
   }

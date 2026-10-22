@@ -5,7 +5,7 @@ import { COR_BRASIL } from './cores';
 import { ROTULO_FLAG, esc, formatarNumero, formatarValor } from './format';
 import { ponto, segmentoVigente, segmentosDe } from './series';
 import type { Indicador } from './types';
-import { BR, ufPorSigla } from './ufs';
+import { BR, localPorSigla } from './ufs';
 
 // Cores dos segmentos da UF: escuras, distintas entre si e do cinza do Brasil; sem vermelho/verde.
 const CORES_SEGMENTO = ['#08519c', '#6a3d9a'];
@@ -58,7 +58,7 @@ export class Painel {
     pedido: string | undefined,
     sigla: string,
   ): Promise<void> {
-    const uf = ufPorSigla(sigla);
+    const uf = localPorSigla(sigla);
     if (!uf) return this.fechar();
     const estavaFechado = this.#el.hidden;
     this.#el.hidden = false;
@@ -66,6 +66,7 @@ export class Painel {
     this.#titulo.textContent = uf.nome;
 
     const vigente = segmentoVigente(ind, sub, ano, pedido);
+    const ehBrasil = uf.codigo === BR;
     const pUf = ponto(vigente, uf.codigo, ano);
     const pBr = ponto(vigente, BR, ano);
     const segs = segmentosDe(ind, sub, true);
@@ -79,8 +80,10 @@ export class Painel {
       const cor = referencia
         ? COR_REFERENCIA
         : (CORES_SEGMENTO[iPrincipal++ % CORES_SEGMENTO.length] as string);
-      const series: [string, string, string][] = [[uf.codigo, `${uf.sigla} · ${seg.rotulo}`, cor]];
-      if (!referencia) series.push([BR, `Brasil · ${seg.rotulo}`, COR_BRASIL]);
+      const nome = ehBrasil ? 'Brasil' : uf.sigla;
+      const series: [string, string, string][] = [[uf.codigo, `${nome} · ${seg.rotulo}`, cor]];
+      // O Brasil entra em cinza como comparação; no painel do próprio Brasil, não se repete.
+      if (!referencia && !ehBrasil) series.push([BR, `Brasil · ${seg.rotulo}`, COR_BRASIL]);
       const [ini, fim] = [seg.anos[0] as number, seg.anos.at(-1) as number];
       for (let a = ini; a <= fim; a++) {
         // Ano fora de `anos` vira null: o Plot quebra a linha ali (lacuna é lacuna).
@@ -110,8 +113,8 @@ export class Painel {
         ind.tipo_valor === 'estimativa' ? ' · <strong>valores estimados, não medidos</strong>' : ''
       }</p>
       <dl class="painel-valores">
-        <div><dt>${esc(uf.sigla)} em ${ano}</dt><dd>${esc(formatarValor(ind, pUf?.v))}</dd></div>
-        <div><dt>Brasil em ${ano}</dt><dd>${esc(formatarValor(ind, pBr?.v))}</dd></div>
+        <div><dt>${esc(ehBrasil ? 'Brasil' : uf.sigla)} em ${ano}</dt><dd>${esc(formatarValor(ind, pUf?.v))}</dd></div>
+        ${ehBrasil ? '' : `<div><dt>Brasil em ${ano}</dt><dd>${esc(formatarValor(ind, pBr?.v))}</dd></div>`}
       </dl>
       <div class="grafico" role="img" aria-label="${esc(
         `Série de ${nomeSub} em ${uf.nome}, com o Brasil como referência`,

@@ -43,3 +43,9 @@ const porSigla = new Map(UFS.map((u) => [u.sigla, u]));
 
 export const ufPorCodigo = (codigo: string): UF | undefined => porCodigo.get(codigo);
 export const ufPorSigla = (sigla: string): UF | undefined => porSigla.get(sigla.toUpperCase());
+
+/** O país inteiro, escolhível como se fosse uma UF (painel com a série do Brasil). */
+export const BRASIL: UF = { codigo: BR, sigla: BR, nome: 'Brasil' };
+/** UF ou o Brasil, pela sigla ("BR"). */
+export const localPorSigla = (sigla: string): UF | undefined =>
+  sigla.toUpperCase() === BR ? BRASIL : ufPorSigla(sigla);
