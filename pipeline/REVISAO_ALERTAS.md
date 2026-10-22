@@ -149,7 +149,7 @@ mantenedor. Ao refazer o build com dados novos, revisar só os alertas que não 
   2000→2001, sobre uma taxa baixa (5,96 → 9,41).
 - **Conclusão:** nenhum indício de erro.
 
-## `esgoto` — 94 alertas (depois do recálculo; limite 20%) — aguardando aprovação
+## `esgoto` — 94 alertas (depois do recálculo; limite 20%) — aprovado pelo mantenedor em 2026-10-22
 
 - **Erro encontrado e corrigido:** no REPORT anterior (125 alertas), a série da PNAD somava só a rede
   coletora de 2001 a 2008 e a rede mais a fossa séptica ligada a partir de 2009, porque a SIDRA 1956
