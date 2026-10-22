@@ -178,3 +178,19 @@ Formato de cada entrada:
   de arredondar. Quatro delas (Brasil 2004, 2009, 2011, 2015) estão em `referencias.yaml`.
 - **Fonte:** https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/;
   https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip
+
+## 2026-10-22 — esgoto: segmento PNAD calculado dos microdados, não da SIDRA 1956
+- **Decisão:** a série de 2001–2015 passa a ser calculada dos microdados da PNAD: domicílios
+  particulares permanentes com banheiro ou sanitário cujo escoadouro (V0217) é a rede coletora (1) ou
+  a fossa séptica ligada à rede (2), peso V4611, com CV por linearização e aviso de baixa precisão
+  acima de 15%. Antes vinha das contagens da tabela SIDRA 1956.
+- **Motivo:** a revisão dos alertas achou um salto falso em 2009 (RS: 16% em 2008, 55% em 2009). Até
+  2008 a SIDRA 1956 não separa a fossa séptica ligada à rede (só publica o total de fossas sépticas),
+  então a série somava só a rede coletora nesses anos e a definição completa só a partir de 2009. Os
+  microdados têm a categoria em todos os anos (RS 2008: 54%). A tabela também arredonda em milhares,
+  o que distorce UFs pequenas. Decidido pelo mantenedor (opção A).
+- **Conferência:** 2009–2015, Brasil e UFs: as 168 contagens de rede + fossa ligada e de domicílios
+  com banheiro batem com a SIDRA 1956 dentro do arredondamento. Três delas estão em
+  `referencias.yaml` (`medida: auxiliar`, tolerância de 1 mil).
+- **Fonte:** https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/;
+  https://sidra.ibge.gov.br/tabela/1956

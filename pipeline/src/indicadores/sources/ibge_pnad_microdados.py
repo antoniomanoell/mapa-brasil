@@ -1,4 +1,4 @@
-"""IBGE — microdados da PNAD anual 2001–2015 (FTP): renda per capita, Gini e analfabetismo.
+"""IBGE — microdados da PNAD anual 2001–2015 (FTP): renda, Gini, analfabetismo e esgoto.
 
 O SIDRA não publica a renda domiciliar per capita média por UF para a PNAD anual (ver FONTES.md),
 então ela é calculada dos microdados (PROJECT.md, 6.1, regra 3). Conceito (DECISIONS.md):
@@ -23,6 +23,11 @@ A taxa de analfabetismo (segmento PNAD de `analfabetismo`) é a proporção, pon
 pessoas de 15 anos ou mais (V8005) que não sabem ler e escrever (V0601 = 3) entre as que responderam
 (V0601 = 1 ou 3), com todos os moradores, como na SIS 2016 (Tabela 4.15). O SIDRA só publica as
 contagens por UF em milhares (tabela 271), arredondadas e com 2009 do DF incompleto (DECISIONS.md).
+
+O esgoto (segmento PNAD de `esgoto`) é a proporção, ponderada por V4611, dos domicílios particulares
+permanentes (V0201 = 1) com banheiro ou sanitário (V0217 preenchido) cujo escoadouro é a rede
+coletora (V0217 = 1) ou a fossa séptica ligada a ela (V0217 = 2). A SIDRA 1956 só separa a fossa
+ligada a partir de 2009 (DECISIONS.md).
 
 As posições das variáveis mudam a cada ano; são lidas do input SAS que o IBGE publica junto.
 """
@@ -82,6 +87,7 @@ VARIAVEIS = {
         "V4614": ["V4614"],
         "V4617": ["V4617", "STRAT"],
         "V4618": ["V4618", "PSU"],
+        "V0217": ["V0217"],
     },
     "PES": {
         "V0102": ["V0102"],
@@ -100,10 +106,12 @@ SEM_DECLARACAO = 999_999_999_999
 ESPECIE_PARTICULAR = ("1", "3")  # particular permanente e particular improvisado
 NAO_SABE_LER = "3"
 LEITURA_RESPONDIDA = ("1", "3")  # V0601: 1 = sabe ler e escrever, 3 = não sabe
+PARTICULAR_PERMANENTE = "1"
+ESCOADOURO_REDE = ("1", "2")  # V0217: rede coletora; fossa séptica ligada à rede coletora
 CONDICAO_MORADOR = ("1", "2", "3", "4", "5")  # exclui 6, 7 e 8 (pensionista, empregados domésticos)
 
 # Mudar quando o cálculo mudar, para invalidar o cache.
-VERSAO_CALCULO = "3"
+VERSAO_CALCULO = "4"
 _INPUT = re.compile(r"@0*(\d+)\s+(\w+)\s+\$?\s*(\d+)\.")
 
 
@@ -127,6 +135,10 @@ class RendaAno:
     gini_individual_sis: dict[str, float]
     # Taxa de analfabetismo das pessoas de 15 anos ou mais (%), com CV.
     analfabetismo: dict[str, Estimativa]
+    # % dos domicílios com banheiro ligados à rede coletora (direto ou por fossa), com CV.
+    esgoto: dict[str, Estimativa]
+    # Domicílios (mil) ligados à rede e com banheiro, só para conferir com a SIDRA 1956.
+    esgoto_contagens: dict[str, dict[str, float]]
 
 
 def ler_layout(texto_input: str) -> dict[str, tuple[int, int]]:
@@ -268,6 +280,29 @@ def calcular_analfabetismo(dom: pl.DataFrame, pes: pl.DataFrame) -> dict[str, Es
     return _estimar(pessoas, "analfabeta", "peso", plano.select("V4617", "upa").unique())
 
 
+def calcular_esgoto(dom: pl.DataFrame) -> tuple[dict[str, Estimativa], dict[str, dict[str, float]]]:
+    """(% ligados à rede entre os com banheiro, contagens em mil para conferência): geo → valor."""
+    num = pl.col
+    domicilios = dom.with_columns(
+        num("V0102").str.slice(0, 2).alias("uf"),
+        num("V4611").cast(pl.Float64, strict=False).alias("peso"),
+        num("V0217").is_in(ESCOADOURO_REDE).cast(pl.Float64).mul(100).alias("rede"),
+        pl.concat_str(num("V4617"), num("V4618"), separator="-").alias("upa"),
+    ).filter((num("V0201") == PARTICULAR_PERMANENTE) & (num("V0217") != ""))
+    upas = dom.select(
+        "V4617", pl.concat_str(num("V4617"), num("V4618"), separator="-").alias("upa")
+    ).unique()
+    contagens = {
+        geo: {
+            "rede": float((d["peso"] * d["rede"]).sum() / 100 / 1000),
+            "tinham": float(d["peso"].sum() / 1000),
+        }
+        for geo in [BR, *sorted(CODIGOS_UF)]
+        for d in [domicilios if geo == BR else domicilios.filter(num("uf") == geo)]
+    }
+    return _estimar(domicilios, "rede", "peso", upas), contagens
+
+
 def _por_geo(casos: pl.DataFrame, f: Callable[[pl.DataFrame], float]) -> dict[str, float]:
     return {
         geo: float(f(casos if geo == BR else casos.filter(pl.col("uf") == geo)))
@@ -358,8 +393,11 @@ def renda_ano(ano: int) -> RendaAno:
     dom, pes = ler_ano(ano)
     por_pessoa, sis = calcular(dom, pes)
     gini, gini_sis = calcular_gini(dom, pes)
+    esgoto, esgoto_contagens = calcular_esgoto(dom)
     resultado = RendaAno(
         analfabetismo=calcular_analfabetismo(dom, pes),
+        esgoto=esgoto,
+        esgoto_contagens=esgoto_contagens,
         ano=ano,
         por_pessoa=por_pessoa,
         por_domicilio_sis=sis,
@@ -379,4 +417,6 @@ def _de_json(d: dict) -> RendaAno:
         gini=d["gini"],
         gini_individual_sis=d["gini_individual_sis"],
         analfabetismo={g: Estimativa(**e) for g, e in d["analfabetismo"].items()},
+        esgoto={g: Estimativa(**e) for g, e in d["esgoto"].items()},
+        esgoto_contagens=d["esgoto_contagens"],
     )

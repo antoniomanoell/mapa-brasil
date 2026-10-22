@@ -2,16 +2,18 @@
 
 "Adequado" = rede geral ou pluvial, ou fossa (séptica) ligada à rede. Denominador do IBGE:
 domicílios com banheiro, sanitário ou buraco para dejeções. Três segmentos, nunca emendados:
-PNAD anual 2001–2015 (SIDRA 1956), PNAD Contínua 2016–2018 (SIDRA 6735) e 2019+ (SIDRA 7192),
+PNAD anual 2001–2015 (microdados), PNAD Contínua 2016–2018 (SIDRA 6735) e 2019+ (SIDRA 7192),
 porque o IBGE mudou as categorias em 2019.
 """
 
 from datetime import date
 
 from ..escala import escala_quantil
+from ..raw_manual import carregar_manifest
 from ..schema import Flag, Indicador, Ponto, Quebra, Segmento, Subindicador
+from ..sources import ibge_pnad_microdados as pnad
 from ..sources import ibge_sidra
-from ..validate import LIMIAR_CV_PADRAO, Regras, ultimo_ano_transcorrido
+from ..validate import LIMIAR_CV_PADRAO, Auxiliares, Regras, ultimo_ano_transcorrido
 from .renda_pc import FIM_COBERTURA_URBANA, UFS_COBERTURA_URBANA
 
 CASAS = 1
@@ -26,11 +28,9 @@ PNADC_2019 = (
 )
 PNADC_2019_ADEQUADO = ["47930", "47931"]
 
-# PNAD: domicílios particulares permanentes (var. 96), renda e situação Total.
-PNAD_TABELA = 1956
-PNAD_VAR = 96
-PNAD_TINHAM = "99662"  # tinham banheiro ou sanitário
-PNAD_ADEQUADO = ["99663", "9490"]  # rede coletora; fossa séptica ligada à rede coletora
+# Conferência do segmento PNAD: domicílios (mil) ligados à rede, contra a SIDRA 1956 (2009+), que
+# publica "rede coletora" e "fossa séptica ligada à rede coletora" em milhares.
+AUX_SIDRA = "sidra1956_rede_mil"
 
 NOTA_DENOMINADOR = (
     "Percentual sobre os domicílios que têm banheiro, sanitário ou buraco para dejeções, como o "
@@ -45,6 +45,9 @@ class Esgoto:
         limiar_variacao=0.2,
         metodologias={"pnad": (2001, 2015), "pnadc2016": (2016, 2018), "pnadc2019": (2019, None)},
     )
+
+    def __init__(self) -> None:
+        self.auxiliares: Auxiliares = {}
 
     def construir(self, versao_pipeline: str, hoje: date) -> Indicador:
         segmentos = [
@@ -145,43 +148,40 @@ class Esgoto:
         )
 
     def _segmento_pnad(self) -> Segmento:
-        inicio, fim = ibge_sidra.periodo(PNAD_TABELA)
-        classes = f"12058[0]|1[0]|7173[{PNAD_TINHAM},{','.join(PNAD_ADEQUADO)}]"
-        dados, obtido_em = ibge_sidra.consultar_categorias(
-            PNAD_TABELA, [PNAD_VAR], (inicio, fim), classes
-        )
-        por_cat = {cats[-1]: por_geo for cats, por_geo in dados[PNAD_VAR].items()}
-        tinham = por_cat[PNAD_TINHAM]
-        anos = sorted({a for serie in tinham.values() for a, v in serie.items() if v})
+        anos = pnad.ANOS
         valores: dict[str, dict[str, Ponto]] = {}
-        for geo in sorted(tinham):
-            for ano in anos:
-                adequados = sum(por_cat[c][geo].get(ano) or 0.0 for c in PNAD_ADEQUADO)
-                flags = []
+        for ano in anos:
+            resultado = pnad.renda_ano(ano)
+            for geo, est in resultado.esgoto.items():
+                cv = round(est.cv, 1) if est.cv is not None else None
+                flags = [Flag.BAIXA_PRECISAO] if cv is not None and cv > LIMIAR_CV_PADRAO else []
                 if geo in UFS_COBERTURA_URBANA and ano <= FIM_COBERTURA_URBANA:
                     flags.append(Flag.COBERTURA_URBANA)
                 valores.setdefault(geo, {})[str(ano)] = Ponto(
-                    v=round(adequados / tinham[geo][ano] * 100, 2),  # type: ignore[operator]
-                    flags=flags,
+                    v=round(est.media, 2), cv=cv, flags=flags
                 )
+            for geo, c in resultado.esgoto_contagens.items():
+                self.auxiliares[(AUX_SIDRA, "principal", "pnad", geo, ano)] = round(c["rede"], 2)
+        manifest = carregar_manifest()
+        baixado_em = max(manifest[a].baixado_em for ano in anos for a in pnad.ARQUIVOS[ano] if a)
         return Segmento(
             id="pnad",
             subindicador="principal",
             rotulo=f"PNAD ({anos[0]}–{anos[-1]})",
-            fonte="IBGE – PNAD anual",
-            fonte_url=ibge_sidra.url_tabela(PNAD_TABELA),
+            fonte="IBGE – PNAD anual, microdados (cálculo do projeto)",
+            fonte_url=pnad.URL_MICRODADOS,
             tabela=(
-                f"SIDRA {PNAD_TABELA}, variável {PNAD_VAR} (domicílios particulares permanentes): "
-                "(rede coletora + fossa séptica ligada à rede coletora) ÷ tinham banheiro ou "
-                "sanitário"
+                "Microdados da PNAD (V0217, domicílios particulares permanentes, peso V4611): "
+                "(rede coletora + fossa séptica ligada à rede) ÷ domicílios com banheiro ou "
+                "sanitário; 2001–2012 com os pesos reponderados pela Projeção da População de 2013."
             ),
-            extraido_em=obtido_em,
+            extraido_em=baixado_em,
             notas=(
-                "Percentual calculado pelo projeto a partir das contagens publicadas pelo IBGE "
-                "(mil domicílios). Sem dados em 2010: ano de Censo, a PNAD não foi a campo. "
+                "Calculado pelo projeto a partir dos microdados da PNAD, com a mesma definição em "
+                "todos os anos (a tabela SIDRA 1956 só separa a fossa ligada à rede a partir de "
+                "2009). Sem dados em 2010: ano de Censo, a PNAD não foi a campo. "
                 f"Até {FIM_COBERTURA_URBANA} a PNAD não cobria a área rural de RO, AC, AM, RR, PA "
-                f"e AP (marcados como cobertura apenas urbana). {NOTA_DENOMINADOR} Não há CV "
-                "publicado para este segmento."
+                f"e AP (marcados como cobertura apenas urbana). {NOTA_DENOMINADOR}"
             ),
             anos=anos,
             valores=valores,

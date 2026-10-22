@@ -161,8 +161,14 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
 - PNADC 2019+: SIDRA **7192**, var. 9988 (%), situação Total, categorias 47930 + 47931.
 - PNADC 2016–2018: SIDRA **6735**, var. 9988/9989, categoria 46290 (rede geral, pluvial ou fossa
   ligada à rede). Categorias diferentes das de 2019+, por isso outro segmento.
-- PNAD 2001–2015: SIDRA **1956**, var. 96 (domicílios particulares permanentes, mil), categorias
-  99663 (rede coletora) + 9490 (fossa séptica ligada à rede coletora) ÷ 99662 (tinham banheiro).
+- PNAD 2001–2015: **microdados** (mesmo módulo da `renda_pc`): domicílios particulares permanentes
+  (V0201 = 1) com banheiro (V0217 preenchido), peso V4611; adequado = V0217 1 (rede coletora) ou 2
+  (fossa séptica ligada à rede), em todos os anos. Conferido em 2026-10-22 com a SIDRA **1956**
+  (var. 96, mil domicílios, 99663 + 9490 e 99662), 2009–2015, Brasil e UFs: as 168 células batem
+  dentro do arredondamento (rede: até 0,98 mil; com banheiro: até 0,49 mil).
+- **Não usar a SIDRA 1956 para 2001–2008:** nesses anos a tabela só publica "fossa séptica" (99664),
+  sem separar a ligada à rede (9490 e 9491 vêm como "..."). Somar só a rede coletora subestima o
+  indicador (RS 2008: 16% contra 54%) e cria um salto falso em 2009.
 - O denominador do IBGE são os domicílios com banheiro, sanitário ou buraco para dejeções.
 
 ## `pobreza` e `extrema_pobreza`

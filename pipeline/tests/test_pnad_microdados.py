@@ -134,3 +134,39 @@ def test_analfabetismo_15_ou_mais_entre_quem_respondeu():
     taxa = pnad.calcular_analfabetismo(dom, pl.DataFrame(linhas))
     assert taxa["28"].media == pytest.approx(100 / 3)
     assert taxa[BR].media == pytest.approx(100 / 3)
+
+
+def test_esgoto_rede_ou_fossa_ligada_entre_os_com_banheiro():
+    dom, _ = _dados()
+    # Por UF, os três domicílios de _dados() recebem: rede (1), fossa ligada (2) e fossa não
+    # ligada (3). Mais um sem banheiro (fora do denominador) e um coletivo (fora do universo).
+    escoadouro = ["1", "2", "3"] * len(CODIGOS_UF)
+    dom = dom.with_columns(pl.Series("V0217", escoadouro))
+    extra = pl.DataFrame(
+        [
+            {
+                "V0102": "35990001",
+                "V0103": "001",
+                "V0201": "1",
+                "V4611": "100",
+                "V4614": "0",
+                "V4617": "3501",
+                "V4618": "0",
+                "V0217": "",
+            },
+            {
+                "V0102": "35990002",
+                "V0103": "001",
+                "V0201": "5",
+                "V4611": "100",
+                "V4614": "0",
+                "V4617": "3501",
+                "V4618": "1",
+                "V0217": "1",
+            },
+        ]
+    )
+    taxa, contagens = pnad.calcular_esgoto(pl.concat([dom, extra]))
+    assert taxa["35"].media == pytest.approx(200 / 3)
+    assert taxa[BR].media == pytest.approx(200 / 3)
+    assert contagens["35"] == {"rede": pytest.approx(0.2), "tinham": pytest.approx(0.3)}

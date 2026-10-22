@@ -10,7 +10,7 @@ Quanto maior, mais domicílios ligados à rede. Domicílios com fossa séptica *
 
 IBGE:
 
-- **2001 a 2015:** PNAD anual (tabela 1956 do SIDRA, contagens de domicílios).
+- **2001 a 2015:** PNAD anual. O projeto calcula o percentual a partir dos microdados da pesquisa, com a mesma definição em todos os anos; de 2009 a 2015, o cálculo reproduz as contagens publicadas pelo IBGE (tabela 1956 do SIDRA).
 - **2016 a 2018:** PNAD Contínua (tabela 6735).
 - **De 2019 em diante:** PNAD Contínua (tabela 7192).
 
@@ -22,4 +22,5 @@ São três séries, **não emendadas**: a PNAD virou PNAD Contínua em 2016, e e
 
 - O percentual é calculado sobre os domicílios que têm banheiro, sanitário ou buraco para dejeções, como o IBGE publica; domicílios sem nenhum deles ficam fora da conta.
 - Estar ligado à rede não garante que o esgoto seja tratado.
+- Em estados pequenos a margem de erro é maior. Valores com margem de erro alta aparecem com aviso de "baixa precisão" no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).
 - Até 2003 a PNAD não cobria a área rural de seis estados do Norte: Rondônia, Acre, Amazonas, Roraima, Pará e Amapá. Nesses estados, esses anos aparecem com aviso no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).

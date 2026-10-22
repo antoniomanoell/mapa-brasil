@@ -102,7 +102,7 @@ mantenedor. Ao refazer o build com dados novos, revisar só os alertas que não 
   3,5) e no ensino médio de 2017 em diante.
 - **Conclusão:** nenhum indício de erro.
 
-## `analfabetismo` — 32 alertas (REPORT de 2026-10-22, depois do recálculo; limite 20%) — aguardando aprovação
+## `analfabetismo` — 32 alertas (REPORT de 2026-10-22, depois do recálculo; limite 20%) — aprovado pelo mantenedor em 2026-10-22
 
 - **Erro encontrado e corrigido:** no REPORT anterior (36 alertas), o DF de 2009 aparecia com 1,45%
   (entre 3,93% e 3,24%) por causa de contagens incompletas na SIDRA 271. O segmento PNAD passou a ser
@@ -116,4 +116,52 @@ mantenedor. Ao refazer o build com dados novos, revisar só os alertas que não 
 - **PNAD, 2014→2015 (RS, GO) e DF 2002→2003:** taxas baixas, em que poucos décimos passam de 20%.
 - **PNAD Contínua (SC 2024→2025: 1,9 → 1,5; DF 2017→2018: 2,3 → 2,9):** taxas publicadas na SIDRA
   7113, sobre bases muito baixas.
+- **Conclusão:** com a correção, nenhum indício de erro.
+
+## `esperanca_vida` — 36 alertas (REPORT de 2026-10-22, limite 3%) — aprovado pelo mantenedor em 2026-10-22
+
+- **Todos em 2019→2022:** queda em 2020 e 2021 e volta em 2022, em quase todos os estados e no Brasil
+  (72,78 anos em 2021 e 75,45 em 2022). É o efeito das mortes da covid-19 que o IBGE aponta na
+  divulgação das Tábuas. Valores relidos da planilha das Projeções (Revisão 2024, tab4) com um script
+  independente em 2026-10-22 (ex.: AC 2021 → 2022: 71,23 → 75,20).
+- **Conclusão:** nenhum indício de erro.
+
+## `mort_infantil` — 83 alertas (REPORT de 2026-10-22, limite 15%) — aprovado pelo mantenedor em 2026-10-22
+
+- **Estimativa do IBGE (48 alertas):** valores relidos da planilha das Projeções (Revisão 2024, tab4)
+  com um script independente (ex.: RR 2017 → 2018 → 2019: 17,13 → 22,40 → 17,80; AC 2020 → 2021:
+  14,89 → 19,44; DF 2018 → 2019 → 2020: 10,43 → 8,21 → 10,09). Iguais. São estados com poucos
+  nascimentos (RR, AC, AP, DF) e a queda forte de 2000 a 2010 no Nordeste.
+- **Taxa direta do DATASUS (35 alertas, linha de referência):** óbitos de menores de 1 ano ÷
+  nascidos vivos, com contagens pequenas nos mesmos estados (RR tem 11 alertas). As contagens vêm do
+  mesmo leitor do TabNet usado em homicídios, que reproduz exatamente as contagens do Atlas da
+  Violência. Quando a estimativa do IBGE e a taxa direta sobem juntas (RR 2022 → 2023), a variação
+  aparece nas duas fontes.
+- **Conclusão:** nenhum indício de erro.
+
+## `homicidios` — 15 alertas (REPORT de 2026-10-22, limite 35%) — aprovado pelo mantenedor em 2026-10-22
+
+- **Conferência:** as contagens batem exatamente com o Atlas da Violência 2026 (seis referências,
+  incluindo RR 2018 e AP 2023, dois dos estados com alertas).
+- **Padrões:** estados de população pequena (AC, RR, AP: poucas dezenas de homicídios a mais mudam
+  muito a taxa) e ondas de alta e queda em poucos anos em AC (2016–2017), RR (2012–2013 e 2018–2019),
+  CE (2012 e 2017–2020), RJ (2019–2020) e AM (2021), todas também nas contagens do SIM; e MA
+  2000→2001, sobre uma taxa baixa (5,96 → 9,41).
+- **Conclusão:** nenhum indício de erro.
+
+## `esgoto` — 94 alertas (depois do recálculo; limite 20%) — aguardando aprovação
+
+- **Erro encontrado e corrigido:** no REPORT anterior (125 alertas), a série da PNAD somava só a rede
+  coletora de 2001 a 2008 e a rede mais a fossa séptica ligada a partir de 2009, porque a SIDRA 1956
+  só separa a fossa ligada desde 2009. Isso subestimava 2001–2008 e criava um salto falso em 2009 (RS:
+  16% → 55%; SC: 28% → 57%). O segmento passou a ser calculado dos microdados com a mesma definição em
+  todos os anos (DECISIONS.md, 2026-10-22); as 168 contagens de 2009–2015 batem com a SIDRA 1956. Agora
+  o Brasil vai de 59,2% (2001) a 66,6% (2015) sem saltos, e o RS fica entre 54% e 59% de 2006 a 2009.
+- **PNAD (85 alertas):** quase todos em estados de amostra pequena e com proporções baixas (RO, AC,
+  AM, RR, AP, TO, PI, AL, MS, MT), muitos com CV acima de 15% e, portanto, com aviso de baixa
+  precisão (107 valores do segmento têm o aviso). Destaques, todos presentes também nas contagens do
+  IBGE: AM 2006→2007 (6,4% → 32,5%: a rede coletora passa de 30 mil para 185 mil domicílios na própria
+  SIDRA 1956) e as altas de 2009→2011 (intervalo de dois anos) em PB, PE, AL, MA e MS.
+- **PNAD Contínua (9 alertas):** RR, PA, AP e PI em 2017→2018 (6735) e RO, AP e PI em 2022–2025
+  (7192), valores publicados pelo IBGE; estados pequenos ou com proporções baixas.
 - **Conclusão:** com a correção, nenhum indício de erro.

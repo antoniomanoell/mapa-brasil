@@ -85,6 +85,12 @@ referencias:
   - {indicador: esgoto, subindicador: principal, segmento: pnadc2019, geo: "35", ano: 2024, valor: 94.1, tolerancia: 0.05, url: "https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/15ec1d59965a24b0bb2817eaf9b6f490.pdf"}
   - {indicador: esgoto, subindicador: principal, segmento: pnadc2019, geo: "22", ano: 2024, valor: 13.5, tolerancia: 0.05, url: "https://agenciadenoticias.ibge.gov.br/media/com_mediaibge/arquivos/15ec1d59965a24b0bb2817eaf9b6f490.pdf"}
 
+  # --- esgoto, segmento PNAD (microdados): domicílios (mil) com rede coletora + fossa séptica ligada à rede,
+  #     SIDRA 1956 (soma de duas categorias publicadas em milhares, por isso tolerância de 1 mil) ---
+  - {indicador: esgoto, subindicador: principal, segmento: pnad, geo: BR, ano: 2015, valor: 44455, medida: auxiliar, auxiliar: sidra1956_rede_mil, tolerancia: 1, url: "https://sidra.ibge.gov.br/tabela/1956"}
+  - {indicador: esgoto, subindicador: principal, segmento: pnad, geo: "43", ano: 2009, valor: 1984, medida: auxiliar, auxiliar: sidra1956_rede_mil, tolerancia: 1, url: "https://sidra.ibge.gov.br/tabela/1956"}
+  - {indicador: esgoto, subindicador: principal, segmento: pnad, geo: "16", ano: 2014, valor: 24, medida: auxiliar, auxiliar: sidra1956_rede_mil, tolerancia: 1, url: "https://sidra.ibge.gov.br/tabela/1956"}
+
   # --- pobreza e extrema_pobreza: IBGE, SIS 2025 (notícia 45344; apresentação, p. 43, Tabela 6) ---
   - {indicador: pobreza, subindicador: principal, segmento: sis_pnadc, geo: BR, ano: 2024, valor: 23.1, tolerancia: 0.05, url: "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45344-8-6-milhoes-de-pessoas-sairam-da-pobreza-entre-2023-e-2024"}
   - {indicador: pobreza, subindicador: principal, segmento: sis_pnadc, geo: BR, ano: 2023, valor: 27.3, tolerancia: 0.05, url: "https://agenciadenoticias.ibge.gov.br/agencia-noticias/2012-agencia-de-noticias/noticias/45344-8-6-milhoes-de-pessoas-sairam-da-pobreza-entre-2023-e-2024"}
