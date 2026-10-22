@@ -146,3 +146,13 @@ Formato de cada entrada:
   (Piauí 2025: 4,9 nas duas). Decidido pelo mantenedor.
 - **Fonte:** https://download.inep.gov.br/ideb/resultados/divulgacao_regioes_ufs_ideb_2025.zip;
   https://download.inep.gov.br/ideb/resultados/divulgacao_brasil_ideb_2025.zip
+
+## 2026-10-22 — Desempenho do mapa no celular aceito para o MVP
+- **Decisão:** manter o MapLibre (seção 5.1) e aceitar, no MVP, o desempenho medido na página do mapa:
+  Lighthouse celular 63–64 em desempenho e 100 em acessibilidade (meta da seção 9.5: ≥ 90). As
+  páginas de texto atingem 96 / 100.
+- **Motivo:** o que falta é o bloqueio da thread principal na inicialização do MapLibre (≈ 1,5 s no
+  celular simulado; ≈ 0,5 s sem simulação de CPU, com WebGL por software). Chegar a 90 exigiria trocar
+  o mapa (ex.: SVG no nível de UF), revendo a escolha feita pensando na fase municipal. O deslocamento
+  de layout já foi zerado (CLS 0). Decidido pelo mantenedor.
+- **Revisitar:** com medições em aparelhos reais após o deploy, ou antes da fase municipal.
