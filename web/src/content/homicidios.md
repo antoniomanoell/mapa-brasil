@@ -1,10 +1,8 @@
-<!-- REVISAR -->
-
 ## O que mede
 
 Quantas pessoas morreram por homicídio para cada 100 mil habitantes, contando os moradores de cada estado (onde a vítima morava, não onde morreu).
 
-Homicídio, aqui, segue a definição do Atlas da Violência (Ipea e Fórum Brasileiro de Segurança Pública): óbitos por agressão e por intervenção legal, segundo a causa registrada na declaração de óbito.
+Homicídio, aqui, segue a definição do Atlas da Violência (Ipea e Fórum Brasileiro de Segurança Pública): óbitos por agressão e por intervenção legal (mortes causadas por agentes do Estado, como policiais em serviço), segundo a causa registrada na declaração de óbito.
 
 ## Como ler
 
@@ -12,7 +10,7 @@ Quanto menor, melhor. Taxas permitem comparar estados de tamanhos diferentes. Em
 
 ## De onde vem
 
-Ministério da Saúde, Sistema de Informações sobre Mortalidade (SIM), consultado no DATASUS. Só entram os anos já consolidados (sem dados preliminares). A população é a das Projeções do IBGE, a mesma de todo o site.
+Ministério da Saúde, Sistema de Informações sobre Mortalidade (SIM), consultado no DATASUS: causas CID-10 X85–Y09 (agressões) e Y35–Y36 (intervenções legais e operações de guerra). Só entram os anos já consolidados (sem dados preliminares). A população é a das Projeções do IBGE, a mesma de todo o site.
 
 ## Mudanças de metodologia
 
