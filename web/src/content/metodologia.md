@@ -10,7 +10,7 @@ A ordem de preferência é:
 
 1. tabela publicada pelo próprio órgão produtor;
 2. série oficial redistribuída por outro órgão público, só quando é idêntica à do produtor;
-3. cálculo a partir dos microdados, só quando não existe tabela publicada. Nesse caso o cálculo é conferido contra números que o órgão publicou. Hoje isso acontece só na renda per capita e no Gini de 2001 a 2015, calculados com os microdados da PNAD anual.
+3. cálculo a partir dos microdados, só quando não existe tabela publicada. Nesse caso o cálculo é conferido contra números que o órgão publicou. Hoje isso acontece só na renda per capita, no Gini e no analfabetismo de 2001 a 2015, calculados com os microdados da PNAD anual.
 
 ## Como os números são conferidos
 
@@ -55,7 +55,7 @@ Por isso, essas duas taxas podem diferir um pouco das divulgadas por outras font
 
 Indicadores que vêm de pesquisas por amostra (PNAD e PNAD Contínua) têm margem de erro. Quando a margem de erro é grande (coeficiente de variação acima de 15%), o valor aparece com aviso de "baixa precisão" no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado). Isso acontece sobretudo em estados pequenos e em indicadores de proporções baixas, como a extrema pobreza.
 
-Nem toda fonte publica a margem de erro. Quando não publica (por exemplo, nas séries da PNAD anual de analfabetismo, esgoto e Gini, e no IDHM), o site não tem como marcar valores imprecisos; neles, diferenças pequenas entre estados devem ser lidas com cautela.
+Nem toda fonte publica a margem de erro. Quando não publica (por exemplo, nas séries da PNAD anual de esgoto e Gini, e no IDHM), o site não tem como marcar valores imprecisos; neles, diferenças pequenas entre estados devem ser lidas com cautela.
 
 ## Cores do mapa
 

@@ -1,4 +1,4 @@
-"""IBGE — microdados da PNAD anual 2001–2015 (FTP): renda domiciliar per capita e seu Gini.
+"""IBGE — microdados da PNAD anual 2001–2015 (FTP): renda per capita, Gini e analfabetismo.
 
 O SIDRA não publica a renda domiciliar per capita média por UF para a PNAD anual (ver FONTES.md),
 então ela é calculada dos microdados (PROJECT.md, 6.1, regra 3). Conceito (DECISIONS.md):
@@ -18,6 +18,11 @@ linearização de Taylor com os estratos (V4617) e as UPAs (V4618) do plano amos
 O Gini (segmento PNAD de `gini`) usa a mesma renda per capita por pessoa. Para conferência, calcula
 também o Gini da SIS 2016 (Tabela 6.3): rendimento mensal de todas as fontes (V4720) das pessoas de
 15 anos ou mais com rendimento, ponderado por V4729.
+
+A taxa de analfabetismo (segmento PNAD de `analfabetismo`) é a proporção, ponderada por V4729, das
+pessoas de 15 anos ou mais (V8005) que não sabem ler e escrever (V0601 = 3) entre as que responderam
+(V0601 = 1 ou 3), com todos os moradores, como na SIS 2016 (Tabela 4.15). O SIDRA só publica as
+contagens por UF em milhares (tabela 271), arredondadas e com 2009 do DF incompleto (DECISIONS.md).
 
 As posições das variáveis mudam a cada ano; são lidas do input SAS que o IBGE publica junto.
 """
@@ -84,6 +89,7 @@ VARIAVEIS = {
         "V0401": ["V0401"],
         "V4729": ["V4729"],
         "V8005": ["V8005"],
+        "V0601": ["V0601"],
     },
 }
 # Opcionais: rendimento per capita pronto (a partir de 2004), usado para conferir o cálculo, e
@@ -92,10 +98,12 @@ VERIFICACAO = {"DOM": {"V4621": ["V4621"]}, "PES": {"V4720": ["V4720"]}}
 
 SEM_DECLARACAO = 999_999_999_999
 ESPECIE_PARTICULAR = ("1", "3")  # particular permanente e particular improvisado
+NAO_SABE_LER = "3"
+LEITURA_RESPONDIDA = ("1", "3")  # V0601: 1 = sabe ler e escrever, 3 = não sabe
 CONDICAO_MORADOR = ("1", "2", "3", "4", "5")  # exclui 6, 7 e 8 (pensionista, empregados domésticos)
 
 # Mudar quando o cálculo mudar, para invalidar o cache.
-VERSAO_CALCULO = "2"
+VERSAO_CALCULO = "3"
 _INPUT = re.compile(r"@0*(\d+)\s+(\w+)\s+\$?\s*(\d+)\.")
 
 
@@ -117,6 +125,8 @@ class RendaAno:
     gini: dict[str, float]
     # Conceito da SIS 2016, Tabela 6.3 (só conferência): vazio se o ano não tem V4720.
     gini_individual_sis: dict[str, float]
+    # Taxa de analfabetismo das pessoas de 15 anos ou mais (%), com CV.
+    analfabetismo: dict[str, Estimativa]
 
 
 def ler_layout(texto_input: str) -> dict[str, tuple[int, int]]:
@@ -236,6 +246,28 @@ def calcular_gini(dom: pl.DataFrame, pes: pl.DataFrame) -> tuple[dict, dict]:
     return gini, sis
 
 
+def calcular_analfabetismo(dom: pl.DataFrame, pes: pl.DataFrame) -> dict[str, Estimativa]:
+    """Taxa de analfabetismo (%) das pessoas de 15 anos ou mais: geo → Estimativa."""
+    num = pl.col
+    plano = dom.select(
+        "V0102",
+        "V0103",
+        "V4617",
+        pl.concat_str(num("V4617"), num("V4618"), separator="-").alias("upa"),
+    )
+    pessoas = (
+        pes.with_columns(
+            num("V0102").str.slice(0, 2).alias("uf"),
+            num("V4729").cast(pl.Float64, strict=False).alias("peso"),
+            num("V8005").cast(pl.Int64, strict=False).alias("idade"),
+            (num("V0601") == NAO_SABE_LER).cast(pl.Float64).mul(100).alias("analfabeta"),
+        )
+        .filter((num("idade") >= 15) & num("V0601").is_in(LEITURA_RESPONDIDA))
+        .join(plano, on=["V0102", "V0103"])
+    )
+    return _estimar(pessoas, "analfabeta", "peso", plano.select("V4617", "upa").unique())
+
+
 def _por_geo(casos: pl.DataFrame, f: Callable[[pl.DataFrame], float]) -> dict[str, float]:
     return {
         geo: float(f(casos if geo == BR else casos.filter(pl.col("uf") == geo)))
@@ -327,6 +359,7 @@ def renda_ano(ano: int) -> RendaAno:
     por_pessoa, sis = calcular(dom, pes)
     gini, gini_sis = calcular_gini(dom, pes)
     resultado = RendaAno(
+        analfabetismo=calcular_analfabetismo(dom, pes),
         ano=ano,
         por_pessoa=por_pessoa,
         por_domicilio_sis=sis,
@@ -345,4 +378,5 @@ def _de_json(d: dict) -> RendaAno:
         por_domicilio_sis={g: Estimativa(**e) for g, e in d["por_domicilio_sis"].items()},
         gini=d["gini"],
         gini_individual_sis=d["gini_individual_sis"],
+        analfabetismo={g: Estimativa(**e) for g, e in d["analfabetismo"].items()},
     )

@@ -137,14 +137,21 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
   pessoa. O SIDRA não publica esse Gini por UF para a PNAD antiga; a SIS 2016 só publica o Gini do
   rendimento individual (Tabela 6.3, pessoas de 15+ com rendimento, V4720), que o mesmo código
   reproduz exatamente em 2015 (BR 0,491; SP 0,460; SC 0,419; PB 0,510; AL 0,438; RO 0,452; RJ 0,503).
+  Conferido em 2026-10-22 em todos os anos da tabela (2004–2015, Brasil e UFs): 307 de 308 células
+  iguais e uma com diferença de 0,001 (SP 2005).
 
 ## `analfabetismo`
 
 - PNADC: SIDRA **7113** (var. 10267 taxa, 10268 CV), sexo Total (6794), "15 anos ou mais" (2795),
   2016–2025. Brasil 2024 = 5,3%; 2025 = 4,9% (notícias IBGE 43699 e 47221).
-- PNAD 2001–2015: SIDRA **271** (pessoas de 5+ por alfabetização e grupo de idade). Taxa = não
-  alfabetizadas ÷ (alfabetizadas + não) nos grupos 15–19, 20–24, 25–29, 30–39, 40–49, 50–59 e 60+
-  (idade ignorada fora). Brasil 2015 = 7,95%, contra 8,0% na SIS 2016, Tabela 4.15.
+- PNAD 2001–2015: **microdados** (mesmo módulo da `renda_pc`): pessoas de 15+ (V8005) com V0601 = 3
+  ÷ pessoas de 15+ com V0601 = 1 ou 3, peso V4729, CV por linearização. Conferido em 2026-10-22 com a
+  SIS 2016, **Tabela 4.15** (`4_educacao_xls.zip`, 2004–2015, só Brasil e regiões): as 11 taxas do
+  Brasil e as 55 das regiões batem depois de arredondar a uma casa; os CVs do Brasil também (2015:
+  1,2 contra 1,1).
+- **Não usar a SIDRA 271** (pessoas por alfabetização e grupo de idade): publica contagens em
+  milhares, o que desloca a taxa de UFs pequenas em até ~0,4 ponto, e o DF de 2009 está incompleto
+  (345 mil pessoas de 15+ contra 1,96 milhão nos microdados), o que dava 1,45% em vez de 3,45%.
 
 ## `esgoto`
 

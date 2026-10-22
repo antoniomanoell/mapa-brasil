@@ -10,7 +10,7 @@ Quanto menor, melhor. Grande parte das pessoas analfabetas tem 60 anos ou mais, 
 
 IBGE:
 
-- **2001 a 2015:** PNAD anual. O projeto calcula a taxa a partir das contagens publicadas pelo IBGE (tabela 271 do SIDRA).
+- **2001 a 2015:** PNAD anual. O projeto calcula a taxa a partir dos microdados da pesquisa; o mesmo cálculo reproduz as taxas do Brasil e das regiões publicadas pelo IBGE (Síntese de Indicadores Sociais 2016).
 - **De 2016 em diante:** PNAD Contínua, taxa publicada pelo IBGE (tabela 7113 do SIDRA).
 
 ## Mudanças de metodologia
@@ -20,5 +20,6 @@ As duas pesquisas são diferentes e as séries **não são emendadas** (quebra e
 ## Limitações
 
 - É uma informação declarada, não um teste de leitura.
+- Em estados pequenos a margem de erro é maior. Valores com margem de erro alta aparecem com aviso de "baixa precisão" no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).
 - Não mede o analfabetismo funcional (quem lê, mas com dificuldade de entender).
 - Até 2003 a PNAD não cobria a área rural de seis estados do Norte: Rondônia, Acre, Amazonas, Roraima, Pará e Amapá. Nesses estados, esses anos aparecem com aviso no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).

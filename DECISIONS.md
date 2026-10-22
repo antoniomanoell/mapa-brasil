@@ -164,3 +164,17 @@ Formato de cada entrada:
   indica Workers com arquivos estáticos como sucessor do Pages; os recursos novos saem lá. Para um
   site estático o resultado é o mesmo: grátis, CDN, `_headers` de cache, prévia por branch e Web
   Analytics sem cookies. O site continua portável (só a pasta `web/dist`). Decidido pelo mantenedor.
+
+## 2026-10-22 — analfabetismo: segmento PNAD calculado dos microdados, não da SIDRA 271
+- **Decisão:** a taxa de 2001–2015 passa a ser calculada dos microdados da PNAD (pessoas de 15 anos ou
+  mais que não sabem ler e escrever, V0601 = 3, entre as que responderam; peso V4729), com CV por
+  linearização e aviso de baixa precisão acima de 15%. Antes vinha das contagens da tabela SIDRA 271.
+- **Motivo:** a revisão dos alertas achou o DF de 2009 em 1,45% (3,93% em 2008; 3,24% em 2011). Na
+  SIDRA 271 o DF de 2009 soma só 345 mil pessoas de 15+; nos microdados, 1,96 milhão, e a taxa é
+  3,45%. A tabela também publica contagens em milhares, o que desloca a taxa de UFs pequenas (AP
+  2008: 4,30% contra 4,67%). Os microdados são a mesma base já usada e validada na renda e no Gini.
+  Decidido pelo mantenedor (opção A).
+- **Conferência:** SIS 2016, Tabela 4.15 (Brasil e regiões, 2004–2015): 66 de 66 taxas iguais depois
+  de arredondar. Quatro delas (Brasil 2004, 2009, 2011, 2015) estão em `referencias.yaml`.
+- **Fonte:** https://ftp.ibge.gov.br/Trabalho_e_Rendimento/Pesquisa_Nacional_por_Amostra_de_Domicilios_anual/microdados/;
+  https://ftp.ibge.gov.br/Indicadores_Sociais/Sintese_de_Indicadores_Sociais/Sintese_de_Indicadores_Sociais_2016/xls/4_educacao_xls.zip

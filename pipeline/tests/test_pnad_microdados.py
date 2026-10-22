@@ -119,3 +119,18 @@ def test_gini_ponderado():
     assert g(pl.Series([1.0, 3.0]), pl.Series([2.0, 1.0])) == pytest.approx(
         g(pl.Series([1.0, 1.0, 3.0]), pl.Series([1.0, 1.0, 1.0]))
     )
+
+
+def test_analfabetismo_15_ou_mais_entre_quem_respondeu():
+    dom, _ = _dados()
+    # Em cada UF: duas pessoas de 15+ que sabem ler, uma que não sabe, uma criança que não sabe
+    # (fora da idade) e uma sem resposta (fora do universo). Peso 100 para todos.
+    linhas = []
+    for ctrl in dom["V0102"].to_list():
+        for idade, leitura in [("30", "1"), ("40", "1"), ("70", "3"), ("08", "3"), ("50", "")]:
+            linhas.append(
+                {"V0102": ctrl, "V0103": "001", "V8005": idade, "V0601": leitura, "V4729": "100"}
+            )
+    taxa = pnad.calcular_analfabetismo(dom, pl.DataFrame(linhas))
+    assert taxa["28"].media == pytest.approx(100 / 3)
+    assert taxa[BR].media == pytest.approx(100 / 3)
