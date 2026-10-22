@@ -4,6 +4,12 @@ Cada afirmação dos textos desta pasta foi conferida no texto vigente da lei, n
 (trechos tachados, que são redação revogada, desconsiderados). Ao reconferir, atualizar a data aqui e
 no rodapé de cada texto. Este arquivo não é publicado no site.
 
+Cuidado com redações repetidas: algumas páginas do Planalto trazem a redação antiga de um artigo, sem
+tachado, antes da vigente (aconteceu com o art. 10 da Lei nº 11.445/2007). Em 2026-10-22 todos os
+artigos citados foram checados quanto a ocorrências repetidas: as da Constituição são do ADCT
+(numeração própria, depois do texto principal) e a do ECA é o art. 8º-A; só o art. 10 da Lei nº
+11.445 tinha duas redações, e a vigente é a citada.
+
 ## Comum a todas as áreas (`poderes.md`) — conferido em 2026-10-22
 
 Constituição Federal (https://www.planalto.gov.br/ccivil_03/constituicao/constituicao.htm):
