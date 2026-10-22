@@ -16,8 +16,8 @@ raiz: nome do projeto e pasta publicada (`web/dist`).
    - **Project name:** `indicadores-br` (precisa ser igual ao `name` do `wrangler.jsonc`)
    - **Build command:** `npm ci --prefix web && npm run build --prefix web`
    - **Deploy command:** `npx wrangler deploy` (o padrão)
-   - **Non-production branch deploy command:** `npx wrangler versions upload` (o padrão; gera a
-     prévia de cada branch)
+   - **Non-production branch deploy command:** `npx wrangler preview` (gera a prévia de cada
+     branch; exige o bloco `previews` do `wrangler.jsonc`, que já existe)
    - **Path / Root directory:** `/` (raiz do repositório)
    - **Production branch:** `main`
 3. Variáveis **de build** (Settings → Build → Variables and secrets; não confundir com as variáveis

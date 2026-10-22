@@ -36,6 +36,15 @@ body {
   outline-offset: 2px;
 }
 
+.so-leitor {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
 .pular {
   position: absolute;
   left: -999px;
@@ -121,6 +130,33 @@ body {
   display: flex;
   flex-direction: column;
 }
+/* Página do mapa: fundo cinza-claro, com cartões e painéis brancos por cima. */
+.inicio {
+  background: var(--fundo-2);
+}
+.bloco {
+  background: var(--fundo);
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 10px 12px;
+}
+.bloco-cabeca {
+  flex: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 12px;
+  margin-bottom: 4px;
+}
+.bloco-titulo {
+  margin: 0;
+  font-size: 0.9375rem;
+}
+.bloco-dica {
+  margin: 0;
+  font-size: 0.8125rem;
+  color: var(--texto-2);
+}
 #mapa-area {
   flex: 1;
   min-height: 0;
@@ -151,28 +187,23 @@ body {
   border-color: var(--acento);
   background: #deebf7;
 }
-/* Cartões-resumo do ano. No celular, uma faixa com rolagem lateral, para não tirar altura do mapa. */
+/* Cartões-resumo do ano: grade 2 × 2 no celular, uma linha de 4 no computador. */
 .resumo {
   flex: none;
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-padding-inline: 16px;
-  margin: 0 -16px 8px;
-  padding: 0 16px 2px;
-  /* Altura exata dos cartões: a faixa entra via JS sem deslocar o mapa (CLS). */
-  min-height: 76px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  margin-bottom: 8px;
+  /* Altura exata dos cartões: a grade entra via JS sem deslocar o mapa (CLS). */
+  min-height: 149px;
 }
 .cartao {
-  flex: 0 0 auto;
-  min-width: 150px;
-  scroll-snap-align: start;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1px;
-  padding: 6px 12px;
+  padding: 5px 10px;
   border: 1px solid var(--borda);
   border-radius: 10px;
   background: var(--fundo);
@@ -208,9 +239,12 @@ button.cartao:hover {
   font-weight: 400;
 }
 .cartao-detalhe {
+  max-width: 100%;
   font-size: 0.75rem;
   color: var(--texto-2);
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* Recortes do indicador (até 4) como botões, no estilo do Mapa/Ranking. */
@@ -218,7 +252,6 @@ button.cartao:hover {
   display: inline-flex;
   flex-wrap: nowrap;
   max-width: 100%;
-  overflow-x: auto;
   border: 1px solid var(--borda);
   border-radius: 8px;
   overflow: hidden;
@@ -279,6 +312,22 @@ button.cartao:hover {
   width: 100%;
   flex: 1;
   min-height: 200px;
+}
+.rotulo-uf {
+  pointer-events: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--texto);
+  text-shadow:
+    0 0 2px #fff,
+    0 0 2px #fff;
+}
+.rotulo-uf.escuro {
+  color: #fff;
+  text-shadow:
+    0 0 2px #08306b,
+    0 0 2px #08306b;
 }
 .dica {
   position: absolute;
@@ -342,7 +391,9 @@ button.cartao:hover {
 .slider {
   flex: none;
   margin-top: 8px;
-  min-height: 72px;
+  padding-block: 6px;
+  /* Altura do painel já com o conteúdo, que entra via JS. */
+  min-height: 86px;
 }
 .slider-linha {
   display: flex;
@@ -407,17 +458,18 @@ button.cartao:hover {
 .ranking-area {
   flex: 1;
   min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+.ranking-rolagem {
+  flex: 1;
+  min-height: 0;
   overflow: auto;
 }
 .ranking {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.9375rem;
-}
-.ranking caption {
-  text-align: left;
-  font-weight: 600;
-  padding-bottom: 6px;
 }
 .ranking th {
   text-align: left;
@@ -489,11 +541,6 @@ button.cartao:hover {
 .num {
   font-variant-numeric: tabular-nums;
   font-size: 0.875rem;
-}
-.ranking-br {
-  font-size: 0.875rem;
-  color: var(--texto-2);
-  margin: 0 0 6px;
 }
 
 /* Painel: folha inferior no celular. */
@@ -736,17 +783,22 @@ button.cartao:hover {
   font-size: 0.875rem;
 }
 
-/* Até o layout lado a lado: Mapa/Ranking e recortes dividem a primeira linha (os recortes rolam
-   para o lado) e o "Sobre" fica sempre na segunda. Assim a barra tem a mesma altura com ou sem
-   recortes, e nada se desloca quando eles chegam. */
+/* Até o layout lado a lado, os recortes ficam no seletor do cabeçalho e a barra tem só Mapa/Ranking
+   e o "Sobre", numa linha. */
 @media (max-width: 959px) {
-  .barra-viz .recortes {
-    flex: 1 1 0;
-    min-width: 0;
+  .barra-viz {
+    justify-content: space-between;
   }
-  .barra-viz .botao-sobre {
-    flex-basis: 100%;
-    padding: 2px 0;
+}
+@media (max-width: 479px) {
+  .rotulo-uf {
+    font-size: 9px;
+  }
+  .bloco-dica {
+    display: none;
+  }
+  #ranking .bloco-dica {
+    display: block;
   }
 }
 
@@ -802,26 +854,29 @@ button.cartao:hover {
       'barra barra'
       'mapa ranking'
       'slider slider';
-    column-gap: 20px;
+    column-gap: 16px;
   }
   .resumo {
     grid-area: resumo;
     min-height: 86px;
-    margin: 0 0 8px;
-    padding: 0;
-    overflow: visible;
-    display: grid;
+    gap: 12px;
+    margin-bottom: 12px;
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
   .cartao {
-    min-width: 0;
     padding: 8px 14px;
   }
   .cartao-valor {
     font-size: 1.375rem;
   }
+  /* Os recortes entram via JS: a barra reserva a altura deles, e o "Sobre" vem antes, para não ser
+     empurrado quando chegam. */
   .barra-viz {
     grid-area: barra;
+    min-height: 40px;
+  }
+  .barra-viz .botao-sobre {
+    order: -1;
   }
   .visao {
     display: none;
@@ -829,10 +884,12 @@ button.cartao:hover {
   #mapa-area {
     grid-area: mapa;
   }
+  /* À direita, a dica não anda quando o título do mapa muda. */
+  #mapa-area .bloco-dica {
+    margin-left: auto;
+  }
   .ranking-area {
     grid-area: ranking;
-    border-left: 1px solid var(--borda);
-    padding-left: 16px;
   }
   .slider {
     grid-area: slider;

@@ -6,4 +6,7 @@
     // Saída do build do Vite; inclui o _headers (cache) copiado de web/public.
     "directory": "./web/dist",
   },
+  // Prévia de cada branch fora da main (`npx wrangler preview`, comando do painel). O comando exige o
+  // bloco, mesmo vazio; os arquivos e a data de compatibilidade acima valem também para a prévia.
+  "previews": {},
 }

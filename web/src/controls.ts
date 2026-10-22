@@ -1,6 +1,7 @@
 // Seletor de indicador agrupado por tema, recorte (botões quando são poucos) e escolha de estado.
 
-// Até este número de recortes, eles viram botões junto do mapa; acima, um seletor no cabeçalho.
+// Até este número de recortes, eles viram botões junto do mapa; acima, ou em telas estreitas (onde
+// nomes longos como os do IDEB não cabem), um seletor no cabeçalho.
 const MAX_BOTOES_RECORTE = 4;
 
 import type { Catalogo, Indicador } from './types';
@@ -12,6 +13,7 @@ export interface Controles {
 
 export function criarControles(
   el: HTMLElement,
+  largo: MediaQueryList,
   aoIndicador: (id: string) => void,
   aoSub: (sub: string) => void,
   aoUf: (sigla: string | undefined) => void,
@@ -60,7 +62,7 @@ export function criarControles(
       selSub.replaceChildren(...ind.subindicadores.map((s) => new Option(s.nome, s.id)));
       selSub.value = sub;
       const n = ind.subindicadores.length;
-      const emBotoes = recortes !== null && n >= 2 && n <= MAX_BOTOES_RECORTE;
+      const emBotoes = recortes !== null && largo.matches && n >= 2 && n <= MAX_BOTOES_RECORTE;
       campoSub.hidden = n < 2 || emBotoes;
       if (recortes) {
         recortes.hidden = !emBotoes;

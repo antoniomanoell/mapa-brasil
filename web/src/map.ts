@@ -4,6 +4,7 @@ import {
   LngLatBounds,
   Map as MapaGL,
   type MapLayerMouseEvent,
+  Marker,
   NavigationControl,
   setWorkerUrl,
 } from 'maplibre-gl';
@@ -26,6 +27,42 @@ const LIMITES_BR: [[number, number], [number, number]] = [
   [-28.6, 5.4],
 ];
 
+// Onde escrever a sigla de cada UF (lng, lat): o centro visual, não o da caixa, que cai fora de
+// estados recortados. GO sai um pouco do centro para não encostar no DF; os estados pequenos da
+// costa (FORA) têm a sigla no mar, ao lado, onde não se sobrepõem.
+const ROTULOS: Record<string, [number, number]> = {
+  RO: [-62.8, -10.9],
+  AC: [-70.5, -9.1],
+  AM: [-64.6, -4.2],
+  RR: [-61.3, 2.0],
+  PA: [-52.5, -4.0],
+  AP: [-51.9, 1.4],
+  TO: [-48.3, -10.2],
+  MA: [-45.3, -5.0],
+  PI: [-42.9, -7.4],
+  CE: [-39.5, -5.2],
+  RN: [-34.6, -5.2],
+  PB: [-34.0, -7.1],
+  PE: [-34.0, -8.4],
+  AL: [-34.6, -9.8],
+  SE: [-35.8, -11.3],
+  BA: [-41.7, -12.5],
+  MG: [-44.6, -18.5],
+  ES: [-38.9, -20.0],
+  RJ: [-41.9, -23.6],
+  SP: [-48.7, -22.2],
+  PR: [-51.6, -24.6],
+  SC: [-50.4, -27.2],
+  RS: [-53.3, -29.7],
+  MS: [-54.8, -20.5],
+  MT: [-55.9, -12.9],
+  GO: [-50.8, -16.6],
+  DF: [-47.5, -15.6],
+};
+const FORA = new Set(['RN', 'PB', 'PE', 'AL', 'SE', 'ES', 'RJ']);
+// Classes a partir desta (as duas mais escuras) levam a sigla em branco.
+const CLASSE_ESCURA = 3;
+
 export interface Vista {
   ind: Indicador;
   sub: string;
@@ -40,6 +77,7 @@ export class Mapa {
   #dica: HTMLDivElement;
   #vista: Vista | undefined;
   #geo: GeoJSON.FeatureCollection;
+  #rotulos = new Map<string, HTMLSpanElement>();
 
   constructor(container: HTMLElement, topo: unknown, aoSelecionar: (sigla: string) => void) {
     const t = topo as Topology;
@@ -127,7 +165,11 @@ export class Mapa {
           },
         });
         // Pronto só depois que o worker processou os polígonos e o primeiro quadro foi desenhado.
-        this.mapa.once('idle', () => resolve());
+        // As siglas entram junto, para não aparecerem soltas sobre o mapa ainda vazio.
+        this.mapa.once('idle', () => {
+          this.#criarRotulos();
+          resolve();
+        });
       });
     });
 
@@ -149,10 +191,29 @@ export class Mapa {
     const sel = vista.uf ? ufPorSigla(vista.uf)?.codigo : undefined;
     for (const uf of UFS) {
       const v = ponto(vista.seg, uf.codigo, vista.ano)?.v;
+      const c = v === null || v === undefined ? -1 : classe(v, limites);
       this.mapa.setFeatureState(
         { source: 'ufs', id: uf.codigo },
-        { classe: v === null || v === undefined ? -1 : classe(v, limites), sel: uf.codigo === sel },
+        { classe: c, sel: uf.codigo === sel },
       );
+      this.#rotulos
+        .get(uf.sigla)
+        ?.classList.toggle('escuro', c >= CLASSE_ESCURA && !FORA.has(uf.sigla));
+    }
+  }
+
+  /** Siglas das UFs. São marcadores HTML (a fonte da página), não uma camada de texto do MapLibre,
+   *  que exigiria baixar fontes de um servidor externo. Não recebem o mouse: o clique vai à UF. */
+  #criarRotulos(): void {
+    for (const uf of UFS) {
+      const pos = ROTULOS[uf.sigla];
+      if (!pos) continue;
+      const el = document.createElement('span');
+      el.className = 'rotulo-uf';
+      el.textContent = uf.sigla;
+      el.setAttribute('aria-hidden', 'true');
+      new Marker({ element: el }).setLngLat(pos).addTo(this.mapa);
+      this.#rotulos.set(uf.sigla, el);
     }
   }
 

@@ -24,8 +24,9 @@ export function renderRanking(
 
   const tabela = document.createElement('table');
   tabela.className = 'ranking';
+  // A legenda completa fica para leitores de tela; o painel mostra um título curto.
   tabela.innerHTML = `
-    <caption>${esc(ind.nome)} — ${ano}${seg ? ` · ${esc(seg.rotulo)}` : ''} · do maior para o menor</caption>
+    <caption class="so-leitor">${esc(ind.nome)} — ${ano}${seg ? ` · ${esc(seg.rotulo)}` : ''} · do maior para o menor</caption>
     <thead><tr><th scope="col">#</th><th scope="col">Estado</th><th scope="col">Valor${unidadeSeparada(ind) ? ` <span class="th-unidade">(${esc(unidadeSeparada(ind))})</span>` : ''}</th></tr></thead>`;
   const corpo = document.createElement('tbody');
 
@@ -59,8 +60,15 @@ export function renderRanking(
   }
   tabela.append(corpo);
 
-  const rodape = document.createElement('p');
-  rodape.className = 'ranking-br';
-  rodape.textContent = `Brasil: ${formatarValor(ind, br)} (linha cinza nas barras)`;
-  el.append(rodape, tabela);
+  const cabeca = document.createElement('div');
+  cabeca.className = 'bloco-cabeca';
+  cabeca.innerHTML = `<h2 class="bloco-titulo">Estados, do maior para o menor</h2>
+    <p class="bloco-dica"></p>`;
+  (cabeca.lastElementChild as HTMLElement).textContent =
+    `Brasil: ${formatarValor(ind, br)} (linha cinza nas barras)`;
+  // Só a lista rola; o título do painel fica parado.
+  const rolagem = document.createElement('div');
+  rolagem.className = 'ranking-rolagem';
+  rolagem.append(tabela);
+  el.append(cabeca, rolagem);
 }

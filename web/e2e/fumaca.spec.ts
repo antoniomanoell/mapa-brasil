@@ -79,7 +79,7 @@ test('URL restaura a tela e parâmetros inválidos caem no padrão', async ({ pa
   await expect(page.locator('#painel')).toBeHidden();
 });
 
-test('cartões-resumo, recorte em botões e ranking ao lado do mapa no computador', async ({
+test('cartões-resumo, recortes, siglas e ranking ao lado do mapa no computador', async ({
   page,
 }) => {
   await abrir(page, '?i=idhm&a=2024');
@@ -88,17 +88,26 @@ test('cartões-resumo, recorte em botões e ranking ao lado do mapa no computado
   await expect(resumo.locator('.cartao-br')).toContainText('desde 2023');
   await expect(resumo).toContainText('Maior valor');
   await expect(resumo).toContainText('27 de 27 estados com dado');
-  // Recortes do IDHM (4) viram botões; o seletor do cabeçalho some.
+  const largo = (page.viewportSize()?.width ?? 0) >= 960;
   const recortes = page.locator('#recortes button');
-  await expect(recortes).toHaveCount(4);
-  await expect(page.locator('#campo-sub')).toBeHidden();
-  await recortes.filter({ hasText: 'Educação' }).click();
+  if (largo) {
+    // No computador, os recortes do IDHM (4) viram botões; o seletor do cabeçalho some.
+    await expect(recortes).toHaveCount(4);
+    await expect(page.locator('#campo-sub')).toBeHidden();
+    await recortes.filter({ hasText: 'Educação' }).click();
+    await expect(recortes.filter({ hasText: 'Educação' })).toHaveAttribute('aria-pressed', 'true');
+  } else {
+    // No celular, ficam no seletor do cabeçalho, ao lado do estado.
+    await expect(page.locator('#recortes')).toBeHidden();
+    await page.selectOption('#sel-sub', 'educacao');
+  }
   await expect(page).toHaveURL(/s=educacao/);
-  await expect(recortes.filter({ hasText: 'Educação' })).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#titulo-mapa')).toHaveText('IDHM Educação em 2024');
+  // Siglas das 27 UFs sobre o mapa.
+  await expect(page.locator('#mapa .rotulo-uf')).toHaveCount(27);
   // Cartão de maior valor abre o painel do estado.
   await resumo.locator('button.cartao').nth(1).click();
   await expect(page.locator('#painel')).toBeVisible();
-  const largo = (page.viewportSize()?.width ?? 0) >= 960;
   if (largo) {
     await expect(page.locator('#ranking')).toBeVisible();
     await expect(page.locator('#mapa-area')).toBeVisible();

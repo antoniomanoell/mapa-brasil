@@ -19,7 +19,7 @@
     <meta property="og:image" content="%VITE_SITE_URL%/og.png" />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body>
+  <body class="inicio">
     <a class="pular" href="#ranking-acesso">Pular para o ranking acessível</a>
     <!-- Palco: cabeçalho, mapa e slider cabem sempre na altura da tela. -->
     <div class="palco">
@@ -61,10 +61,14 @@
             </div>
             <div id="recortes" class="recortes" role="group" aria-label="Recorte"></div>
             <a class="botao-sobre" id="abrir-sobre" href="indicador.html" data-abrir-sobre
-              >ⓘ Sobre este indicador</a
+              >ⓘ Sobre o indicador</a
             >
           </div>
-          <div id="mapa-area">
+          <div id="mapa-area" class="bloco">
+            <div class="bloco-cabeca">
+              <h2 class="bloco-titulo" id="titulo-mapa">Mapa</h2>
+              <p class="bloco-dica">Clique num estado para ver a série.</p>
+            </div>
             <div
               id="mapa"
               class="mapa"
@@ -73,8 +77,8 @@
             ></div>
             <div id="legenda" class="legenda"></div>
           </div>
-          <div id="ranking" class="ranking-area" hidden></div>
-          <div id="slider" class="slider"></div>
+          <div id="ranking" class="ranking-area bloco" hidden></div>
+          <div id="slider" class="slider bloco"></div>
         </section>
         <aside id="painel" class="painel" aria-label="Série do estado" hidden></aside>
         <aside
