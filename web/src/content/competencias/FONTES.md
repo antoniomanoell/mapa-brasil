@@ -74,12 +74,14 @@ Lei Complementar nº 141/2012 (https://www.planalto.gov.br/ccivil_03/leis/lcp/lc
 ## Segurança (`seguranca.md`: homicídios) — conferido em 2026-10-22
 
 Constituição Federal:
+- art. 5º, XXXVIII, *d* (júri: crimes dolosos contra a vida);
 - art. 21, XIV (União organiza e mantém as polícias e o corpo de bombeiros do DF; redação da EC
   104/2019);
 - art. 22, I (direito penal e processual) e XXI (normas gerais das polícias militares e dos
   bombeiros; redação da EC 103/2019);
 - art. 24, XVI (polícias civis: competência concorrente);
-- art. 144, *caput* e §§ 1º, 2º, 4º, 5º, 5º-A, 6º e 8º (órgãos de segurança pública; redação da EC
+- art. 30, II (municípios suplementam a legislação);
+- art. 144, *caput* e VI, §§ 1º, 2º, 4º, 5º, 5º-A, 6º e 8º (órgãos de segurança pública; redação da EC
   104/2019); conferido que não há parágrafo novo além do § 10;
 - art. 167, IV (vedação de vincular receita de impostos; exceções: repartição, saúde, ensino,
   administração tributária e garantias; a segurança pública não está entre elas).
@@ -87,6 +89,8 @@ Constituição Federal:
 Lei nº 13.675/2018, Susp (https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13675.htm):
 - arts. 1º e 2º (atuação conjunta e integrada; responsabilidade das quatro esferas);
 - art. 3º (União estabelece a política nacional; estados, DF e municípios, as suas);
-- art. 9º, § 4º (sistemas estaduais e municipais implementam seus programas). O *caput* do art. 9º
+- art. 9º, § 1º (integrantes estratégicos: as quatro esferas, por seus Executivos, e os Conselhos de
+  Segurança Pública e Defesa Social) e § 4º (sistemas estaduais e municipais implementam seus
+  programas). O *caput* do art. 9º
   ainda cita o "Ministério Extraordinário da Segurança Pública" como órgão central; o texto do site
   não nomeia o órgão.
