@@ -1,0 +1,9 @@
+// Cloudflare Workers com arquivos estáticos (sem código de servidor). Ver DEPLOY.md.
+{
+  "name": "indicadores-br",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    // Saída do build do Vite; inclui o _headers (cache) copiado de web/public.
+    "directory": "./web/dist",
+  },
+}

@@ -24,3 +24,6 @@ Thumbs.db
 # Pipeline: arquivos de fonte (reprodutíveis por URL + sha256 do MANIFEST)
 pipeline/raw_manual/**
 !pipeline/raw_manual/MANIFEST.yaml
+
+# Cache local do wrangler dev
+.wrangler/

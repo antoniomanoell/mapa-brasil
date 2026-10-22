@@ -1,28 +1,49 @@
-# DEPLOY.md — publicação no Cloudflare Pages
+# DEPLOY.md — publicação no Cloudflare (Workers com arquivos estáticos)
 
 O site é estático. O build do frontend lê os dados já publicados em `data/public/` (versionados no git);
 o pipeline **não** roda no deploy. Atualizar dados = rodar o pipeline localmente, revisar o diff e
 fazer commit (PROJECT.md, 6.3).
 
+A publicação usa **Workers com arquivos estáticos** (sem código de servidor), que a Cloudflare indica
+para projetos novos no lugar do Pages (ver DECISIONS.md). A configuração fica em `wrangler.jsonc`, na
+raiz: nome do projeto e pasta publicada (`web/dist`).
+
 ## Configuração única (no painel do Cloudflare, feita pelo mantenedor)
 
-1. Cloudflare → **Workers & Pages** → **Create** → **Pages** → **Connect to Git** → repositório
-   `antoniomanoell/mapa-brasil`, branch de produção `main`.
-2. Build settings:
-   - **Framework preset:** None
+1. Cloudflare → **Workers & Pages** → **Create application** → **Import a repository** (ou
+   "Continue with GitHub") → autorizar o GitHub e escolher `antoniomanoell/mapa-brasil`.
+2. Configuração do projeto:
+   - **Project name:** `indicadores-br` (precisa ser igual ao `name` do `wrangler.jsonc`)
    - **Build command:** `npm ci --prefix web && npm run build --prefix web`
-   - **Build output directory:** `web/dist`
-   - **Root directory:** `/` (raiz do repositório)
-3. Variáveis de ambiente (Production e Preview):
+   - **Deploy command:** `npx wrangler deploy` (o padrão)
+   - **Non-production branch deploy command:** `npx wrangler versions upload` (o padrão; gera a
+     prévia de cada branch)
+   - **Path / Root directory:** `/` (raiz do repositório)
+   - **Production branch:** `main`
+3. Variáveis **de build** (Settings → Build → Variables and secrets; não confundir com as variáveis
+   de runtime do Worker, que este site não usa):
    - `NODE_VERSION` = `24`
-   - `VITE_SITE_URL` = URL pública do site, sem barra no fim (ex.: `https://<projeto>.pages.dev`
-     ou o domínio próprio). Usada na imagem de compartilhamento (`og:image`).
+   - `VITE_SITE_URL` = URL pública do site, sem barra no fim (ex.:
+     `https://indicadores-br.<sua-conta>.workers.dev` ou o domínio próprio). Usada na imagem de
+     compartilhamento (`og:image`).
    - `VITE_CF_BEACON_TOKEN` (opcional) = token do **Cloudflare Web Analytics** (Analytics & Logs →
      Web Analytics → Add a site). Vazio = sem analytics. Não usa cookies.
-4. Salvar e fazer o primeiro deploy. Cada push na `main` publica de novo; cada PR ganha uma prévia.
+4. Salvar e fazer o primeiro deploy. Cada push na `main` publica de novo; as outras branches ganham
+   uma URL de prévia.
+
+Os nomes dos botões do painel mudam com o tempo; o essencial é: projeto ligado ao repositório, os
+comandos acima e as variáveis de build.
 
 O arquivo `web/public/_headers` define o cache: assets com hash ficam em cache permanente; catálogo
-e indicadores, por 1 hora; a malha, por 1 dia.
+e indicadores, por 1 hora; a malha, por 1 dia. Os links `pagina.html` são redirecionados para
+`/pagina`, mantendo os parâmetros da URL.
+
+## Testar localmente como no Cloudflare
+
+```bash
+npm run build --prefix web
+npx wrangler dev
+```
 
 ## Antes do primeiro deploy
 

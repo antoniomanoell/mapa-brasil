@@ -156,3 +156,11 @@ Formato de cada entrada:
   o mapa (ex.: SVG no nível de UF), revendo a escolha feita pensando na fase municipal. O deslocamento
   de layout já foi zerado (CLS 0). Decidido pelo mantenedor.
 - **Revisitar:** com medições em aparelhos reais após o deploy, ou antes da fase municipal.
+
+## 2026-10-22 — Hospedagem: Cloudflare Workers com arquivos estáticos, no lugar do Pages
+- **Decisão:** publicar o site como Worker só com arquivos estáticos (`wrangler.jsonc` na raiz,
+  pasta `web/dist`), com build ligado ao GitHub (Workers Builds). A seção 5.1 previa Cloudflare Pages.
+- **Motivo:** o painel da Cloudflare agora leva projetos novos para Workers, e a própria Cloudflare
+  indica Workers com arquivos estáticos como sucessor do Pages; os recursos novos saem lá. Para um
+  site estático o resultado é o mesmo: grátis, CDN, `_headers` de cache, prévia por branch e Web
+  Analytics sem cookies. O site continua portável (só a pasta `web/dist`). Decidido pelo mantenedor.
