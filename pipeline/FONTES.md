@@ -178,3 +178,19 @@ verificado e quando. Decisões metodológicas ficam em `../DECISIONS.md`.
   acumulado 2002–2023 BR 58,2%, RR 151,6%, MA 102,8%, SP 52,5%, DF 76,3% (reproduzidos exatamente).
 - Per capita: Contas Nacionais (SIDRA 6784, var. 9812) Brasil 2023 = R$ 51.693,92, com a população
   das Projeções. A notícia das Contas Regionais usa a população recenseada (Brasil R$ 53.886,67).
+
+## `ideb`
+
+**INEP — Ideb 2025 (série 2005–2025)** — verificado em 2026-10-22
+- Página: https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb/resultados
+- `divulgacao_regioes_ufs_ideb_2025.zip` (abas "UF e Regiões (AI/AF/EM)") e
+  `divulgacao_brasil_ideb_2025.zip` (abas "Brasil (...)"), Last-Modified 05/08/2026.
+- Ideb observado nas colunas `VL_OBSERVADO_AAAA`. **Defeito do arquivo:** na aba "Brasil (Anos
+  Finais)" a coluna de 2023 está sem código; o leitor usa o cabeçalho de texto "IDEB 2023 (N x P)".
+- A planilha abrevia "R. G. do Norte", "R. G. do Sul" e "M. G. do Sul". Rótulos de rede trazem notas
+  entre parênteses ("Pública (4)").
+- Ensino médio por UF: só redes Total, Estadual e Privada.
+- Referências: Brasil, rede pública, 2023 → 2025: anos iniciais 5,7 → 6,1; anos finais 4,7 → 5,0
+  (notícia do INEP); Piauí 2025: 6,1 / 5,2 / 4,9 (notícia do INEP para o Piauí).
+- O certificado TLS de download.inep.gov.br vem sem o intermediário; o pipeline valida pelo repositório
+  do sistema (`truststore`), sem desligar a verificação.

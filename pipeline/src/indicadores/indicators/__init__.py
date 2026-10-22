@@ -5,6 +5,7 @@ from .base import DefinicaoIndicador
 from .esgoto import Esgoto
 from .gini import Gini
 from .homicidios import Homicidios
+from .ideb import Ideb
 from .idhm import Idhm
 from .pib_pc import PibPc
 from .pnadc_anual import desocupacao, informalidade
@@ -25,6 +26,7 @@ DEFINICOES: dict[str, DefinicaoIndicador] = {
         desocupacao(),
         informalidade(),
         Analfabetismo(),
+        Ideb(),
         esperanca_vida(),
         mort_infantil(),
         Esgoto(),

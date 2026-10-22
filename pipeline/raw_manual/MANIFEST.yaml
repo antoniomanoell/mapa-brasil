@@ -146,3 +146,17 @@ arquivos:
     sha256: 75281f8f40113cf947aa1ccd22892f50b76d937a918c4bfd43aa0ef4fa85d97b
     descricao: IBGE, Contas Regionais do Brasil 2023, tabelas especiais (Last-Modified 2025-11-17)
     automatico: true
+
+  # INEP — Ideb 2025 (série 2005–2025), Brasil e UFs.
+  - arquivo: inep_ideb/divulgacao_regioes_ufs_ideb_2025.zip
+    url: https://download.inep.gov.br/ideb/resultados/divulgacao_regioes_ufs_ideb_2025.zip
+    baixado_em: 2026-10-21
+    sha256: a8ecdb2cef93416149f98ec7c22207f5ff3607e0bb08f29ed8a03651406b0a87
+    descricao: INEP, Ideb 2025, regiões e UFs (Last-Modified 2026-08-05)
+    automatico: true
+  - arquivo: inep_ideb/divulgacao_brasil_ideb_2025.zip
+    url: https://download.inep.gov.br/ideb/resultados/divulgacao_brasil_ideb_2025.zip
+    baixado_em: 2026-10-21
+    sha256: c841dcbe726ade4c6a1c45cd54cff24255d2b3177b65bb55c7de0729491fb348
+    descricao: INEP, Ideb 2025, Brasil (Last-Modified 2026-08-05)
+    automatico: true

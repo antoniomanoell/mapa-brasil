@@ -97,3 +97,13 @@ test('mortalidade infantil: estimativa no mapa, taxa direta só no painel', asyn
   await expect(painel.locator('.painel-sub')).toContainText('valores estimados');
   await page.screenshot({ path: `test-results/mort-infantil-${test.info().project.name}.png` });
 });
+
+test('ideb: três etapas e pontos bienais ligados por tracejado', async ({ page }) => {
+  await abrir(page, '?i=ideb&s=medio&uf=PI&a=2025');
+  await expect(page.locator('#sel-sub option')).toHaveCount(3);
+  await expect(page.locator('.slider-rotulo')).toContainText('2025 · INEP');
+  const painel = page.locator('#painel');
+  await expect(painel.locator('.painel-legenda')).toContainText('dado a cada dois anos');
+  await expect(painel.locator('.painel-valores')).toContainText('4,9');
+  await page.screenshot({ path: `test-results/ideb-${test.info().project.name}.png` });
+});

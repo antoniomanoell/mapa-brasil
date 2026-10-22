@@ -6,6 +6,7 @@ uma nova extração.
 
 import hashlib
 import json
+import ssl
 import time
 from dataclasses import dataclass
 from datetime import date
@@ -13,10 +14,15 @@ from pathlib import Path
 from typing import Any
 
 import httpx
+import truststore
 
 from ..paths import CACHE
 
 TIMEOUT = httpx.Timeout(120.0, connect=30.0)
+# Valida certificados pelo repositório do sistema operacional (como o navegador e o curl), que
+# completa cadeias sem o certificado intermediário — caso de download.inep.gov.br. A verificação
+# nunca é desligada.
+VERIFICACAO = truststore.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
 TENTATIVAS = 4
 INTERVALO_MINIMO = 1.0  # segundos entre requisições
 CABECALHOS = {"User-Agent": "IndicadoresBR/0.1 (+https://github.com/antoniomanoell/mapa-brasil)"}
@@ -63,7 +69,12 @@ def _com_tentativas(url: str, params: dict[str, str] | None, corpo: bytes | None
         try:
             if corpo is None:
                 resp = httpx.get(
-                    url, params=params, headers=CABECALHOS, timeout=TIMEOUT, follow_redirects=True
+                    url,
+                    params=params,
+                    headers=CABECALHOS,
+                    timeout=TIMEOUT,
+                    verify=VERIFICACAO,
+                    follow_redirects=True,
                 )
             else:
                 resp = httpx.post(
@@ -72,6 +83,7 @@ def _com_tentativas(url: str, params: dict[str, str] | None, corpo: bytes | None
                     content=corpo,
                     headers={**CABECALHOS, "Content-Type": "application/x-www-form-urlencoded"},
                     timeout=TIMEOUT,
+                    verify=VERIFICACAO,
                 )
             if resp.status_code < 500:
                 resp.raise_for_status()

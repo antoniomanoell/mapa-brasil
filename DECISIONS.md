@@ -136,3 +136,13 @@ Formato de cada entrada:
   151,6%; MA 102,8%; SP 52,5%), que confere o encadeamento do volume.
 - **Fonte:** https://ftp.ibge.gov.br/Contas_Regionais/2023/xls/Especiais_2002_2023_xls.zip; notícia IBGE
   45142; https://sidra.ibge.gov.br/tabela/6784
+
+## 2026-10-22 — ideb: rede pública no fundamental, rede estadual no ensino médio
+- **Decisão:** anos iniciais e finais pela rede pública; ensino médio pela rede estadual, no Brasil e
+  nas UFs. Série 2005–2025 (bienal) das planilhas do INEP do Ideb 2025. Anos pares não existem e
+  ficam como lacuna; no gráfico, os pontos são ligados só visualmente, por tracejado.
+- **Motivo:** o INEP não publica a rede pública do ensino médio por UF (só Total, Estadual e Privada).
+  A rede estadual é a que o próprio INEP divulga como "rede pública" do estado no ensino médio
+  (Piauí 2025: 4,9 nas duas). Decidido pelo mantenedor.
+- **Fonte:** https://download.inep.gov.br/ideb/resultados/divulgacao_regioes_ufs_ideb_2025.zip;
+  https://download.inep.gov.br/ideb/resultados/divulgacao_brasil_ideb_2025.zip

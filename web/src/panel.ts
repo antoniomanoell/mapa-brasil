@@ -21,6 +21,8 @@ interface Linha {
   marcado: boolean;
   detalhe: string;
   referencia: boolean;
+  // Série com dado a cada dois anos (Ideb): os pontos são ligados só visualmente, tracejado.
+  bienal: boolean;
 }
 
 export class Painel {
@@ -71,6 +73,9 @@ export class Painel {
     let iPrincipal = 0;
     segs.forEach((seg) => {
       const referencia = seg.papel === 'referencia';
+      const bienal =
+        seg.anos.length > 2 &&
+        seg.anos.every((a, i) => i === 0 || a - (seg.anos[i - 1] as number) === 2);
       const cor = referencia
         ? COR_REFERENCIA
         : (CORES_SEGMENTO[iPrincipal++ % CORES_SEGMENTO.length] as string);
@@ -94,6 +99,7 @@ export class Painel {
             marcado: flags.length > 0,
             detalhe: flags.map((f) => ROTULO_FLAG[f]).join('; '),
             referencia,
+            bienal,
           });
         }
       }
@@ -118,9 +124,12 @@ export class Painel {
     legenda.innerHTML = series
       .map(
         ([s, l]) =>
-          `<li><span class="traco${l.referencia ? ' tracejado' : ''}" style="--cor:${l.cor}"></span>${esc(s)}</li>`,
+          `<li><span class="traco${l.referencia || l.bienal ? ' tracejado' : ''}" style="--cor:${l.cor}"></span>${esc(s)}</li>`,
       )
       .join('');
+    if (linhas.some((l) => l.bienal)) {
+      legenda.innerHTML += `<li><span class="traco tracejado" style="--cor:#555"></span>dado a cada dois anos: o tracejado só liga os pontos, não há valor entre eles</li>`;
+    }
     if (linhas.some((l) => l.marcado)) {
       legenda.innerHTML += `<li><span class="ponto-vazado"></span>ponto vazado = valor com ressalva (passe o mouse)</li>`;
     }
@@ -177,6 +186,17 @@ export class Painel {
               strokeDasharray: '5,3',
             },
           ),
+          Plot.lineY(
+            comValor.filter((l) => l.bienal && !l.referencia),
+            {
+              x: 'ano',
+              y: 'v',
+              z: 'serie',
+              stroke: 'cor',
+              strokeWidth: 1.5,
+              strokeDasharray: '3,3',
+            },
+          ),
           Plot.dot(comValor, {
             x: 'ano',
             y: 'v',
@@ -190,7 +210,9 @@ export class Painel {
               x: 'ano',
               y: 'v',
               title: (l: Linha) =>
-                `${l.serie}\n${l.ano}: ${formatarValor(ind, l.v)}${l.detalhe ? `\n${l.detalhe}` : ''}`,
+                `${l.serie}\n${l.ano}: ${formatarValor(ind, l.v)}${l.detalhe ? `\n${l.detalhe}` : ''}${
+                  l.bienal ? '\nDado bienal: não há valor nos anos vizinhos' : ''
+                }`,
             }),
           ),
         ],

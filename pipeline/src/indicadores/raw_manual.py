@@ -6,6 +6,7 @@ MANIFEST: se a fonte publicar nova versão, o build falha até alguém revisar e
 """
 
 import hashlib
+import time
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -14,7 +15,7 @@ import httpx
 import yaml
 
 from .paths import RAW_MANUAL
-from .sources.http import TIMEOUT
+from .sources.http import CABECALHOS, TENTATIVAS, TIMEOUT, VERIFICACAO
 
 
 class ErroEntradaManual(Exception):
@@ -46,13 +47,28 @@ def carregar_manifest(raiz: Path = RAW_MANUAL) -> dict[str, EntradaManual]:
 
 
 def _baixar(url: str, destino: Path) -> None:
+    """Baixa com novas tentativas: servidores públicos às vezes derrubam a conexão."""
     destino.parent.mkdir(parents=True, exist_ok=True)
     temporario = destino.with_suffix(destino.suffix + ".parcial")
-    with httpx.stream("GET", url, timeout=TIMEOUT, follow_redirects=True) as resp:
-        resp.raise_for_status()
-        with temporario.open("wb") as f:
-            for bloco in resp.iter_bytes():
-                f.write(bloco)
+    for tentativa in range(TENTATIVAS):
+        try:
+            with httpx.stream(
+                "GET",
+                url,
+                headers=CABECALHOS,
+                timeout=TIMEOUT,
+                verify=VERIFICACAO,
+                follow_redirects=True,
+            ) as resp:
+                resp.raise_for_status()
+                with temporario.open("wb") as f:
+                    for bloco in resp.iter_bytes():
+                        f.write(bloco)
+            break
+        except httpx.TransportError:
+            if tentativa == TENTATIVAS - 1:
+                raise
+            time.sleep(5 * 3**tentativa)
     temporario.replace(destino)
 
 
