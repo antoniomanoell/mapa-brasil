@@ -79,6 +79,32 @@ test('URL restaura a tela e parâmetros inválidos caem no padrão', async ({ pa
   await expect(page.locator('#painel')).toBeHidden();
 });
 
+test('cartões-resumo, recorte em botões e ranking ao lado do mapa no computador', async ({
+  page,
+}) => {
+  await abrir(page, '?i=idhm&a=2024');
+  const resumo = page.locator('#resumo');
+  await expect(resumo.locator('.cartao-br')).toContainText('0,805');
+  await expect(resumo.locator('.cartao-br')).toContainText('desde 2023');
+  await expect(resumo).toContainText('Maior valor');
+  await expect(resumo).toContainText('27 de 27 estados com dado');
+  // Recortes do IDHM (4) viram botões; o seletor do cabeçalho some.
+  const recortes = page.locator('#recortes button');
+  await expect(recortes).toHaveCount(4);
+  await expect(page.locator('#campo-sub')).toBeHidden();
+  await recortes.filter({ hasText: 'Educação' }).click();
+  await expect(page).toHaveURL(/s=educacao/);
+  await expect(recortes.filter({ hasText: 'Educação' })).toHaveAttribute('aria-pressed', 'true');
+  // Cartão de maior valor abre o painel do estado.
+  await resumo.locator('button.cartao').nth(1).click();
+  await expect(page.locator('#painel')).toBeVisible();
+  const largo = (page.viewportSize()?.width ?? 0) >= 960;
+  if (largo) {
+    await expect(page.locator('#ranking')).toBeVisible();
+    await expect(page.locator('#mapa-area')).toBeVisible();
+  }
+});
+
 test('nada passa da largura da tela', async ({ page }) => {
   await abrir(page, '?i=idhm&uf=MA');
   const excesso = await page.evaluate(

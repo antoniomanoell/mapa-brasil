@@ -2,11 +2,11 @@ import './style.css';
 import { criarControles } from './controls';
 import { carregarCatalogo, carregarIndicador, carregarMalha } from './data';
 import { formatarData } from './ficha';
-import { esc, formatarValor } from './format';
+import { esc } from './format';
 import { renderLegenda } from './legend';
 import { Mapa } from './map';
 import { Painel } from './panel';
-import { ponto, segmentoVigente } from './series';
+import { segmentoVigente } from './series';
 import { Slider } from './slider';
 import { SobreIndicador } from './sobre';
 import {
@@ -18,9 +18,10 @@ import {
   lerUrl,
   normalizar,
 } from './state';
+import { renderResumo } from './resumo';
 import { renderRanking } from './table';
 import type { Catalogo, Indicador } from './types';
-import { BR, localPorSigla } from './ufs';
+import { localPorSigla } from './ufs';
 
 const $ = <T extends HTMLElement>(sel: string) => document.querySelector(sel) as T;
 
@@ -80,9 +81,13 @@ async function iniciar(): Promise<void> {
     (sub) => aplicar({ sub, segmento: undefined }),
     (uf) => aplicar({ uf }),
   );
-  $('#valor-br').addEventListener('click', () =>
-    aplicar({ uf: store.estado.uf === BR ? undefined : BR }),
-  );
+  // Computador: mapa e ranking lado a lado, sem a alternância Mapa/Ranking.
+  const largo = matchMedia('(min-width: 960px)');
+  largo.addEventListener('change', () => {
+    store.definir(store.estado);
+    mapa.mapa.resize();
+  });
+  const alternarUf = (uf: string) => aplicar({ uf: store.estado.uf === uf ? undefined : uf });
   for (const b of document.querySelectorAll<HTMLButtonElement>('.visao button')) {
     b.addEventListener('click', () => aplicar({ visao: b.dataset['visao'] as Estado['visao'] }));
   }
@@ -95,9 +100,7 @@ async function iniciar(): Promise<void> {
     const seg = segmentoVigente(ind, e.sub, e.ano, e.segmento);
 
     controles.atualizar(cat, ind, e.sub, e.uf);
-    const valorBr = $('#valor-br');
-    valorBr.innerHTML = `Brasil em ${e.ano}: <strong>${esc(formatarValor(ind, ponto(seg, BR, e.ano)?.v))}</strong>`;
-    valorBr.setAttribute('aria-pressed', String(e.uf === BR));
+    renderResumo($('#resumo'), ind, seg, e.ano, e.uf, alternarUf);
     $('#abrir-sobre').setAttribute('href', `indicador.html?i=${encodeURIComponent(ind.id)}`);
     if (e.sobre && (!sobre.aberta || anterior?.indicador !== e.indicador)) {
       void sobre.abrir(ind, origemSobre);
@@ -112,13 +115,13 @@ async function iniciar(): Promise<void> {
     for (const b of document.querySelectorAll<HTMLButtonElement>('.visao button')) {
       b.setAttribute('aria-pressed', String(b.dataset['visao'] === e.visao));
     }
-    $('#mapa-area').hidden = e.visao !== 'mapa';
-    $('#ranking').hidden = e.visao !== 'ranking';
-    if (e.visao === 'ranking') {
+    const lado = largo.matches;
+    $('#mapa-area').hidden = !lado && e.visao !== 'mapa';
+    $('#ranking').hidden = !lado && e.visao !== 'ranking';
+    if (lado || e.visao === 'ranking') {
       renderRanking($('#ranking'), ind, seg, e.ano, e.uf, (uf) => aplicar({ uf }));
-    } else if (anterior?.visao === 'ranking') {
-      mapa.mapa.resize();
     }
+    if (!lado && e.visao === 'mapa' && anterior?.visao === 'ranking') mapa.mapa.resize();
 
     if (e.uf) void painel.abrir(ind, e.sub, e.ano, e.segmento, e.uf);
     else painel.fechar();

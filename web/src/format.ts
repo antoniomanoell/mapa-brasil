@@ -25,6 +25,18 @@ export function formatarValor(ind: Indicador, v: number | null | undefined): str
   return `${n} ${ind.unidade}`;
 }
 
+/** Unidade escrita depois do número ("por 100 mil hab."), ou vazio se ela já vai junto do
+ * número (R$, %) ou se o indicador é um índice. Serve para mostrá-la uma vez só. */
+export function unidadeSeparada(ind: Indicador): string {
+  return ['R$', '%', 'índice'].includes(ind.unidade) ? '' : ind.unidade;
+}
+
+/** Valor sem a unidade separada (ela aparece no cabeçalho da coluna ou em letra menor). */
+export function formatarValorCurto(ind: Indicador, v: number | null | undefined): string {
+  if (v === null || v === undefined) return 'sem dado';
+  return unidadeSeparada(ind) ? formatarNumero(v, ind.casas_decimais) : formatarValor(ind, v);
+}
+
 /** Escapa texto para interpolar em HTML. */
 export function esc(texto: string): string {
   return texto.replace(

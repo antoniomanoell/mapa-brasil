@@ -1,6 +1,6 @@
 // Ranking do ano: alternativa acessível ao mapa e contrapeso ao viés de área (PROJECT.md, 3).
 
-import { ROTULO_FLAG, esc, formatarValor } from './format';
+import { ROTULO_FLAG, esc, formatarValor, formatarValorCurto, unidadeSeparada } from './format';
 import { ponto } from './series';
 import type { Indicador, Segmento } from './types';
 import { BR, UFS } from './ufs';
@@ -26,7 +26,7 @@ export function renderRanking(
   tabela.className = 'ranking';
   tabela.innerHTML = `
     <caption>${esc(ind.nome)} — ${ano}${seg ? ` · ${esc(seg.rotulo)}` : ''} · do maior para o menor</caption>
-    <thead><tr><th scope="col">#</th><th scope="col">Estado</th><th scope="col">Valor</th></tr></thead>`;
+    <thead><tr><th scope="col">#</th><th scope="col">Estado</th><th scope="col">Valor${unidadeSeparada(ind) ? ` <span class="th-unidade">(${esc(unidadeSeparada(ind))})</span>` : ''}</th></tr></thead>`;
   const corpo = document.createElement('tbody');
 
   const pctBr = typeof br === 'number' ? (br / max) * 100 : undefined;
@@ -38,13 +38,13 @@ export function renderRanking(
     tr.innerHTML = `
       <td class="pos">${i + 1}</td>
       <td><button type="button" class="link-uf"></button></td>
-      <td class="valor">
+      <td class="valor"><span class="valor-linha">
         <span class="barra-trilho">
           <span class="barra" style="width:${pct}%"></span>
           ${pctBr !== undefined ? `<span class="ref-br" style="left:${pctBr}%" title="Brasil"></span>` : ''}
         </span>
-        <span class="num">${formatarValor(ind, p?.v)}${flags ? ' *' : ''}</span>
-      </td>`;
+        <span class="num">${formatarValorCurto(ind, p?.v)}${flags ? ' *' : ''}</span>
+      </span></td>`;
     const botao = tr.querySelector('button') as HTMLButtonElement;
     botao.textContent = uf.nome;
     botao.addEventListener('click', () => aoSelecionar(uf.sigla));

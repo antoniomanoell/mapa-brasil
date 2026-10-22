@@ -218,3 +218,12 @@ Formato de cada entrada:
   causa sem evidência (defasagem, fatores simultâneos, viés de seleção) e quebra a neutralidade.
 - **Motivo:** ideia do mantenedor; descrever competências é factual e verificável, e o princípio 6 do
   PROJECT.md foi ajustado para deixar o limite explícito. Decidido pelo mantenedor.
+
+## 2026-10-22 — Página do mapa: cartões-resumo, ranking ao lado e recortes em botões
+- **Decisão:** cartões com o Brasil no ano (e a variação desde o ano anterior **da mesma série**, sem
+  emendar segmentos), o maior e o menor valor entre os estados e a diferença entre eles; no
+  computador, o ranking fica sempre ao lado do mapa; indicadores com até 4 recortes os mostram em
+  botões. Os cartões dizem "maior/menor", nunca "melhor/pior" (princípio 6).
+- **Motivo:** pedido do mantenedor, inspirado num painel de referência. Medido antes e depois
+  (Lighthouse celular, página do IDHM): desempenho 66 → 64–65 (variação de medição), acessibilidade
+  100, CLS 0 mantido com altura reservada para os cartões e a barra de controles.

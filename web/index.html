@@ -36,7 +36,7 @@
             >Indicador
             <select id="sel-indicador"></select
           ></label>
-          <label class="campo" id="campo-sub"
+          <label class="campo" id="campo-sub" hidden
             >Recorte
             <select id="sel-sub"></select
           ></label>
@@ -51,6 +51,7 @@
 
       <main class="conteudo">
         <section class="viz" aria-label="Visualização">
+          <div id="resumo" class="resumo" aria-label="Resumo do ano" role="group"></div>
           <div class="barra-viz">
             <div class="visao" role="group" aria-label="Forma de ver">
               <button type="button" data-visao="mapa" aria-pressed="true">Mapa</button>
@@ -58,13 +59,7 @@
                 Ranking
               </button>
             </div>
-            <button
-              type="button"
-              class="valor-br"
-              id="valor-br"
-              aria-pressed="false"
-              title="Ver a série do Brasil"
-            ></button>
+            <div id="recortes" class="recortes" role="group" aria-label="Recorte"></div>
             <a class="botao-sobre" id="abrir-sobre" href="indicador.html" data-abrir-sobre
               >ⓘ Sobre este indicador</a
             >

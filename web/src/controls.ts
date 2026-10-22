@@ -1,4 +1,7 @@
-// Seletor de indicador agrupado por tema, subseletor e escolha de estado por teclado.
+// Seletor de indicador agrupado por tema, recorte (botões quando são poucos) e escolha de estado.
+
+// Até este número de recortes, eles viram botões junto do mapa; acima, um seletor no cabeçalho.
+const MAX_BOTOES_RECORTE = 4;
 
 import type { Catalogo, Indicador } from './types';
 import { UFS } from './ufs';
@@ -24,6 +27,7 @@ export function criarControles(
   const selSub = el.querySelector('#sel-sub') as HTMLSelectElement;
   const campoSub = el.querySelector('#campo-sub') as HTMLElement;
   const selUf = el.querySelector('#sel-uf') as HTMLSelectElement;
+  const recortes = document.querySelector('#recortes') as HTMLElement | null;
   selUf.add(new Option('Brasil', 'BR'));
   for (const uf of [...UFS].sort((a, b) => a.nome.localeCompare(b.nome, 'pt-BR'))) {
     selUf.add(new Option(uf.nome, uf.sigla));
@@ -55,7 +59,22 @@ export function criarControles(
       selInd.value = ind.id;
       selSub.replaceChildren(...ind.subindicadores.map((s) => new Option(s.nome, s.id)));
       selSub.value = sub;
-      campoSub.hidden = ind.subindicadores.length < 2;
+      const n = ind.subindicadores.length;
+      const emBotoes = recortes !== null && n >= 2 && n <= MAX_BOTOES_RECORTE;
+      campoSub.hidden = n < 2 || emBotoes;
+      if (recortes) {
+        recortes.hidden = !emBotoes;
+        recortes.replaceChildren(
+          ...(emBotoes ? ind.subindicadores : []).map((s) => {
+            const b = document.createElement('button');
+            b.type = 'button';
+            b.textContent = s.nome;
+            b.setAttribute('aria-pressed', String(s.id === sub));
+            b.addEventListener('click', () => aoSub(s.id));
+            return b;
+          }),
+        );
+      }
       selUf.value = uf ?? '';
     },
   };

@@ -151,6 +151,99 @@ body {
   border-color: var(--acento);
   background: #deebf7;
 }
+/* Cartões-resumo do ano. No celular, uma faixa com rolagem lateral, para não tirar altura do mapa. */
+.resumo {
+  flex: none;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 16px;
+  margin: 0 -16px 8px;
+  padding: 0 16px 2px;
+  /* Altura exata dos cartões: a faixa entra via JS sem deslocar o mapa (CLS). */
+  min-height: 76px;
+}
+.cartao {
+  flex: 0 0 auto;
+  min-width: 150px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 6px 12px;
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  background: var(--fundo);
+  color: var(--texto);
+  font: inherit;
+  text-align: left;
+}
+button.cartao {
+  cursor: pointer;
+}
+button.cartao:hover {
+  border-color: var(--acento);
+}
+.cartao[aria-pressed='true'] {
+  border-color: var(--acento);
+  background: #deebf7;
+}
+.cartao-rotulo {
+  font-size: 0.75rem;
+  color: var(--texto-2);
+}
+.cartao-valor {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.cartao-unidade {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--texto-2);
+}
+.th-unidade {
+  font-weight: 400;
+}
+.cartao-detalhe {
+  font-size: 0.75rem;
+  color: var(--texto-2);
+  white-space: nowrap;
+}
+
+/* Recortes do indicador (até 4) como botões, no estilo do Mapa/Ranking. */
+.recortes {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  overflow: hidden;
+  min-height: 40px;
+}
+.recortes button {
+  flex: none;
+  white-space: nowrap;
+  font: inherit;
+  font-size: 0.875rem;
+  padding: 6px 12px;
+  border: 0;
+  border-right: 1px solid var(--borda);
+  background: var(--fundo);
+  color: var(--texto);
+  cursor: pointer;
+}
+.recortes button:last-child {
+  border-right: 0;
+}
+.recortes button[aria-pressed='true'] {
+  background: var(--acento);
+  color: #fff;
+}
+
 .botao-sobre {
   font-size: 0.9375rem;
   font-weight: 600;
@@ -347,6 +440,20 @@ body {
 }
 .ranking .valor {
   width: 55%;
+}
+/* Barra e número na mesma linha. */
+.valor-linha {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.valor-linha .barra-trilho {
+  flex: 1;
+  min-width: 40px;
+}
+.valor-linha .num {
+  flex: none;
+  white-space: nowrap;
 }
 .ranking .sem-dado {
   color: var(--texto-2);
@@ -629,6 +736,20 @@ body {
   font-size: 0.875rem;
 }
 
+/* Até o layout lado a lado: Mapa/Ranking e recortes dividem a primeira linha (os recortes rolam
+   para o lado) e o "Sobre" fica sempre na segunda. Assim a barra tem a mesma altura com ou sem
+   recortes, e nada se desloca quando eles chegam. */
+@media (max-width: 959px) {
+  .barra-viz .recortes {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .barra-viz .botao-sobre {
+    flex-basis: 100%;
+    padding: 2px 0;
+  }
+}
+
 /* Celular: cabeçalho compacto para sobrar altura para o mapa. */
 @media (max-width: 599px) {
   .subtitulo {
@@ -670,6 +791,51 @@ body {
   }
   .painel.gaveta-sobre {
     width: 480px;
+  }
+  /* Mapa e ranking lado a lado; a alternância Mapa/Ranking some. */
+  .viz {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'resumo resumo'
+      'barra barra'
+      'mapa ranking'
+      'slider slider';
+    column-gap: 20px;
+  }
+  .resumo {
+    grid-area: resumo;
+    min-height: 86px;
+    margin: 0 0 8px;
+    padding: 0;
+    overflow: visible;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .cartao {
+    min-width: 0;
+    padding: 8px 14px;
+  }
+  .cartao-valor {
+    font-size: 1.375rem;
+  }
+  .barra-viz {
+    grid-area: barra;
+  }
+  .visao {
+    display: none;
+  }
+  #mapa-area {
+    grid-area: mapa;
+  }
+  .ranking-area {
+    grid-area: ranking;
+    border-left: 1px solid var(--borda);
+    padding-left: 16px;
+  }
+  .slider {
+    grid-area: slider;
   }
   .painel {
     inset: 0 0 0 auto;
