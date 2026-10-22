@@ -36,4 +36,9 @@ npm run lint && npm run format:check && npm run typecheck
 npx playwright test                 # testes de fumaça (desktop e celular)
 ```
 
-Textos do site: `web/src/content/` (Markdown; `<!-- REVISAR -->` marca rascunho).
+Textos do site: `web/src/content/` (Markdown; `<!-- REVISAR -->` marca rascunho e mostra o aviso no site).
+
+## Licença
+
+Código: [MIT](LICENSE). Textos do site e dados derivados (`data/public/`): CC BY 4.0, ver
+[LICENSE-CONTEUDO.md](LICENSE-CONTEUDO.md). Os dados originais seguem os termos de cada órgão produtor.

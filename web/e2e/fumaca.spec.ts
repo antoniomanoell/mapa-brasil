@@ -108,13 +108,11 @@ test('ideb: três etapas e pontos bienais ligados por tracejado', async ({ page 
   await page.screenshot({ path: `test-results/ideb-${test.info().project.name}.png` });
 });
 
-test('página "Sobre o indicador" traz texto, aviso de rascunho e ficha técnica', async ({
-  page,
-}) => {
+test('página "Sobre o indicador" traz texto revisado e ficha técnica', async ({ page }) => {
   await page.goto('/indicador.html?i=homicidios');
   await expect(page.locator('body')).toHaveAttribute('data-pronto', 'true');
   await expect(page.locator('h1')).toHaveText('Taxa de homicídios');
-  await expect(page.locator('.aviso-rascunho')).toBeVisible();
+  await expect(page.locator('.aviso-rascunho')).toHaveCount(0);
   await expect(page.locator('#conteudo')).toContainText('O que mede');
   await expect(page.locator('#conteudo')).toContainText('Ficha técnica');
   await expect(page).toHaveTitle(/Sobre o indicador: Taxa de homicídios/);
