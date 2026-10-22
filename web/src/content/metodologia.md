@@ -2,7 +2,7 @@
 
 # Metodologia
 
-Este site mostra indicadores socioeconômicos dos 26 estados e do Distrito Federal, de 2000 até o dado mais recente, usando somente fontes oficiais. Esta página explica como os números chegam ao mapa.
+Este site mostra indicadores socioeconômicos dos 26 estados e do Distrito Federal, de 2000 (ou do primeiro ano que cada fonte oficial publica) até o dado mais recente, usando somente fontes oficiais. Esta página explica como os números chegam ao mapa.
 
 ## De onde vêm os dados
 
@@ -12,7 +12,7 @@ A ordem de preferência é:
 
 1. tabela publicada pelo próprio órgão produtor;
 2. série oficial redistribuída por outro órgão público, só quando é idêntica à do produtor;
-3. cálculo a partir dos microdados, só quando não existe tabela publicada. Nesse caso o cálculo é conferido contra números que o órgão publicou.
+3. cálculo a partir dos microdados, só quando não existe tabela publicada. Nesse caso o cálculo é conferido contra números que o órgão publicou. Hoje isso acontece só na renda per capita e no Gini de 2001 a 2015, calculados com os microdados da PNAD anual.
 
 ## Como os números são conferidos
 
