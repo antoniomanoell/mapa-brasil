@@ -35,7 +35,9 @@ As séries aparecem separadas: no gráfico, cada uma tem sua própria linha, e a
 
 ## Lacunas
 
-Ano sem dado fica sem dado: aparece em cinza hachurado no mapa e como interrupção na linha do gráfico. Nenhum valor é inventado, interpolado ou repetido do ano anterior.
+Ano sem dado fica sem dado: aparece em cinza hachurado no mapa (passando o mouse, aparece o motivo, quando conhecido), como "sem dado" na tabela e como interrupção na linha do gráfico. Nenhum valor é inventado, interpolado ou repetido do ano anterior.
+
+Exceção: em séries publicadas a cada dois anos, como o Ideb, os pontos são ligados por uma linha tracejada só para guiar o olho; não há valor entre eles.
 
 ## Projeções e estimativas
 
