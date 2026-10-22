@@ -227,3 +227,14 @@ Formato de cada entrada:
 - **Motivo:** pedido do mantenedor, inspirado num painel de referência. Medido antes e depois
   (Lighthouse celular, página do IDHM): desempenho 66 → 64–65 (variação de medição), acessibilidade
   100, CLS 0 mantido com altura reservada para os cartões e a barra de controles.
+
+## 2026-10-22 — Página do mapa: painéis com título, cartões em grade e siglas no mapa
+- **Decisão:** mapa, ranking e linha do tempo ficam em painéis brancos com título sobre fundo
+  cinza-claro (o ranking ganha título curto; a legenda completa da tabela fica para leitores de tela).
+  No celular, os cartões-resumo formam uma grade 2 × 2 em vez da faixa com rolagem lateral, e os
+  recortes vão para um seletor no cabeçalho, ao lado do estado (em botões, os nomes do IDEB não
+  cabiam e ficavam cortados); no computador continuam em botões. O mapa mostra a sigla de cada UF,
+  como marcadores HTML (uma camada de texto do MapLibre exigiria baixar fontes de outro servidor); os
+  estados pequenos da costa (RN, PB, PE, AL, SE, ES, RJ) têm a sigla no mar, ao lado.
+- **Motivo:** pedido do mantenedor, a partir do mesmo painel de referência. CLS medido no build de
+  produção (Playwright, computador e Pixel 7; IDHM, IDEB, ranking e ano sem dado): 0 em todos.

@@ -64,8 +64,11 @@ async function iniciar(): Promise<void> {
     origemSobre = alvo;
     aplicar({ sobre: true });
   });
+  // Computador: mapa e ranking lado a lado, sem a alternância Mapa/Ranking, e recortes em botões.
+  const largo = matchMedia('(min-width: 960px)');
   const controles = criarControles(
     $('#controles'),
+    largo,
     async (id) => {
       slider.parar();
       ind = await carregarIndicador(cat, id);
@@ -81,8 +84,6 @@ async function iniciar(): Promise<void> {
     (sub) => aplicar({ sub, segmento: undefined }),
     (uf) => aplicar({ uf }),
   );
-  // Computador: mapa e ranking lado a lado, sem a alternância Mapa/Ranking.
-  const largo = matchMedia('(min-width: 960px)');
   largo.addEventListener('change', () => {
     store.definir(store.estado);
     mapa.mapa.resize();
@@ -110,6 +111,8 @@ async function iniciar(): Promise<void> {
     }
     slider.atualizar(ind, e.sub, e.ano, e.segmento);
     renderLegenda($('#legenda'), ind, e.sub);
+    const nomeSub = ind.subindicadores.find((s) => s.id === e.sub)?.nome ?? ind.nome;
+    $('#titulo-mapa').textContent = `${nomeSub} em ${e.ano}`;
     void mapa.atualizar({ ind, sub: e.sub, ano: e.ano, seg, uf: e.uf });
 
     for (const b of document.querySelectorAll<HTMLButtonElement>('.visao button')) {
