@@ -47,7 +47,7 @@ npx wrangler dev
 
 ## Antes do primeiro deploy
 
-- [ ] Trocar `VITE_SITE_URL` em `web/.env` (padrão local) pela URL definitiva.
+- [x] Trocar `VITE_SITE_URL` em `web/.env` (padrão local) pela URL definitiva.
 - [ ] Revisar os textos marcados com `<!-- REVISAR -->` em `web/src/content/` (enquanto a marca
       existir, a página mostra o aviso "Rascunho").
 - [ ] Revisar os alertas de `pipeline/REPORT.md`.
