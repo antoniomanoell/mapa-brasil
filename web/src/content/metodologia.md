@@ -41,7 +41,7 @@ Exceção: em séries publicadas a cada dois anos, como o Ideb, os pontos são l
 
 ## Projeções e estimativas
 
-Não há projeções para o futuro. Valores que são estimativas de um modelo (como a esperança de vida e a mortalidade infantil do IBGE) aparecem rotulados como estimativas.
+Não há projeções para o futuro. Valores que são estimativas de um modelo (como a esperança de vida e a mortalidade infantil do IBGE) aparecem com o aviso "valores estimados, não medidos" no painel do estado. Embora venham das Projeções da População do IBGE, só entram anos já encerrados, cujos valores coincidem com as Tábuas de Mortalidade publicadas pelo IBGE.
 
 ## Valores em dinheiro
 
