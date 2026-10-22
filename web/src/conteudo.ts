@@ -40,6 +40,7 @@ export const AREA_COMPETENCIAS: Record<string, string> = {
   analfabetismo: 'educacao',
   mort_infantil: 'saude',
   esperanca_vida: 'saude',
+  homicidios: 'seguranca',
 };
 
 export const AVISO_COMPETENCIAS =
