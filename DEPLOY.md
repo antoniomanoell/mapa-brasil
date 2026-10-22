@@ -59,3 +59,9 @@ npx wrangler dev
 - Testar o link compartilhado (a URL guarda indicador, ano, estado e visão).
 - Rodar o Lighthouse (aba Lighthouse do Chrome DevTools, modo celular): a meta do projeto é ≥ 90 em
   desempenho e acessibilidade.
+
+## Manutenção da seção "Quem é responsável"
+
+- Uma vez por ano, ou quando houver emenda constitucional ou lei relevante para uma área, reconferir
+  os artigos listados em `web/src/content/competencias/FONTES.md` no texto vigente do Planalto
+  (atenção às redações antigas repetidas sem tachado) e atualizar as datas de conferência.
