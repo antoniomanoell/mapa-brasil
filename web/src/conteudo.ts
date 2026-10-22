@@ -42,6 +42,12 @@ export const AREA_COMPETENCIAS: Record<string, string> = {
   esperanca_vida: 'saude',
   homicidios: 'seguranca',
   esgoto: 'saneamento',
+  renda_pc: 'renda',
+  gini: 'renda',
+  pobreza: 'renda',
+  extrema_pobreza: 'renda',
+  desocupacao: 'renda',
+  informalidade: 'renda',
 };
 
 export const AVISO_COMPETENCIAS =

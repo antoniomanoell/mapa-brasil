@@ -129,3 +129,30 @@ Lei nº 11.445/2007 (https://www.planalto.gov.br/ccivil_03/_ato2007-2010/2007/le
 
 Lei nº 9.984/2000 (https://www.planalto.gov.br/ccivil_03/leis/l9984.htm): art. 4º-A (ANA edita normas
 de referência para a regulação).
+
+## Renda, trabalho e assistência (`renda.md`: renda, Gini, pobreza, extrema pobreza, desocupação, informalidade) — conferido em 2026-10-22
+
+Constituição Federal:
+- art. 3º, III (objetivo: erradicar a pobreza e reduzir as desigualdades);
+- art. 6º, parágrafo único (renda básica familiar; EC 114/2021);
+- art. 7º, IV (salário mínimo fixado em lei, nacionalmente unificado);
+- art. 21, XXIV (União: inspeção do trabalho);
+- art. 22, I (direito do trabalho) e XXIII (seguridade social);
+- art. 23, X (competência comum: combater as causas da pobreza);
+- art. 194, *caput* e VII (seguridade social; gestão quadripartite);
+- art. 201, *caput* e § 2º (Regime Geral; benefício não inferior ao salário mínimo);
+- art. 203, V e VI (BPC; redução da vulnerabilidade de famílias em pobreza e extrema pobreza);
+- art. 204, I e parágrafo único (assistência: coordenação e normas gerais federais, execução
+  estadual e municipal; vinculação facultativa de até 0,5% da receita tributária líquida);
+- art. 239 (PIS-Pasep financia o seguro-desemprego).
+
+Lei nº 8.742/1993, LOAS (https://www.planalto.gov.br/ccivil_03/leis/l8742.htm): arts. 12 (União),
+13 (estados), 14 (DF), 15 (municípios) e 20 (BPC).
+
+Lei nº 14.601/2023, Bolsa Família (https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2023/lei/l14601.htm):
+art. 1º, § 1º (etapa da renda básica do art. 6º, parágrafo único, da CF) e art. 12 (execução
+descentralizada, adesão voluntária dos estados, do DF e dos municípios).
+
+Lei nº 7.998/1990 (https://www.planalto.gov.br/ccivil_03/leis/l7998.htm): art. 2º (finalidade do
+seguro-desemprego) e art. 10 (FAT). As outras ocorrências de "Art. 2" na página são os arts. 2º-A e
+2º-C, não redações repetidas.
