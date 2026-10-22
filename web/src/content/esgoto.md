@@ -1,12 +1,10 @@
-<!-- REVISAR -->
-
 ## O que mede
 
-A porcentagem dos domicílios cujo banheiro ou sanitário está ligado à **rede geral de esgoto ou pluvial**, diretamente ou por uma fossa séptica ligada à rede. É o indicador que o próprio IBGE divulga como acesso à rede de esgoto.
+A porcentagem dos domicílios cujo banheiro ou sanitário está ligado à **rede geral de esgoto ou pluvial** (a rede de águas da chuva, que em muitas cidades também recebe esgoto), diretamente ou por uma fossa séptica ligada à rede. É o indicador que o próprio IBGE divulga como acesso à rede de esgoto.
 
 ## Como ler
 
-Quanto maior, mais domicílios ligados à rede. Domicílios com fossa séptica **não** ligada à rede não entram como "adequados" neste indicador, mesmo que a fossa seja bem construída; isso pesa muito em estados com muitas áreas rurais.
+Quanto maior, mais domicílios ligados à rede. Domicílios com fossa séptica **não** ligada à rede não contam aqui, mesmo que a fossa seja bem construída. Isso pesa muito em estados com muitas áreas rurais.
 
 ## De onde vem
 
@@ -24,4 +22,4 @@ São três séries, **não emendadas**: a PNAD virou PNAD Contínua em 2016, e e
 
 - O percentual é calculado sobre os domicílios que têm banheiro, sanitário ou buraco para dejeções, como o IBGE publica; domicílios sem nenhum deles ficam fora da conta.
 - Estar ligado à rede não garante que o esgoto seja tratado.
-- Até 2003 a PNAD não cobria a área rural de seis estados do Norte (valores marcados).
+- Até 2003 a PNAD não cobria a área rural de seis estados do Norte: Rondônia, Acre, Amazonas, Roraima, Pará e Amapá. Nesses estados, esses anos aparecem com aviso no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado).
