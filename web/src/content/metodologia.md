@@ -1,5 +1,3 @@
-<!-- REVISAR -->
-
 # Metodologia
 
 Este site mostra indicadores socioeconômicos dos 26 estados e do Distrito Federal, de 2000 (ou do primeiro ano que cada fonte oficial publica) até o dado mais recente, usando somente fontes oficiais. Esta página explica como os números chegam ao mapa.
@@ -67,4 +65,4 @@ Num indicador que melhorou muito, os primeiros anos podem aparecer quase todos c
 
 ## Mapa e ranking
 
-O mapa dá mais destaque visual a estados de área grande, mesmo quando têm pouca população. O ranking mostra todos os estados em ordem, com o mesmo peso, e é também a forma de navegar pelo teclado.
+O mapa dá mais destaque visual a estados de área grande, mesmo quando têm pouca população. O botão "Ranking", ao lado de "Mapa", mostra todos os estados em ordem, com o mesmo peso, e, junto com o seletor "Estado", é a forma de navegar pelo teclado. A lista vai sempre do maior para o menor valor; em indicadores em que maior é pior, como homicídios, os primeiros são os piores.
