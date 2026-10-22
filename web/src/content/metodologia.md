@@ -6,7 +6,7 @@ Este site mostra indicadores socioeconômicos dos 26 estados e do Distrito Feder
 
 ## De onde vêm os dados
 
-Cada indicador vem de um órgão oficial: IBGE, INEP, Ministério da Saúde (DATASUS), Ipea e o PNUD com a Fundação João Pinheiro. A página "Sobre o indicador" de cada um traz a fonte, a tabela usada e a data em que os dados foram extraídos.
+Cada indicador vem de um órgão oficial: IBGE, INEP, Ministério da Saúde (DATASUS) e o PNUD, com o Ipea e a Fundação João Pinheiro (no IDHM). A página "Sobre o indicador" de cada um traz a fonte, a tabela usada e a data em que os dados foram extraídos.
 
 A ordem de preferência é:
 
@@ -39,7 +39,7 @@ Não há projeções para o futuro. Valores que são estimativas de um modelo (c
 
 ## Valores em dinheiro
 
-Valores em reais estão sempre em reais de um mesmo ano, indicado na legenda, para que anos diferentes possam ser comparados.
+Valores em reais estão sempre em reais de um mesmo ano, indicado abaixo do mapa e no painel do estado, para que anos diferentes possam ser comparados.
 
 ## População
 
@@ -47,7 +47,7 @@ Todas as taxas calculadas pelo site (homicídios por 100 mil habitantes, PIB per
 
 ## Margem de erro
 
-Indicadores que vêm de pesquisas por amostra (PNAD e PNAD Contínua) têm margem de erro. Quando o coeficiente de variação passa de 15%, o valor aparece marcado como de baixa precisão, o que é comum em estados pequenos.
+Indicadores que vêm de pesquisas por amostra (PNAD e PNAD Contínua) têm margem de erro. Quando a margem de erro é grande (coeficiente de variação acima de 15%), o valor aparece com aviso de "baixa precisão" no mapa, na tabela (asterisco) e no gráfico do estado (ponto vazado). Isso é comum em estados pequenos.
 
 ## Cores do mapa
 
