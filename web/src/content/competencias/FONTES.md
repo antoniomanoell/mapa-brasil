@@ -48,7 +48,8 @@ Lei nº 14.113/2020, Fundeb (https://www.planalto.gov.br/ccivil_03/_ato2019-2022
 Constituição Federal:
 - art. 23, II (competência comum: cuidar da saúde);
 - art. 24, XII (competência concorrente: proteção e defesa da saúde);
-- art. 30, VII (municípios: atendimento à saúde, com cooperação da União e do estado);
+- art. 30, II (municípios suplementam a legislação) e VII (atendimento à saúde, com cooperação da
+  União e do estado);
 - art. 196 (direito de todos e dever do Estado; políticas sociais e econômicas);
 - art. 198, I e III, §§ 1º e 2º, I (SUS: direção única em cada esfera, participação da comunidade,
   financiamento, mínimo da União de 15% da receita corrente líquida; redação da EC 86/2015).
@@ -60,8 +61,12 @@ Lei nº 8.080/1990 (https://www.planalto.gov.br/ccivil_03/leis/l8080.htm):
 - art. 18, I e IV (direção municipal; redação da Lei nº 14.572/2023);
 - art. 19 (DF).
 
-Lei nº 8.142/1990 (https://www.planalto.gov.br/ccivil_03/leis/l8142.htm): art. 1º (Conselhos e
-Conferências de Saúde).
+Lei nº 8.069/1990, ECA (https://www.planalto.gov.br/ccivil_03/leis/l8069.htm): art. 8º, *caput* e
+§ 1º (atendimento pré-natal, perinatal e pós-natal no SUS; pré-natal na atenção primária; redação da
+Lei nº 13.257/2016); art. 11 (linhas de cuidado da saúde da criança).
+
+Lei nº 8.142/1990 (https://www.planalto.gov.br/ccivil_03/leis/l8142.htm): art. 1º, §§ 1º, 2º e 4º
+(Conferências e Conselhos de Saúde; homologação; representação paritária dos usuários).
 
 Lei Complementar nº 141/2012 (https://www.planalto.gov.br/ccivil_03/leis/lcp/lcp141.htm): arts. 6º
 (estados e DF, 12%) e 7º (municípios e DF, 15%), redação da LC 227/2026.
