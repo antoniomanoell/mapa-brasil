@@ -110,6 +110,12 @@
   display: none !important;
 }
 
+/* Nada passa da largura da tela: sem rolagem para o lado no celular. */
+html {
+  overflow-x: hidden;
+  overflow-x: clip;
+}
+
 body {
   margin: 0;
   background: var(--fundo-pagina);
@@ -965,6 +971,14 @@ button.cartao:hover {
   top: 6px;
   right: 8px;
 }
+/* O rótulo não passa por baixo do botão "?". */
+.cartao-com-ajuda .cartao-rotulo {
+  max-width: 100%;
+  padding-right: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 /* O título recebe o foco ao abrir o painel (para leitores de tela); não precisa do contorno. */
 .painel-titulo:focus {
   outline: none;
@@ -1106,6 +1120,20 @@ button.cartao:hover {
   .barra-viz {
     justify-content: space-between;
   }
+  /* Celular e tablet: o palco tem no mínimo a altura da tela, mas cresce quando o conteúdo não
+     cabe (iPhone com as barras do Safari), em vez de o mapa e a legenda vazarem sob o slider. */
+  .palco {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  .mapa {
+    min-height: 260px;
+  }
+  .ranking-rolagem {
+    max-height: 60vh;
+    max-height: 60dvh;
+  }
 }
 @media (max-width: 479px) {
   .rotulo-uf {
@@ -1164,6 +1192,91 @@ button.cartao:hover {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  /* Textos e caixas menores, para o mapa ganhar altura. Os seletores ficam em 16px (ver acima). */
+  .topo {
+    padding: 10px 12px 6px;
+  }
+  .topo-linha {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+  .marca,
+  .topo h1 {
+    font-size: 1rem;
+    gap: 8px;
+  }
+  .marca-icone {
+    width: 26px;
+    height: 26px;
+  }
+  .topo nav {
+    font-size: 0.8125rem;
+  }
+  .topo nav a {
+    padding: 4px 6px;
+  }
+  .botao-icone {
+    width: 32px;
+    height: 32px;
+    margin-left: 2px;
+  }
+  .campo select {
+    padding: 5px 30px 5px 10px;
+    min-height: 34px;
+  }
+  .conteudo {
+    padding: 2px 12px 10px;
+  }
+  .resumo {
+    gap: 6px;
+    margin-bottom: 6px;
+    min-height: 129px;
+  }
+  .cartao {
+    padding: 3px 10px;
+  }
+  .cartao-rotulo {
+    font-size: 0.625rem;
+  }
+  .cartao-valor {
+    font-size: 1rem;
+  }
+  .cartao-detalhe {
+    font-size: 0.6875rem;
+  }
+  .barra-viz {
+    margin-bottom: 6px;
+  }
+  .visao button {
+    font-size: 0.8125rem;
+    padding: 3px 10px;
+    min-height: 28px;
+  }
+  .botao-sobre {
+    font-size: 0.8125rem;
+    padding: 4px 6px;
+  }
+  .bloco {
+    padding: 8px 10px;
+  }
+  .bloco-titulo {
+    font-size: 0.875rem;
+  }
+  .legenda {
+    font-size: 0.75rem;
+    min-height: 61px;
+  }
+  .slider {
+    margin-top: 6px;
+  }
+  .slider-rotulo {
+    font-size: 0.8125rem;
+  }
+  .play {
+    width: 32px;
+    height: 32px;
   }
 }
 
