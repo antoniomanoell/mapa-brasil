@@ -7,6 +7,7 @@ from .gini import Gini
 from .homicidios import Homicidios
 from .ideb import Ideb
 from .idhm import Idhm
+from .inflacao import Inflacao
 from .pib_pc import PibPc
 from .pnadc_anual import desocupacao, informalidade
 from .pobreza import extrema_pobreza, pobreza
@@ -31,5 +32,6 @@ DEFINICOES: dict[str, DefinicaoIndicador] = {
         mort_infantil(),
         Esgoto(),
         Homicidios(),
+        Inflacao(),
     )
 }

@@ -3,7 +3,7 @@
 
 import { cor } from './tema';
 import { ROTULO_FLAG, esc, formatarNumero, formatarValor } from './format';
-import { ponto, segmentoVigente, segmentosDe } from './series';
+import { areaDe, ponto, segmentoVigente, segmentosDe } from './series';
 import type { Indicador } from './types';
 import { BR, localPorSigla } from './ufs';
 
@@ -109,7 +109,7 @@ export class Painel {
     });
 
     this.#corpo.innerHTML = `
-      <p class="painel-sub">${esc(nomeSub)} · ${esc(ind.unidade_detalhe)}${
+      <p class="painel-sub">${areaDe(vigente, uf.codigo) ? `<strong>Área do índice: ${esc(areaDe(vigente, uf.codigo) as string)}.</strong> ` : ''}${esc(nomeSub)} · ${esc(ind.unidade_detalhe)}${
         ind.tipo_valor === 'estimativa' ? ' · <strong>valores estimados, não medidos</strong>' : ''
       }</p>
       <dl class="painel-valores">

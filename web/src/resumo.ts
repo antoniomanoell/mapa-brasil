@@ -4,7 +4,7 @@
 
 import { ajuda } from './ajuda';
 import { esc, formatarNumero, formatarValor, formatarValorCurto, unidadeSeparada } from './format';
-import { ponto } from './series';
+import { areaDe, ponto } from './series';
 import type { Indicador, Segmento } from './types';
 import { BR, UFS, type UF } from './ufs';
 
@@ -68,7 +68,7 @@ export function renderResumo(
       ? `<button type="button" class="cartao" data-uf="${esc(item.uf.sigla)}" aria-pressed="${item.uf.sigla === ufSelecionada}">
           <span class="cartao-rotulo">${titulo}</span>
           <span class="cartao-valor">${valorCartao(item.v)}</span>
-          <span class="cartao-detalhe">${esc(item.uf.nome)}</span>
+          <span class="cartao-detalhe">${esc(item.uf.nome)}${areaDe(seg, item.uf.codigo) ? ` · ${esc(areaDe(seg, item.uf.codigo) as string)}` : ''}</span>
         </button>`
       : `<div class="cartao"><span class="cartao-rotulo">${titulo}</span><span class="cartao-valor">—</span></div>`;
   const diferenca =

@@ -133,6 +133,20 @@ test('tema escuro pelo botão, guardado entre páginas, e ajuda "?" em popover',
   await expect(page.locator('#atualizado')).toHaveText(/\d{2}\/\d{2}\/\d{4}/);
 });
 
+test('inflação: área do índice por estado, 16 com dado e 2018 sem dado onde o ano foi parcial', async ({
+  page,
+}) => {
+  await abrir(page, '?i=inflacao&s=ipca&a=2024&v=ranking');
+  await expect(page.locator('#resumo .cartao-br')).toContainText('4,83%');
+  await expect(page.locator('#resumo')).toContainText('16 de 27 estados com dado');
+  const ranking = page.locator('#ranking');
+  await expect(ranking).toContainText('RM de São Paulo');
+  await expect(ranking.locator('tbody tr', { hasText: 'sem dado' })).toHaveCount(11);
+  await abrir(page, '?i=inflacao&s=ipca&a=2018&uf=AC');
+  await expect(page.locator('#painel .painel-sub')).toContainText('Área do índice: Rio Branco');
+  await expect(page.locator('#resumo')).toContainText('13 de 27 estados com dado');
+});
+
 test('nada passa da largura da tela', async ({ page }) => {
   await abrir(page, '?i=idhm&uf=MA');
   const excesso = await page.evaluate(

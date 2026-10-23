@@ -22,6 +22,9 @@ export interface Segmento {
   tabela: string;
   extraido_em: string;
   notas?: string;
+  // Área de onde vem o valor de cada UF, quando não é a UF inteira (ex.: IPCA da região
+  // metropolitana).
+  areas?: Record<string, string>;
   anos: number[];
   valores: Record<string, Record<string, Ponto>>;
 }

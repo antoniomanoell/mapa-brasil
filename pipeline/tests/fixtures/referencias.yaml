@@ -117,3 +117,12 @@ referencias:
   - {indicador: ideb, subindicador: anos_finais, segmento: inep, geo: "22", ano: 2025, valor: 5.2, tolerancia: 0.05, url: "https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica-no-piaui"}
   - {indicador: ideb, subindicador: medio, segmento: inep, geo: "22", ano: 2025, valor: 4.9, tolerancia: 0.05, url: "https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica-no-piaui"}
   - {indicador: ideb, subindicador: medio, segmento: inep, geo: "22", ano: 2023, valor: 4.3, tolerancia: 0.05, url: "https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica-no-piaui"}
+
+  # --- inflacao: série histórica nacional do IBGE (SIDRA 1737 = IPCA, 1736 = INPC), variação acumulada no ano em dezembro; tabelas diferentes das usadas por área ---
+  - {indicador: inflacao, subindicador: ipca, segmento: ipca, geo: BR, ano: 2025, valor: 4.26, tolerancia: 0.005, url: "https://sidra.ibge.gov.br/tabela/1737"}
+  - {indicador: inflacao, subindicador: ipca, segmento: ipca, geo: BR, ano: 2024, valor: 4.83, tolerancia: 0.005, url: "https://sidra.ibge.gov.br/tabela/1737"}
+  - {indicador: inflacao, subindicador: ipca, segmento: ipca, geo: BR, ano: 2015, valor: 10.67, tolerancia: 0.005, url: "https://sidra.ibge.gov.br/tabela/1737"}
+  - {indicador: inflacao, subindicador: ipca, segmento: ipca, geo: BR, ano: 2000, valor: 5.97, tolerancia: 0.005, url: "https://sidra.ibge.gov.br/tabela/1737"}
+  - {indicador: inflacao, subindicador: inpc, segmento: inpc, geo: BR, ano: 2025, valor: 3.9, tolerancia: 0.005, url: "https://sidra.ibge.gov.br/tabela/1736"}
+  - {indicador: inflacao, subindicador: inpc, segmento: inpc, geo: BR, ano: 2024, valor: 4.77, tolerancia: 0.005, url: "https://sidra.ibge.gov.br/tabela/1736"}
+  - {indicador: inflacao, subindicador: inpc, segmento: inpc, geo: BR, ano: 2000, valor: 5.27, tolerancia: 0.005, url: "https://sidra.ibge.gov.br/tabela/1736"}

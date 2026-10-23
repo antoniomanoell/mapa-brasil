@@ -17,7 +17,7 @@ import type { Topology } from 'topojson-specification';
 import { CORES, hachura } from './cores';
 import { cor } from './tema';
 import { ROTULO_FLAG, esc, formatarValor } from './format';
-import { classe, ponto } from './series';
+import { areaDe, classe, ponto } from './series';
 import type { Indicador, Segmento } from './types';
 import { UFS, ufPorCodigo, ufPorSigla } from './ufs';
 
@@ -255,6 +255,9 @@ export class Mapa {
     const flags = (p?.flags ?? []).map((f) => `<li>${ROTULO_FLAG[f]}</li>`).join('');
     this.#dica.innerHTML =
       `<strong>${esc(uf.nome)}</strong>` +
+      (areaDe(v.seg, codigo)
+        ? `<span class="dica-meta">${esc(areaDe(v.seg, codigo) as string)}</span>`
+        : '') +
       `<span class="dica-valor">${esc(formatarValor(v.ind, p?.v))}</span>` +
       `<span class="dica-meta">${v.ano}${v.seg ? ` · ${esc(v.seg.rotulo)}` : ''}</span>` +
       (p?.lacuna ? `<span class="dica-meta">${esc(p.lacuna)}</span>` : '') +

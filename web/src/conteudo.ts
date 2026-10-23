@@ -50,6 +50,7 @@ export const AREA_COMPETENCIAS: Record<string, string> = {
   informalidade: 'renda',
   pib_pc: 'economia',
   idhm: 'idhm',
+  inflacao: 'precos',
 };
 
 export const AVISO_COMPETENCIAS =

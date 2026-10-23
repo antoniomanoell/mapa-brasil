@@ -254,3 +254,18 @@ Formato de cada entrada:
   (seletor de recorte que aparece ao lado do estado).
 - **Motivo:** pedido do mantenedor ("a UI parece site dos anos 2000") e pacote 2 da comparação com o
   painel de referência.
+
+## 2026-10-23 — inflacao: IPCA e INPC acumulados no ano, por área do índice
+- **Decisão:** indicador `inflacao` com dois recortes, IPCA e INPC, pela variação acumulada no ano em
+  dezembro (índice geral), 2000 em diante, das tabelas SIDRA 657/2938/1419/7060 (IPCA) e
+  651/2951/1100/7063 (INPC). O IBGE não calcula os índices por UF: cada UF com área no índice mostra o
+  valor dela (10 regiões metropolitanas e 6 capitais), sempre com o nome da área (campo `areas` do
+  segmento, exibido no mapa, nos cartões, no ranking e no painel); as 11 UFs sem área ficam sem dado.
+  Grande Vitória e Campo Grande entram em 2014 (janeiro). Rio Branco, São Luís e Aracaju entraram em
+  maio de 2018: o acumulado de 2018 delas cobre 8 meses e fica como lacuna; a série delas começa em
+  2019. Uma série por índice, sem quebra (as trocas de tabela acompanham as atualizações de pesos
+  da POF, e a série nacional do IBGE é contínua).
+- **Conferência:** Brasil em 2000, 2015, 2024 e 2025 (IPCA) e 2000, 2024 e 2025 (INPC) iguais aos da
+  série histórica nacional (SIDRA 1737 e 1736), tabelas diferentes das usadas por área.
+- **Motivo:** pedido do mantenedor; medida (IPCA e INPC), geografia (UF pela sua área) e período
+  (acumulado no ano) decididos por ele.

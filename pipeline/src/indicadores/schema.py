@@ -56,6 +56,9 @@ class Segmento(Modelo):
     tabela: str
     extraido_em: date
     notas: str = ""
+    # Quando o valor de uma UF vem de uma área menor (ex.: IPCA da região metropolitana), o nome
+    # da área por UF, para o site dizer de onde é o número.
+    areas: dict[CodigoGeo, str] = {}
     # Anos que o segmento publica. Anos do intervalo fora desta lista são lacunas do
     # segmento inteiro (ex.: 2010 na PNAD) e devem ser explicados em `notas`.
     anos: list[int]

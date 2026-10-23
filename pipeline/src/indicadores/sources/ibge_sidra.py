@@ -74,3 +74,28 @@ def consultar(
             )
         saida[var] = next(iter(por_cat.values()), {})
     return saida, obtido_em
+
+
+def consultar_areas_mensal(
+    tabela: int,
+    variavel: int,
+    meses: list[str],
+    classificacao: str,
+) -> tuple[dict[str, dict[str, float | None]], date]:
+    """Índices de preços: valor por área (código do SIDRA, "BR" para o Brasil) → mês (AAAAMM).
+
+    As áreas são regiões metropolitanas (N7) e municípios (N6), como o IBGE publica o IPCA e o
+    INPC; não há valor por UF.
+    """
+    params = {"localidades": "N1[all]|N6[all]|N7[all]", "classificacao": classificacao}
+    resp = requisitar(f"{API}/{tabela}/periodos/{'|'.join(meses)}/variaveis/{variavel}", params)
+    saida: dict[str, dict[str, float | None]] = {}
+    for var in json.loads(resp.conteudo):
+        for res in var["resultados"]:
+            for s in res["series"]:
+                loc = s["localidade"]
+                geo = BR if loc["nivel"]["id"] == "N1" else str(loc["id"])
+                serie = saida.setdefault(geo, {})
+                for mes, v in s["serie"].items():
+                    serie[mes] = None if v in SEM_VALOR else float(v)
+    return saida, resp.obtido_em

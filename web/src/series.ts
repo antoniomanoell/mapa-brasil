@@ -35,6 +35,12 @@ export function segmentoVigente(
   );
 }
 
+/** Área de onde vem o valor da UF (ex.: "RM de Belém"), quando o indicador não é medido na UF
+ * inteira. */
+export function areaDe(seg: Segmento | undefined, codigo: string): string | undefined {
+  return seg?.areas?.[codigo];
+}
+
 export function ponto(seg: Segmento | undefined, geo: string, ano: number): Ponto | undefined {
   return seg?.valores[geo]?.[String(ano)];
 }

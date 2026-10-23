@@ -193,3 +193,8 @@ condução pelo Banco Central).
 
 Sem base legal própria: o texto resume, sem novas afirmações, o que está nas áreas de saúde, educação e
 renda (ver acima) e remete aos indicadores correspondentes.
+
+## Preços (`precos.md`: inflação) — artigos já conferidos nas áreas de economia (2026-10-22)
+
+Constituição Federal: arts. 21, VII; 22, VI e VII; 155, II (ICMS); 156, III (ISS); 164. Lei
+Complementar nº 179/2021, arts. 1º e 2º.

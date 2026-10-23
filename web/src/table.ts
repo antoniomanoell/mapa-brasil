@@ -2,7 +2,7 @@
 
 import { ajuda } from './ajuda';
 import { ROTULO_FLAG, esc, formatarValor, formatarValorCurto, unidadeSeparada } from './format';
-import { ponto } from './series';
+import { areaDe, ponto } from './series';
 import type { Indicador, Segmento } from './types';
 import { BR, UFS } from './ufs';
 
@@ -49,6 +49,13 @@ export function renderRanking(
       </span></td>`;
     const botao = tr.querySelector('button') as HTMLButtonElement;
     botao.textContent = uf.nome;
+    const area = areaDe(seg, uf.codigo);
+    if (area) {
+      const nota = document.createElement('span');
+      nota.className = 'area-uf';
+      nota.textContent = area;
+      botao.after(nota);
+    }
     botao.addEventListener('click', () => aoSelecionar(uf.sigla));
     if (flags) (tr.querySelector('.num') as HTMLElement).title = flags;
     corpo.append(tr);
