@@ -198,3 +198,8 @@ renda (ver acima) e remete aos indicadores correspondentes.
 
 Constituição Federal: arts. 21, VII; 22, VI e VII; 155, II (ICMS); 156, III (ISS); 164. Lei
 Complementar nº 179/2021, arts. 1º e 2º.
+
+Conferidos em 2026-10-23 no texto vigente do Planalto (sem tachado): CF art. 21, XII, b (energia
+elétrica); art. 30, V (transporte coletivo local); art. 156-A (IBS, incluído pela EC 132/2023);
+ADCT art. 125 (IBS a 0,1% em 2026), art. 128 (redução do ICMS e do ISS de 2029 a 2032) e art. 129
+(extinção do ICMS e do ISS a partir de 2033).
