@@ -1,7 +1,7 @@
 # REPORT do pipeline
 
-- Data: 2026-10-22
-- Versão do pipeline: `083abb3`
+- Data: 2026-10-23
+- Versão do pipeline: `31f2283`
 - Escopo: completo
 - Resultado: OK
 
@@ -985,3 +985,812 @@
 - principal/sim/16/2023 (contagem): 516.0 ≈ 516 ✓ (https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc)
 - principal/sim/35/2014 (contagem): 6185.0 ≈ 6185 ✓ (https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc)
 - principal/sim/14/2018 (contagem): 414.0 ≈ 414 ✓ (https://repositorio.ipea.gov.br/entities/publication/9ab87dfc-33eb-4ac2-8a54-f4f1543dabbc)
+
+## `inflacao` — OK
+
+| Subindicador | Segmento | Anos | Lacunas do segmento | Flags |
+|---|---|---|---|---|
+| ipca | IPCA (2000–) | 2000–2025 | — | — |
+| inpc | INPC (2000–) | 2000–2025 | — | — |
+
+**Lacunas pontuais**
+
+- ipca/ipca/11/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/11/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/12/2000: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2001: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2002: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2003: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2004: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2005: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2006: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2007: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2008: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2009: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2010: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2011: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2012: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2013: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2014: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2015: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2016: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2017: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/12/2018: a área entrou no índice em maio de 2018: o acumulado do ano cobre só 8 meses
+- ipca/ipca/13/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/13/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/14/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/16/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/17/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/21/2000: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2001: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2002: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2003: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2004: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2005: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2006: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2007: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2008: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2009: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2010: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2011: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2012: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2013: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2014: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2015: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2016: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2017: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/21/2018: a área entrou no índice em maio de 2018: o acumulado do ano cobre só 8 meses
+- ipca/ipca/22/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/22/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/24/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/25/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/27/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/28/2000: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2001: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2002: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2003: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2004: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2005: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2006: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2007: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2008: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2009: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2010: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2011: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2012: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2013: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2014: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2015: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2016: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2017: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/28/2018: a área entrou no índice em maio de 2018: o acumulado do ano cobre só 8 meses
+- ipca/ipca/32/2000: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2001: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2002: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2003: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2004: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2005: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2006: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2007: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2008: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2009: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2010: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2011: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2012: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/32/2013: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/42/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/42/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/50/2000: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2001: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2002: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2003: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2004: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2005: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2006: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2007: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2008: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2009: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2010: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2011: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2012: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/50/2013: a área deste estado ainda não fazia parte do índice
+- ipca/ipca/51/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- ipca/ipca/51/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/11/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/12/2000: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2001: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2002: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2003: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2004: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2005: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2006: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2007: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2008: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2009: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2010: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2011: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2012: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2013: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2014: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2015: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2016: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2017: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/12/2018: a área entrou no índice em maio de 2018: o acumulado do ano cobre só 8 meses
+- inpc/inpc/13/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/13/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/14/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/16/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/17/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/21/2000: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2001: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2002: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2003: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2004: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2005: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2006: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2007: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2008: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2009: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2010: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2011: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2012: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2013: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2014: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2015: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2016: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2017: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/21/2018: a área entrou no índice em maio de 2018: o acumulado do ano cobre só 8 meses
+- inpc/inpc/22/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/22/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/24/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/25/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/27/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/28/2000: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2001: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2002: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2003: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2004: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2005: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2006: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2007: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2008: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2009: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2010: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2011: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2012: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2013: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2014: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2015: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2016: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2017: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/28/2018: a área entrou no índice em maio de 2018: o acumulado do ano cobre só 8 meses
+- inpc/inpc/32/2000: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2001: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2002: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2003: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2004: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2005: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2006: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2007: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2008: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2009: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2010: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2011: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2012: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/32/2013: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/42/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/42/2025: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/50/2000: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2001: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2002: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2003: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2004: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2005: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2006: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2007: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2008: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2009: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2010: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2011: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2012: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/50/2013: a área deste estado ainda não fazia parte do índice
+- inpc/inpc/51/2000: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2001: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2002: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2003: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2004: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2005: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2006: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2007: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2008: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2009: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2010: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2011: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2012: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2013: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2014: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2015: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2016: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2017: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2018: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2019: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2020: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2021: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2022: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2023: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2024: o IBGE não calcula o índice para nenhuma área deste estado
+- inpc/inpc/51/2025: o IBGE não calcula o índice para nenhuma área deste estado
+
+**Erros** (0)
+
+- nenhum
+
+**Alertas (variação suspeita — revisar)** (40)
+
+- ipca/ipca/15: 2006→2007 variou +124.0% (3.17 → 7.1)
+- ipca/ipca/15: 2017→2018 variou +163.2% (1.14 → 3.0)
+- ipca/ipca/21: 2023→2024 variou +282.9% (1.7 → 6.51)
+- ipca/ipca/28: 2020→2021 variou +144.9% (4.14 → 10.14)
+- ipca/ipca/29: 2000→2001 variou +111.8% (4.9 → 10.38)
+- ipca/ipca/29: 2020→2021 variou +150.1% (4.31 → 10.78)
+- ipca/ipca/32: 2020→2021 variou +123.3% (5.15 → 11.5)
+- ipca/ipca/33: 2020→2021 variou +109.8% (4.09 → 8.58)
+- ipca/ipca/35: 2020→2021 variou +118.0% (4.4 → 9.59)
+- ipca/ipca/41: 2020→2021 variou +222.3% (3.95 → 12.73)
+- ipca/ipca/43: 2020→2021 variou +160.4% (4.22 → 10.99)
+- ipca/ipca/52: 2020→2021 variou +138.1% (4.33 → 10.31)
+- ipca/ipca/53: 2001→2002 variou +102.6% (7.3 → 14.79)
+- ipca/ipca/53: 2020→2021 variou +174.7% (3.4 → 9.34)
+- ipca/ipca/BR: 2020→2021 variou +122.6% (4.52 → 10.06)
+- inpc/inpc/15: 2006→2007 variou +207.1% (2.66 → 8.17)
+- inpc/inpc/15: 2017→2018 variou +250.0% (0.74 → 2.59)
+- inpc/inpc/15: 2018→2019 variou +122.4% (2.59 → 5.76)
+- inpc/inpc/21: 2023→2024 variou +282.7% (1.62 → 6.2)
+- inpc/inpc/23: 2006→2007 variou +144.2% (1.9 → 4.64)
+- inpc/inpc/26: 2001→2002 variou +100.7% (8.4 → 16.86)
+- inpc/inpc/26: 2006→2007 variou +121.8% (2.38 → 5.28)
+- inpc/inpc/28: 2020→2021 variou +121.7% (4.37 → 9.69)
+- inpc/inpc/29: 2000→2001 variou +184.3% (4.08 → 11.6)
+- inpc/inpc/29: 2006→2007 variou +180.0% (2.55 → 7.14)
+- inpc/inpc/29: 2017→2018 variou +101.1% (1.84 → 3.7)
+- inpc/inpc/29: 2020→2021 variou +122.2% (4.99 → 11.09)
+- inpc/inpc/31: 2017→2018 variou +221.2% (1.13 → 3.63)
+- inpc/inpc/32: 2017→2018 variou +114.1% (1.85 → 3.96)
+- inpc/inpc/33: 2017→2018 variou +231.0% (1.26 → 4.17)
+- inpc/inpc/35: 2000→2001 variou +134.4% (4.21 → 9.87)
+- inpc/inpc/35: 2014→2015 variou +119.3% (5.48 → 12.02)
+- inpc/inpc/41: 2006→2007 variou +114.3% (1.75 → 3.75)
+- inpc/inpc/41: 2014→2015 variou +109.6% (6.59 → 13.81)
+- inpc/inpc/41: 2020→2021 variou +170.3% (4.75 → 12.84)
+- inpc/inpc/43: 2017→2018 variou +128.0% (2.0 → 4.56)
+- inpc/inpc/43: 2020→2021 variou +118.0% (5.22 → 11.38)
+- inpc/inpc/50: 2017→2018 variou +202.4% (0.85 → 2.57)
+- inpc/inpc/52: 2006→2007 variou +151.0% (2.1 → 5.27)
+- inpc/inpc/53: 2020→2021 variou +132.9% (4.22 → 9.83)
+
+**Conferência com números publicados** (7)
+
+- ipca/ipca/BR/2025 (valor): 4.26 ≈ 4.26 ✓ (https://sidra.ibge.gov.br/tabela/1737)
+- ipca/ipca/BR/2024 (valor): 4.83 ≈ 4.83 ✓ (https://sidra.ibge.gov.br/tabela/1737)
+- ipca/ipca/BR/2015 (valor): 10.67 ≈ 10.67 ✓ (https://sidra.ibge.gov.br/tabela/1737)
+- ipca/ipca/BR/2000 (valor): 5.97 ≈ 5.97 ✓ (https://sidra.ibge.gov.br/tabela/1737)
+- inpc/inpc/BR/2025 (valor): 3.9 ≈ 3.9 ✓ (https://sidra.ibge.gov.br/tabela/1736)
+- inpc/inpc/BR/2024 (valor): 4.77 ≈ 4.77 ✓ (https://sidra.ibge.gov.br/tabela/1736)
+- inpc/inpc/BR/2000 (valor): 5.27 ≈ 5.27 ✓ (https://sidra.ibge.gov.br/tabela/1736)
