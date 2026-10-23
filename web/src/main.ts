@@ -119,7 +119,12 @@ async function iniciar(): Promise<void> {
     slider.atualizar(ind, e.sub, e.ano, e.segmento);
     renderLegenda($('#legenda'), ind, e.sub);
     const nomeSub = ind.subindicadores.find((s) => s.id === e.sub)?.nome ?? ind.nome;
-    $('#titulo-mapa').textContent = `${nomeSub} em ${e.ano}`;
+    // No celular o título usa o nome sem o parêntese ("IPCA em 2025"); o completo fica no seletor.
+    const nomeCurto = nomeSub.split(' (')[0] ?? nomeSub;
+    $('#titulo-mapa').innerHTML =
+      nomeCurto === nomeSub
+        ? `${esc(nomeSub)} em ${e.ano}`
+        : `<span class="nome-longo">${esc(nomeSub)}</span><span class="nome-curto">${esc(nomeCurto)}</span> em ${e.ano}`;
     void mapa.atualizar({ ind, sub: e.sub, ano: e.ano, seg, uf: e.uf });
 
     for (const b of document.querySelectorAll<HTMLButtonElement>('.visao button')) {
