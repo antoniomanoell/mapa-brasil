@@ -6,7 +6,7 @@ Os **textos** do site (`web/src/content/`) e os **dados derivados** publicados e
 sob a licença **Creative Commons Atribuição 4.0 Internacional (CC BY 4.0)**:
 https://creativecommons.org/licenses/by/4.0/deed.pt-br
 
-Ao reutilizar, cite: "Indicadores BR (https://indicadores-br.antoniomanoel650.workers.dev)" e as
+Ao reutilizar, cite: "Indicadores BR (https://indicadores-br.vercel.app)" e as
 fontes oficiais de cada indicador.
 
 Os **dados originais** pertencem aos órgãos que os produzem (IBGE, INEP, Ministério da Saúde/DATASUS,
