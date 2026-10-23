@@ -269,3 +269,13 @@ Formato de cada entrada:
   série histórica nacional (SIDRA 1737 e 1736), tabelas diferentes das usadas por área.
 - **Motivo:** pedido do mantenedor; medida (IPCA e INPC), geografia (UF pela sua área) e período
   (acumulado no ano) decididos por ele.
+
+## 2026-10-23 — Hospedagem: Vercel, no lugar do Cloudflare Workers
+- **Decisão:** publicar na Vercel, com a configuração em `vercel.json` na raiz (instalação e build do
+  `web/`, saída `web/dist`, `cleanUrls` e os mesmos cabeçalhos de cache do `_headers`). Substitui a
+  decisão de 2026-10-22 sobre o Cloudflare Workers.
+- **Motivo:** o endereço gratuito do Cloudflare inclui o nome da conta
+  (`indicadores-br.<conta>.workers.dev`); o da Vercel é só o do projeto (`<projeto>.vercel.app`).
+  Para um site estático o resto é equivalente: CDN, cabeçalhos de cache, prévia por branch e domínio
+  próprio, se houver. O plano gratuito (Hobby) da Vercel é para uso pessoal e não comercial, o caso
+  deste projeto. O site continua portável (só a pasta `web/dist`). Decidido pelo mantenedor.
