@@ -6,6 +6,13 @@
     <title>Sobre — Indicadores BR</title>
     <meta name="description" content="O que é o Indicadores BR e quais princípios seguimos." />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      // Tema escolhido antes, aplicado antes da primeira pintura (ver src/tema.ts).
+      try {
+        var t = localStorage.getItem('tema');
+        if (t === 'claro' || t === 'escuro') document.documentElement.dataset.tema = t;
+      } catch (e) {}
+    </script>
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Indicadores BR" />
     <meta property="og:title" content="Sobre — Indicadores BR" />
@@ -18,10 +25,23 @@
   </head>
   <body data-pagina="sobre">
     <header class="topo topo-pagina">
-      <p class="marca"><a href="./">Indicadores BR</a></p>
+      <p class="marca">
+        <a href="./"
+          ><svg class="marca-icone" viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+            <rect width="32" height="32" rx="9" fill="var(--acento-forte)" />
+            <path
+              d="M9 22v-5M14 22V10M19 22v-8M24 22v-11"
+              stroke="#fff"
+              stroke-width="2.6"
+              stroke-linecap="round"
+            /></svg
+          ><span>Indicadores BR</span></a
+        >
+      </p>
       <nav aria-label="Seções">
         <a href="./">Mapa</a> <a href="metodologia.html">Metodologia</a>
         <a href="sobre.html">Sobre</a>
+        <button type="button" id="tema" class="botao-icone" aria-label="Usar tema escuro"></button>
       </nav>
     </header>
     <main id="conteudo" class="texto"><p>Carregando…</p></main>

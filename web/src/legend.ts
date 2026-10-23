@@ -15,6 +15,7 @@ export function renderLegenda(el: HTMLElement, ind: Indicador, sub: string): voi
   const titulo = document.createElement('p');
   titulo.className = 'legenda-titulo';
   titulo.textContent = `${ind.unidade_detalhe} · mais escuro = maior`;
+  titulo.title = titulo.textContent;
   const lista = document.createElement('ul');
   CORES.forEach((cor, i) => lista.append(item(cor, rotulos[i] as string)));
   lista.append(item(CSS_HACHURA, 'sem dado'));

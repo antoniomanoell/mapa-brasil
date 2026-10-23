@@ -2,6 +2,7 @@
 // menor valor entre os estados e a diferença entre eles. Só descrevem: "maior/menor", nunca
 // "melhor/pior" (PROJECT.md, princípio 6).
 
+import { ajuda } from './ajuda';
 import { esc, formatarNumero, formatarValor, formatarValorCurto, unidadeSeparada } from './format';
 import { ponto } from './series';
 import type { Indicador, Segmento } from './types';
@@ -80,7 +81,8 @@ export function renderResumo(
     </button>
     ${cartaoUf('Maior valor', r.maior)}
     ${cartaoUf('Menor valor', r.menor)}
-    <div class="cartao">
+    <div class="cartao cartao-com-ajuda">
+      ${ajuda('ajuda-resumo', 'Como ler os cartões', '<strong>Brasil:</strong> valor do país no ano. A variação compara com o ano anterior da mesma série; pesquisas diferentes não se comparam. <strong>Maior e menor valor:</strong> entre os 27 estados; maior não quer dizer melhor, depende do indicador. <strong>Diferença:</strong> maior menos menor valor.')}
       <span class="cartao-rotulo">Diferença entre eles</span>
       <span class="cartao-valor">${esc(diferenca)}</span>
       <span class="cartao-detalhe">${r.comDado} de ${UFS.length} estados com dado</span>

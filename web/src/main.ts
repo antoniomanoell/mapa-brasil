@@ -9,6 +9,7 @@ import { Painel } from './panel';
 import { segmentoVigente } from './series';
 import { Slider } from './slider';
 import { SobreIndicador } from './sobre';
+import { iniciarTema } from './tema';
 import {
   type Estado,
   type EstadoBruto,
@@ -94,6 +95,12 @@ async function iniciar(): Promise<void> {
   }
 
   store.assinar((e, anterior) => renderizar(e, anterior, ind, cat));
+  $('#atualizado').textContent = formatarData(cat.gerado_em);
+  // Ao trocar o tema, o mapa e o gráfico do painel são redesenhados com as cores novas.
+  iniciarTema(() => {
+    void mapa.aplicarTema();
+    store.definir(store.estado);
+  });
 
   function renderizar(e: Estado, anterior: Estado | undefined, ind: Indicador, cat: Catalogo) {
     history.replaceState(null, '', escreverUrl(e, ind));

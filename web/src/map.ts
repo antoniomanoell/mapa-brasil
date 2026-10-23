@@ -15,6 +15,7 @@ import urlWorker from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
 import { feature } from 'topojson-client';
 import type { Topology } from 'topojson-specification';
 import { CORES, hachura } from './cores';
+import { cor } from './tema';
 import { ROTULO_FLAG, esc, formatarValor } from './format';
 import { classe, ponto } from './series';
 import type { Indicador, Segmento } from './types';
@@ -57,9 +58,10 @@ const ROTULOS: Record<string, [number, number]> = {
   MS: [-54.8, -20.5],
   MT: [-55.9, -12.9],
   GO: [-50.8, -16.6],
-  DF: [-47.5, -15.6],
+  // DF é pequeno demais para a sigla caber dentro: ela fica logo ao lado, à direita.
+  DF: [-46.75, -15.75],
 };
-const FORA = new Set(['RN', 'PB', 'PE', 'AL', 'SE', 'ES', 'RJ']);
+const FORA = new Set(['RN', 'PB', 'PE', 'AL', 'SE', 'ES', 'RJ', 'DF']);
 // Classes a partir desta (as duas mais escuras) levam a sigla em branco.
 const CLASSE_ESCURA = 3;
 
@@ -88,7 +90,9 @@ export class Mapa {
       style: {
         version: 8,
         sources: {},
-        layers: [{ id: 'fundo', type: 'background', paint: { 'background-color': '#ffffff' } }],
+        layers: [
+          { id: 'fundo', type: 'background', paint: { 'background-color': cor('--fundo') } },
+        ],
       },
       bounds: LIMITES_BR,
       fitBoundsOptions: { padding: 8 },
@@ -121,9 +125,11 @@ export class Mapa {
 
     this.pronto = new Promise((resolve) => {
       this.mapa.on('load', () => {
-        this.mapa.addImage('hachura', hachura(), { pixelRatio: 2 });
+        this.mapa.addImage('hachura', hachura(cor('--hachura-fundo'), cor('--hachura-linha')), {
+          pixelRatio: 2,
+        });
         this.mapa.addSource('ufs', { type: 'geojson', data: geo, promoteId: 'codarea' });
-        const cor = [
+        const corClasse = [
           'match',
           ['feature-state', 'classe'],
           ...CORES.flatMap((c, i) => [i, c]),
@@ -140,7 +146,7 @@ export class Mapa {
           type: 'fill',
           source: 'ufs',
           paint: {
-            'fill-color': cor as never,
+            'fill-color': corClasse as never,
             'fill-opacity': [
               'case',
               ['>=', ['coalesce', ['feature-state', 'classe'], -1], 0],
@@ -153,14 +159,14 @@ export class Mapa {
           id: 'ufs-borda',
           type: 'line',
           source: 'ufs',
-          paint: { 'line-color': '#ffffff', 'line-width': 0.8 },
+          paint: { 'line-color': cor('--fundo'), 'line-width': 0.8 },
         });
         this.mapa.addLayer({
           id: 'ufs-selecao',
           type: 'line',
           source: 'ufs',
           paint: {
-            'line-color': '#111111',
+            'line-color': cor('--mapa-contorno-sel'),
             'line-width': ['case', ['boolean', ['feature-state', 'sel'], false], 2.5, 0],
           },
         });
@@ -182,6 +188,15 @@ export class Mapa {
       const uf = ufPorCodigo(String(e.features?.[0]?.properties?.['codarea']));
       if (uf) aoSelecionar(uf.sigla);
     });
+  }
+
+  /** Redesenha fundo, divisas, seleção e hachura com as cores do tema atual. */
+  async aplicarTema(): Promise<void> {
+    await this.pronto;
+    this.mapa.setPaintProperty('fundo', 'background-color', cor('--fundo'));
+    this.mapa.setPaintProperty('ufs-borda', 'line-color', cor('--fundo'));
+    this.mapa.setPaintProperty('ufs-selecao', 'line-color', cor('--mapa-contorno-sel'));
+    this.mapa.updateImage('hachura', hachura(cor('--hachura-fundo'), cor('--hachura-linha')));
   }
 
   async atualizar(vista: Vista): Promise<void> {

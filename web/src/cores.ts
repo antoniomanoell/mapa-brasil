@@ -6,16 +6,15 @@ import { schemeBlues } from 'd3-scale-chromatic';
 
 export const CLASSES = 5;
 export const CORES: readonly string[] = (schemeBlues[CLASSES + 1] as readonly string[]).slice(1);
-export const COR_BRASIL = '#6b6b6b';
 
-/** Imagem 8×8 de hachura diagonal para "sem dado". */
-export function hachura(): ImageData {
+/** Imagem 8×8 de hachura diagonal para "sem dado", nas cores do tema (variáveis do CSS). */
+export function hachura(fundo = '#e6e6e6', linha = '#a3a3a3'): ImageData {
   const c = document.createElement('canvas');
   c.width = c.height = 8;
   const ctx = c.getContext('2d') as CanvasRenderingContext2D;
-  ctx.fillStyle = '#e6e6e6';
+  ctx.fillStyle = fundo;
   ctx.fillRect(0, 0, 8, 8);
-  ctx.strokeStyle = '#a3a3a3';
+  ctx.strokeStyle = linha;
   ctx.lineWidth = 1.2;
   ctx.beginPath();
   ctx.moveTo(-2, 10);
@@ -28,4 +27,5 @@ export function hachura(): ImageData {
   return ctx.getImageData(0, 0, 8, 8);
 }
 
-export const CSS_HACHURA = 'repeating-linear-gradient(-45deg, #e6e6e6 0 3px, #a3a3a3 3px 4px)';
+export const CSS_HACHURA =
+  'repeating-linear-gradient(-45deg, var(--hachura-fundo) 0 3px, var(--hachura-linha) 3px 4px)';

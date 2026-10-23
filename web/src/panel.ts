@@ -1,16 +1,15 @@
 // Painel da UF: série temporal com segmentos separados, Brasil em cinza, quebras marcadas (9.1).
 // Observable Plot só é baixado quando o painel abre pela primeira vez.
 
-import { COR_BRASIL } from './cores';
+import { cor } from './tema';
 import { ROTULO_FLAG, esc, formatarNumero, formatarValor } from './format';
 import { ponto, segmentoVigente, segmentosDe } from './series';
 import type { Indicador } from './types';
 import { BR, localPorSigla } from './ufs';
 
-// Cores dos segmentos da UF: escuras, distintas entre si e do cinza do Brasil; sem vermelho/verde.
-const CORES_SEGMENTO = ['#08519c', '#6a3d9a'];
-// Série de referência (ex.: taxa direta do DATASUS): tracejada, só para a UF.
-const COR_REFERENCIA = '#b15928';
+// Cores das séries vêm do tema (style.css): segmentos da UF distintos entre si e do cinza do Brasil,
+// sem vermelho/verde; a série de referência (ex.: taxa direta do DATASUS) usa --serie-ref, tracejada.
+const VARS_SEGMENTO = ['--serie-1', '--serie-2'];
 
 interface Linha {
   ano: number;
@@ -35,7 +34,7 @@ export class Painel {
     el.innerHTML = `
       <div class="painel-cabeca">
         <h2 class="painel-titulo" tabindex="-1"></h2>
-        <button type="button" class="fechar" aria-label="Fechar painel do estado">✕</button>
+        <button type="button" class="fechar" aria-label="Fechar painel do estado"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 3.5l9 9m0-9l-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       </div>
       <div class="painel-corpo"></div>`;
     this.#titulo = el.querySelector('.painel-titulo') as HTMLElement;
@@ -77,13 +76,14 @@ export class Painel {
       const bienal =
         seg.anos.length > 2 &&
         seg.anos.every((a, i) => i === 0 || a - (seg.anos[i - 1] as number) === 2);
-      const cor = referencia
-        ? COR_REFERENCIA
-        : (CORES_SEGMENTO[iPrincipal++ % CORES_SEGMENTO.length] as string);
+      const corSerie = referencia
+        ? cor('--serie-ref')
+        : cor(VARS_SEGMENTO[iPrincipal++ % VARS_SEGMENTO.length] as string);
       const nome = ehBrasil ? 'Brasil' : uf.sigla;
-      const series: [string, string, string][] = [[uf.codigo, `${nome} · ${seg.rotulo}`, cor]];
+      const series: [string, string, string][] = [[uf.codigo, `${nome} · ${seg.rotulo}`, corSerie]];
       // O Brasil entra em cinza como comparação; no painel do próprio Brasil, não se repete.
-      if (!referencia && !ehBrasil) series.push([BR, `Brasil · ${seg.rotulo}`, COR_BRASIL]);
+      if (!referencia && !ehBrasil)
+        series.push([BR, `Brasil · ${seg.rotulo}`, cor('--serie-brasil')]);
       const [ini, fim] = [seg.anos[0] as number, seg.anos.at(-1) as number];
       for (let a = ini; a <= fim; a++) {
         // Ano fora de `anos` vira null: o Plot quebra a linha ali (lacuna é lacuna).
@@ -132,7 +132,7 @@ export class Painel {
       )
       .join('');
     if (linhas.some((l) => l.bienal)) {
-      legenda.innerHTML += `<li><span class="traco tracejado" style="--cor:#555"></span>dado a cada dois anos: o tracejado só liga os pontos, não há valor entre eles</li>`;
+      legenda.innerHTML += `<li><span class="traco tracejado" style="--cor:var(--texto-2)"></span>dado a cada dois anos: o tracejado só liga os pontos, não há valor entre eles</li>`;
     }
     if (linhas.some((l) => l.marcado)) {
       legenda.innerHTML += `<li><span class="ponto-vazado"></span>ponto vazado = valor com ressalva (passe o mouse)</li>`;
@@ -164,7 +164,7 @@ export class Painel {
         marks: [
           Plot.ruleX(ind.quebras ?? [], {
             x: (q: { ano: number }) => q.ano - 0.5,
-            stroke: '#555',
+            stroke: cor('--texto-2'),
             strokeDasharray: '4,3',
           }),
           Plot.text(ind.quebras ?? [], {
@@ -205,12 +205,13 @@ export class Painel {
             x: 'ano',
             y: 'v',
             stroke: 'cor',
-            fill: (l: Linha) => (l.marcado ? '#ffffff' : l.cor),
+            fill: (l: Linha) => (l.marcado ? cor('--fundo') : l.cor),
             r: 3,
           }),
           Plot.tip(
             comValor,
             Plot.pointer({
+              fill: cor('--fundo'),
               x: 'ano',
               y: 'v',
               title: (l: Linha) =>

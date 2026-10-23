@@ -17,7 +17,7 @@ export class SobreIndicador {
     el.innerHTML = `
       <div class="painel-cabeca">
         <h2 class="painel-titulo" id="sobre-titulo" tabindex="-1"></h2>
-        <button type="button" class="fechar" aria-label="Fechar informações do indicador">✕</button>
+        <button type="button" class="fechar" aria-label="Fechar informações do indicador"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3.5 3.5l9 9m0-9l-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
       </div>
       <div class="texto-gaveta"></div>`;
     this.#titulo = el.querySelector('.painel-titulo') as HTMLElement;

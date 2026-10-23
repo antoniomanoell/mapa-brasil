@@ -114,6 +114,25 @@ test('cartões-resumo, recortes, siglas e ranking ao lado do mapa no computador'
   }
 });
 
+test('tema escuro pelo botão, guardado entre páginas, e ajuda "?" em popover', async ({ page }) => {
+  await abrir(page, '?i=idhm');
+  const html = page.locator('html');
+  await page.locator('#tema').click();
+  await expect(html).toHaveAttribute('data-tema', 'escuro');
+  await expect(page.locator('#tema')).toHaveAttribute('aria-label', 'Usar tema claro');
+  await page.goto('/metodologia.html');
+  await expect(html).toHaveAttribute('data-tema', 'escuro');
+  await page.locator('#tema').click();
+  await expect(html).toHaveAttribute('data-tema', 'claro');
+  await abrir(page, '?i=idhm');
+  await page.locator('[popovertarget="ajuda-mapa"]').click();
+  await expect(page.locator('#ajuda-mapa')).toBeVisible();
+  await expect(page.locator('#ajuda-mapa')).toContainText('5 faixas fixas');
+  await page.keyboard.press('Escape');
+  await expect(page.locator('#ajuda-mapa')).toBeHidden();
+  await expect(page.locator('#atualizado')).toHaveText(/\d{2}\/\d{2}\/\d{4}/);
+});
+
 test('nada passa da largura da tela', async ({ page }) => {
   await abrir(page, '?i=idhm&uf=MA');
   const excesso = await page.evaluate(

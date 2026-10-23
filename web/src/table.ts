@@ -1,5 +1,6 @@
 // Ranking do ano: alternativa acessível ao mapa e contrapeso ao viés de área (PROJECT.md, 3).
 
+import { ajuda } from './ajuda';
 import { ROTULO_FLAG, esc, formatarValor, formatarValorCurto, unidadeSeparada } from './format';
 import { ponto } from './series';
 import type { Indicador, Segmento } from './types';
@@ -63,6 +64,7 @@ export function renderRanking(
   const cabeca = document.createElement('div');
   cabeca.className = 'bloco-cabeca';
   cabeca.innerHTML = `<h2 class="bloco-titulo">Estados, do maior para o menor</h2>
+    ${ajuda('ajuda-ranking', 'Como ler o ranking', 'Os estados vão do maior para o menor valor no ano escolhido. Maior não quer dizer melhor: depende do indicador. A linha cinza em cada barra marca o valor do Brasil, e o asterisco indica valor com ressalva (passe o mouse sobre ele).')}
     <p class="bloco-dica"></p>`;
   (cabeca.lastElementChild as HTMLElement).textContent =
     `Brasil: ${formatarValor(ind, br)} (linha cinza nas barras)`;

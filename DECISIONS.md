@@ -238,3 +238,19 @@ Formato de cada entrada:
   estados pequenos da costa (RN, PB, PE, AL, SE, ES, RJ) têm a sigla no mar, ao lado.
 - **Motivo:** pedido do mantenedor, a partir do mesmo painel de referência. CLS medido no build de
   produção (Playwright, computador e Pixel 7; IDHM, IDEB, ranking e ano sem dado): 0 em todos.
+
+## 2026-10-23 — Novo visual, modo escuro, ajuda "?" e data de atualização no topo
+- **Decisão:** sistema visual novo em tokens de cor (fundo da página cinza-azulado, painéis com sombra
+  suave e cantos maiores, controles segmentados em "pílula", seletores e slider próprios, ícones em
+  SVG, links sem sublinhado na interface), com tema escuro que segue o sistema e pode ser escolhido
+  num botão (a escolha fica no navegador; um script no `<head>` a aplica antes da primeira pintura).
+  O mapa, a hachura e o gráfico do painel leem as cores dos tokens. Botões "?" (popover nativo)
+  explicam os cartões, o mapa e o ranking; o subtítulo mostra a data de geração do catálogo. A sigla
+  do DF fica ao lado do DF. Sem fonte baixada (custo de rede e risco de deslocar o layout).
+- **Medição:** CLS 0 no computador (1280, 1366 e 1440 px) e no Pixel 7, com as alturas reservadas
+  ajustadas (cartões, barra e legenda). O Lighthouse celular caiu de 70 para 60, só pelo TBT simulado
+  (740 → ~2.000 ms); medido de verdade no navegador com CPU 4× mais lenta, o bloqueio é o mesmo nas
+  duas versões (~520–570 ms nas cargas repetidas). Fica o CLS de 0,01 que já existia no celular
+  (seletor de recorte que aparece ao lado do estado).
+- **Motivo:** pedido do mantenedor ("a UI parece site dos anos 2000") e pacote 2 da comparação com o
+  painel de referência.

@@ -5,6 +5,7 @@ import { AVISO_RASCUNHO, carregarCompetencias, carregarTexto, secaoCompetencias 
 import { carregarCatalogo, carregarIndicador } from './data';
 import { esc } from './format';
 import { fichaTecnica } from './ficha';
+import { iniciarTema } from './tema';
 
 const $ = (sel: string) => document.querySelector(sel) as HTMLElement;
 
@@ -44,6 +45,7 @@ async function paginaTexto(alvo: HTMLElement, nome: string): Promise<void> {
   if (h1) document.title = `${h1.textContent} — Indicadores BR`;
 }
 
+iniciarTema();
 const alvo = $('#conteudo');
 const pagina = document.body.dataset['pagina'] ?? '';
 (pagina === 'indicador' ? paginaIndicador(alvo) : paginaTexto(alvo, pagina))
