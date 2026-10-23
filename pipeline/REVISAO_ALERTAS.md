@@ -165,3 +165,15 @@ mantenedor. Ao refazer o build com dados novos, revisar só os alertas que não 
 - **PNAD Contínua (9 alertas):** RR, PA, AP e PI em 2017→2018 (6735) e RO, AP e PI em 2022–2025
   (7192), valores publicados pelo IBGE; estados pequenos ou com proporções baixas.
 - **Conclusão:** com a correção, nenhum indício de erro.
+
+## `inflacao` — 40 alertas (REPORT de 2026-10-23, limite 100%) — aprovado pelo mantenedor em 2026-10-23
+
+- **Conferência:** 12 valores dos alertas relidos da API do SIDRA com um script independente do
+  pipeline (2026-10-23), todos iguais (ex.: São Luís 2023→2024, IPCA: 1,70 → 6,51; Curitiba
+  2020→2021, IPCA: 3,95 → 12,73; Brasil 2020→2021, IPCA: 4,52 → 10,06; Salvador 2000→2001, INPC:
+  4,08 → 11,60; Campo Grande 2017→2018, INPC: 0,85 → 2,57).
+- **Padrões:** alta geral de 2020→2021 (15 alertas, inclusive o Brasil); anos seguintes a inflação
+  baixa, em que voltar a 3% ou 4% passa do dobro: 2017→2018 e PA 2018→2019 (9), 2006→2007 (7) e São
+  Luís 2023→2024 (2); alta de 2001 e 2002 (5); INPC de SP e PR em 2014→2015 (2). O limite é relativo
+  e, numa taxa como a inflação, marca sobretudo os anos depois de uma inflação baixa.
+- **Conclusão:** nenhum indício de erro de extração.
